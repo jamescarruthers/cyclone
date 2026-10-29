@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at 84D6</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33966.html">84AE</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#34006">Map</a></td>
+<td class="next">
+Next: <a href="34034.html">84F2</a>
+</td>
+</tr>
+</table>
+<div class="description">84D6: Clear the screen</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Bitmap to 0, all attributes to 7 (white ink on black). Called at game start (5B00) and by the menu/info screens (E293, E3B4).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34006"></span>84D6</td>
+<td class="instruction">LD HL,$4000</td>
+<td class="comment-1" rowspan="8">192 x 32 bitmap bytes</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34009"></span>84D9</td>
+<td class="instruction">LD C,$C0</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34011"></span>84DB</td>
+<td class="instruction">LD B,$20</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34013"></span>84DD</td>
+<td class="instruction">LD (HL),$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34015"></span>84DF</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34016"></span>84E0</td>
+<td class="instruction">DJNZ $84DD</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34018"></span>84E2</td>
+<td class="instruction">DEC C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34019"></span>84E3</td>
+<td class="instruction">JR NZ,$84DB</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34021"></span>84E5</td>
+<td class="instruction">LD C,$18</td>
+<td class="comment-1" rowspan="8">24 x 32 attribute bytes</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34023"></span>84E7</td>
+<td class="instruction">LD B,$20</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34025"></span>84E9</td>
+<td class="instruction">LD (HL),$07</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34027"></span>84EB</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34028"></span>84EC</td>
+<td class="instruction">DJNZ $84E9</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34030"></span>84EE</td>
+<td class="instruction">DEC C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34031"></span>84EF</td>
+<td class="instruction">JR NZ,$84E7</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34033"></span>84F1</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33966.html">84AE</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#34006">Map</a></td>
+<td class="next">
+Next: <a href="34034.html">84F2</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

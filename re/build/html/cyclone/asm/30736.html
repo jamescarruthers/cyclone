@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at 7810</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="30696.html">77E8</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#30736">Map</a></td>
+<td class="next">
+Next: <a href="30804.html">7854</a>
+</td>
+</tr>
+</table>
+<div class="description">7810: North view, north-west corner visible (slot 20)</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+w = X - (+2) + 1 columns, n = Y - (+4) + 1 rows, copied from map (0,0) to the bottom-right corner of the buffer.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="30736"></span>7810</td>
+<td class="instruction">LD A,($7500)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30739"></span>7813</td>
+<td class="instruction">LD C,(IX+$02)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30742"></span>7816</td>
+<td class="instruction">SUB C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30743"></span>7817</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30744"></span>7818</td>
+<td class="instruction">LD ($783E),A</td>
+<td class="comment-1" rowspan="19">Width (operand of LD BC at 783D)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30747"></span>781B</td>
+<td class="instruction">LD B,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30748"></span>781C</td>
+<td class="instruction">LD A,$18</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30750"></span>781E</td>
+<td class="instruction">SUB B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30751"></span>781F</td>
+<td class="instruction">LD HL,$F9E8</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30754"></span>7822</td>
+<td class="instruction">ADD A,L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30755"></span>7823</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30756"></span>7824</td>
+<td class="instruction">LD A,($7502)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30759"></span>7827</td>
+<td class="instruction">LD C,(IX+$04)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30762"></span>782A</td>
+<td class="instruction">SUB C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30763"></span>782B</td>
+<td class="instruction">INC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30764"></span>782C</td>
+<td class="instruction">LD B,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30765"></span>782D</td>
+<td class="instruction">LD DE,$0017</td>
+</tr>
+<tr>
+<td class="address-2"><span id="30768"></span>7830</td>
+<td class="instruction">ADD A,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30770"></span>7832</td>
+<td class="instruction">SBC HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30772"></span>7834</td>
+<td class="instruction">DJNZ $7830</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30774"></span>7836</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30775"></span>7837</td>
+<td class="instruction">LD H,(IX+$0B)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30778"></span>783A</td>
+<td class="instruction">LD L,(IX+$0A)</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="30781"></span>
+<div class="comments">
+<div class="paragraph">
+Clipped copy loop: A rows of w bytes (w in the self-modified operand at $783E), map stride 128, buffer stride 23.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="30781"></span>783D</td>
+<td class="instruction">LD BC,$0017</td>
+<td class="comment-1" rowspan="15">w (self-modified operand)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30784"></span>7840</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30785"></span>7841</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30786"></span>7842</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30788"></span>7844</td>
+<td class="instruction">POP DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30789"></span>7845</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30790"></span>7846</td>
+<td class="instruction">LD BC,$0080</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30793"></span>7849</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30794"></span>784A</td>
+<td class="instruction">LD BC,$0017</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30797"></span>784D</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30798"></span>784E</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30799"></span>784F</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30800"></span>7850</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30801"></span>7851</td>
+<td class="instruction">JR NZ,$783D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30803"></span>7853</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="30696.html">77E8</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#30736">Map</a></td>
+<td class="next">
+Next: <a href="30804.html">7854</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

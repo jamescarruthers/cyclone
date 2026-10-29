@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at 76D2</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="30409.html">76C9</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#30418">Map</a></td>
+<td class="next">
+Next: <a href="30558.html">775E</a>
+</td>
+</tr>
+</table>
+<div class="description">76D2: Build the view window from the island maps</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Fills the 23x29 tile buffer at $F74E (row stride 23) with the part of the world map whose top-left world tile is (X,Y) = (<a href="29952.html">7500</a>, <a href="29952.html#29954">7502</a>). Everything outside an island is sea (code 0). The island table at $F230 has 20-byte records ($FF-terminated, 14 islands). Record bytes used here: +0 X high byte (sector), +1 Y high byte, +2/+3 X-low range in which the island is visible (= +6-22 .. +7+22), +4/+5 Y-low range (= +8-28 .. +9+28), +6/+7 X-low range of a fully visible window (map column 0 is world X = +6), +8/+9 the same for Y (map row 0 is world Y = +8), +10/+11 address of the island tile map (row stride 128 bytes).
+</div>
+<div class="paragraph">
+The island found is stored in <a href="29952.html#30034">7552</a>. The clip flags in C are: bit 2 X &lt; +6 (window overhangs the island's west edge), bit 3 X &gt;= +7 (east edge), bit 4 Y &lt; +8 (north edge), bit 5 Y &gt;= +9 (south edge); C (0..40) indexes a table of 4-byte JP slots: <a href="30927.html">78CF</a> for the north view (<a href="29952.html#29956">7504</a>=0) or <a href="31287.html">7A37</a> for the south view, whose routines copy the visible rectangle (rotated 180 degrees for the south view).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="30418"></span>
+<div class="comments">
+<div class="paragraph">
+Called every main-loop pass (5B3C) and by the death sequence (9257). World tile under the helicopter = (X+11, Y+14) = buffer cell (11,14) in both views.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="30418"></span>76D2</td>
+<td class="instruction">LD HL,$F74E</td>
+<td class="comment-1" rowspan="13">Clear 256+256+155 = 667 = 23*29 bytes of the view buffer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30421"></span>76D5</td>
+<td class="instruction">XOR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30422"></span>76D6</td>
+<td class="instruction">LD B,A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="30423"></span>76D7</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30424"></span>76D8</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30425"></span>76D9</td>
+<td class="instruction">DJNZ $76D7</td>
+</tr>
+<tr>
+<td class="address-2"><span id="30427"></span>76DB</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30428"></span>76DC</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30429"></span>76DD</td>
+<td class="instruction">DJNZ $76DB</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30431"></span>76DF</td>
+<td class="instruction">LD B,$9B</td>
+</tr>
+<tr>
+<td class="address-2"><span id="30433"></span>76E1</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30434"></span>76E2</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30435"></span>76E3</td>
+<td class="instruction">DJNZ $76E1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30437"></span>76E5</td>
+<td class="instruction">LD IX,$F230</td>
+<td class="comment-1" rowspan="1">IX = first island record</td>
+</tr>
+<tr>
+<td class="address-2"><span id="30441"></span>76E9</td>
+<td class="instruction">LD A,($7501)</td>
+<td class="comment-1" rowspan="3">X high byte must match +0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30444"></span>76EC</td>
+<td class="instruction">CP (IX+$00)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30447"></span>76EF</td>
+<td class="instruction">JR NZ,$7717</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30449"></span>76F1</td>
+<td class="instruction">LD A,($7503)</td>
+<td class="comment-1" rowspan="3">Y high byte must match +1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30452"></span>76F4</td>
+<td class="instruction">CP (IX+$01)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30455"></span>76F7</td>
+<td class="instruction">JR NZ,$7717</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30457"></span>76F9</td>
+<td class="instruction">LD A,($7500)</td>
+<td class="comment-1" rowspan="6">X low byte must be in [+2, +3]</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30460"></span>76FC</td>
+<td class="instruction">CP (IX+$02)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30463"></span>76FF</td>
+<td class="instruction">JR C,$7717</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30465"></span>7701</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30466"></span>7702</td>
+<td class="instruction">CP (IX+$03)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30469"></span>7705</td>
+<td class="instruction">JR NC,$7717</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30471"></span>7707</td>
+<td class="instruction">LD A,($7502)</td>
+<td class="comment-1" rowspan="7">Y low byte must be in [+4, +5]</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30474"></span>770A</td>
+<td class="instruction">CP (IX+$04)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30477"></span>770D</td>
+<td class="instruction">JR C,$7717</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30479"></span>770F</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30480"></span>7710</td>
+<td class="instruction">CP (IX+$05)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30483"></span>7713</td>
+<td class="instruction">JR NC,$7717</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30485"></span>7715</td>
+<td class="instruction">JR $7724</td>
+</tr>
+<tr>
+<td class="address-2"><span id="30487"></span>7717</td>
+<td class="instruction">LD BC,$0014</td>
+<td class="comment-1" rowspan="3">Next record (20 bytes)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30490"></span>771A</td>
+<td class="instruction">ADD IX,BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30492"></span>771C</td>
+<td class="instruction">LD A,$FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30494"></span>771E</td>
+<td class="instruction">CP (IX+$00)</td>
+<td class="comment-1" rowspan="3">Stop at the $FF terminator: open sea, buffer stays all sea</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30497"></span>7721</td>
+<td class="instruction">JR NZ,$76E9</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30499"></span>7723</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="address-2"><span id="30500"></span>7724</td>
+<td class="instruction">LD ($7552),IX</td>
+<td class="comment-1" rowspan="1">Remember the current island</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30504"></span>7728</td>
+<td class="instruction">LD BC,$0000</td>
+<td class="comment-1" rowspan="1">C = clip flags</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30507"></span>772B</td>
+<td class="instruction">LD A,($7500)</td>
+<td class="comment-1" rowspan="5">X &lt; +6: bit 2 (west edge in view)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30510"></span>772E</td>
+<td class="instruction">CP (IX+$06)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30513"></span>7731</td>
+<td class="instruction">JR NC,$7737</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30515"></span>7733</td>
+<td class="instruction">SET 2,C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30517"></span>7735</td>
+<td class="instruction">JR $773E</td>
+</tr>
+<tr>
+<td class="address-2"><span id="30519"></span>7737</td>
+<td class="instruction">CP (IX+$07)</td>
+<td class="comment-1" rowspan="3">X &gt;= +7: bit 3 (east edge in view)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30522"></span>773A</td>
+<td class="instruction">JR C,$773E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30524"></span>773C</td>
+<td class="instruction">SET 3,C</td>
+</tr>
+<tr>
+<td class="address-2"><span id="30526"></span>773E</td>
+<td class="instruction">LD A,($7502)</td>
+<td class="comment-1" rowspan="5">Y &lt; +8: bit 4 (north edge in view)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30529"></span>7741</td>
+<td class="instruction">CP (IX+$08)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30532"></span>7744</td>
+<td class="instruction">JR NC,$774A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30534"></span>7746</td>
+<td class="instruction">SET 4,C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30536"></span>7748</td>
+<td class="instruction">JR $7751</td>
+</tr>
+<tr>
+<td class="address-2"><span id="30538"></span>774A</td>
+<td class="instruction">CP (IX+$09)</td>
+<td class="comment-1" rowspan="3">Y &gt;= +9: bit 5 (south edge in view)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30541"></span>774D</td>
+<td class="instruction">JR C,$7751</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30543"></span>774F</td>
+<td class="instruction">SET 5,C</td>
+</tr>
+<tr>
+<td class="address-2"><span id="30545"></span>7751</td>
+<td class="instruction">LD A,($7504)</td>
+<td class="comment-1" rowspan="2">South view?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30548"></span>7754</td>
+<td class="instruction">CP $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30550"></span>7756</td>
+<td class="instruction">JP NZ,<a href="31000.html">$7918</a></td>
+<td class="comment-1" rowspan="1">Yes: use the south-view jump table</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30553"></span>7759</td>
+<td class="instruction">LD HL,$78CF</td>
+<td class="comment-1" rowspan="3">North view: jump to slot 78CF+C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30556"></span>775C</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30557"></span>775D</td>
+<td class="instruction">JP (HL)</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="30409.html">76C9</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#30418">Map</a></td>
+<td class="next">
+Next: <a href="30558.html">775E</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

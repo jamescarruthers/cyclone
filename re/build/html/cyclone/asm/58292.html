@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at E3B4</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="58278.html">E3A6</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#58292">Map</a></td>
+<td class="next">
+Next: <a href="58360.html">E3F8</a>
+</td>
+</tr>
+</table>
+<div class="description">E3B4: Information screen</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Menu option 1. Draws the HUD panel and labels every HUD element, the key controls and the map symbols, then waits for any key and returns to the menu. Also updates the high score (<a href="34748.html">87BC</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="58292"></span>E3B4</td>
+<td class="instruction">CALL <a href="34006.html">$84D6</a></td>
+<td class="comment-1" rowspan="1">Clear the screen</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58295"></span>E3B7</td>
+<td class="instruction">LD HL,$0400</td>
+<td class="comment-1" rowspan="3">Beep (pitch $0400, $70 cycles)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58298"></span>E3BA</td>
+<td class="instruction">LD DE,$0070</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58301"></span>E3BD</td>
+<td class="instruction">CALL $03B5</td>
+</tr>
+<tr>
+<td class="address-2"><span id="58304"></span>E3C0</td>
+<td class="instruction">CALL <a href="58360.html">$E3F8</a></td>
+<td class="comment-1" rowspan="2">Wait until no key is pressed</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58307"></span>E3C3</td>
+<td class="instruction">JR NC,$E3C0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58309"></span>E3C5</td>
+<td class="instruction">CALL <a href="34036.html">$84F4</a></td>
+<td class="comment-1" rowspan="1">Draw the HUD panel</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58312"></span>E3C8</td>
+<td class="instruction">LD DE,$0009</td>
+<td class="comment-1" rowspan="10">Play area (23 x 22 cells): bright red ink on white paper</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58315"></span>E3CB</td>
+<td class="instruction">LD HL,$5800</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58318"></span>E3CE</td>
+<td class="instruction">LD C,$16</td>
+</tr>
+<tr>
+<td class="address-2"><span id="58320"></span>E3D0</td>
+<td class="instruction">LD B,$17</td>
+</tr>
+<tr>
+<td class="address-2"><span id="58322"></span>E3D2</td>
+<td class="instruction">LD (HL),$7A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58324"></span>E3D4</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58325"></span>E3D5</td>
+<td class="instruction">DJNZ $E3D2</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58327"></span>E3D7</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58328"></span>E3D8</td>
+<td class="instruction">DEC C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58329"></span>E3D9</td>
+<td class="instruction">JR NZ,$E3D0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58331"></span>E3DB</td>
+<td class="instruction">LD A,$03</td>
+<td class="comment-1" rowspan="2">$7530=3: aircraft collision warning lit</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58333"></span>E3DD</td>
+<td class="instruction">LD ($7530),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58336"></span>E3E0</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="2">Speed $7527=0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58337"></span>E3E1</td>
+<td class="instruction">LD ($7527),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58340"></span>E3E4</td>
+<td class="instruction">CALL <a href="37300.html">$91B4</a></td>
+<td class="comment-1" rowspan="1">Draw compass/speedometer/warning</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58343"></span>E3E7</td>
+<td class="instruction">CALL <a href="28416.html">$6F00</a></td>
+<td class="comment-1" rowspan="1">Print the score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58346"></span>E3EA</td>
+<td class="instruction">CALL <a href="34748.html">$87BC</a></td>
+<td class="comment-1" rowspan="1">Update and print the high score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58349"></span>E3ED</td>
+<td class="instruction">CALL <a href="58426.html">$E43A</a></td>
+<td class="comment-1" rowspan="1">Print all the information texts</td>
+</tr>
+<tr>
+<td class="address-2"><span id="58352"></span>E3F0</td>
+<td class="instruction">CALL <a href="58360.html">$E3F8</a></td>
+<td class="comment-1" rowspan="3">Wait for a key</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58355"></span>E3F3</td>
+<td class="instruction">JR C,$E3F0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58357"></span>E3F5</td>
+<td class="instruction">JP <a href="57984.html">$E280</a></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="58278.html">E3A6</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#58292">Map</a></td>
+<td class="next">
+Next: <a href="58360.html">E3F8</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

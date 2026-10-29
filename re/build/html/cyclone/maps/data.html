@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Data</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="DataMap">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<div class="map-intro"></div>
+<table class="map">
+<tr>
+<th class="map-page">Page</th>
+<th class="map-byte">Byte</th>
+<th>Address</th>
+<th>Description</th>
+</tr>
+<tr>
+<td class="map-page">92</td>
+<td class="map-byte">0</td>
+<td class="map-b"><span id="23552"></span><a href="../asm/23552.html">5C00</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/23552.html">ROM system variables and BASIC loader (not used by the game)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">95</td>
+<td class="map-byte">89</td>
+<td class="map-b"><span id="24409"></span><a href="../asm/24409.html">5F59</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24409.html">Crate tile codes and the plain tiles they replace</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">95</td>
+<td class="map-byte">97</td>
+<td class="map-b"><span id="24417"></span><a href="../asm/24417.html">5F61</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24417.html">Crate candidate cells (38 entries)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">95</td>
+<td class="map-byte">212</td>
+<td class="map-b"><span id="24532"></span><a href="../asm/24532.html">5FD4</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24532.html">Leftover bytes below the main code block</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">24</td>
+<td class="map-w"><span id="24600"></span><a href="../asm/24600.html">6018</a></td>
+<td class="map-w-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24600.html">Survivor candidate cells (45 entries)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">172</td>
+<td class="map-b"><span id="24748"></span><a href="../asm/24748.html">60AC</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24748.html">Plain tiles and the survivor tiles they become (<a href="../asm/24690.html">6072</a>)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">224</td>
+<td class="map-b"><span id="24800"></span><a href="../asm/24800.html">60E0</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24800.html">8x8 font (characters $17-$5A, base address $6028)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">99</td>
+<td class="map-byte">0</td>
+<td class="map-b"><span id="25344"></span><a href="../asm/25344.html">6300</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25344.html">Tile column table A (north view), row 0</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">100</td>
+<td class="map-byte">0</td>
+<td class="map-b"><span id="25600"></span><a href="../asm/25600.html">6400</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25600.html">Tile column table A, row 1</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">101</td>
+<td class="map-byte">0</td>
+<td class="map-b"><span id="25856"></span><a href="../asm/25856.html">6500</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25856.html">Tile column table A, row 2 (tiles $10-$FE used)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">102</td>
+<td class="map-byte">47</td>
+<td class="map-b"><span id="26159"></span><a href="../asm/26159.html">662F</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26159.html">Tile column table A, row 3 (tiles $30-$FE)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">103</td>
+<td class="map-byte">0</td>
+<td class="map-b"><span id="26368"></span><a href="../asm/26368.html">6700</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26368.html">Rotor overlay frame 0 (idle set)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">103</td>
+<td class="map-byte">72</td>
+<td class="map-b"><span id="26440"></span><a href="../asm/26440.html">6748</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26440.html">Tile column table A, row 4 (tiles $58-$FE)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">104</td>
+<td class="map-byte">0</td>
+<td class="map-b"><span id="26624"></span><a href="../asm/26624.html">6800</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26624.html">Rotor overlay frame 1 (idle set)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">104</td>
+<td class="map-byte">136</td>
+<td class="map-b"><span id="26760"></span><a href="../asm/26760.html">6888</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26760.html">Tile column table A, row 5 (tiles $8C-$FE)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">105</td>
+<td class="map-byte">0</td>
+<td class="map-b"><span id="26880"></span><a href="../asm/26880.html">6900</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26880.html">Rotor overlay frame 2 (idle set)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">105</td>
+<td class="map-byte">80</td>
+<td class="map-b"><span id="26960"></span><a href="../asm/26960.html">6950</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26960.html">Helicopter sprite buffer</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">105</td>
+<td class="map-byte">152</td>
+<td class="map-b"><span id="27032"></span><a href="../asm/27032.html">6998</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/27032.html">Tile column table A, row 6 (tiles $B2-$FE)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">106</td>
+<td class="map-byte">0</td>
+<td class="map-b"><span id="27136"></span><a href="../asm/27136.html">6A00</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/27136.html">Rotor overlay frame 3 (idle set)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">106</td>
+<td class="map-byte">202</td>
+<td class="map-b"><span id="27338"></span><a href="../asm/27338.html">6ACA</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/27338.html">Tile column table A, row 7 (tiles $D0-$FE)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">107</td>
+<td class="map-byte">0</td>
+<td class="map-b"><span id="27392"></span><a href="../asm/27392.html">6B00</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/27392.html">4x8 font for the map labels and the info screen text</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">107</td>
+<td class="map-byte">224</td>
+<td class="map-b"><span id="27616"></span><a href="../asm/27616.html">6BE0</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/27616.html">Tile column table A, row 8 (terminators of tiles $E4-$E9)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">108</td>
+<td class="map-byte">0</td>
+<td class="map-b"><span id="27648"></span><a href="../asm/27648.html">6C00</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/27648.html">Tile column table B (south view), row 0</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">109</td>
+<td class="map-byte">0</td>
+<td class="map-b"><span id="27904"></span><a href="../asm/27904.html">6D00</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/27904.html">Tile column table B, row 1</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">110</td>
+<td class="map-byte">0</td>
+<td class="map-b"><span id="28160"></span><a href="../asm/28160.html">6E00</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28160.html">Tile column table B, row 2</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">111</td>
+<td class="map-byte">36</td>
+<td class="map-b"><span id="28452"></span><a href="../asm/28452.html">6F24</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28452.html">Tile column table B, row 3</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">112</td>
+<td class="map-byte">0</td>
+<td class="map-b"><span id="28672"></span><a href="../asm/28672.html">7000</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28672.html">Rotor overlay frame 0 (flight set)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">112</td>
+<td class="map-byte">72</td>
+<td class="map-b"><span id="28744"></span><a href="../asm/28744.html">7048</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28744.html">Tile column table B, row 4</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">113</td>
+<td class="map-byte">0</td>
+<td class="map-b"><span id="28928"></span><a href="../asm/28928.html">7100</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28928.html">Rotor overlay frame 1 (flight set)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">113</td>
+<td class="map-byte">72</td>
+<td class="map-b"><span id="29000"></span><a href="../asm/29000.html">7148</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29000.html">Attributes for the bottom two screen rows</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">113</td>
+<td class="map-byte">136</td>
+<td class="map-b"><span id="29064"></span><a href="../asm/29064.html">7188</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29064.html">Tile column table B, row 5</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">114</td>
+<td class="map-byte">0</td>
+<td class="map-b"><span id="29184"></span><a href="../asm/29184.html">7200</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29184.html">HUD panel attributes</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">114</td>
+<td class="map-byte">168</td>
+<td class="map-b"><span id="29352"></span><a href="../asm/29352.html">72A8</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29352.html">Tile column table B, row 6</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">115</td>
+<td class="map-byte">0</td>
+<td class="map-b"><span id="29440"></span><a href="../asm/29440.html">7300</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29440.html">HUD panel character layout</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">115</td>
+<td class="map-byte">184</td>
+<td class="map-b"><span id="29624"></span><a href="../asm/29624.html">73B8</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29624.html">South-view terrain pillar table, page $73 (8th pillar level), codes $B8-$FF</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">116</td>
+<td class="map-byte">0</td>
+<td class="map-b"><span id="29696"></span><a href="../asm/29696.html">7400</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29696.html">HUD / panel 8x8 character set (codes $00-$1B)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">117</td>
+<td class="map-byte">0</td>
+<td class="map-b"><span id="29952"></span><a href="../asm/29952.html">7500</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29952.html">LIVE GAME VARIABLES ($7500-$7563)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">117</td>
+<td class="map-byte">100</td>
+<td class="map-b"><span id="30052"></span><a href="../asm/30052.html">7564</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/30052.html">Initial values of the variable block</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">117</td>
+<td class="map-byte">200</td>
+<td class="map-b"><span id="30152"></span><a href="../asm/30152.html">75C8</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/30152.html">Per-life reset values of the variable block</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">122</td>
+<td class="map-byte">129</td>
+<td class="map-b"><span id="31361"></span><a href="../asm/31361.html">7A81</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/31361.html">Ground-sampling and shadow work buffers</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">125</td>
+<td class="map-byte">229</td>
+<td class="map-b"><span id="32229"></span><a href="../asm/32229.html">7DE5</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/32229.html">Shadow mask buffer and survivor animation frames</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">127</td>
+<td class="map-byte">152</td>
+<td class="map-b"><span id="32664"></span><a href="../asm/32664.html">7F98</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/32664.html">Sprite tile codes</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">127</td>
+<td class="map-byte">213</td>
+<td class="map-b"><span id="32725"></span><a href="../asm/32725.html">7FD5</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/32725.html">Control method</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">130</td>
+<td class="map-byte">111</td>
+<td class="map-b"><span id="33391"></span><a href="../asm/33391.html">826F</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33391.html">Movement opcode table</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">135</td>
+<td class="map-byte">239</td>
+<td class="map-b"><span id="34799"></span><a href="../asm/34799.html">87EF</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/34799.html">Aircraft height level</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">138</td>
+<td class="map-byte">105</td>
+<td class="map-b"><span id="35433"></span><a href="../asm/35433.html">8A69</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35433.html">Aircraft schedule variables and NO TIME message</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">140</td>
+<td class="map-byte">102</td>
+<td class="map-b"><span id="35942"></span><a href="../asm/35942.html">8C66</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35942.html">Wave phase steps, view north</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">140</td>
+<td class="map-byte">119</td>
+<td class="map-b"><span id="35959"></span><a href="../asm/35959.html">8C77</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35959.html">Wave phase steps, view south</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">143</td>
+<td class="map-byte">12</td>
+<td class="map-b"><span id="36620"></span><a href="../asm/36620.html">8F0C</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36620.html">Map north-indicator characters</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">144</td>
+<td class="map-byte">29</td>
+<td class="map-b"><span id="36893"></span><a href="../asm/36893.html">901D</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36893.html">Map marker codes and save areas</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">145</td>
+<td class="map-byte">120</td>
+<td class="map-b"><span id="37240"></span><a href="../asm/37240.html">9178</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/37240.html">Cyclone direction regimes</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">145</td>
+<td class="map-byte">152</td>
+<td class="map-b"><span id="37272"></span><a href="../asm/37272.html">9198</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/37272.html">Cyclone step directions</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">146</td>
+<td class="map-byte">50</td>
+<td class="map-b"><span id="37426"></span><a href="../asm/37426.html">9232</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/37426.html">Compass ring offsets and death-sequence variables</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">147</td>
+<td class="map-byte">0</td>
+<td class="map-b"><span id="37632"></span><a href="../asm/37632.html">9300</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/37632.html">Island tile store</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">222</td>
+<td class="map-byte">0</td>
+<td class="map-b"><span id="56832"></span><a href="../asm/56832.html">DE00</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/56832.html">Aircraft sprite frames</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">227</td>
+<td class="map-byte">37</td>
+<td class="map-b"><span id="58149"></span><a href="../asm/58149.html">E325</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/58149.html">Main menu strings</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">227</td>
+<td class="map-byte">166</td>
+<td class="map-b"><span id="58278"></span><a href="../asm/58278.html">E3A6</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/58278.html">Main menu row attributes</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">228</td>
+<td class="map-byte">54</td>
+<td class="map-b"><span id="58422"></span><a href="../asm/58422.html">E436</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/58422.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">229</td>
+<td class="map-byte">4</td>
+<td class="map-b"><span id="58628"></span><a href="../asm/58628.html">E504</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/58628.html">Information screen horizontal rules</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">230</td>
+<td class="map-byte">156</td>
+<td class="map-b"><span id="59036"></span><a href="../asm/59036.html">E69C</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/59036.html">Information screen text line positions</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">230</td>
+<td class="map-byte">243</td>
+<td class="map-b"><span id="59123"></span><a href="../asm/59123.html">E6F3</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/59123.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">231</td>
+<td class="map-byte">0</td>
+<td class="map-b"><span id="59136"></span><a href="../asm/59136.html">E700</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/59136.html">Aircraft movement opcodes</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">231</td>
+<td class="map-byte">64</td>
+<td class="map-b"><span id="59200"></span><a href="../asm/59200.html">E740</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/59200.html">Aircraft course script</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">232</td>
+<td class="map-byte">108</td>
+<td class="map-b"><span id="59500"></span><a href="../asm/59500.html">E86C</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/59500.html">Aircraft table</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">232</td>
+<td class="map-byte">204</td>
+<td class="map-b"><span id="59596"></span><a href="../asm/59596.html">E8CC</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/59596.html">Aircraft start positions</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">233</td>
+<td class="map-byte">48</td>
+<td class="map-b"><span id="59696"></span><a href="../asm/59696.html">E930</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/59696.html">Helicopter frames (16 headings)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">237</td>
+<td class="map-byte">176</td>
+<td class="map-b"><span id="60848"></span><a href="../asm/60848.html">EDB0</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60848.html">Helicopter mask/shadow frames (16 headings)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">242</td>
+<td class="map-byte">48</td>
+<td class="map-b"><span id="62000"></span><a href="../asm/62000.html">F230</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62000.html">Island records</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">245</td>
+<td class="map-byte">17</td>
+<td class="map-b"><span id="62737"></span><a href="../asm/62737.html">F511</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62737.html">Winch tables and graphics</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">245</td>
+<td class="map-byte">80</td>
+<td class="map-b"><span id="62800"></span><a href="../asm/62800.html">F550</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62800.html">Crash debris overlays</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">246</td>
+<td class="map-byte">184</td>
+<td class="map-b"><span id="63160"></span><a href="../asm/63160.html">F6B8</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63160.html">Unused at load; overflow rows above the view buffer at run time</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">247</td>
+<td class="map-byte">138</td>
+<td class="map-b"><span id="63370"></span><a href="../asm/63370.html">F78A</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63370.html">Source copy of the routine at $5B00 (duplicate)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">248</td>
+<td class="map-byte">138</td>
+<td class="map-b"><span id="63626"></span><a href="../asm/63626.html">F88A</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63626.html">Source copy of the routine at $5EEC (duplicate)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">250</td>
+<td class="map-byte">0</td>
+<td class="map-b"><span id="64000"></span><a href="../asm/64000.html">FA00</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/64000.html">Terrain character glyphs ($00-$7F)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">254</td>
+<td class="map-byte">0</td>
+<td class="map-b"><span id="65024"></span><a href="../asm/65024.html">FE00</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/65024.html">Terrain character attributes</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">255</td>
+<td class="map-byte">0</td>
+<td class="map-b"><span id="65280"></span><a href="../asm/65280.html">FF00</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/65280.html">IM2 vector table</a></div>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

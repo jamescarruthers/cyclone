@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at F34A</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="62000.html">F230</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#62282">Map</a></td>
+<td class="next">
+Next: <a href="62347.html">F38B</a>
+</td>
+</tr>
+</table>
+<div class="description">F34A: Animate the survivor glyphs</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Called every main-loop iteration. Character $31 (glyph $FB88, 7 lines) alternates between the frames at $7DEE and $7DF6 every 4 iterations (counter $755B, 0-7); character $32 (glyph $FB90, 8 lines) alternates between $7DFE and $7E06 every 3 iterations (counter $755C, 0-5).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="62282"></span>F34A</td>
+<td class="instruction">LD DE,$FB88</td>
+<td class="comment-1" rowspan="2">Glyph of character $31</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62285"></span>F34D</td>
+<td class="instruction">LD A,($755B)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62288"></span>F350</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="5">Counter 1 reaches 4: frame 1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62289"></span>F351</td>
+<td class="instruction">CP $04</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62291"></span>F353</td>
+<td class="instruction">JR NZ,$F35A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62293"></span>F355</td>
+<td class="instruction">LD HL,$7DEE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62296"></span>F358</td>
+<td class="instruction">JR $F362</td>
+</tr>
+<tr>
+<td class="address-2"><span id="62298"></span>F35A</td>
+<td class="instruction">CP $08</td>
+<td class="comment-1" rowspan="7">Counter 1 reaches 8: frame 0, counter := 0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62300"></span>F35C</td>
+<td class="instruction">JR NZ,$F367</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62302"></span>F35E</td>
+<td class="instruction">XOR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62303"></span>F35F</td>
+<td class="instruction">LD HL,$7DF6</td>
+</tr>
+<tr>
+<td class="address-2"><span id="62306"></span>F362</td>
+<td class="instruction">LD BC,$0007</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62309"></span>F365</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-2"><span id="62311"></span>F367</td>
+<td class="instruction">LD ($755B),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62314"></span>F36A</td>
+<td class="instruction">LD DE,$FB90</td>
+<td class="comment-1" rowspan="2">Glyph of character $32</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62317"></span>F36D</td>
+<td class="instruction">LD A,($755C)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62320"></span>F370</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="5">Counter 2 reaches 3: frame 1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62321"></span>F371</td>
+<td class="instruction">CP $03</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62323"></span>F373</td>
+<td class="instruction">JR NZ,$F37A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62325"></span>F375</td>
+<td class="instruction">LD HL,$7DFE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62328"></span>F378</td>
+<td class="instruction">JR $F382</td>
+</tr>
+<tr>
+<td class="address-2"><span id="62330"></span>F37A</td>
+<td class="instruction">CP $06</td>
+<td class="comment-1" rowspan="8">Counter 2 reaches 6: frame 0, counter := 0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62332"></span>F37C</td>
+<td class="instruction">JR NZ,$F387</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62334"></span>F37E</td>
+<td class="instruction">XOR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62335"></span>F37F</td>
+<td class="instruction">LD HL,$7E06</td>
+</tr>
+<tr>
+<td class="address-2"><span id="62338"></span>F382</td>
+<td class="instruction">LD BC,$0008</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62341"></span>F385</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-2"><span id="62343"></span>F387</td>
+<td class="instruction">LD ($755C),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62346"></span>F38A</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="62000.html">F230</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#62282">Map</a></td>
+<td class="next">
+Next: <a href="62347.html">F38B</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

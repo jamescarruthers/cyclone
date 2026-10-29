@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at 87BC</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="34745.html">87B9</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#34748">Map</a></td>
+<td class="next">
+Next: <a href="34797.html">87ED</a>
+</td>
+</tr>
+</table>
+<div class="description">87BC: Update and print the high score</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Compares the 7-character score at 661E with the high score at 6627 (ASCII digits, leading '.' which sorts below '0'). If the score is higher it is copied over the high score. Then prints the high score right-to-left on the H line (row 20, ending at column 31) via 6F06. Called at the start of each game (5B09, before the score is cleared) and from E3EA.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34748"></span>87BC</td>
+<td class="instruction">LD HL,$661E</td>
+<td class="comment-1" rowspan="14">Compare digit by digit from the left</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34751"></span>87BF</td>
+<td class="instruction">LD DE,$6627</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34754"></span>87C2</td>
+<td class="instruction">LD B,$07</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34756"></span>87C4</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34757"></span>87C5</td>
+<td class="instruction">LD A,(DE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34758"></span>87C6</td>
+<td class="instruction">LD B,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34759"></span>87C7</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34760"></span>87C8</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34761"></span>87C9</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34762"></span>87CA</td>
+<td class="instruction">CP B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34763"></span>87CB</td>
+<td class="instruction">JR NZ,$87D2</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34765"></span>87CD</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34766"></span>87CE</td>
+<td class="instruction">DJNZ $87C4</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34768"></span>87D0</td>
+<td class="instruction">JR $87E4</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34770"></span>87D2</td>
+<td class="instruction">CP B</td>
+<td class="comment-1" rowspan="5">First different digit: score lower? Then keep the old high score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34771"></span>87D3</td>
+<td class="instruction">JR NC,$87D8</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34773"></span>87D5</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34774"></span>87D6</td>
+<td class="instruction">JR $87E4</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34776"></span>87D8</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34777"></span>87D9</td>
+<td class="instruction">LD HL,$661E</td>
+<td class="comment-1" rowspan="4">Score higher: high score = score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34780"></span>87DC</td>
+<td class="instruction">LD DE,$6627</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34783"></span>87DF</td>
+<td class="instruction">LD BC,$0007</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34786"></span>87E2</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34788"></span>87E4</td>
+<td class="instruction">LD DE,$509F</td>
+<td class="comment-1" rowspan="3">Print the high score at $509F (row 20, column 31) leftwards from 662D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34791"></span>87E7</td>
+<td class="instruction">LD BC,$662D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34794"></span>87EA</td>
+<td class="instruction">JP <a href="28416.html#28422">$6F06</a></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="34745.html">87B9</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#34748">Map</a></td>
+<td class="next">
+Next: <a href="34797.html">87ED</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

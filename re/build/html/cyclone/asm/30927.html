@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at 78CF</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="30897.html">78B1</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#30927">Map</a></td>
+<td class="next">
+Next: <a href="31000.html">7918</a>
+</td>
+</tr>
+</table>
+<div class="description">78CF: North-view copy jump table</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Entered by JP (HL) at 775D with HL = $78CF + clip flags (0..40). Each slot is a 4-byte JP + padding; slots 12, 28 and 44+ cannot occur.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="30927"></span>78CF</td>
+<td class="instruction">JP <a href="30637.html">$77AD</a></td>
+<td class="comment-1" rowspan="1">0: whole window on the island</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30930"></span>78D2</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30931"></span>78D3</td>
+<td class="instruction">JP <a href="30647.html">$77B7</a></td>
+<td class="comment-1" rowspan="1">4: west edge</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30934"></span>78D6</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30935"></span>78D7</td>
+<td class="instruction">JP <a href="30674.html">$77D2</a></td>
+<td class="comment-1" rowspan="1">8: east edge</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30938"></span>78DA</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30943"></span>78DF</td>
+<td class="instruction">JP <a href="30696.html">$77E8</a></td>
+<td class="comment-1" rowspan="1">16: north edge</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30946"></span>78E2</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30947"></span>78E3</td>
+<td class="instruction">JP <a href="30736.html">$7810</a></td>
+<td class="comment-1" rowspan="1">20: north-west corner</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30950"></span>78E6</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30951"></span>78E7</td>
+<td class="instruction">JP <a href="30804.html">$7854</a></td>
+<td class="comment-1" rowspan="1">24: north-east corner</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30954"></span>78EA</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30959"></span>78EF</td>
+<td class="instruction">JP <a href="30845.html">$787D</a></td>
+<td class="comment-1" rowspan="1">32: south edge</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30962"></span>78F2</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30963"></span>78F3</td>
+<td class="instruction">JP <a href="30863.html">$788F</a></td>
+<td class="comment-1" rowspan="1">36: south-west corner</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30966"></span>78F6</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30967"></span>78F7</td>
+<td class="instruction">JP <a href="30897.html">$78B1</a></td>
+<td class="comment-1" rowspan="1">40: south-east corner</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30970"></span>78FA</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00</td>
+<td class="comment-1" rowspan="4">Unused slots</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30978"></span>7902</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30986"></span>790A</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30994"></span>7912</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="30897.html">78B1</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#30927">Map</a></td>
+<td class="next">
+Next: <a href="31000.html">7918</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

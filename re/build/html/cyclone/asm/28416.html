@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at 6F00</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="28160.html">6E00</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#28416">Map</a></td>
+<td class="next">
+Next: <a href="28452.html">6F24</a>
+</td>
+</tr>
+</table>
+<div class="description">6F00: Print the score</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Prints the string ending at $6624 right-to-left from row 19 column 31 (screen address $507F) until a $FF byte, using the 8x8 font (<a href="24600.html#24616">6028</a>), 7 pixel lines per character. Entry <a href="28416.html#28422">6F06</a> (from <a href="34748.html">87BC</a>) prints the high score with DE=$509F, BC=$662D.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28416"></span>6F00</td>
+<td class="instruction">LD DE,$507F</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28419"></span>6F03</td>
+<td class="instruction">LD BC,$6624</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="28422"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="34748.html">87BC</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28422"></span>6F06</td>
+<td class="instruction">LD A,(BC)</td>
+<td class="comment-1" rowspan="11">Next character (BC moves backwards)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28423"></span>6F07</td>
+<td class="instruction">CP $FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28425"></span>6F09</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28426"></span>6F0A</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28427"></span>6F0B</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28428"></span>6F0C</td>
+<td class="instruction">LD H,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28430"></span>6F0E</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28431"></span>6F0F</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28432"></span>6F10</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28433"></span>6F11</td>
+<td class="instruction">LD BC,$6028</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28436"></span>6F14</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28437"></span>6F15</td>
+<td class="instruction">LD B,$07</td>
+<td class="comment-1" rowspan="7">Copy 7 pixel lines</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28439"></span>6F17</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28440"></span>6F18</td>
+<td class="instruction">LD (DE),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28441"></span>6F19</td>
+<td class="instruction">INC D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28442"></span>6F1A</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28443"></span>6F1B</td>
+<td class="instruction">DJNZ $6F17</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28445"></span>6F1D</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28446"></span>6F1E</td>
+<td class="instruction">LD D,$50</td>
+<td class="comment-1" rowspan="4">Back to the top line, one column left</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28448"></span>6F20</td>
+<td class="instruction">DEC E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28449"></span>6F21</td>
+<td class="instruction">DEC BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28450"></span>6F22</td>
+<td class="instruction">JR $6F06</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="28160.html">6E00</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#28416">Map</a></td>
+<td class="next">
+Next: <a href="28452.html">6F24</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

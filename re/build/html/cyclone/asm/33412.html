@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at 8284</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33407.html">827F</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#33412">Map</a></td>
+<td class="next">
+Next: <a href="33447.html">82A7</a>
+</td>
+</tr>
+</table>
+<div class="description">8284: Count down the time-left bar (T)</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Called once per main-loop iteration (5BD7). Every (828C) iterations ($FF=255 in round 1, 15 fewer each round) erases one pixel line from the top of the T bar (column 30, rows 1-5, 40 lines). When the pointer passes the bottom of the bar it becomes $40DE and the main loop (5BCC) jumps to 92C8: "NO TIME", game over.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">(7528)</td>
+<td class="register-desc">iteration counter</td>
+</tr>
+<tr>
+<td class="register">(751C)</td>
+<td class="register-desc">screen address of the last erased line of the T bar, i.e. the line just above the top lit one ($471E = full)</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33412"></span>
+<div class="comments">
+<div class="paragraph">
+The comparison operand at 828C is patched by 8372 (reset to $FF on a new game) and 83AD (minus 15 on each completed round).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33412"></span>8284</td>
+<td class="instruction">LD A,($7528)</td>
+<td class="comment-1" rowspan="3">Increment the time sub-counter</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33415"></span>8287</td>
+<td class="instruction">INC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33416"></span>8288</td>
+<td class="instruction">LD ($7528),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33419"></span>828B</td>
+<td class="instruction">CP $FF</td>
+<td class="comment-1" rowspan="2">Not yet (828C) iterations: return (operand self-modified)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33421"></span>828D</td>
+<td class="instruction">RET C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33422"></span>828E</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="2">Reset the sub-counter</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33423"></span>828F</td>
+<td class="instruction">LD ($7528),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33426"></span>8292</td>
+<td class="instruction">LD HL,($751C)</td>
+<td class="comment-1" rowspan="9">Move the pointer one pixel line down (next row of cells when leaving a cell)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33429"></span>8295</td>
+<td class="instruction">INC H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33430"></span>8296</td>
+<td class="instruction">LD A,H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33431"></span>8297</td>
+<td class="instruction">CP $48</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33433"></span>8299</td>
+<td class="instruction">JR NZ,$82A1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33435"></span>829B</td>
+<td class="instruction">LD H,$40</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33437"></span>829D</td>
+<td class="instruction">LD A,$20</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33439"></span>829F</td>
+<td class="instruction">ADD A,L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33440"></span>82A0</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33441"></span>82A1</td>
+<td class="instruction">LD (HL),$00</td>
+<td class="comment-1" rowspan="3">Erase that line of the bar</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33443"></span>82A3</td>
+<td class="instruction">LD ($751C),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33446"></span>82A6</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33407.html">827F</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#33412">Map</a></td>
+<td class="next">
+Next: <a href="33447.html">82A7</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

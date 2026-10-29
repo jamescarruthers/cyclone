@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at 7378</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29440.html">7300</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29560">Map</a></td>
+<td class="next">
+Next: <a href="29616.html">73B0</a>
+</td>
+</tr>
+</table>
+<div class="description">7378: Cyclone buffeting of the controls</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Called from the main loop (5B94) after the controls have been read (7FD6) when the heli-cyclone map distance <a href="29952.html#30032">7550</a> is below 5 (level 1) or 6 (later levels; the CP operand at 5B93 is patched by 8321). Adds random control inputs to <a href="29952.html#29986">7522</a> so the helicopter is thrown about; very close to the cyclone it forces DOWN+LEFT (a descending spin).
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">Cyclone distance (<a href="29952.html#30032">7550</a>), 0..5</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="29560"></span>
+<div class="comments">
+<div class="paragraph">
+Random bits come from L of the RNG at $8B74 (each bit ~50%). dist 4..5: bits 1/3/4 (down, right, left) may be added; dist 2..3: bits 0/1/3/4 (also forward); dist 0..1: controls are replaced by $12 (down+left) and the turn timer is run down one extra step.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="29560"></span>7378</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1">Save the distance</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29561"></span>7379</td>
+<td class="instruction">LD A,($7515)</td>
+<td class="comment-1" rowspan="3">No effect while landed</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29564"></span>737C</td>
+<td class="instruction">CP $01</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29566"></span>737E</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29567"></span>737F</td>
+<td class="instruction">NOP</td>
+<td class="comment-1" rowspan="3">Two NOPs (patched-out code)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29568"></span>7380</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29569"></span>7381</td>
+<td class="instruction">LD A,B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29570"></span>7382</td>
+<td class="instruction">CP $04</td>
+<td class="comment-1" rowspan="2">Distance 4 or 5?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29572"></span>7384</td>
+<td class="instruction">JR C,$7392</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29574"></span>7386</td>
+<td class="instruction">CALL <a href="35700.html">$8B74</a></td>
+<td class="comment-1" rowspan="2">RND</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29577"></span>7389</td>
+<td class="instruction">LD A,L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29578"></span>738A</td>
+<td class="instruction">AND $1A</td>
+<td class="comment-1" rowspan="1">Keep random down/right/left bits (mask $1A)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29580"></span>738C</td>
+<td class="instruction">LD HL,$7522</td>
+<td class="comment-1" rowspan="4">OR them into the control bits</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29583"></span>738F</td>
+<td class="instruction">OR (HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29584"></span>7390</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29585"></span>7391</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="address-2"><span id="29586"></span>7392</td>
+<td class="instruction">CP $02</td>
+<td class="comment-1" rowspan="2">Distance 2 or 3?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29588"></span>7394</td>
+<td class="instruction">JR C,$73A2</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29590"></span>7396</td>
+<td class="instruction">CALL <a href="35700.html">$8B74</a></td>
+<td class="comment-1" rowspan="2">RND</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29593"></span>7399</td>
+<td class="instruction">LD A,L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29594"></span>739A</td>
+<td class="instruction">AND $1B</td>
+<td class="comment-1" rowspan="5">Random forward/down/right/left (mask $1B)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29596"></span>739C</td>
+<td class="instruction">LD HL,$7522</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29599"></span>739F</td>
+<td class="instruction">OR (HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29600"></span>73A0</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29601"></span>73A1</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="address-2"><span id="29602"></span>73A2</td>
+<td class="instruction">LD HL,$7521</td>
+<td class="comment-1" rowspan="4">Distance 0 or 1: speed up a turn in progress</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29605"></span>73A5</td>
+<td class="instruction">XOR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29606"></span>73A6</td>
+<td class="instruction">CP (HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29607"></span>73A7</td>
+<td class="instruction">JR Z,$73AA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29609"></span>73A9</td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-1" rowspan="1">Decrement the turn timer if non-zero</td>
+</tr>
+<tr>
+<td class="address-2"><span id="29610"></span>73AA</td>
+<td class="instruction">LD A,$12</td>
+<td class="comment-1" rowspan="3">Force controls = down + turn left</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29612"></span>73AC</td>
+<td class="instruction">LD ($7522),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29615"></span>73AF</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29440.html">7300</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29560">Map</a></td>
+<td class="next">
+Next: <a href="29616.html">73B0</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

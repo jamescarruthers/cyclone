@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Data at 6B00</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="27338.html">6ACA</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#27392">Map</a></td>
+<td class="next">
+Next: <a href="27616.html">6BE0</a>
+</td>
+</tr>
+</table>
+<div class="description">6B00: 4x8 font for the map labels and the info screen text</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Base address $6908 (character c at $6908+8*c); only codes $3F ('?', blank = space) to $5A are present. Each glyph occupies the left 4 pixels (values $00-$70); <a href="36322.html#36334">8DEE</a> prints two characters per screen byte (the second one shifted right 4 pixels).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27392"></span>6B00</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00</td>
+<td class="comment-1" rowspan="1">"?" (space)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27400"></span>6B08</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$20,$00,$00</td>
+<td class="comment-1" rowspan="1">"@" (unused)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27408"></span>6B10</td>
+<td class="instruction">DEFB $00,$20,$50,$70,$50,$50,$00,$00</td>
+<td class="comment-1" rowspan="26">A-Z</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27416"></span>6B18</td>
+<td class="instruction">DEFB $00,$60,$50,$60,$50,$60,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27424"></span>6B20</td>
+<td class="instruction">DEFB $00,$20,$50,$40,$50,$20,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27432"></span>6B28</td>
+<td class="instruction">DEFB $00,$60,$50,$50,$50,$60,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27440"></span>6B30</td>
+<td class="instruction">DEFB $00,$70,$40,$60,$40,$70,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27448"></span>6B38</td>
+<td class="instruction">DEFB $00,$70,$40,$60,$40,$40,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27456"></span>6B40</td>
+<td class="instruction">DEFB $00,$20,$50,$40,$50,$30,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27464"></span>6B48</td>
+<td class="instruction">DEFB $00,$50,$50,$70,$50,$50,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27472"></span>6B50</td>
+<td class="instruction">DEFB $00,$70,$20,$20,$20,$70,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27480"></span>6B58</td>
+<td class="instruction">DEFB $00,$10,$10,$50,$50,$20,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27488"></span>6B60</td>
+<td class="instruction">DEFB $00,$50,$50,$60,$50,$50,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27496"></span>6B68</td>
+<td class="instruction">DEFB $00,$40,$40,$40,$40,$70,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27504"></span>6B70</td>
+<td class="instruction">DEFB $00,$50,$70,$50,$50,$50,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27512"></span>6B78</td>
+<td class="instruction">DEFB $00,$60,$50,$50,$50,$50,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27520"></span>6B80</td>
+<td class="instruction">DEFB $00,$20,$50,$50,$50,$20,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27528"></span>6B88</td>
+<td class="instruction">DEFB $00,$60,$50,$60,$40,$40,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27536"></span>6B90</td>
+<td class="instruction">DEFB $00,$20,$50,$50,$70,$30,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27544"></span>6B98</td>
+<td class="instruction">DEFB $00,$60,$50,$60,$50,$50,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27552"></span>6BA0</td>
+<td class="instruction">DEFB $00,$30,$40,$20,$10,$60,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27560"></span>6BA8</td>
+<td class="instruction">DEFB $00,$70,$20,$20,$20,$20,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27568"></span>6BB0</td>
+<td class="instruction">DEFB $00,$50,$50,$50,$50,$70,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27576"></span>6BB8</td>
+<td class="instruction">DEFB $00,$50,$50,$50,$50,$20,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27584"></span>6BC0</td>
+<td class="instruction">DEFB $00,$50,$50,$70,$70,$20,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27592"></span>6BC8</td>
+<td class="instruction">DEFB $00,$50,$50,$20,$50,$50,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27600"></span>6BD0</td>
+<td class="instruction">DEFB $00,$50,$50,$20,$20,$20,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27608"></span>6BD8</td>
+<td class="instruction">DEFB $00,$70,$10,$20,$40,$70,$00,$00</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="27338.html">6ACA</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#27392">Map</a></td>
+<td class="next">
+Next: <a href="27616.html">6BE0</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

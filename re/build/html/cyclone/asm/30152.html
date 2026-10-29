@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Data at 75C8</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="30052.html">7564</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#30152">Map</a></td>
+<td class="next">
+Next: <a href="30252.html">762C</a>
+</td>
+</tr>
+</table>
+<div class="description">75C8: Per-life reset values of the variable block</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+After a lost life 92B3 copies these 100 bytes over <a href="29952.html">7500</a>, except that a byte of $FF leaves the variable unchanged (time bar <a href="29952.html#29980">751C</a>, map marker pointers <a href="29952.html#30019">7543</a>-$754A, cyclone state <a href="29952.html#30027">754B</a>/<a href="29952.html#30028">754C</a>/<a href="29952.html#30030">754E</a>/<a href="29952.html#30031">754F</a> and crates <a href="29952.html#30036">7554</a> survive a death). The values otherwise equal <a href="30052.html">7564</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30152"></span>75C8</td>
+<td class="instruction">DEFW $0139</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of POS_X ($7500) = $0139</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30154"></span>75CA</td>
+<td class="instruction">DEFW $0170</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of POS_Y ($7502) = $0170</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30156"></span>75CC</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of VIEW ($7504) = $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30157"></span>75CD</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of CRASHED ($7505) = $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30158"></span>75CE</td>
+<td class="instruction">DEFB $04</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of HEADING ($7506) = $04</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30159"></span>75CF</td>
+<td class="instruction">DEFB $04</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of HEADING_DISP ($7507) = $04</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30160"></span>75D0</td>
+<td class="instruction">DEFB $04</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of HEADING_NEXT ($7508) = $04</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30161"></span>75D1</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of TMP_GFX ($7509) = $0000</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30163"></span>75D3</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of TMP_ATTR ($750B) = $0000</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30165"></span>75D5</td>
+<td class="instruction">DEFB $08</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of ALTITUDE ($750D) = $08</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30166"></span>75D6</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of TMP_SPR ($750E) = $0000</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30168"></span>75D8</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of TMP_LIST ($7510) = $0000</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30170"></span>75DA</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of TMP_MASK ($7512) = $0000</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30172"></span>75DC</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of TOUCHDOWN ($7514) = $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30173"></span>75DD</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of LANDED ($7515) = $01</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30174"></span>75DE</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of NO_FUEL ($7516) = $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30175"></span>75DF</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of FUEL_TICK ($7517) = $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30176"></span>75E0</td>
+<td class="instruction">DEFW $47BC</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of FUEL_PTR ($7518) = $47BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30178"></span>75E2</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of CLIMB_RATE ($751A) = $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30179"></span>75E3</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of DESCENT_RATE ($751B) = $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30180"></span>75E4</td>
+<td class="instruction">DEFW $FFFF</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of TIME_PTR ($751C) = $FFFF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30182"></span>75E6</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of ALT_PTR ($751E) = $0000</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30184"></span>75E8</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of unused $7520</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30185"></span>75E9</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of TURN_TIMER ($7521) = $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30186"></span>75EA</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of CONTROLS ($7522) = $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30187"></span>75EB</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of unused $7523</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30188"></span>75EC</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of PLANE_COL ($7524) = $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30189"></span>75ED</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of PLANE_ROW ($7525) = $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30190"></span>75EE</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of UI_FLAGS ($7526) = $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30191"></span>75EF</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of SPEED ($7527) = $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30192"></span>75F0</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of TIME_TICK ($7528) = $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30193"></span>75F1</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of TMP_LIST2 ($7529) = $0000</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30195"></span>75F3</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of TMP_ATTR2 ($752B) = $0000</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30197"></span>75F5</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of SOUND_OFF ($752D) = $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30198"></span>75F6</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of ON_PAD ($752E) = $01</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30199"></span>75F7</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of PLANE_DRAWN ($752F) = $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30200"></span>75F8</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of PLANE_NEAR ($7530) = $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30201"></span>75F9</td>
+<td class="instruction">DEFB $00,$00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of unused $7531-$7532</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30203"></span>75FB</td>
+<td class="instruction">DEFB $03</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of HELI_LEVEL ($7533) = $03</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30204"></span>75FC</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of AIR_TICK ($7534) = $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30205"></span>75FD</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of WAVE_X ($7535) = $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30206"></span>75FE</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of WAVE_Y ($7536) = $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30207"></span>75FF</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of WAVE_TICK ($7537) = $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30208"></span>7600</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of WAVE_PTR ($7538) = $0000</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30210"></span>7602</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of ROTOR_FRAME ($753A) = $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30211"></span>7603</td>
+<td class="instruction">DEFB $04</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of MOVE_DIR ($753B) = $04</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30212"></span>7604</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of MAP_ROW_PTR ($753C) = $0000</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30214"></span>7606</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of MAP_PTR ($753E) = $0000</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30216"></span>7608</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of MAP_HX ($7540) = $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30217"></span>7609</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of MAP_HY ($7541) = $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30218"></span>760A</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of MAP_BLINK ($7542) = $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30219"></span>760B</td>
+<td class="instruction">DEFW $FFFF</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of MAP_HATTR ($7543) = $FFFF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30221"></span>760D</td>
+<td class="instruction">DEFW $FFFF</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of MAP_HPIX ($7545) = $FFFF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30223"></span>760F</td>
+<td class="instruction">DEFW $FFFF</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of MAP_CATTR ($7547) = $FFFF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30225"></span>7611</td>
+<td class="instruction">DEFW $FFFF</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of MAP_CPIX ($7549) = $FFFF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30227"></span>7613</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of CYC_X ($754B) = $FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30228"></span>7614</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of CYC_Y ($754C) = $FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30229"></span>7615</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of OFF_MAP ($754D) = $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30230"></span>7616</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of CYC_TICK ($754E) = $FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30231"></span>7617</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of CYC_LEG ($754F) = $FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30232"></span>7618</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of CYC_DIST ($7550) = $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30233"></span>7619</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of PICK_TILE ($7551) = $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30234"></span>761A</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of ISLAND ($7552) = $0000</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30236"></span>761C</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of CRATES ($7554) = $FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30237"></span>761D</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of WINCH ($7555) = $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30238"></span>761E</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of ROPE_STATE ($7556) = $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30239"></span>761F</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of PICK_SPR ($7557) = $0000</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30241"></span>7621</td>
+<td class="instruction">DEFB $00,$00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of unused $7559-$755A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30243"></span>7623</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of SURV_ANIM1 ($755B) = $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30244"></span>7624</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of SURV_ANIM2 ($755C) = $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30245"></span>7625</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of ROTOR_SND ($755D) = $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30246"></span>7626</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00</td>
+<td class="comment-1" rowspan="1">Per-life reset value ($FF = keep) of unused $755E-$7563</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="30052.html">7564</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#30152">Map</a></td>
+<td class="next">
+Next: <a href="30252.html">762C</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

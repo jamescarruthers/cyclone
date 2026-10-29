@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at 7E10</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="32229.html">7DE5</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#32272">Map</a></td>
+<td class="next">
+Next: <a href="32664.html">7F98</a>
+</td>
+</tr>
+</table>
+<div class="description">7E10: Project the terrain and insert the sprite tiles</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Turns the flat map window built by <a href="30418.html">76D2</a> into the pseudo-3D view, in place in the 23x29 buffer at $F74E. Rows are processed from the top (far) to the bottom (near) - a painter's algorithm: each cell of code c becomes a 'pillar': pillar tile k (k=0,1,2...) is byte (P+k)*256+c and is written k rows above the cell; $FE = transparent (leave what is there), $FF = end of pillar. P = $63 in north view and $6C in south view (operands 7E35/7E41 patched by 80F9). Nearer pillars overwrite farther ones.
+</div>
+<div class="paragraph">
+Row 0 only gets its base tile. Rows 1-23 get full pillars. After row 15 the helicopter sprite tiles are inserted (7F21). Rows 24-28 (below the screen) only contribute the parts of tall pillars that reach the visible area: row 24+j draws only for codes &gt;= $54, $80, $B2, $D0, $E4 (j=0..4), starting with pillar tile 3+j at row 21.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="32272"></span>
+<div class="comments">
+<div class="paragraph">
+First the 9 raw codes of the 3x3 block under the helicopter are saved in <a href="31361.html">7A81</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32272"></span>7E10</td>
+<td class="instruction">LD HL,$F8B1</td>
+<td class="comment-1" rowspan="10">Buffer column 10, row 15</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32275"></span>7E13</td>
+<td class="instruction">LD DE,$7A81</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32278"></span>7E16</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32279"></span>7E17</td>
+<td class="instruction">LD C,$03</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32281"></span>7E19</td>
+<td class="instruction">LD B,$03</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32283"></span>7E1B</td>
+<td class="instruction">POP DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32284"></span>7E1C</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32285"></span>7E1D</td>
+<td class="instruction">LD (DE),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32286"></span>7E1E</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32287"></span>7E1F</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32288"></span>7E20</td>
+<td class="instruction">LD DE,$FFE9</td>
+<td class="comment-1" rowspan="3">Up one row</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32291"></span>7E23</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32292"></span>7E24</td>
+<td class="instruction">DJNZ $7E1B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32294"></span>7E26</td>
+<td class="instruction">LD DE,$0046</td>
+<td class="comment-1" rowspan="5">Next column, back to row 15</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32297"></span>7E29</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32298"></span>7E2A</td>
+<td class="instruction">DEC C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32299"></span>7E2B</td>
+<td class="instruction">JR NZ,$7E19</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32301"></span>7E2D</td>
+<td class="instruction">POP DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32302"></span>7E2E</td>
+<td class="instruction">LD HL,$F74E</td>
+<td class="comment-1" rowspan="3">Row 0: base tile only</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32305"></span>7E31</td>
+<td class="instruction">LD B,$17</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32307"></span>7E33</td>
+<td class="instruction">LD E,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32308"></span>7E34</td>
+<td class="instruction">LD D,$63</td>
+<td class="comment-1" rowspan="5">Pillar page (operand patched: $63 north / $6C south)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32310"></span>7E36</td>
+<td class="instruction">LD A,(DE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32311"></span>7E37</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32312"></span>7E38</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32313"></span>7E39</td>
+<td class="instruction">DJNZ $7E33</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32315"></span>7E3B</td>
+<td class="instruction">LD C,$17</td>
+<td class="comment-1" rowspan="3">Rows 1..23</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32317"></span>7E3D</td>
+<td class="instruction">LD B,$17</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32319"></span>7E3F</td>
+<td class="instruction">LD E,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32320"></span>7E40</td>
+<td class="instruction">LD D,$63</td>
+<td class="comment-1" rowspan="4">Pillar page (operand patched)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32322"></span>7E42</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32323"></span>7E43</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32324"></span>7E44</td>
+<td class="instruction">LD BC,$FFE9</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32327"></span>7E47</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-1" rowspan="1">Base tile</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32328"></span>7E48</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1">Write pillar tile</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32329"></span>7E49</td>
+<td class="instruction">ADD HL,BC</td>
+<td class="comment-1" rowspan="3">Up one row, next pillar level</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32330"></span>7E4A</td>
+<td class="instruction">INC D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32331"></span>7E4B</td>
+<td class="instruction">LD A,(DE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32332"></span>7E4C</td>
+<td class="instruction">CP $FE</td>
+<td class="comment-1" rowspan="8">$FE: transparent; $FF: end</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32334"></span>7E4E</td>
+<td class="instruction">JR C,$7E48</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32336"></span>7E50</td>
+<td class="instruction">CP $FE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32338"></span>7E52</td>
+<td class="instruction">JR Z,$7E49</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32340"></span>7E54</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32341"></span>7E55</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32342"></span>7E56</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32343"></span>7E57</td>
+<td class="instruction">DJNZ $7E3F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32345"></span>7E59</td>
+<td class="instruction">LD A,C</td>
+<td class="comment-1" rowspan="5">Row 15 finished: insert the sprite tiles</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32346"></span>7E5A</td>
+<td class="instruction">CP $09</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32348"></span>7E5C</td>
+<td class="instruction">JP Z,$7F21</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32351"></span>7E5F</td>
+<td class="instruction">DEC C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32352"></span>7E60</td>
+<td class="instruction">JR NZ,$7E3D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32354"></span>7E62</td>
+<td class="instruction">LD B,$17</td>
+<td class="comment-1" rowspan="24">Row 24: codes &gt;= $54, pillar page P+3 (operand at 7E6D), from row 21</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32356"></span>7E64</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32357"></span>7E65</td>
+<td class="instruction">CP $54</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32359"></span>7E67</td>
+<td class="instruction">JR C,$7E85</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32361"></span>7E69</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32362"></span>7E6A</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32363"></span>7E6B</td>
+<td class="instruction">LD E,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32364"></span>7E6C</td>
+<td class="instruction">LD D,$66</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32366"></span>7E6E</td>
+<td class="instruction">LD BC,$FFBB</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32369"></span>7E71</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32370"></span>7E72</td>
+<td class="instruction">LD BC,$FFE9</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32373"></span>7E75</td>
+<td class="instruction">JR $7E7A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32375"></span>7E77</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32376"></span>7E78</td>
+<td class="instruction">INC D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32377"></span>7E79</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32378"></span>7E7A</td>
+<td class="instruction">LD A,(DE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32379"></span>7E7B</td>
+<td class="instruction">CP $FE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32381"></span>7E7D</td>
+<td class="instruction">JR C,$7E77</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32383"></span>7E7F</td>
+<td class="instruction">CP $FE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32385"></span>7E81</td>
+<td class="instruction">JR Z,$7E78</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32387"></span>7E83</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32388"></span>7E84</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32389"></span>7E85</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32390"></span>7E86</td>
+<td class="instruction">DJNZ $7E64</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32392"></span>7E88</td>
+<td class="instruction">LD B,$17</td>
+<td class="comment-1" rowspan="24">Row 25: codes &gt;= $80, page P+4 (operand 7E93)</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32394"></span>7E8A</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32395"></span>7E8B</td>
+<td class="instruction">CP $80</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32397"></span>7E8D</td>
+<td class="instruction">JR C,$7EAB</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32399"></span>7E8F</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32400"></span>7E90</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32401"></span>7E91</td>
+<td class="instruction">LD E,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32402"></span>7E92</td>
+<td class="instruction">LD D,$67</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32404"></span>7E94</td>
+<td class="instruction">LD BC,$FFA4</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32407"></span>7E97</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32408"></span>7E98</td>
+<td class="instruction">LD BC,$FFE9</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32411"></span>7E9B</td>
+<td class="instruction">JR $7EA0</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32413"></span>7E9D</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32414"></span>7E9E</td>
+<td class="instruction">INC D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32415"></span>7E9F</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32416"></span>7EA0</td>
+<td class="instruction">LD A,(DE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32417"></span>7EA1</td>
+<td class="instruction">CP $FE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32419"></span>7EA3</td>
+<td class="instruction">JR C,$7E9D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32421"></span>7EA5</td>
+<td class="instruction">CP $FE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32423"></span>7EA7</td>
+<td class="instruction">JR Z,$7E9E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32425"></span>7EA9</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32426"></span>7EAA</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32427"></span>7EAB</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32428"></span>7EAC</td>
+<td class="instruction">DJNZ $7E8A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32430"></span>7EAE</td>
+<td class="instruction">LD B,$17</td>
+<td class="comment-1" rowspan="24">Row 26: codes &gt;= $B2, page P+5 (operand 7EB9)</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32432"></span>7EB0</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32433"></span>7EB1</td>
+<td class="instruction">CP $B2</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32435"></span>7EB3</td>
+<td class="instruction">JR C,$7ED1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32437"></span>7EB5</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32438"></span>7EB6</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32439"></span>7EB7</td>
+<td class="instruction">LD E,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32440"></span>7EB8</td>
+<td class="instruction">LD D,$68</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32442"></span>7EBA</td>
+<td class="instruction">LD BC,$FF8D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32445"></span>7EBD</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32446"></span>7EBE</td>
+<td class="instruction">LD BC,$FFE9</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32449"></span>7EC1</td>
+<td class="instruction">JR $7EC6</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32451"></span>7EC3</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32452"></span>7EC4</td>
+<td class="instruction">INC D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32453"></span>7EC5</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32454"></span>7EC6</td>
+<td class="instruction">LD A,(DE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32455"></span>7EC7</td>
+<td class="instruction">CP $FE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32457"></span>7EC9</td>
+<td class="instruction">JR C,$7EC3</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32459"></span>7ECB</td>
+<td class="instruction">CP $FE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32461"></span>7ECD</td>
+<td class="instruction">JR Z,$7EC4</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32463"></span>7ECF</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32464"></span>7ED0</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32465"></span>7ED1</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32466"></span>7ED2</td>
+<td class="instruction">DJNZ $7EB0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32468"></span>7ED4</td>
+<td class="instruction">LD B,$17</td>
+<td class="comment-1" rowspan="24">Row 27: codes &gt;= $D0, page P+6 (operand 7EDF)</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32470"></span>7ED6</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32471"></span>7ED7</td>
+<td class="instruction">CP $D0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32473"></span>7ED9</td>
+<td class="instruction">JR C,$7EF7</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32475"></span>7EDB</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32476"></span>7EDC</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32477"></span>7EDD</td>
+<td class="instruction">LD E,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32478"></span>7EDE</td>
+<td class="instruction">LD D,$69</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32480"></span>7EE0</td>
+<td class="instruction">LD BC,$FF76</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32483"></span>7EE3</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32484"></span>7EE4</td>
+<td class="instruction">LD BC,$FFE9</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32487"></span>7EE7</td>
+<td class="instruction">JR $7EEC</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32489"></span>7EE9</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32490"></span>7EEA</td>
+<td class="instruction">INC D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32491"></span>7EEB</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32492"></span>7EEC</td>
+<td class="instruction">LD A,(DE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32493"></span>7EED</td>
+<td class="instruction">CP $FE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32495"></span>7EEF</td>
+<td class="instruction">JR C,$7EE9</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32497"></span>7EF1</td>
+<td class="instruction">CP $FE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32499"></span>7EF3</td>
+<td class="instruction">JR Z,$7EEA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32501"></span>7EF5</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32502"></span>7EF6</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32503"></span>7EF7</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32504"></span>7EF8</td>
+<td class="instruction">DJNZ $7ED6</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32506"></span>7EFA</td>
+<td class="instruction">LD B,$17</td>
+<td class="comment-1" rowspan="25">Row 28: codes &gt;= $E4, page P+7 (operand 7F05)</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32508"></span>7EFC</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32509"></span>7EFD</td>
+<td class="instruction">CP $E4</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32511"></span>7EFF</td>
+<td class="instruction">JR C,$7F1D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32513"></span>7F01</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32514"></span>7F02</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32515"></span>7F03</td>
+<td class="instruction">LD E,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32516"></span>7F04</td>
+<td class="instruction">LD D,$6A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32518"></span>7F06</td>
+<td class="instruction">LD BC,$FF5F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32521"></span>7F09</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32522"></span>7F0A</td>
+<td class="instruction">LD BC,$FFE9</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32525"></span>7F0D</td>
+<td class="instruction">JR $7F12</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32527"></span>7F0F</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32528"></span>7F10</td>
+<td class="instruction">INC D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32529"></span>7F11</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32530"></span>7F12</td>
+<td class="instruction">LD A,(DE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32531"></span>7F13</td>
+<td class="instruction">CP $FE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32533"></span>7F15</td>
+<td class="instruction">JR C,$7F0F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32535"></span>7F17</td>
+<td class="instruction">CP $FE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32537"></span>7F19</td>
+<td class="instruction">JR Z,$7F10</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32539"></span>7F1B</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32540"></span>7F1C</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32541"></span>7F1D</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32542"></span>7F1E</td>
+<td class="instruction">DJNZ $7EFC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32544"></span>7F20</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32545"></span>7F21</td>
+<td class="instruction">DEC C</td>
+<td class="comment-1" rowspan="3">Insert sprite tiles: account for this row</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32546"></span>7F22</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32547"></span>7F23</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32548"></span>7F24</td>
+<td class="instruction">LD HL,$FCF8</td>
+<td class="comment-1" rowspan="2">Destination: graphic of tile $5F ($FA00+8*$5F)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32551"></span>7F27</td>
+<td class="instruction">LD ($7509),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32554"></span>7F2A</td>
+<td class="instruction">LD HL,$FE5F</td>
+<td class="comment-1" rowspan="2">Destination: attribute of tile $5F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32557"></span>7F2D</td>
+<td class="instruction">LD ($750B),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32560"></span>7F30</td>
+<td class="instruction">LD HL,$F7CB</td>
+<td class="comment-1" rowspan="1">Buffer column 10, row 5</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32563"></span>7F33</td>
+<td class="instruction">LD C,$03</td>
+<td class="comment-1" rowspan="5">3 columns x 11 rows (rows 5-15), top to bottom</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32565"></span>7F35</td>
+<td class="instruction">LD B,$0B</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32567"></span>7F37</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32568"></span>7F38</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32569"></span>7F39</td>
+<td class="instruction">LD DE,($750B)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32573"></span>7F3D</td>
+<td class="instruction">LD C,(HL)</td>
+<td class="comment-1" rowspan="6">Copy the cell's attribute</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32574"></span>7F3E</td>
+<td class="instruction">LD B,$FE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32576"></span>7F40</td>
+<td class="instruction">LD A,(BC)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32577"></span>7F41</td>
+<td class="instruction">LD (DE),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32578"></span>7F42</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32579"></span>7F43</td>
+<td class="instruction">LD ($750B),DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32583"></span>7F47</td>
+<td class="instruction">LD HL,$FA00</td>
+<td class="comment-1" rowspan="15">Copy the cell's graphic (tile 0's for solid tiles &gt;= $80)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32586"></span>7F4A</td>
+<td class="instruction">BIT 7,C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32588"></span>7F4C</td>
+<td class="instruction">JR NZ,$7F56</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32590"></span>7F4E</td>
+<td class="instruction">LD E,C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32591"></span>7F4F</td>
+<td class="instruction">LD D,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32593"></span>7F51</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32594"></span>7F52</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32595"></span>7F53</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32596"></span>7F54</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32597"></span>7F55</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32598"></span>7F56</td>
+<td class="instruction">LD DE,($7509)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32602"></span>7F5A</td>
+<td class="instruction">LD BC,$0008</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32605"></span>7F5D</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32607"></span>7F5F</td>
+<td class="instruction">LD ($7509),DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32611"></span>7F63</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32612"></span>7F64</td>
+<td class="instruction">LD BC,$0017</td>
+<td class="comment-1" rowspan="4">Next row (+23)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32615"></span>7F67</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32616"></span>7F68</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32617"></span>7F69</td>
+<td class="instruction">DJNZ $7F37</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32619"></span>7F6B</td>
+<td class="instruction">LD DE,$FF04</td>
+<td class="comment-1" rowspan="4">Next column, back to row 5</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32622"></span>7F6E</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32623"></span>7F6F</td>
+<td class="instruction">DEC C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32624"></span>7F70</td>
+<td class="instruction">JR NZ,$7F35</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32626"></span>7F72</td>
+<td class="instruction">LD A,($7505)</td>
+<td class="comment-1" rowspan="3">Draw the shadow unless crashed</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32629"></span>7F75</td>
+<td class="instruction">CP $01</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32631"></span>7F77</td>
+<td class="instruction">CALL NZ,<a href="31452.html">$7ADC</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="32634"></span>7F7A</td>
+<td class="instruction">NOP</td>
+<td class="comment-1" rowspan="3">Three NOPs (patched-out code)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32635"></span>7F7B</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32636"></span>7F7C</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32637"></span>7F7D</td>
+<td class="instruction">LD DE,$F7CB</td>
+<td class="comment-1" rowspan="13">Replace the 33 cells by the sprite tile codes <a href="32664.html">7F98</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="32640"></span>7F80</td>
+<td class="instruction">LD HL,$7F98</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32643"></span>7F83</td>
+<td class="instruction">LD A,$0B</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32645"></span>7F85</td>
+<td class="instruction">LD BC,$0003</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32648"></span>7F88</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32650"></span>7F8A</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32651"></span>7F8B</td>
+<td class="instruction">LD BC,$0014</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32654"></span>7F8E</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32655"></span>7F8F</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32656"></span>7F90</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32657"></span>7F91</td>
+<td class="instruction">JR NZ,$7F85</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32659"></span>7F93</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32660"></span>7F94</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32661"></span>7F95</td>
+<td class="instruction">JP $7E3D</td>
+<td class="comment-1" rowspan="1">Continue with row 16</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="32229.html">7DE5</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#32272">Map</a></td>
+<td class="next">
+Next: <a href="32664.html">7F98</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

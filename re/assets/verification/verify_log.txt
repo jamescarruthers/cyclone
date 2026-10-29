@@ -1,0 +1,7 @@
+flight_00350.z80: X=0139 Y=0170 view=0 compared=473 match=473 (100.0%) skipped=33 offset_from_vars=(0,0)
+flight_00800.z80: X=015F Y=0170 view=0 compared=473 match=473 (100.0%) skipped=33 offset_from_vars=(-1,0)
+flight_01100.z80: X=016D Y=0164 view=0 compared=473 match=473 (100.0%) skipped=33 offset_from_vars=(1,1)
+flight_01250.z80: X=0147 Y=0144 view=0 compared=473 match=473 (100.0%) skipped=33 offset_from_vars=(0,0)
+flight_01360.z80: X=0133 Y=0130 view=1 compared=473 match=458 (96.8%) skipped=33 offset_from_vars=(0,0)
+  first mismatches (x,y,code): [(9, 1, 128), (10, 1, 128), (11, 1, 128), (21, 1, 128), (22, 1, 128), (9, 2, 128), (10, 2, 128), (11, 2, 128), (21, 2, 128), (22, 2, 128)]
+flight_01600.z80: X=012F Y=0124 view=0 compared=473 match=473 (100.0%) skipped=33 offset_from_vars=(0,0)

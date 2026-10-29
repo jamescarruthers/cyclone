@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at 791D</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="31000.html">7918</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#31005">Map</a></td>
+<td class="next">
+Next: <a href="31015.html">7927</a>
+</td>
+</tr>
+</table>
+<div class="description">791D: South view, island fills the window (slot 0)</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Copies the 29x23 window rotated by 180 degrees: map bytes are read forwards and written backwards from the last buffer byte $F9E8.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="31005"></span>791D</td>
+<td class="instruction">CALL <a href="30601.html">$7789</a></td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="31008"></span>7920</td>
+<td class="instruction">LD DE,$F9E8</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="31011"></span>7923</td>
+<td class="instruction">LD A,$1D</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="31013"></span>7925</td>
+<td class="instruction">JR <a href="31061.html#31085">$796D</a></td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="31000.html">7918</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#31005">Map</a></td>
+<td class="next">
+Next: <a href="31015.html">7927</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

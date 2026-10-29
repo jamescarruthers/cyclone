@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Data at 8C66</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="35729.html">8B91</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#35942">Map</a></td>
+<td class="next">
+Next: <a href="35959.html">8C77</a>
+</td>
+</tr>
+</table>
+<div class="description">8C66: Wave phase steps, view north</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+(dx,dy) added to 7535/7536 per moving iteration, indexed by heading 7506 (0=N,2=NE,4=E,...,14=NW). The step is opposite to the direction of travel. Byte 8C76 is padding.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35942"></span>8C66</td>
+<td class="instruction">DEFB $00,$01</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="35944"></span>8C68</td>
+<td class="instruction">DEFB $FF,$01</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="35946"></span>8C6A</td>
+<td class="instruction">DEFB $FF,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="35948"></span>8C6C</td>
+<td class="instruction">DEFB $FF,$FF</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="35950"></span>8C6E</td>
+<td class="instruction">DEFB $00,$FF</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="35952"></span>8C70</td>
+<td class="instruction">DEFB $01,$FF</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="35954"></span>8C72</td>
+<td class="instruction">DEFB $01,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="35956"></span>8C74</td>
+<td class="instruction">DEFB $01,$01</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="35958"></span>8C76</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="35729.html">8B91</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#35942">Map</a></td>
+<td class="next">
+Next: <a href="35959.html">8C77</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

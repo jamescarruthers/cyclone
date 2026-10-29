@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at 87F0</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="34799.html">87EF</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#34800">Map</a></td>
+<td class="next">
+Next: <a href="35433.html">8A69</a>
+</td>
+</tr>
+</table>
+<div class="description">87F0: Aircraft: move, steer by schedule, warn, place in view</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Called once per main-loop iteration (5B3F). (1) Every 28 iterations advances the schedule pointer 8A69 by 20 through 15 records at E740-E858 and applies the record to the 19 aircraft of the live table E86C (5 bytes each: direction code, X, Y): a byte with bit 7 set also respawns that aircraft at its start position (E8CD+5n). (2) Moves every aircraft by its direction code d (multiple of 4): the 4 bytes at E700+d are opcodes (NOP/INC BC/DEC BC) patched into 8867/8868 (X) and 8871/8872 (Y): 16 directions, 2 units per iteration on the main axis. (3) Proximity: |dx|&lt;=22 and |dy|&lt;=25 sets 7530=3 (BEWARE AIRCRAFT flashes, 91B4). (4) An aircraft within |dx|&lt;=12, |dy|&lt;=15 is placed in the view buffer as a 3x3 block of codes $F6-$FE at F71E + (dx+12) + 23*(dy+15) (mirrored for the south view); for the first such aircraft the sprite for its direction (DDB8+72*(n+1)) is copied to the aircraft tiles $3C-$44 (FBE0) and a dithered copy to the shadow tiles $33-$3B (FB98), and the tile-stack pages are updated so the shadow sits on the ground and the aircraft at height level 87EF.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">(7500),(7502)</td>
+<td class="register-desc">helicopter X, Y</td>
+</tr>
+<tr>
+<td class="register">(7504)</td>
+<td class="register-desc">view direction</td>
+</tr>
+<tr>
+<td class="register">(7533)</td>
+<td class="register-desc">helicopter height level</td>
+</tr>
+</table>
+<table class="output">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+<tr>
+<td class="register">(7530)</td>
+<td class="register-desc">bit 0 = aircraft near in X, bit 1 = near in X and Y (value 3 = warning)</td>
+</tr>
+<tr>
+<td class="register">(7524),(7525)</td>
+<td class="register-desc">view cell column/row of the aircraft block</td>
+</tr>
+<tr>
+<td class="register">(752F)</td>
+<td class="register-desc">1 once an aircraft sprite has been set up this iteration</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34800"></span>87F0</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="3">Clear the drawn flag and the warning bits</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34801"></span>87F1</td>
+<td class="instruction">LD ($752F),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34804"></span>87F4</td>
+<td class="instruction">LD ($7530),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34807"></span>87F7</td>
+<td class="instruction">LD A,($8A6B)</td>
+<td class="comment-1" rowspan="4">Schedule step counter 8A6B (0-27)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34810"></span>87FA</td>
+<td class="instruction">INC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34811"></span>87FB</td>
+<td class="instruction">CP $1C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34813"></span>87FD</td>
+<td class="instruction">JR NZ,$8844</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34815"></span>87FF</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="5">28th iteration: next schedule record</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34816"></span>8800</td>
+<td class="instruction">LD ($8A6B),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34819"></span>8803</td>
+<td class="instruction">LD HL,($8A69)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34822"></span>8806</td>
+<td class="instruction">LD DE,$0014</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34825"></span>8809</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34826"></span>880A</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-1" rowspan="8">Past E858? Wrap to E740 (15 records)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34827"></span>880B</td>
+<td class="instruction">CP $E8</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34829"></span>880D</td>
+<td class="instruction">JR NZ,$8817</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34831"></span>880F</td>
+<td class="instruction">LD A,L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34832"></span>8810</td>
+<td class="instruction">CP $5A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34834"></span>8812</td>
+<td class="instruction">JR C,$8817</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34836"></span>8814</td>
+<td class="instruction">LD HL,$E740</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34839"></span>8817</td>
+<td class="instruction">LD ($8A69),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34842"></span>881A</td>
+<td class="instruction">LD C,L</td>
+<td class="comment-1" rowspan="3">BC = record, HL = live table</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34843"></span>881B</td>
+<td class="instruction">LD B,H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34844"></span>881C</td>
+<td class="instruction">LD HL,$E86C</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34847"></span>881F</td>
+<td class="instruction">LD A,(BC)</td>
+<td class="comment-1" rowspan="4">Next byte of the record ($FF = end)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34848"></span>8820</td>
+<td class="instruction">INC BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34849"></span>8821</td>
+<td class="instruction">CP $FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34851"></span>8823</td>
+<td class="instruction">JR Z,$8847</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34853"></span>8825</td>
+<td class="instruction">BIT 7,A</td>
+<td class="comment-1" rowspan="2">Bit 7 set: new direction and respawn</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34855"></span>8827</td>
+<td class="instruction">JR Z,$883D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34857"></span>8829</td>
+<td class="instruction">RES 7,A</td>
+<td class="comment-1" rowspan="3">Store the direction</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34859"></span>882B</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34860"></span>882C</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34861"></span>882D</td>
+<td class="instruction">LD BC,$0060</td>
+<td class="comment-1" rowspan="10">Copy the 4-byte start position from 96 bytes further on</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34864"></span>8830</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34865"></span>8831</td>
+<td class="instruction">LD D,H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34866"></span>8832</td>
+<td class="instruction">LD E,L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34867"></span>8833</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34868"></span>8834</td>
+<td class="instruction">LD BC,$0004</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34871"></span>8837</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34873"></span>8839</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34874"></span>883A</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34875"></span>883B</td>
+<td class="instruction">JR $881F</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34877"></span>883D</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="5">Bit 7 clear: just the new direction</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34878"></span>883E</td>
+<td class="instruction">LD DE,$0005</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34881"></span>8841</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34882"></span>8842</td>
+<td class="instruction">JR $881F</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34884"></span>8844</td>
+<td class="instruction">LD ($8A6B),A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34887"></span>8847</td>
+<td class="instruction">LD HL,$E86C</td>
+<td class="comment-1" rowspan="1">Move every aircraft</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34890"></span>884A</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="2">Direction code d</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34891"></span>884B</td>
+<td class="instruction">LD E,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34892"></span>884C</td>
+<td class="instruction">LD D,$E7</td>
+<td class="comment-1" rowspan="2">Opcode quartet at E700+d</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34894"></span>884E</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34895"></span>884F</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="6">First two opcodes for X...</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34896"></span>8850</td>
+<td class="instruction">LD ($8867),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34899"></span>8853</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34900"></span>8854</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34901"></span>8855</td>
+<td class="instruction">LD ($8868),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34904"></span>8858</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34905"></span>8859</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="6">...last two for Y</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34906"></span>885A</td>
+<td class="instruction">LD ($8871),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34909"></span>885D</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34910"></span>885E</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34911"></span>885F</td>
+<td class="instruction">LD ($8872),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34914"></span>8862</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34915"></span>8863</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="4">BC = X</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34916"></span>8864</td>
+<td class="instruction">LD C,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34917"></span>8865</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34918"></span>8866</td>
+<td class="instruction">LD B,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34919"></span>8867</td>
+<td class="instruction">NOP</td>
+<td class="comment-1" rowspan="7">X += dx (two self-modified opcodes)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34920"></span>8868</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34921"></span>8869</td>
+<td class="instruction">DEC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34922"></span>886A</td>
+<td class="instruction">LD (HL),C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34923"></span>886B</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34924"></span>886C</td>
+<td class="instruction">LD (HL),B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34925"></span>886D</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34926"></span>886E</td>
+<td class="instruction">LD C,(HL)</td>
+<td class="comment-1" rowspan="3">BC = Y</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34927"></span>886F</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34928"></span>8870</td>
+<td class="instruction">LD B,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34929"></span>8871</td>
+<td class="instruction">NOP</td>
+<td class="comment-1" rowspan="7">Y += dy (two self-modified opcodes)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34930"></span>8872</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34931"></span>8873</td>
+<td class="instruction">DEC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34932"></span>8874</td>
+<td class="instruction">LD (HL),C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34933"></span>8875</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34934"></span>8876</td>
+<td class="instruction">LD (HL),B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34935"></span>8877</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34936"></span>8878</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="3">Until the $FF terminator</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34937"></span>8879</td>
+<td class="instruction">CP $FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34939"></span>887B</td>
+<td class="instruction">JR NZ,$884B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34941"></span>887D</td>
+<td class="instruction">LD IX,$E86C</td>
+<td class="comment-1" rowspan="2">Proximity / visibility test for each aircraft</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34945"></span>8881</td>
+<td class="instruction">LD B,$0A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34947"></span>8883</td>
+<td class="instruction">LD L,(IX+$01)</td>
+<td class="comment-1" rowspan="8">HL = aircraft X - helicopter X + 22</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34950"></span>8886</td>
+<td class="instruction">LD H,(IX+$02)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34953"></span>8889</td>
+<td class="instruction">LD DE,($7500)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34957"></span>888D</td>
+<td class="instruction">ADD A,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34959"></span>888F</td>
+<td class="instruction">SBC HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34961"></span>8891</td>
+<td class="instruction">LD DE,$0016</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34964"></span>8894</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34965"></span>8895</td>
+<td class="instruction">XOR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34966"></span>8896</td>
+<td class="instruction">CP H</td>
+<td class="comment-1" rowspan="5">Outside 0..44: not near</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34967"></span>8897</td>
+<td class="instruction">JR NZ,$88D0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34969"></span>8899</td>
+<td class="instruction">LD A,L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34970"></span>889A</td>
+<td class="instruction">CP $2D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34972"></span>889C</td>
+<td class="instruction">JR NC,$88D0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34974"></span>889E</td>
+<td class="instruction">LD HL,$7530</td>
+<td class="comment-1" rowspan="2">Near in X: set bit 0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34977"></span>88A1</td>
+<td class="instruction">SET 0,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34979"></span>88A3</td>
+<td class="instruction">SUB B</td>
+<td class="comment-1" rowspan="4">X inside the view window (dx = -12..12)? 7524 = dx+12</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34980"></span>88A4</td>
+<td class="instruction">CP $19</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34982"></span>88A6</td>
+<td class="instruction">JR NC,$88DD</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34984"></span>88A8</td>
+<td class="instruction">LD ($7524),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34987"></span>88AB</td>
+<td class="instruction">LD L,(IX+$03)</td>
+<td class="comment-1" rowspan="7">HL = aircraft Y - helicopter Y + 25</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34990"></span>88AE</td>
+<td class="instruction">LD H,(IX+$04)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34993"></span>88B1</td>
+<td class="instruction">LD DE,($7502)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34997"></span>88B5</td>
+<td class="instruction">ADD A,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34999"></span>88B7</td>
+<td class="instruction">SBC HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35001"></span>88B9</td>
+<td class="instruction">LD DE,$0019</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35004"></span>88BC</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35005"></span>88BD</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="6">Outside 0..50: not near</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35006"></span>88BE</td>
+<td class="instruction">CP H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35007"></span>88BF</td>
+<td class="instruction">JR NZ,$88D0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35009"></span>88C1</td>
+<td class="instruction">LD A,L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35010"></span>88C2</td>
+<td class="instruction">CP $33</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35012"></span>88C4</td>
+<td class="instruction">JR NC,$88D0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35014"></span>88C6</td>
+<td class="instruction">LD HL,$7530</td>
+<td class="comment-1" rowspan="2">Near in X and Y: set bit 1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35017"></span>88C9</td>
+<td class="instruction">SET 1,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35019"></span>88CB</td>
+<td class="instruction">SUB B</td>
+<td class="comment-1" rowspan="3">Y inside the view window (dy = -15..15)? Place it (88FF)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35020"></span>88CC</td>
+<td class="instruction">CP $1F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35022"></span>88CE</td>
+<td class="instruction">JR C,$88FF</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35024"></span>88D0</td>
+<td class="instruction">LD DE,$0005</td>
+<td class="comment-1" rowspan="6">Next aircraft</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35027"></span>88D3</td>
+<td class="instruction">ADD IX,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35029"></span>88D5</td>
+<td class="instruction">LD A,(IX+$00)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35032"></span>88D8</td>
+<td class="instruction">CP $FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35034"></span>88DA</td>
+<td class="instruction">JR NZ,$8881</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35036"></span>88DC</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35037"></span>88DD</td>
+<td class="instruction">LD L,(IX+$03)</td>
+<td class="comment-1" rowspan="16">X near but outside the window: Y nearness test only</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35040"></span>88E0</td>
+<td class="instruction">LD H,(IX+$04)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35043"></span>88E3</td>
+<td class="instruction">LD DE,($7502)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35047"></span>88E7</td>
+<td class="instruction">ADD A,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35049"></span>88E9</td>
+<td class="instruction">SBC HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35051"></span>88EB</td>
+<td class="instruction">LD DE,$0019</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35054"></span>88EE</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35055"></span>88EF</td>
+<td class="instruction">XOR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35056"></span>88F0</td>
+<td class="instruction">CP H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35057"></span>88F1</td>
+<td class="instruction">JR NZ,$88D0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35059"></span>88F3</td>
+<td class="instruction">LD A,L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35060"></span>88F4</td>
+<td class="instruction">CP $33</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35062"></span>88F6</td>
+<td class="instruction">JR NC,$88D0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35064"></span>88F8</td>
+<td class="instruction">LD HL,$7530</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35067"></span>88FB</td>
+<td class="instruction">SET 1,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35069"></span>88FD</td>
+<td class="instruction">JR $88D0</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35071"></span>88FF</td>
+<td class="instruction">LD ($7525),A</td>
+<td class="comment-1" rowspan="2">7525 = dy+15</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35074"></span>8902</td>
+<td class="instruction">LD B,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35075"></span>8903</td>
+<td class="instruction">LD A,($7504)</td>
+<td class="comment-1" rowspan="14">Facing south: mirror (7525 = 30-7525, 7524 = 24-7524)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35078"></span>8906</td>
+<td class="instruction">CP $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35080"></span>8908</td>
+<td class="instruction">JR Z,$891D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35082"></span>890A</td>
+<td class="instruction">LD A,$1E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35084"></span>890C</td>
+<td class="instruction">SUB B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35085"></span>890D</td>
+<td class="instruction">LD ($7525),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35088"></span>8910</td>
+<td class="instruction">LD B,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35089"></span>8911</td>
+<td class="instruction">LD A,($7524)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35092"></span>8914</td>
+<td class="instruction">LD C,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35093"></span>8915</td>
+<td class="instruction">LD A,$18</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35095"></span>8917</td>
+<td class="instruction">SUB C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35096"></span>8918</td>
+<td class="instruction">LD ($7524),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35099"></span>891B</td>
+<td class="instruction">JR $8920</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35101"></span>891D</td>
+<td class="instruction">LD A,($7524)</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35104"></span>8920</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-1" rowspan="9">HL = F71E + 7524 + 23*7525</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35105"></span>8921</td>
+<td class="instruction">LD H,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35107"></span>8923</td>
+<td class="instruction">INC B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35108"></span>8924</td>
+<td class="instruction">LD DE,$0017</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35111"></span>8927</td>
+<td class="instruction">JR $892A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35113"></span>8929</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35114"></span>892A</td>
+<td class="instruction">DJNZ $8929</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35116"></span>892C</td>
+<td class="instruction">LD DE,$F71E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35119"></span>892F</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35120"></span>8930</td>
+<td class="instruction">LD A,($7525)</td>
+<td class="comment-1" rowspan="14">Bottom row (7525=30): only the top row of the block</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35123"></span>8933</td>
+<td class="instruction">CP $1E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35125"></span>8935</td>
+<td class="instruction">JR C,$894C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35127"></span>8937</td>
+<td class="instruction">LD A,($7524)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35130"></span>893A</td>
+<td class="instruction">CP $02</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35132"></span>893C</td>
+<td class="instruction">JR C,$8940</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35134"></span>893E</td>
+<td class="instruction">LD (HL),$F6</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35136"></span>8940</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35137"></span>8941</td>
+<td class="instruction">CP $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35139"></span>8943</td>
+<td class="instruction">JR Z,$8947</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35141"></span>8945</td>
+<td class="instruction">LD (HL),$F9</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35143"></span>8947</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35144"></span>8948</td>
+<td class="instruction">LD (HL),$FC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35146"></span>894A</td>
+<td class="instruction">JR $8984</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35148"></span>894C</td>
+<td class="instruction">LD DE,$0017</td>
+<td class="comment-1" rowspan="6">Full 3x3 block; columns clipped to 7524+c = 2..24</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35151"></span>894F</td>
+<td class="instruction">LD C,L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35152"></span>8950</td>
+<td class="instruction">LD B,H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35153"></span>8951</td>
+<td class="instruction">LD A,($7524)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35156"></span>8954</td>
+<td class="instruction">CP $02</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35158"></span>8956</td>
+<td class="instruction">JR C,$8962</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35160"></span>8958</td>
+<td class="instruction">LD (HL),$F6</td>
+<td class="comment-1" rowspan="14">Column 0: codes F6, F7, F8 downwards</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35162"></span>895A</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35163"></span>895B</td>
+<td class="instruction">LD (HL),$F7</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35165"></span>895D</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35166"></span>895E</td>
+<td class="instruction">LD (HL),$F8</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35168"></span>8960</td>
+<td class="instruction">LD L,C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35169"></span>8961</td>
+<td class="instruction">LD H,B</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35170"></span>8962</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35171"></span>8963</td>
+<td class="instruction">LD C,L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35172"></span>8964</td>
+<td class="instruction">LD B,H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35173"></span>8965</td>
+<td class="instruction">CP $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35175"></span>8967</td>
+<td class="instruction">JR Z,$8977</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35177"></span>8969</td>
+<td class="instruction">CP $18</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35179"></span>896B</td>
+<td class="instruction">JR Z,$8977</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35181"></span>896D</td>
+<td class="instruction">LD (HL),$F9</td>
+<td class="comment-1" rowspan="9">Column 1: F9, FA, FB</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35183"></span>896F</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35184"></span>8970</td>
+<td class="instruction">LD (HL),$FA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35186"></span>8972</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35187"></span>8973</td>
+<td class="instruction">LD (HL),$FB</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35189"></span>8975</td>
+<td class="instruction">LD L,C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35190"></span>8976</td>
+<td class="instruction">LD H,B</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35191"></span>8977</td>
+<td class="instruction">CP $17</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35193"></span>8979</td>
+<td class="instruction">JR NC,$8984</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35195"></span>897B</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="6">Column 2: FC, FD, FE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35196"></span>897C</td>
+<td class="instruction">LD (HL),$FC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35198"></span>897E</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35199"></span>897F</td>
+<td class="instruction">LD (HL),$FD</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35201"></span>8981</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35202"></span>8982</td>
+<td class="instruction">LD (HL),$FE</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35204"></span>8984</td>
+<td class="instruction">LD HL,$752F</td>
+<td class="comment-1" rowspan="5">Sprite already set up this iteration? (Then later aircraft re-use it)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35207"></span>8987</td>
+<td class="instruction">XOR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35208"></span>8988</td>
+<td class="instruction">CP (HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35209"></span>8989</td>
+<td class="instruction">JP NZ,$88D0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35212"></span>898C</td>
+<td class="instruction">INC (HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35213"></span>898D</td>
+<td class="instruction">LD A,(IX+$00)</td>
+<td class="comment-1" rowspan="8">B = direction code / 4 = sprite number 0-15</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35216"></span>8990</td>
+<td class="instruction">SRA A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35218"></span>8992</td>
+<td class="instruction">SRA A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35220"></span>8994</td>
+<td class="instruction">LD B,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35221"></span>8995</td>
+<td class="instruction">LD HL,$DDB8</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35224"></span>8998</td>
+<td class="instruction">LD A,($7504)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35227"></span>899B</td>
+<td class="instruction">CP $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35229"></span>899D</td>
+<td class="instruction">JR Z,$89A5</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35231"></span>899F</td>
+<td class="instruction">LD A,$08</td>
+<td class="comment-1" rowspan="4">Facing south: sprite (n+8) mod 16</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35233"></span>89A1</td>
+<td class="instruction">ADD A,B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35234"></span>89A2</td>
+<td class="instruction">RES 4,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35236"></span>89A4</td>
+<td class="instruction">LD B,A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35237"></span>89A5</td>
+<td class="instruction">INC B</td>
+<td class="comment-1" rowspan="4">Sprite address DDB8 + 72*(n+1)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35238"></span>89A6</td>
+<td class="instruction">LD DE,$0048</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35241"></span>89A9</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35242"></span>89AA</td>
+<td class="instruction">DJNZ $89A9</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35244"></span>89AC</td>
+<td class="instruction">LD DE,$FBE0</td>
+<td class="comment-1" rowspan="3">Copy it to the aircraft tiles $3C-$44 (FBE0)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35247"></span>89AF</td>
+<td class="instruction">LD BC,$0048</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35250"></span>89B2</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35252"></span>89B4</td>
+<td class="instruction">LD HL,$FBE0</td>
+<td class="comment-1" rowspan="14">Dithered copy (AND $AA/$55) to the shadow tiles $33-$3B (FB98)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35255"></span>89B7</td>
+<td class="instruction">LD DE,$FB98</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35258"></span>89BA</td>
+<td class="instruction">LD B,$24</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35260"></span>89BC</td>
+<td class="instruction">LD A,$AA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35262"></span>89BE</td>
+<td class="instruction">AND (HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35263"></span>89BF</td>
+<td class="instruction">LD (DE),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35264"></span>89C0</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35265"></span>89C1</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35266"></span>89C2</td>
+<td class="instruction">LD A,$55</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35268"></span>89C4</td>
+<td class="instruction">AND (HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35269"></span>89C5</td>
+<td class="instruction">LD (DE),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35270"></span>89C6</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35271"></span>89C7</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35272"></span>89C8</td>
+<td class="instruction">DJNZ $89BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35274"></span>89CA</td>
+<td class="instruction">LD A,($7533)</td>
+<td class="comment-1" rowspan="11">Step the aircraft level 87EF one towards the helicopter level 7533</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35277"></span>89CD</td>
+<td class="instruction">LD B,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35278"></span>89CE</td>
+<td class="instruction">LD A,($87EF)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35281"></span>89D1</td>
+<td class="instruction">CP B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35282"></span>89D2</td>
+<td class="instruction">JR Z,$8A20</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35284"></span>89D4</td>
+<td class="instruction">CP B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35285"></span>89D5</td>
+<td class="instruction">JR C,$89D9</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35287"></span>89D7</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35288"></span>89D8</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35289"></span>89D9</td>
+<td class="instruction">INC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35290"></span>89DA</td>
+<td class="instruction">LD ($87EF),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35293"></span>89DD</td>
+<td class="instruction">LD DE,$6DF6</td>
+<td class="comment-1" rowspan="3">Rewrite the tile stacks of codes F6-FE in both page sets ($64.. north, $6D.. south): level L-1 = $FE (empty, continue), level L = tiles $3C-$44, level L+1 = $FF (end)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35296"></span>89E0</td>
+<td class="instruction">LD HL,$64F6</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35299"></span>89E3</td>
+<td class="instruction">LD C,$01</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35301"></span>89E5</td>
+<td class="instruction">CP C</td>
+<td class="comment-1" rowspan="10">Level 1: tiles at page +1, end at +2</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35302"></span>89E6</td>
+<td class="instruction">JR Z,$8A02</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35304"></span>89E8</td>
+<td class="instruction">INC C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35305"></span>89E9</td>
+<td class="instruction">CP C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35306"></span>89EA</td>
+<td class="instruction">JR Z,$89F2</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35308"></span>89EC</td>
+<td class="instruction">INC C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35309"></span>89ED</td>
+<td class="instruction">INC H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35310"></span>89EE</td>
+<td class="instruction">INC D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35311"></span>89EF</td>
+<td class="instruction">CP C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35312"></span>89F0</td>
+<td class="instruction">JR NZ,$89EC</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35314"></span>89F2</td>
+<td class="instruction">LD B,$09</td>
+<td class="comment-1" rowspan="11">Level &gt;= 2: empty marker $FE at page L-1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35316"></span>89F4</td>
+<td class="instruction">LD A,$FE</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35318"></span>89F6</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35319"></span>89F7</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35320"></span>89F8</td>
+<td class="instruction">LD (DE),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35321"></span>89F9</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35322"></span>89FA</td>
+<td class="instruction">DJNZ $89F6</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35324"></span>89FC</td>
+<td class="instruction">INC D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35325"></span>89FD</td>
+<td class="instruction">LD E,$F6</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35327"></span>89FF</td>
+<td class="instruction">INC H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35328"></span>8A00</td>
+<td class="instruction">LD L,$F6</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35330"></span>8A02</td>
+<td class="instruction">LD B,$09</td>
+<td class="comment-1" rowspan="12">Aircraft tiles $3C-$44</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35332"></span>8A04</td>
+<td class="instruction">LD A,$3C</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35334"></span>8A06</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35335"></span>8A07</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35336"></span>8A08</td>
+<td class="instruction">LD (DE),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35337"></span>8A09</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35338"></span>8A0A</td>
+<td class="instruction">INC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35339"></span>8A0B</td>
+<td class="instruction">DJNZ $8A06</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35341"></span>8A0D</td>
+<td class="instruction">INC D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35342"></span>8A0E</td>
+<td class="instruction">LD E,$F6</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35344"></span>8A10</td>
+<td class="instruction">INC H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35345"></span>8A11</td>
+<td class="instruction">LD L,$F6</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35347"></span>8A13</td>
+<td class="instruction">LD B,$09</td>
+<td class="comment-1" rowspan="7">End marker $FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35349"></span>8A15</td>
+<td class="instruction">LD A,$FF</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35351"></span>8A17</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35352"></span>8A18</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35353"></span>8A19</td>
+<td class="instruction">LD (DE),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35354"></span>8A1A</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35355"></span>8A1B</td>
+<td class="instruction">DJNZ $8A17</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35357"></span>8A1D</td>
+<td class="instruction">LD A,($87EF)</td>
+<td class="comment-1" rowspan="5">Level 2: the shadow row 0 overlaps aircraft row 2; level 1: shadow rows 0-1 overlap aircraft rows 1-2</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35360"></span>8A20</td>
+<td class="instruction">CP $01</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35362"></span>8A22</td>
+<td class="instruction">JR Z,$8A49</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35364"></span>8A24</td>
+<td class="instruction">CP $02</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35366"></span>8A26</td>
+<td class="instruction">JP NZ,$88D0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35369"></span>8A29</td>
+<td class="instruction">LD HL,$FB98</td>
+<td class="comment-1" rowspan="20">Level 2: OR shadow row 0 into aircraft row 2 of each column</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35372"></span>8A2C</td>
+<td class="instruction">LD DE,$FBF0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35375"></span>8A2F</td>
+<td class="instruction">LD A,$03</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35377"></span>8A31</td>
+<td class="instruction">EX AF,AF'</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35378"></span>8A32</td>
+<td class="instruction">LD B,$08</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35380"></span>8A34</td>
+<td class="instruction">LD A,(DE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35381"></span>8A35</td>
+<td class="instruction">OR (HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35382"></span>8A36</td>
+<td class="instruction">LD (DE),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35383"></span>8A37</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35384"></span>8A38</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35385"></span>8A39</td>
+<td class="instruction">DJNZ $8A34</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35387"></span>8A3B</td>
+<td class="instruction">LD BC,$0010</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35390"></span>8A3E</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35391"></span>8A3F</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35392"></span>8A40</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35393"></span>8A41</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35394"></span>8A42</td>
+<td class="instruction">EX AF,AF'</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35395"></span>8A43</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35396"></span>8A44</td>
+<td class="instruction">JR NZ,$8A31</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35398"></span>8A46</td>
+<td class="instruction">JP $88D0</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35401"></span>8A49</td>
+<td class="instruction">LD HL,$FB98</td>
+<td class="comment-1" rowspan="20">Level 1: OR shadow rows 0-1 into aircraft rows 1-2</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35404"></span>8A4C</td>
+<td class="instruction">LD DE,$FBE8</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35407"></span>8A4F</td>
+<td class="instruction">LD A,$03</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35409"></span>8A51</td>
+<td class="instruction">EX AF,AF'</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35410"></span>8A52</td>
+<td class="instruction">LD B,$10</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35412"></span>8A54</td>
+<td class="instruction">LD A,(DE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35413"></span>8A55</td>
+<td class="instruction">OR (HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35414"></span>8A56</td>
+<td class="instruction">LD (DE),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35415"></span>8A57</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35416"></span>8A58</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35417"></span>8A59</td>
+<td class="instruction">DJNZ $8A54</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35419"></span>8A5B</td>
+<td class="instruction">LD BC,$0008</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35422"></span>8A5E</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35423"></span>8A5F</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35424"></span>8A60</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35425"></span>8A61</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35426"></span>8A62</td>
+<td class="instruction">EX AF,AF'</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35427"></span>8A63</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35428"></span>8A64</td>
+<td class="instruction">JR NZ,$8A51</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35430"></span>8A66</td>
+<td class="instruction">JP $88D0</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="34799.html">87EF</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#34800">Map</a></td>
+<td class="next">
+Next: <a href="35433.html">8A69</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

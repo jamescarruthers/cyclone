@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Data at 9232</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="37300.html">91B4</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#37426">Map</a></td>
+<td class="next">
+Next: <a href="37446.html">9246</a>
+</td>
+</tr>
+</table>
+<div class="description">9232: Compass ring offsets and death-sequence variables</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Attribute offsets from the compass centre (593D) for directions 0=N,2=NE,4=E,6=SE,8=S,10=SW,12=W,14=NW.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37426"></span>9232</td>
+<td class="instruction">DEFW <a href="65280.html#65504">$FFE0</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="37428"></span>9234</td>
+<td class="instruction">DEFW $FFE1</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="37430"></span>9236</td>
+<td class="instruction">DEFW $0001</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="37432"></span>9238</td>
+<td class="instruction">DEFW $0021</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="37434"></span>923A</td>
+<td class="instruction">DEFW $0020</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="37436"></span>923C</td>
+<td class="instruction">DEFW $001F</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="37438"></span>923E</td>
+<td class="instruction">DEFW $FFFF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="37440"></span>9240</td>
+<td class="instruction">DEFW $FFDF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="37442"></span>9242</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Unused</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37443"></span>9243</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Death sequence: pointer to the next 72-byte explosion overlay (F550, F598, ...)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37445"></span>9245</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Lives lost this round (0-3; reset to 0 by 8321 at the start of each round)</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="37300.html">91B4</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#37426">Map</a></td>
+<td class="next">
+Next: <a href="37446.html">9246</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

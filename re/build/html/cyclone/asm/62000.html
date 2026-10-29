@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Data at F230</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60848.html">EDB0</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#62000">Map</a></td>
+<td class="next">
+Next: <a href="62282.html">F34A</a>
+</td>
+</tr>
+</table>
+<div class="description">F230: Island records</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+14 records of 20 bytes, terminated by $FF, in the order of the names at <a href="27215.html">6A4F</a>: BANANA, ORTE ROCKS, KOKOLA, LAGOON, PEAK, BASE (<a href="62000.html#62100">F294</a>, the home island: level complete needs $7552=$F294), GILLIGANS, RED, SKEG, BONE, GIANTS GATEWAY, CLAW, LUKELAND ISLES, ENTERPRISE. +0/+1: world X and Y high bytes; +2/+3: X low range [min,max); +4/+5: Y low range [min,max) (bounding box tested by $76D2 to set $7552); +6..+9: X/Y origin bytes used to convert world coordinates to map cells (cell = base + (Y+$0E-[+8])*128 + (X+$0B-[+6]), <a href="62362.html#62532">F444</a>); +$0A/+$0B: address of the island's origin in the 128-byte-wide world map; +$0C/+$0D: screen address of the island bitmap on the map screen; +$0E/+$0F: its width/height; +$10/+$11: label screen address; +$12: label attribute page; +$13: 0.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62000"></span>F230</td>
+<td class="instruction">DEFB $02,$01,$5C,$A8,$80,$B8,$72,$92,$9C,$9C,$00,$93,$94,$48,$0D,$06,$6F,$48,$59,$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62020"></span>F244</td>
+<td class="instruction">DEFB $01,$02,$88,$D3,$00,$39,$9E,$BD,$1C,$1D,$00,$9D,$0D,$53,$0C,$07,$2E,$50,$5A,$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62040"></span>F258</td>
+<td class="instruction">DEFB $01,$00,$57,$A1,$94,$CC,$6D,$8B,$B0,$AF,$00,$A9,$AB,$40,$0C,$07,$C8,$40,$58,$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62060"></span>F26C</td>
+<td class="instruction">DEFB $00,$00,$74,$CB,$B8,$F0,$8A,$B5,$D4,$D4,$00,$B6,$C4,$40,$10,$07,$E2,$40,$58,$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62080"></span>F280</td>
+<td class="instruction">DEFB $02,$00,$28,$65,$58,$90,$3E,$4F,$74,$74,$00,$C3,$72,$40,$0A,$07,$50,$40,$58,$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62100"></span>F294</td>
+<td class="instruction">DEFB $01,$01,$1C,$82,$50,$88,$32,$6C,$6C,$6C,$80,$CF,$69,$48,$14,$07,$86,$48,$59,$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62120"></span>F2A8</td>
+<td class="instruction">DEFB $01,$00,$1C,$5E,$58,$91,$32,$48,$74,$75,$54,$93,$69,$40,$0A,$07,$42,$40,$58,$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62140"></span>F2BC</td>
+<td class="instruction">DEFB $01,$02,$78,$B6,$40,$78,$8E,$A0,$5C,$5C,$D8,$9F,$4C,$53,$09,$07,$6D,$50,$5A,$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62160"></span>F2D0</td>
+<td class="instruction">DEFB $00,$02,$70,$AD,$00,$38,$86,$97,$1C,$1C,$D8,$AD,$04,$55,$09,$07,$25,$50,$5A,$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62180"></span>F2E4</td>
+<td class="instruction">DEFB $01,$00,$AC,$FF,$7C,$B4,$C2,$E9,$98,$98,$43,$B8,$8E,$40,$0F,$07,$AF,$40,$58,$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62200"></span>F2F8</td>
+<td class="instruction">DEFB $01,$01,$98,$CB,$0C,$50,$AE,$B5,$28,$34,$37,$93,$2D,$48,$07,$0A,$2E,$48,$59,$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62220"></span>F30C</td>
+<td class="instruction">DEFB $01,$01,$C4,$FD,$C0,$FE,$DA,$E7,$DC,$E2,$35,$A7,$CF,$4B,$08,$08,$F0,$48,$59,$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62240"></span>F320</td>
+<td class="instruction">DEFB $00,$02,$30,$6D,$30,$6C,$46,$57,$4C,$50,$28,$C6,$42,$50,$09,$08,$62,$50,$5A,$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62260"></span>F334</td>
+<td class="instruction">DEFB $00,$01,$44,$8B,$B0,$FB,$5A,$75,$CC,$DF,$4F,$C6,$C2,$48,$0B,$0C,$C4,$48,$59,$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62280"></span>F348</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">End of records</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62281"></span>F349</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Unused</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60848.html">EDB0</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#62000">Map</a></td>
+<td class="next">
+Next: <a href="62282.html">F34A</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at 79FA</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="31208.html">79E8</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#31226">Map</a></td>
+<td class="next">
+Next: <a href="31257.html">7A19</a>
+</td>
+</tr>
+</table>
+<div class="description">79FA: South view, south-west corner visible (slot 36)</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+w = X - (+2) + 1, n = (+5) - Y + 1; bottom-left corner (reversed).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="31226"></span>79FA</td>
+<td class="instruction">LD A,($7500)</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="31229"></span>79FD</td>
+<td class="instruction">LD C,(IX+$02)</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="31232"></span>7A00</td>
+<td class="instruction">SUB C</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="31233"></span>7A01</td>
+<td class="instruction">INC A</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="31234"></span>7A02</td>
+<td class="instruction">LD ($79A7),A</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="31237"></span>7A05</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="31238"></span>7A06</td>
+<td class="instruction">LD DE,$F9D1</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="31241"></span>7A09</td>
+<td class="instruction">ADD A,E</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="31242"></span>7A0A</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="31243"></span>7A0B</td>
+<td class="instruction">CALL <a href="30558.html">$775E</a></td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="31246"></span>7A0E</td>
+<td class="instruction">LD A,($7502)</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="31249"></span>7A11</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="31250"></span>7A12</td>
+<td class="instruction">LD A,(IX+$05)</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="31253"></span>7A15</td>
+<td class="instruction">SUB C</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="31254"></span>7A16</td>
+<td class="instruction">INC A</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="31255"></span>7A17</td>
+<td class="instruction">JR <a href="31103.html#31142">$79A6</a></td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="31208.html">79E8</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#31226">Map</a></td>
+<td class="next">
+Next: <a href="31257.html">7A19</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

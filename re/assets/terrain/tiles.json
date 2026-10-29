@@ -1,0 +1,3767 @@
+{
+ "column_rule": "level k char of tile t is byte ((63h+k)*256 + t); FE = transparent (keep what is behind); FF terminates the column. A tile in window row y writes level k at row y-k; rows are processed top to bottom so nearer (lower) rows overwrite farther ones (routine 7E10).",
+ "height_class_rule": "class = number of entries in the 7AC2 list that are <= t; height (levels) = class >> 1; odd classes are object tiles (crate/survivor/house/tree) standing on that height (7B03)",
+ "height_bounds_7AC2": [
+  "0F",
+  "10",
+  "2E",
+  "30",
+  "56",
+  "58",
+  "89",
+  "8C",
+  "A5",
+  "B2",
+  "C2",
+  "D0",
+  "D9",
+  "E4",
+  "EC",
+  "F0",
+  "F6",
+  "FF"
+ ],
+ "tiles": {
+  "00": {
+   "tile": 0,
+   "height_class": 0,
+   "height": 0,
+   "odd_class_object": false,
+   "column": [
+    "80"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 12966,
+   "feature": "sea"
+  },
+  "01": {
+   "tile": 1,
+   "height_class": 0,
+   "height": 0,
+   "odd_class_object": false,
+   "column": [
+    "00"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "wave sparkle (placed at runtime by 8B91)"
+  },
+  "02": {
+   "tile": 2,
+   "height_class": 0,
+   "height": 0,
+   "odd_class_object": false,
+   "column": [
+    "01"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "wave sparkle (placed at runtime by 8B91)"
+  },
+  "03": {
+   "tile": 3,
+   "height_class": 0,
+   "height": 0,
+   "odd_class_object": false,
+   "column": [
+    "02"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "wave sparkle (placed at runtime by 8B91)"
+  },
+  "04": {
+   "tile": 4,
+   "height_class": 0,
+   "height": 0,
+   "odd_class_object": false,
+   "column": [
+    "82"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 66,
+   "feature": "sand / track (yellow)"
+  },
+  "05": {
+   "tile": 5,
+   "height_class": 0,
+   "height": 0,
+   "odd_class_object": false,
+   "column": [
+    "03"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 2,
+   "feature": "ground"
+  },
+  "06": {
+   "tile": 6,
+   "height_class": 0,
+   "height": 0,
+   "odd_class_object": false,
+   "column": [
+    "04"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 6,
+   "feature": "ground"
+  },
+  "07": {
+   "tile": 7,
+   "height_class": 0,
+   "height": 0,
+   "odd_class_object": false,
+   "column": [
+    "05"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 2,
+   "feature": "ground"
+  },
+  "08": {
+   "tile": 8,
+   "height_class": 0,
+   "height": 0,
+   "odd_class_object": false,
+   "column": [
+    "06"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 6,
+   "feature": "ground"
+  },
+  "09": {
+   "tile": 9,
+   "height_class": 0,
+   "height": 0,
+   "odd_class_object": false,
+   "column": [
+    "10"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 4,
+   "feature": "ground"
+  },
+  "0A": {
+   "tile": 10,
+   "height_class": 0,
+   "height": 0,
+   "odd_class_object": false,
+   "column": [
+    "11"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 8,
+   "feature": "ground"
+  },
+  "0B": {
+   "tile": 11,
+   "height_class": 0,
+   "height": 0,
+   "odd_class_object": false,
+   "column": [
+    "12"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 3,
+   "feature": "ground"
+  },
+  "0C": {
+   "tile": 12,
+   "height_class": 0,
+   "height": 0,
+   "odd_class_object": false,
+   "column": [
+    "13"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 4,
+   "feature": "ground"
+  },
+  "0D": {
+   "tile": 13,
+   "height_class": 0,
+   "height": 0,
+   "odd_class_object": false,
+   "column": [
+    "14"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 4,
+   "feature": "ground"
+  },
+  "0E": {
+   "tile": 14,
+   "height_class": 0,
+   "height": 0,
+   "odd_class_object": false,
+   "column": [
+    "15"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 9,
+   "feature": "ground"
+  },
+  "0F": {
+   "tile": 15,
+   "height_class": 1,
+   "height": 0,
+   "odd_class_object": true,
+   "column": [
+    "30"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "crate (placed at runtime by 5EEC)"
+  },
+  "10": {
+   "tile": 16,
+   "height_class": 2,
+   "height": 1,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "81"
+   ],
+   "levels": 2,
+   "uses_in_island_data": 1044,
+   "feature": "ground"
+  },
+  "11": {
+   "tile": 17,
+   "height_class": 2,
+   "height": 1,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "27"
+   ],
+   "levels": 2,
+   "uses_in_island_data": 134,
+   "feature": "ground"
+  },
+  "12": {
+   "tile": 18,
+   "height_class": 2,
+   "height": 1,
+   "odd_class_object": false,
+   "column": [
+    "18",
+    "19"
+   ],
+   "levels": 2,
+   "uses_in_island_data": 15,
+   "feature": "ground"
+  },
+  "13": {
+   "tile": 19,
+   "height_class": 2,
+   "height": 1,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "28"
+   ],
+   "levels": 2,
+   "uses_in_island_data": 63,
+   "feature": "ground"
+  },
+  "14": {
+   "tile": 20,
+   "height_class": 2,
+   "height": 1,
+   "odd_class_object": false,
+   "column": [
+    "1E",
+    "22"
+   ],
+   "levels": 2,
+   "uses_in_island_data": 19,
+   "feature": "ground"
+  },
+  "15": {
+   "tile": 21,
+   "height_class": 2,
+   "height": 1,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "81"
+   ],
+   "levels": 2,
+   "uses_in_island_data": 101,
+   "feature": "ground"
+  },
+  "16": {
+   "tile": 22,
+   "height_class": 2,
+   "height": 1,
+   "odd_class_object": false,
+   "column": [
+    "1D",
+    "21"
+   ],
+   "levels": 2,
+   "uses_in_island_data": 15,
+   "feature": "ground"
+  },
+  "17": {
+   "tile": 23,
+   "height_class": 2,
+   "height": 1,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "29"
+   ],
+   "levels": 2,
+   "uses_in_island_data": 66,
+   "feature": "ground"
+  },
+  "18": {
+   "tile": 24,
+   "height_class": 2,
+   "height": 1,
+   "odd_class_object": false,
+   "column": [
+    "18",
+    "1A"
+   ],
+   "levels": 2,
+   "uses_in_island_data": 25,
+   "feature": "ground"
+  },
+  "19": {
+   "tile": 25,
+   "height_class": 2,
+   "height": 1,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "2B"
+   ],
+   "levels": 2,
+   "uses_in_island_data": 11,
+   "feature": "ground"
+  },
+  "1A": {
+   "tile": 26,
+   "height_class": 2,
+   "height": 1,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "28"
+   ],
+   "levels": 2,
+   "uses_in_island_data": 9,
+   "feature": "ground"
+  },
+  "1B": {
+   "tile": 27,
+   "height_class": 2,
+   "height": 1,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "29"
+   ],
+   "levels": 2,
+   "uses_in_island_data": 8,
+   "feature": "ground"
+  },
+  "1C": {
+   "tile": 28,
+   "height_class": 2,
+   "height": 1,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "2C"
+   ],
+   "levels": 2,
+   "uses_in_island_data": 11,
+   "feature": "ground"
+  },
+  "1D": {
+   "tile": 29,
+   "height_class": 2,
+   "height": 1,
+   "odd_class_object": false,
+   "column": [
+    "89",
+    "87"
+   ],
+   "levels": 2,
+   "uses_in_island_data": 0,
+   "feature": "white surface (helipad / concrete)"
+  },
+  "1E": {
+   "tile": 30,
+   "height_class": 2,
+   "height": 1,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "89"
+   ],
+   "levels": 2,
+   "uses_in_island_data": 0,
+   "feature": "white surface (helipad / concrete)"
+  },
+  "1F": {
+   "tile": 31,
+   "height_class": 2,
+   "height": 1,
+   "odd_class_object": false,
+   "column": [
+    "89",
+    "83"
+   ],
+   "levels": 2,
+   "uses_in_island_data": 24,
+   "feature": "white surface (helipad / concrete)"
+  },
+  "20": {
+   "tile": 32,
+   "height_class": 2,
+   "height": 1,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "0B"
+   ],
+   "levels": 2,
+   "uses_in_island_data": 0,
+   "feature": "ground"
+  },
+  "21": {
+   "tile": 33,
+   "height_class": 2,
+   "height": 1,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "0C"
+   ],
+   "levels": 2,
+   "uses_in_island_data": 0,
+   "feature": "ground"
+  },
+  "22": {
+   "tile": 34,
+   "height_class": 2,
+   "height": 1,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "0D"
+   ],
+   "levels": 2,
+   "uses_in_island_data": 0,
+   "feature": "ground"
+  },
+  "23": {
+   "tile": 35,
+   "height_class": 2,
+   "height": 1,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "0E"
+   ],
+   "levels": 2,
+   "uses_in_island_data": 0,
+   "feature": "ground"
+  },
+  "24": {
+   "tile": 36,
+   "height_class": 2,
+   "height": 1,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "88"
+   ],
+   "levels": 2,
+   "uses_in_island_data": 11,
+   "feature": "sand / track (yellow)"
+  },
+  "25": {
+   "tile": 37,
+   "height_class": 2,
+   "height": 1,
+   "odd_class_object": false,
+   "column": [
+    "88",
+    "82"
+   ],
+   "levels": 2,
+   "uses_in_island_data": 0,
+   "feature": "sand / track (yellow)"
+  },
+  "26": {
+   "tile": 38,
+   "height_class": 2,
+   "height": 1,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "07"
+   ],
+   "levels": 2,
+   "uses_in_island_data": 0,
+   "feature": "ground"
+  },
+  "27": {
+   "tile": 39,
+   "height_class": 2,
+   "height": 1,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "08"
+   ],
+   "levels": 2,
+   "uses_in_island_data": 0,
+   "feature": "ground"
+  },
+  "28": {
+   "tile": 40,
+   "height_class": 2,
+   "height": 1,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "09"
+   ],
+   "levels": 2,
+   "uses_in_island_data": 0,
+   "feature": "ground"
+  },
+  "29": {
+   "tile": 41,
+   "height_class": 2,
+   "height": 1,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "0A"
+   ],
+   "levels": 2,
+   "uses_in_island_data": 0,
+   "feature": "ground"
+  },
+  "2A": {
+   "tile": 42,
+   "height_class": 2,
+   "height": 1,
+   "odd_class_object": false,
+   "column": [
+    "00"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "unused"
+  },
+  "2B": {
+   "tile": 43,
+   "height_class": 2,
+   "height": 1,
+   "odd_class_object": false,
+   "column": [
+    "00"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "unused"
+  },
+  "2C": {
+   "tile": 44,
+   "height_class": 2,
+   "height": 1,
+   "odd_class_object": false,
+   "column": [
+    "00"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "unused"
+  },
+  "2D": {
+   "tile": 45,
+   "height_class": 2,
+   "height": 1,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "31"
+   ],
+   "levels": 2,
+   "uses_in_island_data": 0,
+   "feature": "survivor (placed at runtime by 6072; two animation frames)"
+  },
+  "2E": {
+   "tile": 46,
+   "height_class": 3,
+   "height": 1,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "32"
+   ],
+   "levels": 2,
+   "uses_in_island_data": 0,
+   "feature": "survivor (placed at runtime by 6072; two animation frames)"
+  },
+  "2F": {
+   "tile": 47,
+   "height_class": 3,
+   "height": 1,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "56"
+   ],
+   "levels": 2,
+   "uses_in_island_data": 0,
+   "feature": "crate (placed at runtime by 5EEC)"
+  },
+  "30": {
+   "tile": 48,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "81"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 2092,
+   "feature": "ground"
+  },
+  "31": {
+   "tile": 49,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "27"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 351,
+   "feature": "ground"
+  },
+  "32": {
+   "tile": 50,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "18",
+    "87",
+    "19"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 50,
+   "feature": "ground"
+  },
+  "33": {
+   "tile": 51,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "28"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 194,
+   "feature": "ground"
+  },
+  "34": {
+   "tile": 52,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "1E",
+    "5C",
+    "22"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 51,
+   "feature": "ground"
+  },
+  "35": {
+   "tile": 53,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "81"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 428,
+   "feature": "ground"
+  },
+  "36": {
+   "tile": 54,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "1D",
+    "5E",
+    "21"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 37,
+   "feature": "ground"
+  },
+  "37": {
+   "tile": 55,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "29"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 173,
+   "feature": "ground"
+  },
+  "38": {
+   "tile": 56,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "18",
+    "87",
+    "1A"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 53,
+   "feature": "ground"
+  },
+  "39": {
+   "tile": 57,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "2B"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 33,
+   "feature": "ground"
+  },
+  "3A": {
+   "tile": 58,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "28"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 37,
+   "feature": "ground"
+  },
+  "3B": {
+   "tile": 59,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "29"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 48,
+   "feature": "ground"
+  },
+  "3C": {
+   "tile": 60,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "2C"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 30,
+   "feature": "ground"
+  },
+  "3D": {
+   "tile": 61,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "18",
+    "87",
+    "1B"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 6,
+   "feature": "ground"
+  },
+  "3E": {
+   "tile": 62,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "17",
+    "20",
+    "22"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 7,
+   "feature": "ground"
+  },
+  "3F": {
+   "tile": 63,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "17",
+    "1F",
+    "21"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 1,
+   "feature": "ground"
+  },
+  "40": {
+   "tile": 64,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "18",
+    "87",
+    "1C"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 11,
+   "feature": "ground"
+  },
+  "41": {
+   "tile": 65,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "18",
+    "87",
+    "19"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 1,
+   "feature": "ground"
+  },
+  "42": {
+   "tile": 66,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "17",
+    "20",
+    "22"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 0,
+   "feature": "ground"
+  },
+  "43": {
+   "tile": 67,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "17",
+    "1F",
+    "21"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 0,
+   "feature": "ground"
+  },
+  "44": {
+   "tile": 68,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "18",
+    "87",
+    "1A"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 1,
+   "feature": "ground"
+  },
+  "45": {
+   "tile": 69,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "89",
+    "89",
+    "83"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 25,
+   "feature": "white surface (helipad / concrete)"
+  },
+  "46": {
+   "tile": 70,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "0B"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 0,
+   "feature": "ground"
+  },
+  "47": {
+   "tile": 71,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "0C"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 0,
+   "feature": "ground"
+  },
+  "48": {
+   "tile": 72,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "0D"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 0,
+   "feature": "ground"
+  },
+  "49": {
+   "tile": 73,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "0E"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 0,
+   "feature": "ground"
+  },
+  "4A": {
+   "tile": 74,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "88"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 0,
+   "feature": "sand / track (yellow)"
+  },
+  "4B": {
+   "tile": 75,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "88",
+    "88",
+    "82"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 10,
+   "feature": "sand / track (yellow)"
+  },
+  "4C": {
+   "tile": 76,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "07"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 0,
+   "feature": "ground"
+  },
+  "4D": {
+   "tile": 77,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "08"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 5,
+   "feature": "ground"
+  },
+  "4E": {
+   "tile": 78,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "09"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 0,
+   "feature": "ground"
+  },
+  "4F": {
+   "tile": 79,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "0A"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 4,
+   "feature": "ground"
+  },
+  "50": {
+   "tile": 80,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "89",
+    "89",
+    "87"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 0,
+   "feature": "white surface (helipad / concrete)"
+  },
+  "51": {
+   "tile": 81,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "89"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 0,
+   "feature": "white surface (helipad / concrete)"
+  },
+  "52": {
+   "tile": 82,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "00"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "unused"
+  },
+  "53": {
+   "tile": 83,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "00"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "unused"
+  },
+  "54": {
+   "tile": 84,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "00"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "unused"
+  },
+  "55": {
+   "tile": 85,
+   "height_class": 4,
+   "height": 2,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "31"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 0,
+   "feature": "survivor (placed at runtime by 6072; two animation frames)"
+  },
+  "56": {
+   "tile": 86,
+   "height_class": 5,
+   "height": 2,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "32"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 0,
+   "feature": "survivor (placed at runtime by 6072; two animation frames)"
+  },
+  "57": {
+   "tile": 87,
+   "height_class": 5,
+   "height": 2,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "56"
+   ],
+   "levels": 3,
+   "uses_in_island_data": 0,
+   "feature": "crate (placed at runtime by 5EEC)"
+  },
+  "58": {
+   "tile": 88,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "81"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 1144,
+   "feature": "ground"
+  },
+  "59": {
+   "tile": 89,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "27"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 258,
+   "feature": "ground"
+  },
+  "5A": {
+   "tile": 90,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "18",
+    "87",
+    "87",
+    "19"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 13,
+   "feature": "ground"
+  },
+  "5B": {
+   "tile": 91,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "28"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 132,
+   "feature": "ground"
+  },
+  "5C": {
+   "tile": 92,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "1E",
+    "5C",
+    "5B",
+    "22"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 9,
+   "feature": "ground"
+  },
+  "5D": {
+   "tile": 93,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "81"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 281,
+   "feature": "ground"
+  },
+  "5E": {
+   "tile": 94,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "1D",
+    "5E",
+    "5D",
+    "21"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 21,
+   "feature": "ground"
+  },
+  "5F": {
+   "tile": 95,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "29"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 156,
+   "feature": "ground"
+  },
+  "60": {
+   "tile": 96,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "18",
+    "87",
+    "87",
+    "1A"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 10,
+   "feature": "ground"
+  },
+  "61": {
+   "tile": 97,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "2B"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 34,
+   "feature": "ground"
+  },
+  "62": {
+   "tile": 98,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "28"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 41,
+   "feature": "ground"
+  },
+  "63": {
+   "tile": 99,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "29"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 33,
+   "feature": "ground"
+  },
+  "64": {
+   "tile": 100,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "2C"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 29,
+   "feature": "ground"
+  },
+  "65": {
+   "tile": 101,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "18",
+    "87",
+    "87",
+    "1B"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 20,
+   "feature": "ground"
+  },
+  "66": {
+   "tile": 102,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "17",
+    "87",
+    "20",
+    "22"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 22,
+   "feature": "ground"
+  },
+  "67": {
+   "tile": 103,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "17",
+    "87",
+    "1F",
+    "21"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 15,
+   "feature": "ground"
+  },
+  "68": {
+   "tile": 104,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "18",
+    "87",
+    "87",
+    "1C"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 22,
+   "feature": "ground"
+  },
+  "69": {
+   "tile": 105,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "18",
+    "87",
+    "87",
+    "19"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 0,
+   "feature": "ground"
+  },
+  "6A": {
+   "tile": 106,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "17",
+    "87",
+    "20",
+    "22"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 0,
+   "feature": "ground"
+  },
+  "6B": {
+   "tile": 107,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "17",
+    "87",
+    "1F",
+    "21"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 1,
+   "feature": "ground"
+  },
+  "6C": {
+   "tile": 108,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "18",
+    "87",
+    "87",
+    "1A"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 0,
+   "feature": "ground"
+  },
+  "6D": {
+   "tile": 109,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "18",
+    "87",
+    "87",
+    "1B"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 5,
+   "feature": "ground"
+  },
+  "6E": {
+   "tile": 110,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "17",
+    "20",
+    "5B",
+    "22"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 0,
+   "feature": "ground"
+  },
+  "6F": {
+   "tile": 111,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "17",
+    "1F",
+    "5D",
+    "21"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 0,
+   "feature": "ground"
+  },
+  "70": {
+   "tile": 112,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "18",
+    "87",
+    "87",
+    "1C"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 6,
+   "feature": "ground"
+  },
+  "71": {
+   "tile": 113,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "18",
+    "87",
+    "87",
+    "19"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 0,
+   "feature": "ground"
+  },
+  "72": {
+   "tile": 114,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "17",
+    "20",
+    "5B",
+    "22"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 0,
+   "feature": "ground"
+  },
+  "73": {
+   "tile": 115,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "17",
+    "1F",
+    "5D",
+    "21"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 0,
+   "feature": "ground"
+  },
+  "74": {
+   "tile": 116,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "18",
+    "87",
+    "87",
+    "1A"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 0,
+   "feature": "ground"
+  },
+  "75": {
+   "tile": 117,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "83"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 24,
+   "feature": "white surface (helipad / concrete)"
+  },
+  "76": {
+   "tile": 118,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "0B"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 0,
+   "feature": "ground"
+  },
+  "77": {
+   "tile": 119,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "0C"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 0,
+   "feature": "ground"
+  },
+  "78": {
+   "tile": 120,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "0D"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 0,
+   "feature": "ground"
+  },
+  "79": {
+   "tile": 121,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "0E"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 0,
+   "feature": "ground"
+  },
+  "7A": {
+   "tile": 122,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "82"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 15,
+   "feature": "sand / track (yellow)"
+  },
+  "7B": {
+   "tile": 123,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "07"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 0,
+   "feature": "ground"
+  },
+  "7C": {
+   "tile": 124,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "08"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 3,
+   "feature": "ground"
+  },
+  "7D": {
+   "tile": 125,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "09"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 0,
+   "feature": "ground"
+  },
+  "7E": {
+   "tile": 126,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "0A"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 4,
+   "feature": "ground"
+  },
+  "7F": {
+   "tile": 127,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "89",
+    "89",
+    "89",
+    "87"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 0,
+   "feature": "white surface (helipad / concrete)"
+  },
+  "80": {
+   "tile": 128,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "89"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 0,
+   "feature": "white surface (helipad / concrete)"
+  },
+  "81": {
+   "tile": 129,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "88"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 0,
+   "feature": "sand / track (yellow)"
+  },
+  "82": {
+   "tile": 130,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "5A",
+    "59",
+    "2E"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 22,
+   "feature": "building"
+  },
+  "83": {
+   "tile": 131,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "89",
+    "57",
+    "2D"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 22,
+   "feature": "building"
+  },
+  "84": {
+   "tile": 132,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "89",
+    "57",
+    "2E"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 6,
+   "feature": "building"
+  },
+  "85": {
+   "tile": 133,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "89",
+    "57",
+    "2D"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 5,
+   "feature": "building"
+  },
+  "86": {
+   "tile": 134,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "89",
+    "89",
+    "89",
+    "83"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 12,
+   "feature": "white surface (helipad / concrete)"
+  },
+  "87": {
+   "tile": 135,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "89",
+    "5A",
+    "5A",
+    "83"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 0,
+   "feature": "building"
+  },
+  "88": {
+   "tile": 136,
+   "height_class": 6,
+   "height": 3,
+   "odd_class_object": false,
+   "column": [
+    "00"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "unused"
+  },
+  "89": {
+   "tile": 137,
+   "height_class": 7,
+   "height": 3,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "31"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 0,
+   "feature": "survivor (placed at runtime by 6072; two animation frames)"
+  },
+  "8A": {
+   "tile": 138,
+   "height_class": 7,
+   "height": 3,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "32"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 0,
+   "feature": "survivor (placed at runtime by 6072; two animation frames)"
+  },
+  "8B": {
+   "tile": 139,
+   "height_class": 7,
+   "height": 3,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "56"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 0,
+   "feature": "crate (placed at runtime by 5EEC)"
+  },
+  "8C": {
+   "tile": 140,
+   "height_class": 8,
+   "height": 4,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "87",
+    "81"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 515,
+   "feature": "ground"
+  },
+  "8D": {
+   "tile": 141,
+   "height_class": 8,
+   "height": 4,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "87",
+    "27"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 121,
+   "feature": "ground"
+  },
+  "8E": {
+   "tile": 142,
+   "height_class": 8,
+   "height": 4,
+   "odd_class_object": false,
+   "column": [
+    "18",
+    "87",
+    "87",
+    "87",
+    "19"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 6,
+   "feature": "ground"
+  },
+  "8F": {
+   "tile": 143,
+   "height_class": 8,
+   "height": 4,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "87",
+    "28"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 60,
+   "feature": "ground"
+  },
+  "90": {
+   "tile": 144,
+   "height_class": 8,
+   "height": 4,
+   "odd_class_object": false,
+   "column": [
+    "1E",
+    "5C",
+    "5B",
+    "5B",
+    "22"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 6,
+   "feature": "ground"
+  },
+  "91": {
+   "tile": 145,
+   "height_class": 8,
+   "height": 4,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "87",
+    "81"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 104,
+   "feature": "ground"
+  },
+  "92": {
+   "tile": 146,
+   "height_class": 8,
+   "height": 4,
+   "odd_class_object": false,
+   "column": [
+    "1D",
+    "5E",
+    "5D",
+    "5D",
+    "21"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 4,
+   "feature": "ground"
+  },
+  "93": {
+   "tile": 147,
+   "height_class": 8,
+   "height": 4,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "87",
+    "29"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 59,
+   "feature": "ground"
+  },
+  "94": {
+   "tile": 148,
+   "height_class": 8,
+   "height": 4,
+   "odd_class_object": false,
+   "column": [
+    "18",
+    "87",
+    "87",
+    "87",
+    "1A"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 5,
+   "feature": "ground"
+  },
+  "95": {
+   "tile": 149,
+   "height_class": 8,
+   "height": 4,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "87",
+    "2B"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 18,
+   "feature": "ground"
+  },
+  "96": {
+   "tile": 150,
+   "height_class": 8,
+   "height": 4,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "87",
+    "28"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 23,
+   "feature": "ground"
+  },
+  "97": {
+   "tile": 151,
+   "height_class": 8,
+   "height": 4,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "87",
+    "29"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 21,
+   "feature": "ground"
+  },
+  "98": {
+   "tile": 152,
+   "height_class": 8,
+   "height": 4,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "87",
+    "2C"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 15,
+   "feature": "ground"
+  },
+  "99": {
+   "tile": 153,
+   "height_class": 8,
+   "height": 4,
+   "odd_class_object": false,
+   "column": [
+    "18",
+    "87",
+    "87",
+    "87",
+    "1B"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 1,
+   "feature": "ground"
+  },
+  "9A": {
+   "tile": 154,
+   "height_class": 8,
+   "height": 4,
+   "odd_class_object": false,
+   "column": [
+    "17",
+    "87",
+    "87",
+    "20",
+    "22"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 17,
+   "feature": "ground"
+  },
+  "9B": {
+   "tile": 155,
+   "height_class": 8,
+   "height": 4,
+   "odd_class_object": false,
+   "column": [
+    "17",
+    "87",
+    "87",
+    "1F",
+    "21"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 10,
+   "feature": "ground"
+  },
+  "9C": {
+   "tile": 156,
+   "height_class": 8,
+   "height": 4,
+   "odd_class_object": false,
+   "column": [
+    "18",
+    "87",
+    "87",
+    "87",
+    "1C"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 17,
+   "feature": "ground"
+  },
+  "9D": {
+   "tile": 157,
+   "height_class": 8,
+   "height": 4,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "5A",
+    "59",
+    "2E"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 22,
+   "feature": "building"
+  },
+  "9E": {
+   "tile": 158,
+   "height_class": 8,
+   "height": 4,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "89",
+    "57",
+    "2D"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 27,
+   "feature": "building"
+  },
+  "9F": {
+   "tile": 159,
+   "height_class": 8,
+   "height": 4,
+   "odd_class_object": false,
+   "column": [
+    "89",
+    "89",
+    "89",
+    "57",
+    "2E"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 0,
+   "feature": "building"
+  },
+  "A0": {
+   "tile": 160,
+   "height_class": 8,
+   "height": 4,
+   "odd_class_object": false,
+   "column": [
+    "89",
+    "89",
+    "89",
+    "57",
+    "2D"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 1,
+   "feature": "building"
+  },
+  "A1": {
+   "tile": 161,
+   "height_class": 8,
+   "height": 4,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "58",
+    "59",
+    "2E"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 6,
+   "feature": "building"
+  },
+  "A2": {
+   "tile": 162,
+   "height_class": 8,
+   "height": 4,
+   "odd_class_object": false,
+   "column": [
+    "89",
+    "89",
+    "89",
+    "89",
+    "83"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 2,
+   "feature": "white surface (helipad / concrete)"
+  },
+  "A3": {
+   "tile": 163,
+   "height_class": 8,
+   "height": 4,
+   "odd_class_object": false,
+   "column": [
+    "89",
+    "89",
+    "5A",
+    "5A",
+    "83"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 0,
+   "feature": "building"
+  },
+  "A4": {
+   "tile": 164,
+   "height_class": 8,
+   "height": 4,
+   "odd_class_object": false,
+   "column": [
+    "00"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "unused"
+  },
+  "A5": {
+   "tile": 165,
+   "height_class": 9,
+   "height": 4,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "87",
+    "56"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 0,
+   "feature": "ground"
+  },
+  "A6": {
+   "tile": 166,
+   "height_class": 9,
+   "height": 4,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "4C",
+    "4B",
+    "4A"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 0,
+   "feature": "tree"
+  },
+  "A7": {
+   "tile": 167,
+   "height_class": 9,
+   "height": 4,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "4C",
+    "46",
+    "4A"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 0,
+   "feature": "tree"
+  },
+  "A8": {
+   "tile": 168,
+   "height_class": 9,
+   "height": 4,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "4C",
+    "4B",
+    "4A"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 0,
+   "feature": "tree"
+  },
+  "A9": {
+   "tile": 169,
+   "height_class": 9,
+   "height": 4,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "4C",
+    "4B",
+    "47"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 2,
+   "feature": "tree"
+  },
+  "AA": {
+   "tile": 170,
+   "height_class": 9,
+   "height": 4,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "4C",
+    "4B",
+    "4A"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 1,
+   "feature": "tree"
+  },
+  "AB": {
+   "tile": 171,
+   "height_class": 9,
+   "height": 4,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "4C",
+    "4B",
+    "48"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 1,
+   "feature": "tree"
+  },
+  "AC": {
+   "tile": 172,
+   "height_class": 9,
+   "height": 4,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "4C",
+    "4B",
+    "4A"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 1,
+   "feature": "tree"
+  },
+  "AD": {
+   "tile": 173,
+   "height_class": 9,
+   "height": 4,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "4C",
+    "4B",
+    "49"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 3,
+   "feature": "tree"
+  },
+  "AE": {
+   "tile": 174,
+   "height_class": 9,
+   "height": 4,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "4C",
+    "4B",
+    "4A"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 4,
+   "feature": "tree"
+  },
+  "AF": {
+   "tile": 175,
+   "height_class": 9,
+   "height": 4,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "4F",
+    "4E",
+    "4D"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 12,
+   "feature": "tree"
+  },
+  "B0": {
+   "tile": 176,
+   "height_class": 9,
+   "height": 4,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "52",
+    "51",
+    "50"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 3,
+   "feature": "tree"
+  },
+  "B1": {
+   "tile": 177,
+   "height_class": 9,
+   "height": 4,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "55",
+    "54",
+    "53"
+   ],
+   "levels": 5,
+   "uses_in_island_data": 23,
+   "feature": "tree"
+  },
+  "B2": {
+   "tile": 178,
+   "height_class": 10,
+   "height": 5,
+   "odd_class_object": false,
+   "column": [
+    "89",
+    "89",
+    "89",
+    "89",
+    "89",
+    "83"
+   ],
+   "levels": 6,
+   "uses_in_island_data": 0,
+   "feature": "white surface (helipad / concrete)"
+  },
+  "B3": {
+   "tile": 179,
+   "height_class": 10,
+   "height": 5,
+   "odd_class_object": false,
+   "column": [
+    "89",
+    "89",
+    "5A",
+    "5A",
+    "5A",
+    "83"
+   ],
+   "levels": 6,
+   "uses_in_island_data": 0,
+   "feature": "building"
+  },
+  "B4": {
+   "tile": 180,
+   "height_class": 10,
+   "height": 5,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "5A",
+    "5A",
+    "59",
+    "2E"
+   ],
+   "levels": 6,
+   "uses_in_island_data": 18,
+   "feature": "building"
+  },
+  "B5": {
+   "tile": 181,
+   "height_class": 10,
+   "height": 5,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "89",
+    "89",
+    "57",
+    "2D"
+   ],
+   "levels": 6,
+   "uses_in_island_data": 16,
+   "feature": "building"
+  },
+  "B6": {
+   "tile": 182,
+   "height_class": 10,
+   "height": 5,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "89",
+    "89",
+    "57",
+    "2E"
+   ],
+   "levels": 6,
+   "uses_in_island_data": 0,
+   "feature": "building"
+  },
+  "B7": {
+   "tile": 183,
+   "height_class": 10,
+   "height": 5,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "89",
+    "89",
+    "57",
+    "2D"
+   ],
+   "levels": 6,
+   "uses_in_island_data": 2,
+   "feature": "building"
+  },
+  "B8": {
+   "tile": 184,
+   "height_class": 10,
+   "height": 5,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "58",
+    "59",
+    "2E"
+   ],
+   "levels": 6,
+   "uses_in_island_data": 1,
+   "feature": "building"
+  },
+  "B9": {
+   "tile": 185,
+   "height_class": 10,
+   "height": 5,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "89",
+    "57",
+    "2D"
+   ],
+   "levels": 6,
+   "uses_in_island_data": 1,
+   "feature": "building"
+  },
+  "BA": {
+   "tile": 186,
+   "height_class": 10,
+   "height": 5,
+   "odd_class_object": false,
+   "column": [
+    "00"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "unused"
+  },
+  "BB": {
+   "tile": 187,
+   "height_class": 10,
+   "height": 5,
+   "odd_class_object": false,
+   "column": [
+    "00"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "unused"
+  },
+  "BC": {
+   "tile": 188,
+   "height_class": 10,
+   "height": 5,
+   "odd_class_object": false,
+   "column": [
+    "00"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "unused"
+  },
+  "BD": {
+   "tile": 189,
+   "height_class": 10,
+   "height": 5,
+   "odd_class_object": false,
+   "column": [
+    "00"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "unused"
+  },
+  "BE": {
+   "tile": 190,
+   "height_class": 10,
+   "height": 5,
+   "odd_class_object": false,
+   "column": [
+    "00"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "unused"
+  },
+  "BF": {
+   "tile": 191,
+   "height_class": 10,
+   "height": 5,
+   "odd_class_object": false,
+   "column": [
+    "00"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "unused"
+  },
+  "C0": {
+   "tile": 192,
+   "height_class": 10,
+   "height": 5,
+   "odd_class_object": false,
+   "column": [
+    "00"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "unused"
+  },
+  "C1": {
+   "tile": 193,
+   "height_class": 10,
+   "height": 5,
+   "odd_class_object": false,
+   "column": [
+    "00"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "unused"
+  },
+  "C2": {
+   "tile": 194,
+   "height_class": 11,
+   "height": 5,
+   "odd_class_object": true,
+   "column": [
+    "00"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "unused"
+  },
+  "C3": {
+   "tile": 195,
+   "height_class": 11,
+   "height": 5,
+   "odd_class_object": true,
+   "column": [
+    "00"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "unused"
+  },
+  "C4": {
+   "tile": 196,
+   "height_class": 11,
+   "height": 5,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "4C",
+    "4B",
+    "4A"
+   ],
+   "levels": 6,
+   "uses_in_island_data": 0,
+   "feature": "tree"
+  },
+  "C5": {
+   "tile": 197,
+   "height_class": 11,
+   "height": 5,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "4C",
+    "46",
+    "4A"
+   ],
+   "levels": 6,
+   "uses_in_island_data": 0,
+   "feature": "tree"
+  },
+  "C6": {
+   "tile": 198,
+   "height_class": 11,
+   "height": 5,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "4C",
+    "4B",
+    "4A"
+   ],
+   "levels": 6,
+   "uses_in_island_data": 0,
+   "feature": "tree"
+  },
+  "C7": {
+   "tile": 199,
+   "height_class": 11,
+   "height": 5,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "4C",
+    "4B",
+    "47"
+   ],
+   "levels": 6,
+   "uses_in_island_data": 2,
+   "feature": "tree"
+  },
+  "C8": {
+   "tile": 200,
+   "height_class": 11,
+   "height": 5,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "4C",
+    "4B",
+    "4A"
+   ],
+   "levels": 6,
+   "uses_in_island_data": 0,
+   "feature": "tree"
+  },
+  "C9": {
+   "tile": 201,
+   "height_class": 11,
+   "height": 5,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "4C",
+    "4B",
+    "48"
+   ],
+   "levels": 6,
+   "uses_in_island_data": 0,
+   "feature": "tree"
+  },
+  "CA": {
+   "tile": 202,
+   "height_class": 11,
+   "height": 5,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "4C",
+    "4B",
+    "4A"
+   ],
+   "levels": 6,
+   "uses_in_island_data": 0,
+   "feature": "tree"
+  },
+  "CB": {
+   "tile": 203,
+   "height_class": 11,
+   "height": 5,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "4C",
+    "4B",
+    "49"
+   ],
+   "levels": 6,
+   "uses_in_island_data": 1,
+   "feature": "tree"
+  },
+  "CC": {
+   "tile": 204,
+   "height_class": 11,
+   "height": 5,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "4C",
+    "4B",
+    "4A"
+   ],
+   "levels": 6,
+   "uses_in_island_data": 3,
+   "feature": "tree"
+  },
+  "CD": {
+   "tile": 205,
+   "height_class": 11,
+   "height": 5,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "4F",
+    "4E",
+    "4D"
+   ],
+   "levels": 6,
+   "uses_in_island_data": 6,
+   "feature": "tree"
+  },
+  "CE": {
+   "tile": 206,
+   "height_class": 11,
+   "height": 5,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "52",
+    "51",
+    "50"
+   ],
+   "levels": 6,
+   "uses_in_island_data": 4,
+   "feature": "tree"
+  },
+  "CF": {
+   "tile": 207,
+   "height_class": 11,
+   "height": 5,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "55",
+    "54",
+    "53"
+   ],
+   "levels": 6,
+   "uses_in_island_data": 23,
+   "feature": "tree"
+  },
+  "D0": {
+   "tile": 208,
+   "height_class": 12,
+   "height": 6,
+   "odd_class_object": false,
+   "column": [
+    "89",
+    "89",
+    "89",
+    "89",
+    "89",
+    "89",
+    "83"
+   ],
+   "levels": 7,
+   "uses_in_island_data": 0,
+   "feature": "white surface (helipad / concrete)"
+  },
+  "D1": {
+   "tile": 209,
+   "height_class": 12,
+   "height": 6,
+   "odd_class_object": false,
+   "column": [
+    "89",
+    "89",
+    "5A",
+    "5A",
+    "5A",
+    "5A",
+    "83"
+   ],
+   "levels": 7,
+   "uses_in_island_data": 0,
+   "feature": "building"
+  },
+  "D2": {
+   "tile": 210,
+   "height_class": 12,
+   "height": 6,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "5A",
+    "5A",
+    "5A",
+    "59",
+    "2E"
+   ],
+   "levels": 7,
+   "uses_in_island_data": 6,
+   "feature": "building"
+  },
+  "D3": {
+   "tile": 211,
+   "height_class": 12,
+   "height": 6,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "89",
+    "89",
+    "89",
+    "57",
+    "2D"
+   ],
+   "levels": 7,
+   "uses_in_island_data": 6,
+   "feature": "building"
+  },
+  "D4": {
+   "tile": 212,
+   "height_class": 12,
+   "height": 6,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "89",
+    "89",
+    "89",
+    "57",
+    "2E"
+   ],
+   "levels": 7,
+   "uses_in_island_data": 0,
+   "feature": "building"
+  },
+  "D5": {
+   "tile": 213,
+   "height_class": 12,
+   "height": 6,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "89",
+    "89",
+    "89",
+    "57",
+    "2D"
+   ],
+   "levels": 7,
+   "uses_in_island_data": 0,
+   "feature": "building"
+  },
+  "D6": {
+   "tile": 214,
+   "height_class": 12,
+   "height": 6,
+   "odd_class_object": false,
+   "column": [
+    "00"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "unused"
+  },
+  "D7": {
+   "tile": 215,
+   "height_class": 12,
+   "height": 6,
+   "odd_class_object": false,
+   "column": [
+    "00"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "unused"
+  },
+  "D8": {
+   "tile": 216,
+   "height_class": 12,
+   "height": 6,
+   "odd_class_object": false,
+   "column": [
+    "00"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "unused"
+  },
+  "D9": {
+   "tile": 217,
+   "height_class": 13,
+   "height": 6,
+   "odd_class_object": true,
+   "column": [
+    "00"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "unused"
+  },
+  "DA": {
+   "tile": 218,
+   "height_class": 13,
+   "height": 6,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "87",
+    "4C",
+    "4B",
+    "4A"
+   ],
+   "levels": 7,
+   "uses_in_island_data": 2,
+   "feature": "tree"
+  },
+  "DB": {
+   "tile": 219,
+   "height_class": 13,
+   "height": 6,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "87",
+    "4C",
+    "4B",
+    "4A"
+   ],
+   "levels": 7,
+   "uses_in_island_data": 0,
+   "feature": "tree"
+  },
+  "DC": {
+   "tile": 220,
+   "height_class": 13,
+   "height": 6,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "87",
+    "4C",
+    "4B",
+    "48"
+   ],
+   "levels": 7,
+   "uses_in_island_data": 0,
+   "feature": "tree"
+  },
+  "DD": {
+   "tile": 221,
+   "height_class": 13,
+   "height": 6,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "87",
+    "4C",
+    "4B",
+    "4A"
+   ],
+   "levels": 7,
+   "uses_in_island_data": 0,
+   "feature": "tree"
+  },
+  "DE": {
+   "tile": 222,
+   "height_class": 13,
+   "height": 6,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "87",
+    "4C",
+    "4B",
+    "49"
+   ],
+   "levels": 7,
+   "uses_in_island_data": 4,
+   "feature": "tree"
+  },
+  "DF": {
+   "tile": 223,
+   "height_class": 13,
+   "height": 6,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "87",
+    "4C",
+    "4B",
+    "4A"
+   ],
+   "levels": 7,
+   "uses_in_island_data": 0,
+   "feature": "tree"
+  },
+  "E0": {
+   "tile": 224,
+   "height_class": 13,
+   "height": 6,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "87",
+    "4C",
+    "46",
+    "49"
+   ],
+   "levels": 7,
+   "uses_in_island_data": 2,
+   "feature": "tree"
+  },
+  "E1": {
+   "tile": 225,
+   "height_class": 13,
+   "height": 6,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "87",
+    "4F",
+    "4E",
+    "4D"
+   ],
+   "levels": 7,
+   "uses_in_island_data": 5,
+   "feature": "tree"
+  },
+  "E2": {
+   "tile": 226,
+   "height_class": 13,
+   "height": 6,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "87",
+    "52",
+    "51",
+    "50"
+   ],
+   "levels": 7,
+   "uses_in_island_data": 8,
+   "feature": "tree"
+  },
+  "E3": {
+   "tile": 227,
+   "height_class": 13,
+   "height": 6,
+   "odd_class_object": true,
+   "column": [
+    "87",
+    "87",
+    "87",
+    "87",
+    "55",
+    "54",
+    "53"
+   ],
+   "levels": 7,
+   "uses_in_island_data": 10,
+   "feature": "tree"
+  },
+  "E4": {
+   "tile": 228,
+   "height_class": 14,
+   "height": 7,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "5A",
+    "5A",
+    "5A",
+    "5A",
+    "59",
+    "2E"
+   ],
+   "levels": 8,
+   "uses_in_island_data": 0,
+   "feature": "building"
+  },
+  "E5": {
+   "tile": 229,
+   "height_class": 14,
+   "height": 7,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "89",
+    "89",
+    "89",
+    "89",
+    "57",
+    "2D"
+   ],
+   "levels": 8,
+   "uses_in_island_data": 0,
+   "feature": "building"
+  },
+  "E6": {
+   "tile": 230,
+   "height_class": 14,
+   "height": 7,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "89",
+    "89",
+    "89",
+    "89",
+    "57",
+    "2E"
+   ],
+   "levels": 8,
+   "uses_in_island_data": 0,
+   "feature": "building"
+  },
+  "E7": {
+   "tile": 231,
+   "height_class": 14,
+   "height": 7,
+   "odd_class_object": false,
+   "column": [
+    "87",
+    "87",
+    "89",
+    "89",
+    "89",
+    "89",
+    "57",
+    "2D"
+   ],
+   "levels": 8,
+   "uses_in_island_data": 0,
+   "feature": "building"
+  },
+  "E8": {
+   "tile": 232,
+   "height_class": 14,
+   "height": 7,
+   "odd_class_object": false,
+   "column": [
+    "89",
+    "89",
+    "89",
+    "89",
+    "89",
+    "89",
+    "89",
+    "83"
+   ],
+   "levels": 8,
+   "uses_in_island_data": 3,
+   "feature": "white surface (helipad / concrete)"
+  },
+  "E9": {
+   "tile": 233,
+   "height_class": 14,
+   "height": 7,
+   "odd_class_object": false,
+   "column": [
+    "89",
+    "89",
+    "5A",
+    "5A",
+    "5A",
+    "5A",
+    "5A",
+    "83"
+   ],
+   "levels": 8,
+   "uses_in_island_data": 0,
+   "feature": "building"
+  },
+  "EA": {
+   "tile": 234,
+   "height_class": 14,
+   "height": 7,
+   "odd_class_object": false,
+   "column": [
+    "00"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "unused"
+  },
+  "EB": {
+   "tile": 235,
+   "height_class": 14,
+   "height": 7,
+   "odd_class_object": false,
+   "column": [
+    "00"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "unused"
+  },
+  "EC": {
+   "tile": 236,
+   "height_class": 15,
+   "height": 7,
+   "odd_class_object": true,
+   "column": [
+    "00"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "unused"
+  },
+  "ED": {
+   "tile": 237,
+   "height_class": 15,
+   "height": 7,
+   "odd_class_object": true,
+   "column": [
+    "00"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "unused"
+  },
+  "EE": {
+   "tile": 238,
+   "height_class": 15,
+   "height": 7,
+   "odd_class_object": true,
+   "column": [
+    "00"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "unused"
+  },
+  "EF": {
+   "tile": 239,
+   "height_class": 15,
+   "height": 7,
+   "odd_class_object": true,
+   "column": [
+    "00"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "unused"
+  },
+  "F0": {
+   "tile": 240,
+   "height_class": 16,
+   "height": 8,
+   "odd_class_object": false,
+   "column": [
+    "00"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "unused"
+  },
+  "F1": {
+   "tile": 241,
+   "height_class": 16,
+   "height": 8,
+   "odd_class_object": false,
+   "column": [
+    "00"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "unused"
+  },
+  "F2": {
+   "tile": 242,
+   "height_class": 16,
+   "height": 8,
+   "odd_class_object": false,
+   "column": [
+    "00"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "unused"
+  },
+  "F3": {
+   "tile": 243,
+   "height_class": 16,
+   "height": 8,
+   "odd_class_object": false,
+   "column": [
+    "00"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "unused"
+  },
+  "F4": {
+   "tile": 244,
+   "height_class": 16,
+   "height": 8,
+   "odd_class_object": false,
+   "column": [
+    "00"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "unused"
+  },
+  "F5": {
+   "tile": 245,
+   "height_class": 16,
+   "height": 8,
+   "odd_class_object": false,
+   "column": [
+    "00"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "unused"
+  },
+  "F6": {
+   "tile": 246,
+   "height_class": 17,
+   "height": 8,
+   "odd_class_object": true,
+   "column": [
+    "33",
+    "FE",
+    "FE",
+    "3C"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 0,
+   "feature": "aircraft cell (written into the window by 8930-8982; shadow at level 0, plane 3 levels up)"
+  },
+  "F7": {
+   "tile": 247,
+   "height_class": 17,
+   "height": 8,
+   "odd_class_object": true,
+   "column": [
+    "34",
+    "FE",
+    "FE",
+    "3D"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 0,
+   "feature": "aircraft cell (written into the window by 8930-8982; shadow at level 0, plane 3 levels up)"
+  },
+  "F8": {
+   "tile": 248,
+   "height_class": 17,
+   "height": 8,
+   "odd_class_object": true,
+   "column": [
+    "35",
+    "FE",
+    "FE",
+    "3E"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 0,
+   "feature": "aircraft cell (written into the window by 8930-8982; shadow at level 0, plane 3 levels up)"
+  },
+  "F9": {
+   "tile": 249,
+   "height_class": 17,
+   "height": 8,
+   "odd_class_object": true,
+   "column": [
+    "36",
+    "FE",
+    "FE",
+    "3F"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 0,
+   "feature": "aircraft cell (written into the window by 8930-8982; shadow at level 0, plane 3 levels up)"
+  },
+  "FA": {
+   "tile": 250,
+   "height_class": 17,
+   "height": 8,
+   "odd_class_object": true,
+   "column": [
+    "37",
+    "FE",
+    "FE",
+    "40"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 0,
+   "feature": "aircraft cell (written into the window by 8930-8982; shadow at level 0, plane 3 levels up)"
+  },
+  "FB": {
+   "tile": 251,
+   "height_class": 17,
+   "height": 8,
+   "odd_class_object": true,
+   "column": [
+    "38",
+    "FE",
+    "FE",
+    "41"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 0,
+   "feature": "aircraft cell (written into the window by 8930-8982; shadow at level 0, plane 3 levels up)"
+  },
+  "FC": {
+   "tile": 252,
+   "height_class": 17,
+   "height": 8,
+   "odd_class_object": true,
+   "column": [
+    "39",
+    "FE",
+    "FE",
+    "42"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 0,
+   "feature": "aircraft cell (written into the window by 8930-8982; shadow at level 0, plane 3 levels up)"
+  },
+  "FD": {
+   "tile": 253,
+   "height_class": 17,
+   "height": 8,
+   "odd_class_object": true,
+   "column": [
+    "3A",
+    "FE",
+    "FE",
+    "43"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 0,
+   "feature": "aircraft cell (written into the window by 8930-8982; shadow at level 0, plane 3 levels up)"
+  },
+  "FE": {
+   "tile": 254,
+   "height_class": 17,
+   "height": 8,
+   "odd_class_object": true,
+   "column": [
+    "3B",
+    "FE",
+    "FE",
+    "44"
+   ],
+   "levels": 4,
+   "uses_in_island_data": 0,
+   "feature": "aircraft cell (written into the window by 8930-8982; shadow at level 0, plane 3 levels up)"
+  },
+  "FF": {
+   "tile": 255,
+   "height_class": null,
+   "height": null,
+   "odd_class_object": null,
+   "column": [
+    "00"
+   ],
+   "levels": 1,
+   "uses_in_island_data": 0,
+   "feature": "aircraft cell (written into the window by 8930-8982; shadow at level 0, plane 3 levels up)"
+  }
+ }
+}

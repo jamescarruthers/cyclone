@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Data at 7500</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29696.html">7400</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29952">Map</a></td>
+<td class="next">
+Next: <a href="30052.html">7564</a>
+</td>
+</tr>
+</table>
+<div class="description">7500: LIVE GAME VARIABLES ($7500-$7563)</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+The 100-byte variable block. At game start 5B1B copies the initial values <a href="30052.html">7564</a> here (LDIR 100 bytes); after each lost life 92B3 copies <a href="30152.html">75C8</a> over it, skipping bytes whose reset value is $FF. Variable names below are those used in re/notes/core1.md (the glossary).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29952"></span>7500</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">POS_X: X: world X of view-window origin (16-bit, tiles); heli ground tile = X+11; +1 = east</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29954"></span>7502</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">POS_Y: Y: world Y of view-window origin (16-bit, tiles); heli ground tile = Y+14; -1 = north</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29956"></span>7504</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">VIEW: View direction: 0 = view north, 1 = view south (world rotated 180 deg); toggled by N</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29957"></span>7505</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">CRASHED: Crash flag: 1 = helicopter destroyed (set by 8A7A at 8B5F)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29958"></span>7506</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">HEADING: Heading 0-15 (22.5 deg units, 0=N 4=E 8=S 12=W); changes in steps of 2</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29959"></span>7507</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">HEADING_DISP: Displayed heading / sprite frame 0-15 (odd = mid-turn frame)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29960"></span>7508</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">HEADING_NEXT: Heading at end of current turn (7506+-2 mod 16)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29961"></span>7509</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">TMP_GFX: Scratch pointer: tile-graphics/target pointer (7BB8, 7F21, 85D4) or column-list ptr (86AF)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29963"></span>750B</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">TMP_ATTR: Scratch pointer into tile-attribute table FE00-FE7F (7BB8, 7F21, 85D4, 86AF)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29965"></span>750D</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">ALTITUDE: Altitude in pixels 0..60 ($3C); climb/descent 1..3 per loop</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29966"></span>750E</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">TMP_SPR: Scratch: shadow sprite source pointer (ED68+72*(frame+1)), +8 per cell</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29968"></span>7510</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">TMP_LIST: Scratch: pointer into 7A9F column list (7BB8)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29970"></span>7512</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">TMP_MASK: Scratch: 7BB8 second mask pointer (word); 86AF/F4DA byte column counter 0..2</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29972"></span>7514</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">TOUCHDOWN: Touch-down flag: 1 = tried to descend below altitude 0 (8269); landing check in 8A7A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29973"></span>7515</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">LANDED: Landed flag: 1 = on the ground (8AF7); UP clears it (take-off, 820D)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29974"></span>7516</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">NO_FUEL: Out-of-fuel flag: 1 = fuel bar empty (82C1); forces descent, no climb/thrust</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29975"></span>7517</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">FUEL_TICK: Fuel tick: drain one fuel line every 49 loops (0..$30)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29976"></span>7518</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">FUEL_PTR: FUEL bar pointer (screen addr, column $1C); $47BC = empty</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29978"></span>751A</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">CLIMB_RATE: Climb rate 0..3 px/loop (ramps while UP held)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29979"></span>751B</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">DESCENT_RATE: Descent rate 0..3 px/loop (ramps while DOWN held or no fuel); &gt;=3 on contact = crash</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29980"></span>751C</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">TIME_PTR: TIME bar pointer (screen addr, column $1E); low byte $DE = time up</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29982"></span>751E</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">ALT_PTR: ALTIMETER bar pointer (screen addr, column $18)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29984"></span>7520</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Unused (never accessed: no static reference, no access in emulation)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29985"></span>7521</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">TURN_TIMER: Turn timer: 3 at start of a 45-deg turn, completes at 1; 0 = idle</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29986"></span>7522</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">CONTROLS: Control bits: b0 forward, b1 down, b2 up, b3 right, b4 left</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29987"></span>7523</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Unused (never accessed: no static reference, no access in emulation)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29988"></span>7524</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">PLANE_COL: Aircraft view column (0..24 = buffer col+2, mirrored in south view)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29989"></span>7525</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">PLANE_ROW: Aircraft view row (0..30 = buffer row+2, mirrored in south view)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29990"></span>7526</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">UI_FLAGS: b0 M held, b1 map shown, b2 N held, b3 map closed (unused), b4 map needs drawing</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29991"></span>7527</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">SPEED: Speed/momentum 0..7: +1/loop thrusting, -1/loop coasting; moves 1 tile/loop while &gt;0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29992"></span>7528</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">TIME_TICK: Time tick: one TIME bar line lost every 255 loops (level 1), 15 fewer per level</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29993"></span>7529</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">TMP_LIST2: Scratch: column-list pointer for heli body/rope occlusion (86AF, F4F8)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29995"></span>752B</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">TMP_ATTR2: Scratch: attribute pointer for heli body cells (86AF, F4F1)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29997"></span>752D</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">SOUND_OFF: 1 = interrupt sound effects off (menu E282, death sequence 9278)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29998"></span>752E</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">ON_PAD: 1 = landed on a complete 3x3 helipad (tiles $83/$89): refuel, level check</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29999"></span>752F</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">PLANE_DRAWN: 1 = an aircraft sprite was built this loop (only the first one)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30000"></span>7530</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">PLANE_NEAR: Aircraft proximity: b0 X-window, b1 Y-window; 3 = BEWARE AIRCRAFT</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30001"></span>7531</td>
+<td class="instruction">DEFB $00,$00</td>
+<td class="comment-1" rowspan="1">Unused (never accessed: no static reference, no access in emulation)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30003"></span>7533</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">HELI_LEVEL: Heli altitude level for aircraft: alt/8+1 (1..7)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30004"></span>7534</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">AIR_TICK: Free-running loop counter while airborne (bit 2 gates 7533 update)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30005"></span>7535</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">WAVE_X: Sea-wave pattern column phase 0..8 (wraps to 4)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30006"></span>7536</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">WAVE_Y: Sea-wave pattern row phase 0..6 (wraps to 3)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30007"></span>7537</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">WAVE_TICK: Wave re-seed counter 0..2</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30008"></span>7538</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">WAVE_PTR: Wave pattern source pointer $01xx (ROM bytes as random data)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30010"></span>753A</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">ROTOR_FRAME: Rotor animation frame: 0..1 flying, 0..3 landed / no fuel</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30011"></span>753B</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">MOVE_DIR: Direction of travel (heading latched while thrusting); used when coasting</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30012"></span>753C</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">MAP_ROW_PTR: Map screen: pixel address of current island bitmap row (8D5D)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30014"></span>753E</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">MAP_PTR: Map screen: running pixel pointer within the row (8D5D)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30016"></span>7540</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">MAP_HX: Heli map column = X/32 clamped 0..22</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30017"></span>7541</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">MAP_HY: Heli map row = Y/32 clamped 0..21</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30018"></span>7542</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">MAP_BLINK: Map marker blink counter 0..6</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30019"></span>7543</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">MAP_HATTR: Map: attribute address of heli marker</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30021"></span>7545</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">MAP_HPIX: Map: pixel address of heli marker</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30023"></span>7547</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">MAP_CATTR: Map: attribute address of cyclone marker</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30025"></span>7549</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">MAP_CPIX: Map: pixel address of cyclone marker</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30027"></span>754B</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">CYC_X: Cyclone map column 1..21 (start 2 or 20)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30028"></span>754C</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">CYC_Y: Cyclone map row 1..20 (start 2 or 19)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30029"></span>754D</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">OFF_MAP: Number of axes on which the heli is off the map grid (0..2)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30030"></span>754E</td>
+<td class="instruction">DEFB $18</td>
+<td class="comment-1" rowspan="1">CYC_TICK: Cyclone move timer 0..24 (moves every 25 loops)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30031"></span>754F</td>
+<td class="instruction">DEFB $11</td>
+<td class="comment-1" rowspan="1">CYC_LEG: Cyclone leg counter 0..8 (new random direction every 9 moves)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30032"></span>7550</td>
+<td class="instruction">DEFB $03</td>
+<td class="comment-1" rowspan="1">CYC_DIST: Distance heli-cyclone on map grid = max(abs dx, abs dy), capped 15</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30033"></span>7551</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">PICK_TILE: Replacement tile code written to the island map when a pickup starts</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30034"></span>7552</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">ISLAND: Address of current island record (F230 table); $F294 = Base island</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30036"></span>7554</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">CRATES: Crates collected this level 0..5</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30037"></span>7555</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">WINCH: Winch countdown: 1..16 = object being winched up; 0 = idle</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30038"></span>7556</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">ROPE_STATE: Rope lowering state 0..2 (F39A)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30039"></span>7557</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">PICK_SPR: Pointer to sprite of hooked object: $F52F crate, $F548 survivor</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30041"></span>7559</td>
+<td class="instruction">DEFB $00,$00</td>
+<td class="comment-1" rowspan="1">Unused (never accessed: no static reference, no access in emulation)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30043"></span>755B</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">SURV_ANIM1: Survivor animation counter 0..7 (frame swap at 4 and 8)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30044"></span>755C</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">SURV_ANIM2: Survivor animation counter 0..5 (frame swap at 3 and 6)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30045"></span>755D</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">ROTOR_SND: Rotor sound phase 0..3 (interrupt 83C2)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30046"></span>755E</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00</td>
+<td class="comment-1" rowspan="1">Unused (never accessed: no static reference, no access in emulation)</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29696.html">7400</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29952">Map</a></td>
+<td class="next">
+Next: <a href="30052.html">7564</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

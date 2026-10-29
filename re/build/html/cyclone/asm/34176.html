@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at 8580</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="34036.html">84F4</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#34176">Map</a></td>
+<td class="next">
+Next: <a href="34202.html">859A</a>
+</td>
+</tr>
+</table>
+<div class="description">8580: Print the view direction box</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Entry 8580: NORTH with attribute $38. Entry 8582 (A preset): NORTH with attribute A. Entry 8585 (A, HL preset): the 5-character text at HL with attribute A. Sets the attributes of rows 13-14, columns 27-31 (the VIEW box) to A and prints the text at row 14, column 27, then falls into 859A.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">attribute (entries 8582, 8585)</td>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">text address (entry 8585)</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34176"></span>8580</td>
+<td class="instruction">LD A,$38</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="34178"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="32938.html">80AA</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34178"></span>8582</td>
+<td class="instruction">LD HL,$85CC</td>
+<td class="comment-1" rowspan="1">Text NORTH</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="34181"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="33017.html">80F9</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34181"></span>8585</td>
+<td class="instruction">LD DE,$48DB</td>
+<td class="comment-1" rowspan="2">Row 14, column 27; 5 characters</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34184"></span>8588</td>
+<td class="instruction">LD C,$05</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34186"></span>858A</td>
+<td class="instruction">LD IX,$59BB</td>
+<td class="comment-1" rowspan="6">Colour rows 13 and 14, columns 27-31</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34190"></span>858E</td>
+<td class="instruction">LD B,$05</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34192"></span>8590</td>
+<td class="instruction">LD (IX+$00),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34195"></span>8593</td>
+<td class="instruction">LD (IX+$20),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34198"></span>8596</td>
+<td class="instruction">INC IX</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34200"></span>8598</td>
+<td class="instruction">DJNZ $8590</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="34036.html">84F4</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#34176">Map</a></td>
+<td class="next">
+Next: <a href="34202.html">859A</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

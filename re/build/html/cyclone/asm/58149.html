@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Data at E325</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="58088.html">E2E8</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#58149">Map</a></td>
+<td class="next">
+Next: <a href="58278.html">E3A6</a>
+</td>
+</tr>
+</table>
+<div class="description">E325: Main menu strings</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Format for <a href="58383.html">E40F</a>: screen address (2 bytes), character codes (font <a href="24600.html#24616">6028</a>), $FF; the list ends with another $FF.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58149"></span>E325</td>
+<td class="instruction">DEFW $40A9</td>
+<td class="comment-1" rowspan="1">Screen address $40A9 (row 5, column 9)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58151"></span>E327</td>
+<td class="instruction">DEFB $20,$20,$17,$18,$19,$1A,$1B,$1C</td>
+<td class="comment-1" rowspan="2">Character codes (font at $6028; $17-$1F = CYCLONE logo glyphs)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58159"></span>E32F</td>
+<td class="instruction">DEFB $1D,$1E,$1F,$20,$20</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58164"></span>E334</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">End of string</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58165"></span>E335</td>
+<td class="instruction">DEFW $40E9</td>
+<td class="comment-1" rowspan="1">Screen address $40E9 (row 7, column 9)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58167"></span>E337</td>
+<td class="instruction">DEFM "SELECT OPTION"</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="58180"></span>E344</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">End of string</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58181"></span>E345</td>
+<td class="instruction">DEFW $4829</td>
+<td class="comment-1" rowspan="1">Screen address $4829 (row 9, column 9)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58183"></span>E347</td>
+<td class="instruction">DEFM "1 INFORMATION"</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="58196"></span>E354</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">End of string</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58197"></span>E355</td>
+<td class="instruction">DEFW $4869</td>
+<td class="comment-1" rowspan="1">Screen address $4869 (row 11, column 9)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58199"></span>E357</td>
+<td class="instruction">DEFM "2 KEYBOARD   "</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="58212"></span>E364</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">End of string</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58213"></span>E365</td>
+<td class="instruction">DEFW $4889</td>
+<td class="comment-1" rowspan="1">Screen address $4889 (row 12, column 9)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58215"></span>E367</td>
+<td class="instruction">DEFM "3 INTERFACE 2"</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="58228"></span>E374</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">End of string</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58229"></span>E375</td>
+<td class="instruction">DEFW $48A9</td>
+<td class="comment-1" rowspan="1">Screen address $48A9 (row 13, column 9)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58231"></span>E377</td>
+<td class="instruction">DEFM "4 KEMPSTON   "</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="58244"></span>E384</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">End of string</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58245"></span>E385</td>
+<td class="instruction">DEFW $48C9</td>
+<td class="comment-1" rowspan="1">Screen address $48C9 (row 14, column 9)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58247"></span>E387</td>
+<td class="instruction">DEFM "5 PROTEK/AGF "</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="58260"></span>E394</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">End of string</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58261"></span>E395</td>
+<td class="instruction">DEFW $5009</td>
+<td class="comment-1" rowspan="1">Screen address $5009 (row 16, column 9)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58263"></span>E397</td>
+<td class="instruction">DEFM "6 START GAME "</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="58276"></span>E3A4</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">End of string</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58277"></span>E3A5</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">End of list</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="58088.html">E2E8</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#58149">Map</a></td>
+<td class="next">
+Next: <a href="58278.html">E3A6</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

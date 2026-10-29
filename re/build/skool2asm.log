@@ -1,0 +1,3380 @@
+WARNING: No label for address ($84D6):
+  5B00 CALL $84D6
+WARNING: No label for address ($8D0E):
+  5B03 CALL $8D0E
+WARNING: No label for address ($84F4):
+  5B06 CALL $84F4
+WARNING: No label for address ($87BC):
+  5B09 CALL $87BC
+WARNING: No label for address ($661E):
+  5B0E LD HL,$661E
+WARNING: No label for address ($7564):
+  5B1B LD HL,$7564
+WARNING: No label for address ($7500):
+  5B1E LD DE,$7500
+WARNING: No label for address ($8321):
+  5B26 CALL $8321
+WARNING: No label for address ($843A):
+  5B29 CALL $843A
+WARNING: No label for address ($80F9):
+  5B36 CALL $80F9
+WARNING: No label for address ($84AE):
+  5B39 CALL $84AE
+WARNING: No label for address ($76D2):
+  5B3C CALL $76D2
+WARNING: No label for address ($87F0):
+  5B3F CALL $87F0
+WARNING: No label for address ($91B4):
+  5B42 CALL $91B4
+WARNING: No label for address ($8B91):
+  5B45 CALL $8B91
+WARNING: No label for address ($8CA0):
+  5B48 CALL $8CA0
+WARNING: No label for address ($7E10):
+  5B4B CALL $7E10
+WARNING: No label for address ($86AF):
+  5B4E CALL $86AF
+WARNING: No label for address ($8A7A):
+  5B54 CALL $8A7A
+WARNING: No label for address ($85D4):
+  5B57 CALL $85D4
+WARNING: No label for address ($7505):
+  5B5A LD A,($7505)
+WARNING: No label for address ($9246):
+  5B5F JP Z,$9246
+WARNING: No label for address ($7526):
+  5B62 LD A,($7526)
+WARNING: No label for address ($8F12):
+  5B69 CALL $8F12
+WARNING: No label for address ($7526):
+  5B6C LD A,($7526)
+WARNING: No label for address ($7526):
+  5B75 LD ($7526),A
+WARNING: No label for address ($8D0E):
+  5B78 CALL $8D0E
+WARNING: No label for address ($8D5D):
+  5B7B CALL $8D5D
+WARNING: No label for address ($8E5C):
+  5B7E CALL $8E5C
+WARNING: No label for address ($8F6A):
+  5B81 CALL $8F6A
+WARNING: No label for address ($762C):
+  5B86 CALL $762C
+WARNING: No label for address ($9034):
+  5B89 CALL $9034
+WARNING: No label for address ($7FD6):
+  5B8C CALL $7FD6
+WARNING: No label for address ($7550):
+  5B8F LD A,($7550)
+WARNING: No label for address ($7378):
+  5B94 CALL C,$7378
+WARNING: No label for address ($7515):
+  5B97 LD A,($7515)
+WARNING: No label for address ($7516):
+  5B9E LD A,($7516)
+WARNING: No label for address ($752E):
+  5BA5 LD A,($752E)
+WARNING: No label for address ($80AA):
+  5BAC CALL $80AA
+WARNING: No label for address ($7554):
+  5BAF LD A,($7554)
+WARNING: No label for address ($752E):
+  5BB6 LD A,($752E)
+WARNING: No label for address ($7552):
+  5BBD LD A,($7552)
+WARNING: No label for address ($751C):
+  5BCC LD A,($751C)
+WARNING: No label for address ($92C8):
+  5BD1 JP Z,$92C8
+WARNING: No label for address ($8470):
+  5BD4 CALL $8470
+WARNING: No label for address ($8284):
+  5BD7 CALL $8284
+WARNING: No label for address ($5BF2):
+  5BEC LD HL,$5BF2
+WARNING: No label for address ($92D0):
+  5BEF JP $92D0
+WARNING: No label for address ($5F61):
+  5EEC LD HL,$5F61
+WARNING: No label for address ($5F5D):
+  5F00 LD DE,$5F5D
+WARNING: No label for address ($5F59):
+  5F03 LD HL,$5F59
+WARNING: No label for address ($8B74):
+  5F20 CALL $8B74
+WARNING: No label for address ($5F61):
+  5F2F LD HL,$5F61
+WARNING: No label for address ($5F59):
+  5F43 LD DE,$5F59
+WARNING: No label for address ($5F5D):
+  5F46 LD HL,$5F5D
+WARNING: No label for address ($8B74):
+  5FDC CALL $8B74
+WARNING: No label for address ($842D):
+  5FE2 JP C,$842D
+WARNING: No label for address ($842D):
+  600C JP $842D
+WARNING: No label for address ($6018):
+  6074 LD IX,$6018
+WARNING: No label for address ($60AC):
+  6080 LD HL,$60AC
+WARNING: No label for address ($60AF):
+  6083 LD DE,$60AF
+WARNING: No label for address ($8B74):
+  6093 CALL $8B74
+WARNING: No label for address ($6028):
+  6F11 LD BC,$6028
+WARNING: No label for address ($7515):
+  7379 LD A,($7515)
+WARNING: No label for address ($7392):
+  7384 JR C,$7392
+WARNING: No label for address ($8B74):
+  7386 CALL $8B74
+WARNING: No label for address ($7522):
+  738C LD HL,$7522
+WARNING: No label for address ($73A2):
+  7394 JR C,$73A2
+WARNING: No label for address ($8B74):
+  7396 CALL $8B74
+WARNING: No label for address ($7522):
+  739C LD HL,$7522
+WARNING: No label for address ($7521):
+  73A2 LD HL,$7521
+WARNING: No label for address ($73AA):
+  73A7 JR Z,$73AA
+WARNING: No label for address ($7522):
+  73AC LD ($7522),A
+WARNING: Address $F74E replaced with Init in unsubbed LD operation:
+  762E LD IX,$F74E
+WARNING: No label for address ($7657):
+  7642 JR NZ,$7657
+WARNING: No label for address ($7651):
+  7655 DJNZ $7651
+WARNING: No label for address ($7636):
+  765B DJNZ $7636
+WARNING: No label for address ($7634):
+  7662 JR NZ,$7634
+WARNING: No label for address ($7689):
+  7674 JR NZ,$7689
+WARNING: No label for address ($7683):
+  7687 DJNZ $7683
+WARNING: No label for address ($7668):
+  768D DJNZ $7668
+WARNING: No label for address ($7666):
+  7694 JR NZ,$7666
+WARNING: No label for address ($76BB):
+  76A6 JR NZ,$76BB
+WARNING: No label for address ($76B5):
+  76B9 DJNZ $76B5
+WARNING: No label for address ($769A):
+  76BF DJNZ $769A
+WARNING: No label for address ($7698):
+  76C6 JR NZ,$7698
+WARNING: Address $F74E replaced with Init in unsubbed LD operation:
+  76D2 LD HL,$F74E
+WARNING: No label for address ($76D7):
+  76D9 DJNZ $76D7
+WARNING: No label for address ($76DB):
+  76DD DJNZ $76DB
+WARNING: No label for address ($76E1):
+  76E3 DJNZ $76E1
+WARNING: No label for address ($F230):
+  76E5 LD IX,$F230
+WARNING: No label for address ($7717):
+  76EF JR NZ,$7717
+WARNING: No label for address ($7717):
+  76F7 JR NZ,$7717
+WARNING: No label for address ($7500):
+  76F9 LD A,($7500)
+WARNING: No label for address ($7717):
+  76FF JR C,$7717
+WARNING: No label for address ($7717):
+  7705 JR NC,$7717
+WARNING: No label for address ($7502):
+  7707 LD A,($7502)
+WARNING: No label for address ($7717):
+  770D JR C,$7717
+WARNING: No label for address ($7717):
+  7713 JR NC,$7717
+WARNING: No label for address ($7724):
+  7715 JR $7724
+WARNING: No label for address ($76E9):
+  7721 JR NZ,$76E9
+WARNING: No label for address ($7552):
+  7724 LD ($7552),IX
+WARNING: No label for address ($7500):
+  772B LD A,($7500)
+WARNING: No label for address ($7737):
+  7731 JR NC,$7737
+WARNING: No label for address ($773E):
+  7735 JR $773E
+WARNING: No label for address ($773E):
+  773A JR C,$773E
+WARNING: No label for address ($7502):
+  773E LD A,($7502)
+WARNING: No label for address ($774A):
+  7744 JR NC,$774A
+WARNING: No label for address ($7751):
+  7748 JR $7751
+WARNING: No label for address ($7751):
+  774D JR C,$7751
+WARNING: No label for address ($7504):
+  7751 LD A,($7504)
+WARNING: No label for address ($7918):
+  7756 JP NZ,$7918
+WARNING: No label for address ($78CF):
+  7759 LD HL,$78CF
+WARNING: No label for address ($7502):
+  7764 LD A,($7502)
+WARNING: No label for address ($7500):
+  777F LD A,($7500)
+WARNING: No label for address ($7502):
+  778F LD A,($7502)
+WARNING: No label for address ($7500):
+  77A3 LD A,($7500)
+WARNING: No label for address ($7789):
+  77AD CALL $7789
+WARNING: Address $F74E replaced with Init in unsubbed LD operation:
+  77B0 LD DE,$F74E
+WARNING: No label for address ($7803):
+  77B5 JR $7803
+WARNING: No label for address ($7500):
+  77B7 LD A,($7500)
+WARNING: No label for address ($775E):
+  77CB CALL $775E
+WARNING: No label for address ($783D):
+  77D0 JR $783D
+WARNING: No label for address ($7500):
+  77D2 LD A,($7500)
+WARNING: No label for address ($7789):
+  77DE CALL $7789
+WARNING: Address $F74E replaced with Init in unsubbed LD operation:
+  77E1 LD DE,$F74E
+WARNING: No label for address ($783D):
+  77E6 JR $783D
+WARNING: No label for address ($7777):
+  77E8 CALL $7777
+WARNING: No label for address ($7502):
+  77EC LD A,($7502)
+WARNING: No label for address ($77FB):
+  77FF DJNZ $77FB
+WARNING: No label for address ($7803):
+  780D JR NZ,$7803
+WARNING: No label for address ($7500):
+  7810 LD A,($7500)
+WARNING: No label for address ($7502):
+  7824 LD A,($7502)
+WARNING: No label for address ($7830):
+  7834 DJNZ $7830
+WARNING: No label for address ($783D):
+  7851 JR NZ,$783D
+WARNING: No label for address ($7500):
+  7854 LD A,($7500)
+WARNING: No label for address ($7777):
+  7860 CALL $7777
+WARNING: No label for address ($7502):
+  7867 LD A,($7502)
+WARNING: No label for address ($7873):
+  7877 DJNZ $7873
+WARNING: No label for address ($783D):
+  787B JR $783D
+WARNING: No label for address ($7789):
+  787D CALL $7789
+WARNING: No label for address ($7502):
+  7880 LD A,($7502)
+WARNING: Address $F74E replaced with Init in unsubbed LD operation:
+  7889 LD DE,$F74E
+WARNING: No label for address ($7803):
+  788C JP $7803
+WARNING: No label for address ($7500):
+  788F LD A,($7500)
+WARNING: No label for address ($775E):
+  78A3 CALL $775E
+WARNING: No label for address ($7502):
+  78A6 LD A,($7502)
+WARNING: No label for address ($783D):
+  78AF JR $783D
+WARNING: No label for address ($7500):
+  78B1 LD A,($7500)
+WARNING: No label for address ($7789):
+  78BD CALL $7789
+WARNING: No label for address ($7502):
+  78C0 LD A,($7502)
+WARNING: Address $F74E replaced with Init in unsubbed LD operation:
+  78C9 LD DE,$F74E
+WARNING: No label for address ($783D):
+  78CC JP $783D
+WARNING: No label for address ($77AD):
+  78CF JP $77AD
+WARNING: No label for address ($77B7):
+  78D3 JP $77B7
+WARNING: No label for address ($77D2):
+  78D7 JP $77D2
+WARNING: No label for address ($77E8):
+  78DF JP $77E8
+WARNING: No label for address ($7810):
+  78E3 JP $7810
+WARNING: No label for address ($7854):
+  78E7 JP $7854
+WARNING: No label for address ($787D):
+  78EF JP $787D
+WARNING: No label for address ($788F):
+  78F3 JP $788F
+WARNING: No label for address ($78B1):
+  78F7 JP $78B1
+WARNING: No label for address ($7A37):
+  7918 LD HL,$7A37
+WARNING: No label for address ($7789):
+  791D CALL $7789
+WARNING: No label for address ($796D):
+  7925 JR $796D
+WARNING: No label for address ($7500):
+  7927 LD A,($7500)
+WARNING: No label for address ($775E):
+  7938 CALL $775E
+WARNING: No label for address ($79A6):
+  793D JR $79A6
+WARNING: No label for address ($7500):
+  793F LD A,($7500)
+WARNING: No label for address ($7789):
+  794B CALL $7789
+WARNING: No label for address ($79A6):
+  7953 JR $79A6
+WARNING: No label for address ($7777):
+  7955 CALL $7777
+WARNING: No label for address ($7502):
+  7959 LD A,($7502)
+WARNING: No label for address ($7968):
+  7969 DJNZ $7968
+WARNING: No label for address ($7970):
+  7974 DJNZ $7970
+WARNING: No label for address ($796D):
+  797C JR NZ,$796D
+WARNING: No label for address ($7500):
+  797F LD A,($7500)
+WARNING: No label for address ($7502):
+  7990 LD A,($7502)
+WARNING: No label for address ($799C):
+  799D DJNZ $799C
+WARNING: No label for address ($79AB):
+  79AF DJNZ $79AB
+WARNING: No label for address ($79A6):
+  79BF JR NZ,$79A6
+WARNING: No label for address ($7500):
+  79C2 LD A,($7500)
+WARNING: No label for address ($7777):
+  79CE CALL $7777
+WARNING: No label for address ($7502):
+  79D5 LD A,($7502)
+WARNING: No label for address ($79E1):
+  79E2 DJNZ $79E1
+WARNING: No label for address ($79A6):
+  79E6 JR $79A6
+WARNING: No label for address ($7789):
+  79E8 CALL $7789
+WARNING: No label for address ($7502):
+  79EB LD A,($7502)
+WARNING: No label for address ($796D):
+  79F7 JP $796D
+WARNING: No label for address ($7500):
+  79FA LD A,($7500)
+WARNING: No label for address ($775E):
+  7A0B CALL $775E
+WARNING: No label for address ($7502):
+  7A0E LD A,($7502)
+WARNING: No label for address ($79A6):
+  7A17 JR $79A6
+WARNING: No label for address ($7500):
+  7A19 LD A,($7500)
+WARNING: No label for address ($7789):
+  7A25 CALL $7789
+WARNING: No label for address ($7502):
+  7A28 LD A,($7502)
+WARNING: No label for address ($79A6):
+  7A34 JP $79A6
+WARNING: No label for address ($791D):
+  7A37 JP $791D
+WARNING: No label for address ($7927):
+  7A3B JP $7927
+WARNING: No label for address ($793F):
+  7A3F JP $793F
+WARNING: No label for address ($7955):
+  7A47 JP $7955
+WARNING: No label for address ($797F):
+  7A4B JP $797F
+WARNING: No label for address ($79C2):
+  7A4F JP $79C2
+WARNING: No label for address ($79E8):
+  7A57 JP $79E8
+WARNING: No label for address ($79FA):
+  7A5B JP $79FA
+WARNING: No label for address ($7A19):
+  7A5F JP $7A19
+WARNING: No label for address ($7A9F):
+  7ADF LD DE,$7A9F
+WARNING: No label for address ($7AE7):
+  7AF0 DJNZ $7AE7
+WARNING: No label for address ($7AE5):
+  7AF7 JR NZ,$7AE5
+WARNING: No label for address ($7A8B):
+  7AFA LD IX,$7A8B
+WARNING: No label for address ($7A81):
+  7AFE LD DE,$7A81
+WARNING: No label for address ($7AC1):
+  7B03 LD HL,$7AC1
+WARNING: No label for address ($7B09):
+  7B0C JR NC,$7B09
+WARNING: No label for address ($7B2E):
+  7B1C JR NC,$7B2E
+WARNING: No label for address ($7B2E):
+  7B20 JR C,$7B2E
+WARNING: No label for address ($7B2A):
+  7B24 JR NZ,$7B2A
+WARNING: No label for address ($7B03):
+  7B31 DJNZ $7B03
+WARNING: No label for address ($7A95):
+  7B33 LD IX,$7A95
+WARNING: No label for address ($7B73):
+  7B4B JR C,$7B73
+WARNING: No label for address ($7B5E):
+  7B4E JR NZ,$7B5E
+WARNING: No label for address ($7B73):
+  7B55 JR Z,$7B73
+WARNING: No label for address ($7B73):
+  7B5C JR NZ,$7B73
+WARNING: No label for address ($7B73):
+  7B60 JR C,$7B73
+WARNING: No label for address ($7B77):
+  7B63 JR NZ,$7B77
+WARNING: No label for address ($7B73):
+  7B6A JR Z,$7B73
+WARNING: No label for address ($7B77):
+  7B71 JR Z,$7B77
+WARNING: No label for address ($7B8D):
+  7B7A JR C,$7B8D
+WARNING: No label for address ($7B91):
+  7B7D JR NZ,$7B91
+WARNING: No label for address ($7B8D):
+  7B84 JR Z,$7B8D
+WARNING: No label for address ($7B91):
+  7B8B JR Z,$7B91
+WARNING: No label for address ($7B39):
+  7B97 DJNZ $7B39
+WARNING: No label for address ($7BB8):
+  7B99 JP $7BB8
+WARNING: No label for address ($7A9F):
+  7BB8 LD HL,$7A9F
+WARNING: No label for address ($7510):
+  7BBB LD ($7510),HL
+WARNING: No label for address ($FD48):
+  7BBE LD HL,$FD48
+WARNING: No label for address ($7509):
+  7BC1 LD ($7509),HL
+WARNING: No label for address ($750B):
+  7BC7 LD ($750B),HL
+WARNING: No label for address ($ED68):
+  7BCA LD HL,$ED68
+WARNING: No label for address ($7507):
+  7BCD LD A,($7507)
+WARNING: No label for address ($7504):
+  7BD1 LD A,($7504)
+WARNING: No label for address ($7BDE):
+  7BD6 JR Z,$7BDE
+WARNING: No label for address ($7BE2):
+  7BE3 DJNZ $7BE2
+WARNING: No label for address ($750E):
+  7BE5 LD ($750E),HL
+WARNING: No label for address ($7A95):
+  7BE8 LD DE,$7A95
+WARNING: No label for address ($750E):
+  7BF1 LD HL,($750E)
+WARNING: No label for address ($7C3F):
+  7BF7 JR Z,$7C3F
+WARNING: No label for address ($7C3F):
+  7BFC JR Z,$7C3F
+WARNING: No label for address ($7C88):
+  7C02 JP NC,$7C88
+WARNING: No label for address ($7510):
+  7C05 LD HL,($7510)
+WARNING: No label for address ($7C3F):
+  7C0F JR NC,$7C3F
+WARNING: No label for address ($7C93):
+  7C13 JR NC,$7C93
+WARNING: No label for address ($7CBC):
+  7C17 JP NC,$7CBC
+WARNING: No label for address ($750B):
+  7C1B LD HL,($750B)
+WARNING: No label for address ($7509):
+  7C2D LD HL,($7509)
+WARNING: No label for address ($750E):
+  7C35 LD HL,($750E)
+WARNING: No label for address ($7C46):
+  7C3D JR $7C46
+WARNING: No label for address ($750E):
+  7C3F LD HL,($750E)
+WARNING: No label for address ($750E):
+  7C46 LD ($750E),HL
+WARNING: No label for address ($750B):
+  7C49 LD HL,($750B)
+WARNING: No label for address ($750B):
+  7C4D LD ($750B),HL
+WARNING: No label for address ($7509):
+  7C50 LD HL,($7509)
+WARNING: No label for address ($7509):
+  7C57 LD ($7509),HL
+WARNING: No label for address ($7510):
+  7C5A LD HL,($7510)
+WARNING: No label for address ($7510):
+  7C5E LD ($7510),HL
+WARNING: No label for address ($7BEF):
+  7C64 DJNZ $7BEF
+WARNING: No label for address ($7510):
+  7C6B LD ($7510),HL
+WARNING: No label for address ($7509):
+  7C6E LD HL,($7509)
+WARNING: No label for address ($7509):
+  7C75 LD ($7509),HL
+WARNING: No label for address ($750B):
+  7C78 LD HL,($750B)
+WARNING: No label for address ($750B):
+  7C7F LD ($750B),HL
+WARNING: No label for address ($7BED):
+  7C84 JP NZ,$7BED
+WARNING: No label for address ($750B):
+  7C88 LD HL,($750B)
+WARNING: No label for address ($7509):
+  7C8D LD DE,($7509)
+WARNING: No label for address ($7CAE):
+  7C91 JR $7CAE
+WARNING: No label for address ($750B):
+  7C94 LD HL,($750B)
+WARNING: No label for address ($7509):
+  7CA6 LD HL,($7509)
+WARNING: No label for address ($750E):
+  7CAE LD HL,($750E)
+WARNING: No label for address ($7CB3):
+  7CB8 DJNZ $7CB3
+WARNING: No label for address ($7C46):
+  7CBA JR $7C46
+WARNING: No label for address ($FB18):
+  7CBD LD HL,$FB18
+WARNING: No label for address ($7CCD):
+  7CC5 JR Z,$7CCD
+WARNING: No label for address ($7D4D):
+  7CC9 JP NZ,$7D4D
+WARNING: No label for address ($7509):
+  7CD6 LD HL,($7509)
+WARNING: No label for address ($750E):
+  7CE0 LD DE,($750E)
+WARNING: No label for address ($7DE5):
+  7CE4 LD IX,$7DE5
+WARNING: No label for address ($7CEA):
+  7CF3 DJNZ $7CEA
+WARNING: No label for address ($7512):
+  7CF5 LD ($7512),HL
+WARNING: No label for address ($7DE5):
+  7CF8 LD HL,$7DE5
+WARNING: No label for address ($7CFF):
+  7D04 DJNZ $7CFF
+WARNING: No label for address ($7C3F):
+  7D12 JP C,$7C3F
+WARNING: No label for address ($7D20):
+  7D17 JR C,$7D20
+WARNING: No label for address ($7D0B):
+  7D1B JR NC,$7D0B
+WARNING: No label for address ($7C3F):
+  7D1D JP $7C3F
+WARNING: No label for address ($7512):
+  7D21 LD HL,($7512)
+WARNING: No label for address ($750E):
+  7D24 LD DE,($750E)
+WARNING: No label for address ($7DE5):
+  7D28 LD IX,$7DE5
+WARNING: No label for address ($7D2E):
+  7D37 DJNZ $7D2E
+WARNING: No label for address ($750E):
+  7D39 LD ($750E),DE
+WARNING: No label for address ($7DE5):
+  7D3E LD HL,$7DE5
+WARNING: No label for address ($7D43):
+  7D48 DJNZ $7D43
+WARNING: No label for address ($7C49):
+  7D4A JP $7C49
+WARNING: No label for address ($7DBF):
+  7D4F JR NC,$7DBF
+WARNING: No label for address ($7D56):
+  7D53 JR Z,$7D56
+WARNING: No label for address ($7D5F):
+  7D59 JR Z,$7D5F
+WARNING: No label for address ($7DD0):
+  7D64 JR NZ,$7DD0
+WARNING: No label for address ($7509):
+  7D6F LD HL,($7509)
+WARNING: No label for address ($750E):
+  7D79 LD DE,($750E)
+WARNING: No label for address ($7DE5):
+  7D7D LD IX,$7DE5
+WARNING: No label for address ($7D84):
+  7D8F DJNZ $7D84
+WARNING: No label for address ($750E):
+  7D91 LD ($750E),DE
+WARNING: No label for address ($7C49):
+  7D99 JP Z,$7C49
+WARNING: No label for address ($7DE5):
+  7D9E LD HL,$7DE5
+WARNING: No label for address ($750B):
+  7DA8 LD HL,($750B)
+WARNING: No label for address ($7C49):
+  7DB7 JP Z,$7C49
+WARNING: No label for address ($7C49):
+  7DBC JP $7C49
+WARNING: No label for address ($7DC4):
+  7DC1 JR Z,$7DC4
+WARNING: No label for address ($7DCD):
+  7DC7 JR Z,$7DCD
+WARNING: No label for address ($7509):
+  7DD8 LD HL,($7509)
+WARNING: No label for address ($7D24):
+  7DE2 JP $7D24
+WARNING: No label for address ($7A81):
+  7E13 LD DE,$7A81
+WARNING: No label for address ($7E1B):
+  7E24 DJNZ $7E1B
+WARNING: No label for address ($7E19):
+  7E2B JR NZ,$7E19
+WARNING: Address $F74E replaced with Init in unsubbed LD operation:
+  7E2E LD HL,$F74E
+WARNING: No label for address ($7E33):
+  7E39 DJNZ $7E33
+WARNING: No label for address ($7E48):
+  7E4E JR C,$7E48
+WARNING: No label for address ($7E49):
+  7E52 JR Z,$7E49
+WARNING: No label for address ($7E3F):
+  7E57 DJNZ $7E3F
+WARNING: No label for address ($7F21):
+  7E5C JP Z,$7F21
+WARNING: No label for address ($7E3D):
+  7E60 JR NZ,$7E3D
+WARNING: No label for address ($7E85):
+  7E67 JR C,$7E85
+WARNING: No label for address ($7E7A):
+  7E75 JR $7E7A
+WARNING: No label for address ($7E77):
+  7E7D JR C,$7E77
+WARNING: No label for address ($7E78):
+  7E81 JR Z,$7E78
+WARNING: No label for address ($7E64):
+  7E86 DJNZ $7E64
+WARNING: No label for address ($7EAB):
+  7E8D JR C,$7EAB
+WARNING: No label for address ($7EA0):
+  7E9B JR $7EA0
+WARNING: No label for address ($7E9D):
+  7EA3 JR C,$7E9D
+WARNING: No label for address ($7E9E):
+  7EA7 JR Z,$7E9E
+WARNING: No label for address ($7E8A):
+  7EAC DJNZ $7E8A
+WARNING: No label for address ($7ED1):
+  7EB3 JR C,$7ED1
+WARNING: No label for address ($7EC6):
+  7EC1 JR $7EC6
+WARNING: No label for address ($7EC3):
+  7EC9 JR C,$7EC3
+WARNING: No label for address ($7EC4):
+  7ECD JR Z,$7EC4
+WARNING: No label for address ($7EB0):
+  7ED2 DJNZ $7EB0
+WARNING: No label for address ($7EF7):
+  7ED9 JR C,$7EF7
+WARNING: No label for address ($7EEC):
+  7EE7 JR $7EEC
+WARNING: No label for address ($7EE9):
+  7EEF JR C,$7EE9
+WARNING: No label for address ($7EEA):
+  7EF3 JR Z,$7EEA
+WARNING: No label for address ($7ED6):
+  7EF8 DJNZ $7ED6
+WARNING: No label for address ($7F1D):
+  7EFF JR C,$7F1D
+WARNING: No label for address ($7F12):
+  7F0D JR $7F12
+WARNING: No label for address ($7F0F):
+  7F15 JR C,$7F0F
+WARNING: No label for address ($7F10):
+  7F19 JR Z,$7F10
+WARNING: No label for address ($7EFC):
+  7F1E DJNZ $7EFC
+WARNING: No label for address ($FCF8):
+  7F24 LD HL,$FCF8
+WARNING: No label for address ($7509):
+  7F27 LD ($7509),HL
+WARNING: No label for address ($FE5F):
+  7F2A LD HL,$FE5F
+WARNING: No label for address ($750B):
+  7F2D LD ($750B),HL
+WARNING: No label for address ($750B):
+  7F39 LD DE,($750B)
+WARNING: No label for address ($750B):
+  7F43 LD ($750B),DE
+WARNING: No label for address ($FA00):
+  7F47 LD HL,$FA00
+WARNING: No label for address ($7F56):
+  7F4C JR NZ,$7F56
+WARNING: No label for address ($7509):
+  7F56 LD DE,($7509)
+WARNING: No label for address ($7509):
+  7F5F LD ($7509),DE
+WARNING: No label for address ($7F37):
+  7F69 DJNZ $7F37
+WARNING: No label for address ($7F35):
+  7F70 JR NZ,$7F35
+WARNING: No label for address ($7505):
+  7F72 LD A,($7505)
+WARNING: No label for address ($7ADC):
+  7F77 CALL NZ,$7ADC
+WARNING: No label for address ($7F98):
+  7F80 LD HL,$7F98
+WARNING: No label for address ($7F85):
+  7F91 JR NZ,$7F85
+WARNING: No label for address ($7E3D):
+  7F95 JP $7E3D
+WARNING: No label for address ($7FD5):
+  7FD6 LD A,($7FD5)
+WARNING: No label for address ($8023):
+  7FDB JP Z,$8023
+WARNING: No label for address ($8052):
+  7FE0 JP Z,$8052
+WARNING: No label for address ($8079):
+  7FE5 JP Z,$8079
+WARNING: No label for address ($7FF6):
+  7FF2 JR Z,$7FF6
+WARNING: No label for address ($8002):
+  7FFE JR Z,$8002
+WARNING: No label for address ($800E):
+  800A JR Z,$800E
+WARNING: No label for address ($8018):
+  8014 JR NZ,$8018
+WARNING: No label for address ($801E):
+  801A JR NZ,$801E
+WARNING: No label for address ($7522):
+  801F LD ($7522),A
+WARNING: No label for address ($8035):
+  8031 JR NZ,$8035
+WARNING: No label for address ($803B):
+  8037 JR NZ,$803B
+WARNING: No label for address ($8041):
+  803D JR NZ,$8041
+WARNING: No label for address ($8047):
+  8043 JR NZ,$8047
+WARNING: No label for address ($804D):
+  8049 JR NZ,$804D
+WARNING: No label for address ($7522):
+  804E LD ($7522),A
+WARNING: No label for address ($805C):
+  8058 JR Z,$805C
+WARNING: No label for address ($8062):
+  805E JR Z,$8062
+WARNING: No label for address ($8068):
+  8064 JR Z,$8068
+WARNING: No label for address ($806E):
+  806A JR Z,$806E
+WARNING: No label for address ($8074):
+  8070 JR Z,$8074
+WARNING: No label for address ($7522):
+  8075 LD ($7522),A
+WARNING: No label for address ($8085):
+  8081 JR NZ,$8085
+WARNING: No label for address ($808F):
+  808B JR NZ,$808F
+WARNING: No label for address ($8095):
+  8091 JR NZ,$8095
+WARNING: No label for address ($809B):
+  8097 JR NZ,$809B
+WARNING: No label for address ($80A1):
+  809D JR NZ,$80A1
+WARNING: No label for address ($7522):
+  80A2 LD ($7522),A
+WARNING: No label for address ($7526):
+  80AA LD HL,$7526
+WARNING: No label for address ($80D8):
+  80B3 JR NZ,$80D8
+WARNING: No label for address ($80DA):
+  80B7 JR NZ,$80DA
+WARNING: No label for address ($80D2):
+  80CA JR Z,$80D2
+WARNING: No label for address ($80DA):
+  80D0 JR $80DA
+WARNING: No label for address ($80DA):
+  80D6 JR $80DA
+WARNING: No label for address ($8133):
+  80DC JR NZ,$8133
+WARNING: No label for address ($8135):
+  80E0 JR NZ,$8135
+WARNING: No label for address ($8582):
+  80E6 CALL $8582
+WARNING: No label for address ($7504):
+  80F2 LD A,($7504)
+WARNING: No label for address ($8104):
+  80F7 JR Z,$8104
+WARNING: No label for address ($7504):
+  80FA LD ($7504),A
+WARNING: No label for address ($8580):
+  80FD CALL $8580
+WARNING: No label for address ($8113):
+  8102 JR $8113
+WARNING: No label for address ($7504):
+  8106 LD ($7504),A
+WARNING: No label for address ($827F):
+  810B LD HL,$827F
+WARNING: No label for address ($8585):
+  810E CALL $8585
+WARNING: No label for address ($8135):
+  8131 JR $8135
+WARNING: No label for address ($7522):
+  8135 LD A,($7522)
+WARNING: No label for address ($7521):
+  8139 LD HL,$7521
+WARNING: No label for address ($8152):
+  813E JR Z,$8152
+WARNING: No label for address ($81AB):
+  8143 JP NZ,$81AB
+WARNING: No label for address ($7508):
+  8146 LD A,($7508)
+WARNING: No label for address ($7506):
+  8149 LD ($7506),A
+WARNING: No label for address ($7507):
+  814C LD ($7507),A
+WARNING: No label for address ($81AB):
+  814F JP $81AB
+WARNING: No label for address ($7515):
+  8152 LD A,($7515)
+WARNING: No label for address ($81FA):
+  8157 JP Z,$81FA
+WARNING: No label for address ($817A):
+  815C JR Z,$817A
+WARNING: No label for address ($7506):
+  815E LD A,($7506)
+WARNING: No label for address ($8168):
+  8164 JR NZ,$8168
+WARNING: No label for address ($7507):
+  8168 LD ($7507),A
+WARNING: No label for address ($8172):
+  816E JR NZ,$8172
+WARNING: No label for address ($7508):
+  8172 LD ($7508),A
+WARNING: No label for address ($7521):
+  8177 LD ($7521),A
+WARNING: No label for address ($81AB):
+  817C JR Z,$81AB
+WARNING: No label for address ($7506):
+  817E LD A,($7506)
+WARNING: No label for address ($8187):
+  8184 JR NZ,$8187
+WARNING: No label for address ($7507):
+  8187 LD ($7507),A
+WARNING: No label for address ($8190):
+  818D JR NZ,$8190
+WARNING: No label for address ($7508):
+  8190 LD ($7508),A
+WARNING: No label for address ($7521):
+  8193 LD A,($7521)
+WARNING: No label for address ($81A6):
+  8198 JR Z,$81A6
+WARNING: No label for address ($7506):
+  819A LD A,($7506)
+WARNING: No label for address ($7507):
+  819D LD ($7507),A
+WARNING: No label for address ($7508):
+  81A0 LD ($7508),A
+WARNING: No label for address ($81A8):
+  81A4 JR $81A8
+WARNING: No label for address ($7521):
+  81A8 LD ($7521),A
+WARNING: No label for address ($7516):
+  81AB LD A,($7516)
+WARNING: No label for address ($81B6):
+  81B0 JR Z,$81B6
+WARNING: No label for address ($81CB):
+  81B4 JR NZ,$81CB
+WARNING: No label for address ($7527):
+  81B6 LD A,($7527)
+WARNING: No label for address ($81BF):
+  81BC JR NZ,$81BF
+WARNING: No label for address ($7527):
+  81BF LD ($7527),A
+WARNING: No label for address ($81FA):
+  81C4 JR Z,$81FA
+WARNING: No label for address ($753B):
+  81C6 LD A,($753B)
+WARNING: No label for address ($81DC):
+  81C9 JR $81DC
+WARNING: No label for address ($7527):
+  81CB LD A,($7527)
+WARNING: No label for address ($81D6):
+  81D0 JR Z,$81D6
+WARNING: No label for address ($7527):
+  81D3 LD ($7527),A
+WARNING: No label for address ($7506):
+  81D6 LD A,($7506)
+WARNING: No label for address ($753B):
+  81D9 LD ($753B),A
+WARNING: No label for address ($826F):
+  81DC LD HL,$826F
+WARNING: No label for address ($81EF):
+  81E4 LD ($81EF),A
+WARNING: No label for address ($81F6):
+  81E9 LD ($81F6),A
+WARNING: No label for address ($7500):
+  81EC LD HL,($7500)
+WARNING: No label for address ($7500):
+  81F0 LD ($7500),HL
+WARNING: No label for address ($7502):
+  81F3 LD HL,($7502)
+WARNING: No label for address ($7502):
+  81F7 LD ($7502),HL
+WARNING: No label for address ($8232):
+  81FC JR Z,$8232
+WARNING: No label for address ($7516):
+  81FE LD A,($7516)
+WARNING: No label for address ($8232):
+  8203 JR Z,$8232
+WARNING: No label for address ($7515):
+  8205 LD A,($7515)
+WARNING: No label for address ($8214):
+  820A JR Z,$8214
+WARNING: No label for address ($7515):
+  820D LD ($7515),A
+WARNING: No label for address ($752E):
+  8210 LD ($752E),A
+WARNING: No label for address ($751A):
+  8214 LD A,($751A)
+WARNING: No label for address ($821F):
+  8219 JR Z,$821F
+WARNING: No label for address ($751A):
+  821C LD ($751A),A
+WARNING: No label for address ($750D):
+  8220 LD A,($750D)
+WARNING: No label for address ($8236):
+  8225 JR NC,$8236
+WARNING: No label for address ($82D4):
+  8228 CALL $82D4
+WARNING: No label for address ($750D):
+  822B LD ($750D),A
+WARNING: No label for address ($8223):
+  822E DJNZ $8223
+WARNING: No label for address ($8236):
+  8230 JR $8236
+WARNING: No label for address ($751A):
+  8233 LD ($751A),A
+WARNING: No label for address ($7515):
+  8236 LD A,($7515)
+WARNING: No label for address ($7516):
+  823C LD A,($7516)
+WARNING: No label for address ($824C):
+  8241 JR Z,$824C
+WARNING: No label for address ($824C):
+  8245 JR NZ,$824C
+WARNING: No label for address ($751B):
+  8248 LD ($751B),A
+WARNING: No label for address ($751B):
+  824C LD A,($751B)
+WARNING: No label for address ($8257):
+  8251 JR Z,$8257
+WARNING: No label for address ($751B):
+  8254 LD ($751B),A
+WARNING: No label for address ($750D):
+  8258 LD A,($750D)
+WARNING: No label for address ($8269):
+  825E JR NZ,$8269
+WARNING: No label for address ($82FB):
+  8260 CALL $82FB
+WARNING: No label for address ($750D):
+  8263 LD ($750D),A
+WARNING: No label for address ($825B):
+  8266 DJNZ $825B
+WARNING: No label for address ($7514):
+  826B LD ($7514),A
+WARNING: No label for address ($7528):
+  8284 LD A,($7528)
+WARNING: No label for address ($7528):
+  8288 LD ($7528),A
+WARNING: No label for address ($7528):
+  828F LD ($7528),A
+WARNING: No label for address ($751C):
+  8292 LD HL,($751C)
+WARNING: No label for address ($82A1):
+  8299 JR NZ,$82A1
+WARNING: No label for address ($751C):
+  82A3 LD ($751C),HL
+WARNING: No label for address ($7517):
+  82A7 LD HL,$7517
+WARNING: No label for address ($7518):
+  82B1 LD HL,($7518)
+WARNING: No label for address ($82CB):
+  82B8 JR NZ,$82CB
+WARNING: No label for address ($82C5):
+  82BD JR NZ,$82C5
+WARNING: No label for address ($7516):
+  82C1 LD ($7516),A
+WARNING: No label for address ($7518):
+  82CD LD ($7518),HL
+WARNING: No label for address ($751E):
+  82D6 LD HL,($751E)
+WARNING: No label for address ($82E7):
+  82DD JR Z,$82E7
+WARNING: No label for address ($82F3):
+  82E1 JR NZ,$82F3
+WARNING: No label for address ($82E9):
+  82E5 JR $82E9
+WARNING: No label for address ($82F3):
+  82EF JR NZ,$82F3
+WARNING: No label for address ($751E):
+  82F5 LD ($751E),HL
+WARNING: No label for address ($751E):
+  82FC LD HL,($751E)
+WARNING: No label for address ($830F):
+  8305 JR Z,$830F
+WARNING: No label for address ($831B):
+  8309 JR NZ,$831B
+WARNING: No label for address ($8311):
+  830D JR $8311
+WARNING: No label for address ($831B):
+  8317 JR NZ,$831B
+WARNING: No label for address ($751E):
+  831B LD ($751E),HL
+WARNING: No label for address ($8328):
+  8330 DJNZ $8328
+WARNING: No label for address ($835C):
+  835C DJNZ $835C
+WARNING: No label for address ($835A):
+  835F JR NZ,$835A
+WARNING: No label for address ($8338):
+  8362 DJNZ $8338
+WARNING: No label for address ($7554):
+  8364 LD A,($7554)
+WARNING: No label for address ($8390):
+  8369 JR Z,$8390
+WARNING: No label for address ($8B74):
+  8375 CALL $8B74
+WARNING: No label for address ($8380):
+  837C JR Z,$8380
+WARNING: No label for address ($754B):
+  8380 LD ($754B),A
+WARNING: No label for address ($838B):
+  8387 JR Z,$838B
+WARNING: No label for address ($754C):
+  838B LD ($754C),A
+WARNING: No label for address ($83B6):
+  838E JR $83B6
+WARNING: No label for address ($7554):
+  8391 LD ($7554),A
+WARNING: No label for address ($9245):
+  8394 LD A,($9245)
+WARNING: No label for address ($9245):
+  83B7 LD ($9245),A
+WARNING: No label for address ($84F4):
+  83BA CALL $84F4
+WARNING: No label for address ($752D):
+  83C9 LD A,($752D)
+WARNING: No label for address ($842D):
+  83CE JP Z,$842D
+WARNING: No label for address ($7505):
+  83D1 LD A,($7505)
+WARNING: No label for address ($7516):
+  83D9 LD A,($7516)
+WARNING: No label for address ($7515):
+  83DC LD HL,$7515
+WARNING: No label for address ($842D):
+  83E2 JR NZ,$842D
+WARNING: No label for address ($7555):
+  83E4 LD A,($7555)
+WARNING: No label for address ($83F4):
+  83E9 JR Z,$83F4
+WARNING: No label for address ($755D):
+  83F4 LD A,($755D)
+WARNING: No label for address ($8404):
+  83FA JR NC,$8404
+WARNING: No label for address ($840F):
+  8402 JR $840F
+WARNING: No label for address ($8409):
+  8406 JR C,$8409
+WARNING: No label for address ($755D):
+  840F LD ($755D),A
+WARNING: No label for address ($7527):
+  8412 LD A,($7527)
+WARNING: No label for address ($8422):
+  8422 DJNZ $8422
+WARNING: No label for address ($8428):
+  8428 DJNZ $8428
+WARNING: No label for address ($841D):
+  842B JR NZ,$841D
+WARNING: No label for address ($7528):
+  843B LD ($7528),A
+WARNING: No label for address ($844E):
+  8444 JR Z,$844E
+WARNING: No label for address ($8455):
+  844C JR $8455
+WARNING: No label for address ($8441):
+  8460 JR NZ,$8441
+WARNING: No label for address ($8441):
+  846A JR NZ,$8441
+WARNING: No label for address ($751C):
+  846C LD ($751C),HL
+WARNING: No label for address ($752E):
+  8470 LD A,($752E)
+WARNING: No label for address ($82A7):
+  8475 JP Z,$82A7
+WARNING: No label for address ($7517):
+  8478 LD A,($7517)
+WARNING: No label for address ($7517):
+  847C LD ($7517),A
+WARNING: No label for address ($7517):
+  8483 LD ($7517),A
+WARNING: No label for address ($7518):
+  8486 LD HL,($7518)
+WARNING: No label for address ($84A6):
+  849E JR NZ,$84A6
+WARNING: No label for address ($7518):
+  84A6 LD ($7518),HL
+WARNING: No label for address ($7516):
+  84AA LD ($7516),A
+WARNING: No label for address ($84B1):
+  84B7 JR NZ,$84B1
+WARNING: No label for address ($84B1):
+  84C1 JR NZ,$84B1
+WARNING: No label for address ($84C8):
+  84CB DJNZ $84C8
+WARNING: No label for address ($751E):
+  84CD LD ($751E),HL
+WARNING: No label for address ($750D):
+  84D2 LD ($750D),A
+WARNING: No label for address ($84DD):
+  84E0 DJNZ $84DD
+WARNING: No label for address ($84DB):
+  84E3 JR NZ,$84DB
+WARNING: No label for address ($84E9):
+  84EC DJNZ $84E9
+WARNING: No label for address ($84E7):
+  84EF JR NZ,$84E7
+WARNING: No label for address ($7200):
+  84F7 LD HL,$7200
+WARNING: No label for address ($84FC):
+  8508 JR NZ,$84FC
+WARNING: No label for address ($7148):
+  850D LD HL,$7148
+WARNING: No label for address ($7300):
+  8518 LD HL,$7300
+WARNING: No label for address ($8539):
+  8523 JR Z,$8539
+WARNING: No label for address ($8530):
+  8534 DJNZ $8530
+WARNING: No label for address ($851F):
+  853A DJNZ $851F
+WARNING: No label for address ($851D):
+  8552 JR NZ,$851D
+WARNING: No label for address ($6848):
+  8557 LD HL,$6848
+WARNING: No label for address ($859A):
+  855C CALL $859A
+WARNING: No label for address ($85B9):
+  8562 LD HL,$85B9
+WARNING: No label for address ($859A):
+  8567 CALL $859A
+WARNING: No label for address ($85BF):
+  856D LD HL,$85BF
+WARNING: No label for address ($859A):
+  8572 CALL $859A
+WARNING: No label for address ($85C7):
+  8578 LD HL,$85C7
+WARNING: No label for address ($859A):
+  857D CALL $859A
+WARNING: No label for address ($85CC):
+  8582 LD HL,$85CC
+WARNING: No label for address ($8590):
+  8598 DJNZ $8590
+WARNING: No label for address ($6028):
+  85A4 LD BC,$6028
+WARNING: No label for address ($85AB):
+  85AF DJNZ $85AB
+WARNING: No label for address ($859A):
+  85B6 JR NZ,$859A
+WARNING: No label for address ($FD30):
+  85D4 LD HL,$FD30
+WARNING: No label for address ($7509):
+  85D7 LD ($7509),HL
+WARNING: No label for address ($750B):
+  85DD LD ($750B),HL
+WARNING: No label for address ($750B):
+  85EC LD HL,($750B)
+WARNING: No label for address ($7509):
+  85EF LD DE,($7509)
+WARNING: No label for address ($8681):
+  85F5 JP NC,$8681
+WARNING: No label for address ($864C):
+  85FA JR C,$864C
+WARNING: No label for address ($864B):
+  8603 JR NZ,$864B
+WARNING: No label for address ($750B):
+  8608 LD ($750B),HL
+WARNING: No label for address ($FB18):
+  860B LD HL,$FB18
+WARNING: No label for address ($8617):
+  8611 JR NZ,$8617
+WARNING: No label for address ($FAB8):
+  8617 LD IX,$FAB8
+WARNING: No label for address ($862B):
+  861D JR C,$862B
+WARNING: No label for address ($FAD8):
+  861F LD IX,$FAD8
+WARNING: No label for address ($862B):
+  8625 JR Z,$862B
+WARNING: No label for address ($FAE0):
+  8627 LD IX,$FAE0
+WARNING: No label for address ($862E):
+  863A DJNZ $862E
+WARNING: No label for address ($7509):
+  863C LD ($7509),DE
+WARNING: No label for address ($8658):
+  8645 JR Z,$8658
+WARNING: No label for address ($8659):
+  8649 JR $8659
+WARNING: No label for address ($750B):
+  864D LD ($750B),HL
+WARNING: No label for address ($7509):
+  8654 LD ($7509),HL
+WARNING: No label for address ($85E9):
+  865E DJNZ $85E9
+WARNING: No label for address ($750B):
+  8661 LD HL,($750B)
+WARNING: No label for address ($750B):
+  8668 LD ($750B),HL
+WARNING: No label for address ($7509):
+  866B LD HL,($7509)
+WARNING: No label for address ($7509):
+  8672 LD ($7509),HL
+WARNING: No label for address ($85E7):
+  867D JP NZ,$85E7
+WARNING: No label for address ($864C):
+  8683 JR NC,$864C
+WARNING: No label for address ($864C):
+  8687 JR C,$864C
+WARNING: No label for address ($864B):
+  8690 JR NZ,$864B
+WARNING: No label for address ($750B):
+  8693 LD ($750B),HL
+WARNING: No label for address ($86A3):
+  86A8 DJNZ $86A3
+WARNING: No label for address ($863C):
+  86AA JR $863C
+WARNING: No label for address ($7512):
+  86B0 LD ($7512),A
+WARNING: No label for address ($750D):
+  86B3 LD A,($750D)
+WARNING: No label for address ($750B):
+  86C7 LD ($750B),HL
+WARNING: No label for address ($752B):
+  86CA LD ($752B),HL
+WARNING: No label for address ($7509):
+  86D1 LD ($7509),HL
+WARNING: No label for address ($7529):
+  86D4 LD ($7529),HL
+WARNING: No label for address ($750D):
+  86D7 LD A,($750D)
+WARNING: No label for address ($6950):
+  86E5 LD HL,$6950
+WARNING: No label for address ($8700):
+  86F7 JR Z,$8700
+WARNING: No label for address ($86F0):
+  86FE JR NZ,$86F0
+WARNING: No label for address ($7529):
+  8700 LD HL,($7529)
+WARNING: No label for address ($8741):
+  8706 JP Z,$8741
+WARNING: No label for address ($7529):
+  870D LD ($7529),HL
+WARNING: No label for address ($8770):
+  8712 JR NC,$8770
+WARNING: No label for address ($752B):
+  8714 LD HL,($752B)
+WARNING: No label for address ($8770):
+  871C JR Z,$8770
+WARNING: No label for address ($8739):
+  8723 JR Z,$8739
+WARNING: No label for address ($875A):
+  8728 JR Z,$875A
+WARNING: No label for address ($8734):
+  8736 DJNZ $8734
+WARNING: No label for address ($8739):
+  873D DJNZ $8739
+WARNING: No label for address ($877E):
+  873F JR $877E
+WARNING: No label for address ($7529):
+  8742 LD ($7529),HL
+WARNING: No label for address ($752B):
+  8745 LD HL,($752B)
+WARNING: No label for address ($752B):
+  8749 LD ($752B),HL
+WARNING: No label for address ($874E):
+  8750 DJNZ $874E
+WARNING: No label for address ($86EA):
+  8755 JP NZ,$86EA
+WARNING: No label for address ($878D):
+  8758 JR $878D
+WARNING: No label for address ($875E):
+  8762 DJNZ $875E
+WARNING: No label for address ($8767):
+  8769 DJNZ $8767
+WARNING: No label for address ($877E):
+  876E JR $877E
+WARNING: No label for address ($8772):
+  877B DJNZ $8772
+WARNING: No label for address ($752B):
+  877F LD HL,($752B)
+WARNING: No label for address ($752B):
+  8787 LD ($752B),HL
+WARNING: No label for address ($8752):
+  878B JR $8752
+WARNING: No label for address ($750B):
+  878E LD HL,($750B)
+WARNING: No label for address ($750B):
+  8795 LD ($750B),HL
+WARNING: No label for address ($752B):
+  8798 LD ($752B),HL
+WARNING: No label for address ($7509):
+  879B LD HL,($7509)
+WARNING: No label for address ($7509):
+  879F LD ($7509),HL
+WARNING: No label for address ($7529):
+  87A2 LD ($7529),HL
+WARNING: No label for address ($7512):
+  87AC LD A,($7512)
+WARNING: No label for address ($7512):
+  87B0 LD ($7512),A
+WARNING: No label for address ($86E8):
+  87B5 JP NZ,$86E8
+WARNING: No label for address ($661E):
+  87BC LD HL,$661E
+WARNING: No label for address ($6627):
+  87BF LD DE,$6627
+WARNING: No label for address ($87D2):
+  87CB JR NZ,$87D2
+WARNING: No label for address ($87C4):
+  87CE DJNZ $87C4
+WARNING: No label for address ($87E4):
+  87D0 JR $87E4
+WARNING: No label for address ($87D8):
+  87D3 JR NC,$87D8
+WARNING: No label for address ($87E4):
+  87D6 JR $87E4
+WARNING: No label for address ($661E):
+  87D9 LD HL,$661E
+WARNING: No label for address ($6627):
+  87DC LD DE,$6627
+WARNING: No label for address ($752F):
+  87F1 LD ($752F),A
+WARNING: No label for address ($7530):
+  87F4 LD ($7530),A
+WARNING: No label for address ($8A6B):
+  87F7 LD A,($8A6B)
+WARNING: No label for address ($8844):
+  87FD JR NZ,$8844
+WARNING: No label for address ($8A6B):
+  8800 LD ($8A6B),A
+WARNING: No label for address ($8A69):
+  8803 LD HL,($8A69)
+WARNING: No label for address ($8817):
+  880D JR NZ,$8817
+WARNING: No label for address ($8817):
+  8812 JR C,$8817
+WARNING: No label for address ($E740):
+  8814 LD HL,$E740
+WARNING: No label for address ($8A69):
+  8817 LD ($8A69),HL
+WARNING: No label for address ($E86C):
+  881C LD HL,$E86C
+WARNING: No label for address ($8847):
+  8823 JR Z,$8847
+WARNING: No label for address ($883D):
+  8827 JR Z,$883D
+WARNING: No label for address ($881F):
+  883B JR $881F
+WARNING: No label for address ($881F):
+  8842 JR $881F
+WARNING: No label for address ($8A6B):
+  8844 LD ($8A6B),A
+WARNING: No label for address ($E86C):
+  8847 LD HL,$E86C
+WARNING: No label for address ($8867):
+  8850 LD ($8867),A
+WARNING: No label for address ($8868):
+  8855 LD ($8868),A
+WARNING: No label for address ($8871):
+  885A LD ($8871),A
+WARNING: No label for address ($8872):
+  885F LD ($8872),A
+WARNING: No label for address ($884B):
+  887B JR NZ,$884B
+WARNING: No label for address ($E86C):
+  887D LD IX,$E86C
+WARNING: No label for address ($7500):
+  8889 LD DE,($7500)
+WARNING: No label for address ($88D0):
+  8897 JR NZ,$88D0
+WARNING: No label for address ($88D0):
+  889C JR NC,$88D0
+WARNING: No label for address ($7530):
+  889E LD HL,$7530
+WARNING: No label for address ($88DD):
+  88A6 JR NC,$88DD
+WARNING: No label for address ($7524):
+  88A8 LD ($7524),A
+WARNING: No label for address ($7502):
+  88B1 LD DE,($7502)
+WARNING: No label for address ($88D0):
+  88BF JR NZ,$88D0
+WARNING: No label for address ($88D0):
+  88C4 JR NC,$88D0
+WARNING: No label for address ($7530):
+  88C6 LD HL,$7530
+WARNING: No label for address ($88FF):
+  88CE JR C,$88FF
+WARNING: No label for address ($8881):
+  88DA JR NZ,$8881
+WARNING: No label for address ($7502):
+  88E3 LD DE,($7502)
+WARNING: No label for address ($88D0):
+  88F1 JR NZ,$88D0
+WARNING: No label for address ($88D0):
+  88F6 JR NC,$88D0
+WARNING: No label for address ($7530):
+  88F8 LD HL,$7530
+WARNING: No label for address ($88D0):
+  88FD JR $88D0
+WARNING: No label for address ($7525):
+  88FF LD ($7525),A
+WARNING: No label for address ($7504):
+  8903 LD A,($7504)
+WARNING: No label for address ($891D):
+  8908 JR Z,$891D
+WARNING: No label for address ($7525):
+  890D LD ($7525),A
+WARNING: No label for address ($7524):
+  8911 LD A,($7524)
+WARNING: No label for address ($7524):
+  8918 LD ($7524),A
+WARNING: No label for address ($8920):
+  891B JR $8920
+WARNING: No label for address ($7524):
+  891D LD A,($7524)
+WARNING: No label for address ($892A):
+  8927 JR $892A
+WARNING: No label for address ($8929):
+  892A DJNZ $8929
+WARNING: No label for address ($7525):
+  8930 LD A,($7525)
+WARNING: No label for address ($894C):
+  8935 JR C,$894C
+WARNING: No label for address ($7524):
+  8937 LD A,($7524)
+WARNING: No label for address ($8940):
+  893C JR C,$8940
+WARNING: No label for address ($8947):
+  8943 JR Z,$8947
+WARNING: No label for address ($8984):
+  894A JR $8984
+WARNING: No label for address ($7524):
+  8951 LD A,($7524)
+WARNING: No label for address ($8962):
+  8956 JR C,$8962
+WARNING: No label for address ($8977):
+  8967 JR Z,$8977
+WARNING: No label for address ($8977):
+  896B JR Z,$8977
+WARNING: No label for address ($8984):
+  8979 JR NC,$8984
+WARNING: No label for address ($752F):
+  8984 LD HL,$752F
+WARNING: No label for address ($88D0):
+  8989 JP NZ,$88D0
+WARNING: No label for address ($DDB8):
+  8995 LD HL,$DDB8
+WARNING: No label for address ($7504):
+  8998 LD A,($7504)
+WARNING: No label for address ($89A5):
+  899D JR Z,$89A5
+WARNING: No label for address ($89A9):
+  89AA DJNZ $89A9
+WARNING: No label for address ($FBE0):
+  89AC LD DE,$FBE0
+WARNING: No label for address ($FBE0):
+  89B4 LD HL,$FBE0
+WARNING: No label for address ($FB98):
+  89B7 LD DE,$FB98
+WARNING: No label for address ($89BC):
+  89C8 DJNZ $89BC
+WARNING: No label for address ($7533):
+  89CA LD A,($7533)
+WARNING: No label for address ($87EF):
+  89CE LD A,($87EF)
+WARNING: No label for address ($8A20):
+  89D2 JR Z,$8A20
+WARNING: No label for address ($89D9):
+  89D5 JR C,$89D9
+WARNING: No label for address ($87EF):
+  89DA LD ($87EF),A
+WARNING: No label for address ($8A02):
+  89E6 JR Z,$8A02
+WARNING: No label for address ($89F2):
+  89EA JR Z,$89F2
+WARNING: No label for address ($89EC):
+  89F0 JR NZ,$89EC
+WARNING: No label for address ($89F6):
+  89FA DJNZ $89F6
+WARNING: No label for address ($8A06):
+  8A0B DJNZ $8A06
+WARNING: No label for address ($8A17):
+  8A1B DJNZ $8A17
+WARNING: No label for address ($87EF):
+  8A1D LD A,($87EF)
+WARNING: No label for address ($8A49):
+  8A22 JR Z,$8A49
+WARNING: No label for address ($88D0):
+  8A26 JP NZ,$88D0
+WARNING: No label for address ($FB98):
+  8A29 LD HL,$FB98
+WARNING: No label for address ($FBF0):
+  8A2C LD DE,$FBF0
+WARNING: No label for address ($8A34):
+  8A39 DJNZ $8A34
+WARNING: No label for address ($8A31):
+  8A44 JR NZ,$8A31
+WARNING: No label for address ($88D0):
+  8A46 JP $88D0
+WARNING: No label for address ($FB98):
+  8A49 LD HL,$FB98
+WARNING: No label for address ($FBE8):
+  8A4C LD DE,$FBE8
+WARNING: No label for address ($8A54):
+  8A59 DJNZ $8A54
+WARNING: No label for address ($8A51):
+  8A64 JR NZ,$8A51
+WARNING: No label for address ($88D0):
+  8A66 JP $88D0
+WARNING: No label for address ($7515):
+  8A7A LD A,($7515)
+WARNING: No label for address ($750D):
+  8A80 LD A,($750D)
+WARNING: No label for address ($7534):
+  8A88 LD HL,$7534
+WARNING: No label for address ($8A9B):
+  8A8E JR Z,$8A9B
+WARNING: No label for address ($8A98):
+  8A95 JR NZ,$8A98
+WARNING: No label for address ($7533):
+  8A98 LD ($7533),A
+WARNING: No label for address ($7A8B):
+  8A9B LD HL,$7A8B
+WARNING: No label for address ($8B30):
+  8AA3 JP C,$8B30
+WARNING: No label for address ($8AA2):
+  8AA8 DJNZ $8AA2
+WARNING: No label for address ($7514):
+  8AAA LD A,($7514)
+WARNING: No label for address ($8AC1):
+  8AAF JR Z,$8AC1
+WARNING: No label for address ($8B5D):
+  8AB4 JP NZ,$8B5D
+WARNING: No label for address ($751B):
+  8AB7 LD A,($751B)
+WARNING: No label for address ($8B5D):
+  8ABC JP NC,$8B5D
+WARNING: No label for address ($8ACA):
+  8ABF JR $8ACA
+WARNING: No label for address ($8B5D):
+  8AC7 JP NZ,$8B5D
+WARNING: No label for address ($7A81):
+  8ACA LD DE,$7A81
+WARNING: No label for address ($8AD6):
+  8AD8 JR NZ,$8AD6
+WARNING: No label for address ($8B1D):
+  8ADE JR NZ,$8B1D
+WARNING: No label for address ($8B5D):
+  8AE2 JR NC,$8B5D
+WARNING: No label for address ($8B5D):
+  8AE6 JR C,$8B5D
+WARNING: No label for address ($8AD0):
+  8AE9 DJNZ $8AD0
+WARNING: No label for address ($8AF5):
+  8AEE JR NZ,$8AF5
+WARNING: No label for address ($752E):
+  8AF2 LD ($752E),A
+WARNING: No label for address ($7515):
+  8AF7 LD ($7515),A
+WARNING: No label for address ($7514):
+  8AFB LD ($7514),A
+WARNING: No label for address ($750D):
+  8AFE LD A,($750D)
+WARNING: No label for address ($750D):
+  8B0D LD ($750D),A
+WARNING: No label for address ($8B1A):
+  8B13 JR $8B1A
+WARNING: No label for address ($82D4):
+  8B16 CALL $82D4
+WARNING: No label for address ($8B15):
+  8B1A DJNZ $8B15
+WARNING: No label for address ($8B5D):
+  8B1F JR Z,$8B5D
+WARNING: No label for address ($8B5D):
+  8B23 JR Z,$8B5D
+WARNING: No label for address ($8B2D):
+  8B27 JR Z,$8B2D
+WARNING: No label for address ($8AE8):
+  8B2B JR NZ,$8AE8
+WARNING: No label for address ($8AE8):
+  8B2E JR $8AE8
+WARNING: No label for address ($8B4E):
+  8B34 JR C,$8B4E
+WARNING: No label for address ($87EF):
+  8B36 LD A,($87EF)
+WARNING: No label for address ($8B5D):
+  8B3D JR Z,$8B5D
+WARNING: No label for address ($8B49):
+  8B42 JR Z,$8B49
+WARNING: No label for address ($8AA7):
+  8B46 JP $8AA7
+WARNING: No label for address ($8B44):
+  8B4A JR NZ,$8B44
+WARNING: No label for address ($8B5D):
+  8B4C JR $8B5D
+WARNING: No label for address ($751B):
+  8B4E LD A,($751B)
+WARNING: No label for address ($8B5D):
+  8B53 JR NC,$8B5D
+WARNING: No label for address ($751B):
+  8B56 LD ($751B),A
+WARNING: No label for address ($8AA7):
+  8B5A JP $8AA7
+WARNING: No label for address ($7505):
+  8B5F LD ($7505),A
+WARNING: No label for address ($8B8D):
+  8B8A JR NC,$8B8D
+WARNING: No label for address ($7537):
+  8B91 LD A,($7537)
+WARNING: No label for address ($8BA2):
+  8B97 JR Z,$8BA2
+WARNING: No label for address ($7537):
+  8B99 LD ($7537),A
+WARNING: No label for address ($7538):
+  8B9C LD DE,($7538)
+WARNING: No label for address ($8BB0):
+  8BA0 JR $8BB0
+WARNING: No label for address ($7537):
+  8BA3 LD ($7537),A
+WARNING: No label for address ($8B74):
+  8BA6 CALL $8B74
+WARNING: No label for address ($7538):
+  8BAC LD ($7538),DE
+WARNING: No label for address ($7527):
+  8BB1 LD A,($7527)
+WARNING: No label for address ($8BC6):
+  8BB6 JR NZ,$8BC6
+WARNING: No label for address ($7535):
+  8BBB LD A,($7535)
+WARNING: No label for address ($7536):
+  8BC1 LD A,($7536)
+WARNING: No label for address ($8C00):
+  8BC4 JR $8C00
+WARNING: No label for address ($7504):
+  8BC6 LD A,($7504)
+WARNING: No label for address ($8BD2):
+  8BCB JR Z,$8BD2
+WARNING: No label for address ($8C77):
+  8BCD LD HL,$8C77
+WARNING: No label for address ($8BD5):
+  8BD0 JR $8BD5
+WARNING: No label for address ($8C66):
+  8BD2 LD HL,$8C66
+WARNING: No label for address ($7506):
+  8BD5 LD A,($7506)
+WARNING: No label for address ($7535):
+  8BE0 LD A,($7535)
+WARNING: No label for address ($8BEA):
+  8BE6 JR C,$8BEA
+WARNING: No label for address ($7535):
+  8BEA LD ($7535),A
+WARNING: No label for address ($7536):
+  8BF2 LD A,($7536)
+WARNING: No label for address ($8BFC):
+  8BF8 JR C,$8BFC
+WARNING: No label for address ($7536):
+  8BFC LD ($7536),A
+WARNING: No label for address ($7504):
+  8C01 LD A,($7504)
+WARNING: No label for address ($8C13):
+  8C06 JR Z,$8C13
+WARNING: No label for address ($8C13):
+  8C0D JR C,$8C13
+WARNING: No label for address ($8C1A):
+  8C17 JR $8C1A
+WARNING: No label for address ($8C19):
+  8C1A DJNZ $8C19
+WARNING: No label for address ($8C35):
+  8C29 JR NC,$8C35
+WARNING: No label for address ($8C39):
+  8C31 JR C,$8C39
+WARNING: No label for address ($8C43):
+  8C33 JR $8C43
+WARNING: No label for address ($8C43):
+  8C37 JR NC,$8C43
+WARNING: No label for address ($8C5A):
+  8C4C JR NZ,$8C5A
+WARNING: No label for address ($8C4B):
+  8C5B DJNZ $8C4B
+WARNING: No label for address ($8C46):
+  8C62 JR NZ,$8C46
+WARNING: No label for address ($7507):
+  8CA0 LD A,($7507)
+WARNING: No label for address ($7504):
+  8CA4 LD A,($7504)
+WARNING: No label for address ($8CB1):
+  8CA9 JR Z,$8CB1
+WARNING: No label for address ($8D02):
+  8CB1 LD HL,$8D02
+WARNING: No label for address ($8CBD):
+  8CB9 JR NC,$8CBD
+WARNING: No label for address ($8CC4):
+  8CC5 DJNZ $8CC4
+WARNING: No label for address ($6950):
+  8CC7 LD DE,$6950
+WARNING: No label for address ($7000):
+  8CCF LD DE,$7000
+WARNING: No label for address ($7515):
+  8CD2 LD A,($7515)
+WARNING: No label for address ($8CE0):
+  8CD7 JR Z,$8CE0
+WARNING: No label for address ($7516):
+  8CD9 LD A,($7516)
+WARNING: No label for address ($8CEE):
+  8CDE JR Z,$8CEE
+WARNING: No label for address ($6700):
+  8CE0 LD DE,$6700
+WARNING: No label for address ($753A):
+  8CE3 LD A,($753A)
+WARNING: No label for address ($8CF7):
+  8CE9 JR C,$8CF7
+WARNING: No label for address ($8CF7):
+  8CEC JR $8CF7
+WARNING: No label for address ($753A):
+  8CEE LD A,($753A)
+WARNING: No label for address ($8CF7):
+  8CF4 JR C,$8CF7
+WARNING: No label for address ($753A):
+  8CF7 LD ($753A),A
+WARNING: No label for address ($6950):
+  8CFC LD HL,$6950
+WARNING: No label for address ($8D01):
+  8D07 DJNZ $8D01
+WARNING: No label for address ($8D18):
+  8D1B DJNZ $8D18
+WARNING: No label for address ($8D16):
+  8D1F JR NZ,$8D16
+WARNING: No label for address ($8D2C):
+  8D2F DJNZ $8D2C
+WARNING: No label for address ($8D28):
+  8D34 DJNZ $8D28
+WARNING: No label for address ($8D26):
+  8D47 JR NZ,$8D26
+WARNING: No label for address ($8D53):
+  8D56 DJNZ $8D53
+WARNING: No label for address ($8D51):
+  8D5A JR NZ,$8D51
+WARNING: No label for address ($F230):
+  8D5D LD IX,$F230
+WARNING: No label for address ($753C):
+  8D67 LD ($753C),HL
+WARNING: No label for address ($753E):
+  8D6A LD ($753E),HL
+WARNING: No label for address ($8D8A):
+  8D86 JR C,$8D8A
+WARNING: No label for address ($8D99):
+  8D90 JR Z,$8D99
+WARNING: No label for address ($8D81):
+  8D93 DJNZ $8D81
+WARNING: No label for address ($8D9B):
+  8D95 JR $8D9B
+WARNING: No label for address ($8D97):
+  8D99 DJNZ $8D97
+WARNING: No label for address ($753E):
+  8D9C LD HL,($753E)
+WARNING: No label for address ($753E):
+  8DA1 LD ($753E),HL
+WARNING: No label for address ($8D7D):
+  8DA7 JR NZ,$8D7D
+WARNING: No label for address ($753C):
+  8DA9 LD HL,($753C)
+WARNING: No label for address ($8DC8):
+  8DB1 JR NZ,$8DC8
+WARNING: No label for address ($753C):
+  8DC9 LD ($753C),HL
+WARNING: No label for address ($753E):
+  8DCC LD ($753E),HL
+WARNING: No label for address ($8D79):
+  8DD3 JR NZ,$8D79
+WARNING: No label for address ($8D61):
+  8DDF JR NZ,$8D61
+WARNING: No label for address ($F230):
+  8DE2 LD IX,$F230
+WARNING: No label for address ($6A4F):
+  8DEB LD HL,$6A4F
+WARNING: No label for address ($8E15):
+  8DFB JR C,$8E15
+WARNING: No label for address ($8E09):
+  8E02 JR Z,$8E09
+WARNING: No label for address ($8E10):
+  8E06 JR Z,$8E10
+WARNING: No label for address ($8DEE):
+  8E0E JR $8DEE
+WARNING: No label for address ($6AC2):
+  8E11 LD HL,$6AC2
+WARNING: No label for address ($8E3D):
+  8E25 JR Z,$8E3D
+WARNING: No label for address ($8E2B):
+  8E38 DJNZ $8E2B
+WARNING: No label for address ($8E4D):
+  8E3B JR $8E4D
+WARNING: No label for address ($8E41):
+  8E45 DJNZ $8E41
+WARNING: No label for address ($8DF7):
+  8E51 JR $8DF7
+WARNING: No label for address ($7438):
+  8E5C LD IX,$7438
+WARNING: No label for address ($8EE8):
+  8E68 CALL $8EE8
+WARNING: No label for address ($7440):
+  8E6B LD IX,$7440
+WARNING: No label for address ($8EE8):
+  8E71 CALL $8EE8
+WARNING: No label for address ($7448):
+  8E74 LD IX,$7448
+WARNING: No label for address ($8EE8):
+  8E7A CALL $8EE8
+WARNING: No label for address ($7480):
+  8E7D LD IX,$7480
+WARNING: No label for address ($8EE8):
+  8E86 CALL $8EE8
+WARNING: No label for address ($7488):
+  8E89 LD IX,$7488
+WARNING: No label for address ($8EE8):
+  8E8F CALL $8EE8
+WARNING: No label for address ($7490):
+  8E92 LD IX,$7490
+WARNING: No label for address ($8EE8):
+  8E98 CALL $8EE8
+WARNING: No label for address ($7460):
+  8E9B LD IX,$7460
+WARNING: No label for address ($8EE8):
+  8EA7 CALL $8EE8
+WARNING: No label for address ($7470):
+  8EAA LD IX,$7470
+WARNING: No label for address ($8EE8):
+  8EB6 CALL $8EE8
+WARNING: No label for address ($8F0C):
+  8EBC LD HL,$8F0C
+WARNING: No label for address ($859A):
+  8EC1 CALL $859A
+WARNING: No label for address ($859A):
+  8ECC CALL $859A
+WARNING: No label for address ($859A):
+  8ED7 CALL $859A
+WARNING: No label for address ($8EED):
+  8EF4 DJNZ $8EED
+WARNING: No label for address ($8EE8):
+  8F09 JR NZ,$8EE8
+WARNING: No label for address ($8F16):
+  8F16 DJNZ $8F16
+WARNING: No label for address ($8F14):
+  8F19 JR NZ,$8F14
+WARNING: No label for address ($7542):
+  8F1B LD HL,$7542
+WARNING: No label for address ($9034):
+  8F22 JP NC,$9034
+WARNING: No label for address ($9027):
+  8F25 LD A,($9027)
+WARNING: No label for address ($7543):
+  8F28 LD HL,($7543)
+WARNING: No label for address ($8F31):
+  8F2D JR NZ,$8F31
+WARNING: No label for address ($9030):
+  8F32 LD A,($9030)
+WARNING: No label for address ($7547):
+  8F35 LD HL,($7547)
+WARNING: No label for address ($901F):
+  8F39 LD DE,$901F
+WARNING: No label for address ($7545):
+  8F3C LD HL,($7545)
+WARNING: No label for address ($8F41):
+  8F45 DJNZ $8F41
+WARNING: No label for address ($9028):
+  8F47 LD DE,$9028
+WARNING: No label for address ($7549):
+  8F4A LD HL,($7549)
+WARNING: No label for address ($8F4F):
+  8F53 DJNZ $8F4F
+WARNING: No label for address ($7542):
+  8F55 LD HL,$7542
+WARNING: No label for address ($9034):
+  8F5B JP NC,$9034
+WARNING: No label for address ($9027):
+  8F60 LD A,($9027)
+WARNING: No label for address ($7543):
+  8F63 LD HL,($7543)
+WARNING: No label for address ($9034):
+  8F67 CALL $9034
+WARNING: No label for address ($7541):
+  8F6D LD A,($7541)
+WARNING: No label for address ($8F78):
+  8F75 JR $8F78
+WARNING: No label for address ($8F77):
+  8F78 DJNZ $8F77
+WARNING: No label for address ($7540):
+  8F7A LD A,($7540)
+WARNING: No label for address ($7543):
+  8F7F LD ($7543),HL
+WARNING: No label for address ($9027):
+  8F83 LD ($9027),A
+WARNING: No label for address ($7541):
+  8F8B LD A,($7541)
+WARNING: No label for address ($8FA2):
+  8F93 JR $8FA2
+WARNING: No label for address ($8F95):
+  8FA2 DJNZ $8F95
+WARNING: No label for address ($7540):
+  8FA4 LD A,($7540)
+WARNING: No label for address ($7545):
+  8FA9 LD ($7545),HL
+WARNING: No label for address ($901F):
+  8FAC LD DE,$901F
+WARNING: No label for address ($8FB1):
+  8FB5 DJNZ $8FB1
+WARNING: No label for address ($7545):
+  8FB7 LD DE,($7545)
+WARNING: No label for address ($901D):
+  8FBB LD HL,$901D
+WARNING: No label for address ($859A):
+  8FC0 CALL $859A
+WARNING: No label for address ($754C):
+  8FC6 LD A,($754C)
+WARNING: No label for address ($8FD1):
+  8FCE JR $8FD1
+WARNING: No label for address ($8FD0):
+  8FD1 DJNZ $8FD0
+WARNING: No label for address ($754B):
+  8FD3 LD A,($754B)
+WARNING: No label for address ($7547):
+  8FD8 LD ($7547),HL
+WARNING: No label for address ($9030):
+  8FDC LD ($9030),A
+WARNING: No label for address ($754C):
+  8FE4 LD A,($754C)
+WARNING: No label for address ($8FFB):
+  8FEC JR $8FFB
+WARNING: No label for address ($8FEE):
+  8FFB DJNZ $8FEE
+WARNING: No label for address ($754B):
+  8FFD LD A,($754B)
+WARNING: No label for address ($7549):
+  9002 LD ($7549),HL
+WARNING: No label for address ($9028):
+  9005 LD DE,$9028
+WARNING: No label for address ($900A):
+  900E DJNZ $900A
+WARNING: No label for address ($7549):
+  9010 LD DE,($7549)
+WARNING: No label for address ($901E):
+  9014 LD HL,$901E
+WARNING: No label for address ($859A):
+  9019 CALL $859A
+WARNING: No label for address ($754D):
+  9035 LD ($754D),A
+WARNING: No label for address ($7500):
+  9038 LD HL,($7500)
+WARNING: No label for address ($9063):
+  9052 JR Z,$9063
+WARNING: No label for address ($905B):
+  9056 JR NC,$905B
+WARNING: No label for address ($905D):
+  9059 JR $905D
+WARNING: No label for address ($754D):
+  905D LD HL,$754D
+WARNING: No label for address ($9068):
+  9061 JR $9068
+WARNING: No label for address ($905B):
+  9066 JR NC,$905B
+WARNING: No label for address ($7540):
+  9068 LD ($7540),A
+WARNING: No label for address ($7502):
+  906B LD HL,($7502)
+WARNING: No label for address ($9096):
+  9085 JR Z,$9096
+WARNING: No label for address ($9090):
+  9089 JR NC,$9090
+WARNING: No label for address ($9090):
+  908C JR $9090
+WARNING: No label for address ($754D):
+  9090 LD HL,$754D
+WARNING: No label for address ($909B):
+  9094 JR $909B
+WARNING: No label for address ($908E):
+  9099 JR NC,$908E
+WARNING: No label for address ($7541):
+  909B LD ($7541),A
+WARNING: No label for address ($754E):
+  909E LD HL,$754E
+WARNING: No label for address ($9111):
+  90A5 JR NC,$9111
+WARNING: No label for address ($754F):
+  90A9 LD HL,$754F
+WARNING: No label for address ($90CB):
+  90B0 JR NC,$90CB
+WARNING: No label for address ($8B74):
+  90B4 CALL $8B74
+WARNING: No label for address ($9178):
+  90BA LD HL,$9178
+WARNING: No label for address ($8B74):
+  90CB CALL $8B74
+WARNING: No label for address ($9198):
+  90D3 LD HL,$9198
+WARNING: No label for address ($754B):
+  90D8 LD A,($754B)
+WARNING: No label for address ($90EA):
+  90DF JR C,$90EA
+WARNING: No label for address ($90EA):
+  90E3 JR NC,$90EA
+WARNING: No label for address ($754B):
+  90E5 LD ($754B),A
+WARNING: No label for address ($90F4):
+  90E8 JR $90F4
+WARNING: No label for address ($754F):
+  90EC LD ($754F),A
+WARNING: No label for address ($754E):
+  90F1 LD ($754E),A
+WARNING: No label for address ($754C):
+  90F5 LD A,($754C)
+WARNING: No label for address ($9107):
+  90FC JR C,$9107
+WARNING: No label for address ($9107):
+  9100 JR NC,$9107
+WARNING: No label for address ($754C):
+  9102 LD ($754C),A
+WARNING: No label for address ($9111):
+  9105 JR $9111
+WARNING: No label for address ($754F):
+  9109 LD ($754F),A
+WARNING: No label for address ($754E):
+  910E LD ($754E),A
+WARNING: No label for address ($7540):
+  9111 LD A,($7540)
+WARNING: No label for address ($754B):
+  9115 LD A,($754B)
+WARNING: No label for address ($911F):
+  911B JR C,$911F
+WARNING: No label for address ($7541):
+  9120 LD A,($7541)
+WARNING: No label for address ($754C):
+  9124 LD A,($754C)
+WARNING: No label for address ($912E):
+  912A JR C,$912E
+WARNING: No label for address ($9132):
+  912F JR NC,$9132
+WARNING: No label for address ($9138):
+  9134 JR C,$9138
+WARNING: No label for address ($7550):
+  9138 LD ($7550),A
+WARNING: No label for address ($754D):
+  9140 LD A,($754D)
+WARNING: No label for address ($9149):
+  9145 JR Z,$9149
+WARNING: No label for address ($9152):
+  914D JR $9152
+WARNING: No label for address ($914F):
+  9152 DJNZ $914F
+WARNING: No label for address ($915B):
+  9156 JR $915B
+WARNING: No label for address ($9158):
+  915B DJNZ $9158
+WARNING: No label for address ($7550):
+  915E LD A,($7550)
+WARNING: No label for address ($9169):
+  9163 JR C,$9169
+WARNING: No label for address ($916B):
+  9167 JR $916B
+WARNING: No label for address ($9173):
+  9175 DJNZ $9173
+WARNING: No label for address ($7527):
+  91CE LD A,($7527)
+WARNING: No label for address ($91DA):
+  91D3 JR NZ,$91DA
+WARNING: No label for address ($7506):
+  91D5 LD A,($7506)
+WARNING: No label for address ($91DD):
+  91D8 JR $91DD
+WARNING: No label for address ($753B):
+  91DA LD A,($753B)
+WARNING: No label for address ($9232):
+  91E0 LD HL,$9232
+WARNING: No label for address ($7527):
+  91EE LD A,($7527)
+WARNING: No label for address ($91F8):
+  91F4 JR C,$91F8
+WARNING: No label for address ($FFE0):
+  91FC LD DE,$FFE0
+WARNING: No label for address ($9204):
+  91FF JR $9204
+WARNING: No label for address ($9201):
+  9204 DJNZ $9201
+WARNING: No label for address ($920D):
+  9208 JR $920D
+WARNING: No label for address ($920A):
+  920D DJNZ $920A
+WARNING: No label for address ($7530):
+  9212 LD A,($7530)
+WARNING: No label for address ($921D):
+  9217 JR Z,$921D
+WARNING: No label for address ($921F):
+  921B JR $921F
+WARNING: No label for address ($9224):
+  9226 DJNZ $9224
+WARNING: No label for address ($922D):
+  922F DJNZ $922D
+WARNING: No label for address ($762C):
+  9246 CALL $762C
+WARNING: No label for address ($F550):
+  9249 LD HL,$F550
+WARNING: No label for address ($9243):
+  924C LD ($9243),HL
+WARNING: No label for address ($750D):
+  924F LD HL,$750D
+WARNING: No label for address ($76D2):
+  9257 CALL $76D2
+WARNING: No label for address ($8B91):
+  925A CALL $8B91
+WARNING: No label for address ($6950):
+  925D LD DE,$6950
+WARNING: No label for address ($9300):
+  9260 LD HL,$9300
+WARNING: No label for address ($8CA0):
+  926C CALL NC,$8CA0
+WARNING: No label for address ($9279):
+  9273 JR NZ,$9279
+WARNING: No label for address ($752D):
+  9275 LD HL,$752D
+WARNING: No label for address ($92ED):
+  927B CALL NC,$92ED
+WARNING: No label for address ($7E10):
+  927E CALL $7E10
+WARNING: No label for address ($86AF):
+  9281 CALL $86AF
+WARNING: No label for address ($762C):
+  9284 CALL $762C
+WARNING: No label for address ($9256):
+  9288 DJNZ $9256
+WARNING: No label for address ($9245):
+  928A LD A,($9245)
+WARNING: No label for address ($9245):
+  929D LD A,($9245)
+WARNING: No label for address ($9245):
+  92A1 LD ($9245),A
+WARNING: No label for address ($82A7):
+  92A9 CALL $82A7
+WARNING: No label for address ($7516):
+  92AC LD A,($7516)
+WARNING: No label for address ($92A9):
+  92B1 JR NZ,$92A9
+WARNING: No label for address ($7500):
+  92B3 LD HL,$7500
+WARNING: No label for address ($75C8):
+  92B6 LD DE,$75C8
+WARNING: No label for address ($92C1):
+  92BE JR Z,$92C1
+WARNING: No label for address ($92BB):
+  92C3 DJNZ $92BB
+WARNING: No label for address ($9245):
+  92CA LD ($9245),A
+WARNING: No label for address ($8A6E):
+  92CD LD HL,$8A6E
+WARNING: No label for address ($859A):
+  92D5 CALL $859A
+WARNING: No label for address ($92DD):
+  92E0 DJNZ $92DD
+WARNING: No label for address ($928A):
+  92EB JR $928A
+WARNING: No label for address ($9243):
+  92ED LD HL,($9243)
+WARNING: No label for address ($6950):
+  92F0 LD DE,$6950
+WARNING: No label for address ($92F5):
+  92FA DJNZ $92F5
+WARNING: No label for address ($9243):
+  92FC LD ($9243),HL
+WARNING: No label for address ($752D):
+  E282 LD ($752D),A
+WARNING: No label for address ($84D6):
+  E293 CALL $84D6
+WARNING: No label for address ($7FD5):
+  E299 LD A,($7FD5)
+WARNING: No label for address ($7FD5):
+  E2BA LD ($7FD5),A
+WARNING: No label for address ($E3A6):
+  E2E8 LD DE,$E3A6
+WARNING: No label for address ($E325):
+  E31F LD HL,$E325
+WARNING: No label for address ($84D6):
+  E3B4 CALL $84D6
+WARNING: No label for address ($84F4):
+  E3C5 CALL $84F4
+WARNING: No label for address ($7530):
+  E3DD LD ($7530),A
+WARNING: No label for address ($7527):
+  E3E1 LD ($7527),A
+WARNING: No label for address ($91B4):
+  E3E4 CALL $91B4
+WARNING: No label for address ($87BC):
+  E3EA CALL $87BC
+WARNING: No label for address ($6028):
+  E422 LD BC,$6028
+WARNING: No label for address ($E517):
+  E443 LD HL,$E517
+WARNING: No label for address ($8DEE):
+  E446 CALL $8DEE
+WARNING: No label for address ($E4E0):
+  E449 LD HL,$E4E0
+WARNING: No label for address ($859A):
+  E451 CALL $859A
+WARNING: No label for address ($E4EC):
+  E454 LD HL,$E4EC
+WARNING: No label for address ($859A):
+  E45C CALL $859A
+WARNING: No label for address ($E504):
+  E45F LD HL,$E504
+WARNING: No label for address ($E4FA):
+  E473 LD HL,$E4FA
+WARNING: No label for address ($859A):
+  E47B CALL $859A
+WARNING: No label for address ($859A):
+  E481 CALL $859A
+WARNING: No label for address ($859A):
+  E487 CALL $859A
+WARNING: No label for address ($859A):
+  E48D CALL $859A
+WARNING: No label for address ($859A):
+  E493 CALL $859A
+WARNING: No label for address ($859A):
+  E499 CALL $859A
+WARNING: No label for address ($859A):
+  E49F CALL $859A
+WARNING: No label for address ($859A):
+  E4A6 CALL $859A
+WARNING: No label for address ($859A):
+  E4AC CALL $859A
+WARNING: No label for address ($859A):
+  E4B2 CALL $859A
+WARNING: No label for address ($7460):
+  E4B6 LD IX,$7460
+WARNING: No label for address ($8EE8):
+  E4C2 CALL $8EE8
+WARNING: No label for address ($FB80):
+  E4C5 LD IX,$FB80
+WARNING: No label for address ($8EE8):
+  E4CA CALL $8EE8
+WARNING: No label for address ($FB90):
+  E4CD LD IX,$FB90
+WARNING: No label for address ($8EE8):
+  E4D2 CALL $8EE8
+WARNING: No label for address ($FB88):
+  F34A LD DE,$FB88
+WARNING: No label for address ($755B):
+  F34D LD A,($755B)
+WARNING: No label for address ($7DEE):
+  F355 LD HL,$7DEE
+WARNING: No label for address ($7DF6):
+  F35F LD HL,$7DF6
+WARNING: No label for address ($755B):
+  F367 LD ($755B),A
+WARNING: No label for address ($FB90):
+  F36A LD DE,$FB90
+WARNING: No label for address ($755C):
+  F36D LD A,($755C)
+WARNING: No label for address ($7DFE):
+  F375 LD HL,$7DFE
+WARNING: No label for address ($7E06):
+  F37F LD HL,$7E06
+WARNING: No label for address ($755C):
+  F387 LD ($755C),A
+WARNING: No label for address ($7555):
+  F39A LD A,($7555)
+WARNING: No label for address ($F51B):
+  F3A6 LD DE,$F51B
+WARNING: No label for address ($F511):
+  F3A9 LD HL,$F511
+WARNING: No label for address ($F51B):
+  F3B5 LD DE,$F51B
+WARNING: No label for address ($F515):
+  F3B8 LD HL,$F515
+WARNING: No label for address ($7556):
+  F3C8 LD A,($7556)
+WARNING: No label for address ($7556):
+  F3D1 LD ($7556),A
+WARNING: No label for address ($F548):
+  F3D7 LD HL,$F548
+WARNING: No label for address ($F52F):
+  F3DC LD HL,$F52F
+WARNING: No label for address ($7557):
+  F3DF LD ($7557),HL
+WARNING: No label for address ($7551):
+  F3E3 LD ($7551),A
+WARNING: No label for address ($83C2):
+  F3F3 JP $83C2
+WARNING: No label for address ($750D):
+  F3F9 LD A,($750D)
+WARNING: No label for address ($7556):
+  F40C LD HL,$7556
+WARNING: No label for address ($F51F):
+  F429 LD DE,$F51F
+WARNING: No label for address ($7555):
+  F441 LD ($7555),A
+WARNING: No label for address ($7552):
+  F444 LD IX,($7552)
+WARNING: No label for address ($7502):
+  F44E LD A,($7502)
+WARNING: No label for address ($7500):
+  F464 LD A,($7500)
+WARNING: No label for address ($7551):
+  F46F LD A,($7551)
+WARNING: No label for address ($7556):
+  F474 LD ($7556),A
+WARNING: No label for address ($7557):
+  F477 LD A,($7557)
+WARNING: No label for address ($F548):
+  F47A LD HL,$F548
+WARNING: No label for address ($7554):
+  F480 LD A,($7554)
+WARNING: No label for address ($7554):
+  F48A LD ($7554),A
+WARNING: No label for address ($7555):
+  F4A6 LD A,($7555)
+WARNING: No label for address ($751B):
+  F4AB LD HL,$751B
+WARNING: No label for address ($7555):
+  F4B4 LD ($7555),A
+WARNING: No label for address ($7557):
+  F4BB LD A,($7557)
+WARNING: No label for address ($F548):
+  F4BE LD HL,$F548
+WARNING: No label for address ($7557):
+  F4CC LD HL,($7557)
+WARNING: No label for address ($7512):
+  F4DA LD ($7512),A
+WARNING: No label for address ($750D):
+  F4DD LD A,($750D)
+WARNING: No label for address ($752B):
+  F4F1 LD ($752B),HL
+WARNING: No label for address ($7529):
+  F4F8 LD ($7529),HL
+WARNING: No label for address ($750D):
+  F4FB LD A,($750D)
+WARNING: No label for address ($86EA):
+  F50E JP $86EA
+WARNING: No label for address ($F78A):
+  F74F LD HL,$F78A
+WARNING: Address $5B00 replaced with GameStart in unsubbed LD operation:
+  F752 LD DE,$5B00
+WARNING: No label for address ($F88A):
+  F75A LD HL,$F88A
+WARNING: Address $5EEC replaced with ShuffleCrates in unsubbed LD operation:
+  F75D LD DE,$5EEC
+WARNING: Address $FE92 replaced with ShuffleVector in unsubbed LD operation:
+  F765 LD HL,$FE92
+WARNING: No label for address ($FF00):
+  F770 LD HL,$FF00
+WARNING: No label for address ($FE9F):
+  FE95 CALL $FE9F
+WARNING: No label for address ($FEFF):
+  FE98 LD SP,$FEFF
+WARNING: No label for address ($FEB6):
+  FEBA JR NC,$FEB6
+WARNING: No label for address ($FEBF):
+  FEBF DJNZ $FEBF
+WARNING: No label for address ($FEBF):
+  FEC4 JR NZ,$FEBF
+WARNING: No label for address ($FEB6):
+  FEC9 JR NC,$FEB6
+WARNING: No label for address ($FEB6):
+  FED0 JR NC,$FEB6
+WARNING: No label for address ($FEB7):
+  FED5 JR NC,$FEB7
+WARNING: No label for address ($FECB):
+  FED8 JR NZ,$FECB
+WARNING: No label for address ($FEB6):
+  FEDF JR NC,$FEB6
+WARNING: No label for address ($FEDA):
+  FEE4 JR NC,$FEDA
+WARNING: No label for address ($FEFC):
+  FEF5 JR NZ,$FEFC
+Parsed build/cyclone.skool (0.53s)
+WARNING: Could not convert address $F78A to label
+WARNING: Comment contains address ($7500) not converted to a label:
+; loads the 100 live game variables at $7500-$7563 from their initial values at
+WARNING: Comment contains address ($7564) not converted to a label:
+; $7564. LevelStart starts a level (also re-entered when a level is completed),
+WARNING: Comment contains address ($92C5) not converted to a label:
+; LifeStart starts a life (also re-entered after a life is lost, from $92C5),
+WARNING: Could not convert address $7564 to label
+WARNING: Comment at 23323 contains address ($7500) not converted to a label:
+  LD DE,$7500             ; variables at $7500
+WARNING: Comment above 23350 contains address ($92C5) not converted to a label:
+; Start of a life (also entered from $92C5 after a life has been lost).
+WARNING: Comment at 23353 contains address ($750D) not converted to a label:
+  CALL $84AE              ; Clear the altimeter bar; altitude ($750D) := 8
+WARNING: Comment at 23356 contains address ($F74E) not converted to a label:
+  CALL $76D2              ; Clear the view buffer at $F74E, fill it with map
+WARNING: Comment at 23356 contains address ($7552) not converted to a label:
+                          ; ($7552)
+WARNING: Comment at 23359 contains address ($7530) not converted to a label:
+                          ; $7530
+WARNING: Comment at 23365 contains address ($7535) not converted to a label:
+  CALL $8B91              ; Helicopter screen offset/drift ($7535/$7536; random
+WARNING: Could not convert address $6950 to label
+WARNING: Comment at 23371 contains address ($7A81) not converted to a label:
+                          ; the helicopter at $7A81
+WARNING: Comment at 23380 contains addresses ($7505, $7515) not converted to labels:
+  CALL $8A7A              ; Landing/collision test (sets $7505 crash, $7515
+WARNING: Comment at 23380 contains address ($752E) not converted to a label:
+                          ; landed, $752E on landing pad)
+WARNING: Comment at 23383 contains address ($FD30) not converted to a label:
+                          ; from $FD30)
+WARNING: Comment at 23386 contains address ($7505) not converted to a label:
+  LD A,($7505)            ; Crashed ($7505=1)?
+WARNING: Comment at 23391 contains address ($9246) not converted to a label:
+  JP Z,$9246              ; Yes: crash sequence, lose a life ($9246)
+WARNING: Comment at 23394 contains address ($7526) not converted to a label:
+  LD A,($7526)            ; Map mode ($7526 bit 1)?
+WARNING: Comment at 23401 contains addresses ($8F12, $9034) not converted to labels:
+                          ; ($8F12, falls into $9034)
+WARNING: Comment at 23404 contains address ($7526) not converted to a label:
+  LD A,($7526)            ; Map just opened ($7526 bit 4)?
+WARNING: Comment at 23433 contains address ($7550) not converted to a label:
+  CALL $9034              ; Move the cyclone; set the cyclone proximity $7550
+WARNING: Comment at 23436 contains address ($7522) not converted to a label:
+                          ; $7522
+WARNING: Comment at 23439 contains address ($7550) not converted to a label:
+  LD A,($7550)            ; Cyclone proximity ($7550, 0=on top of it ...
+WARNING: Could not convert address $836D to label
+WARNING: Could not convert address $83AA to label
+WARNING: Comment at 23442 contains address ($5B93) not converted to a label:
+  CP $05                  ; The operand of this CP (address $5B93) is modified:
+WARNING: Comment at 23447 contains address ($7515) not converted to a label:
+  LD A,($7515)            ; Landed ($7515=1)...
+WARNING: Comment at 23454 contains address ($7516) not converted to a label:
+  LD A,($7516)            ; ...and out of fuel ($7516=1)...
+WARNING: Comment at 23461 contains address ($752E) not converted to a label:
+  LD A,($752E)            ; ...and not on a landing pad ($752E=0)?
+WARNING: Comment at 23471 contains address ($7554) not converted to a label:
+  LD A,($7554)            ; 5 crates collected ($7554)...
+WARNING: Comment at 23478 contains address ($752E) not converted to a label:
+  LD A,($752E)            ; ...and on a landing pad ($752E=1)...
+WARNING: Comment at 23485 contains address ($F294) not converted to a label:
+  LD A,($7552)            ; ...on the island record at $F294 (BASE)?
+WARNING: Comment at 23500 contains address ($751C) not converted to a label:
+  LD A,($751C)            ; Time bar pointer ($751C) moved past the last line?
+WARNING: Comment at 23511 contains address ($828C) not converted to a label:
+                          ; operand at $828C: 255, then -15 per level)
+WARNING: Comment at 23535 contains address ($92D0) not converted to a label:
+  JP $92D0                ; ...print it at row 3, lose a life ($92D0, shared
+WARNING: Comment at 23538 contains address ($92D0) not converted to a label:
+  DEFM " NO FUEL "        ; Printed by $92D0 (9 characters at row 3, column 7)
+WARNING: Comment contains address ($5C00) not converted to a label:
+; Standard 48K system variables ($5C00-$5CB5), followed by the channel area and
+WARNING: Comment contains addresses ($5C76, $8B74) not converted to labels:
+; ($5C76) is used: it is the state of the random number generator at $8B74.
+WARNING: Could not convert address $F88A to label
+WARNING: Could not convert address $5B2C to label
+WARNING: Could not convert address $5F61 to label
+WARNING: Could not convert address $5F59 to label
+WARNING: Could not convert address $5F5D to label
+WARNING: Could not convert address $8B74 to label
+WARNING: Comment at 24393 contains address ($5F5C) not converted to a label:
+  CP (HL)                 ; $5F5C ($0F) if not found
+WARNING: Could not convert address $F511 to label
+WARNING: Could not convert address $F51B to label
+WARNING: Comment contains address ($9300) not converted to a label:
+; $9300. Initially all flags are 0.
+WARNING: Could not convert address $8B74 to label
+WARNING: Comment contains addresses ($7505, $83C2) not converted to labels:
+; Jumped to from the interrupt handler $83C2 while the crash flag $7505 is 1
+WARNING: Comment contains address ($842D) not converted to a label:
+; restore at $842D.
+WARNING: Could not convert address $5B2F to label
+WARNING: Could not convert address $6018 to label
+WARNING: Could not convert address $60AC to label
+WARNING: Could not convert address $60AF to label
+WARNING: Could not convert address $8B74 to label
+WARNING: Could not convert address $F515 to label
+WARNING: Comment contains address ($6028) not converted to a label:
+; 8x8 font (characters $17-$5A, base address $6028)
+WARNING: Comment contains address ($859A) not converted to a label:
+; data). Used by PrintStrings, $859A, PrintScore. $17-$1F: CYCLONE logo (menu
+WARNING: Could not convert address $FA00 to label
+WARNING: Could not convert address $FE00 to label
+WARNING: Comment contains address ($7504) not converted to a label:
+; $6C-$74 (south view, a mirrored copy), select by $7504 via the self-modified
+WARNING: Comment contains addresses ($7B18, $7E35, $8113) not converted to labels:
+; page operands at $7B18 and $7E35-$7F05 (set at $8113). For map tile code t
+WARNING: Could not convert address $843A to label
+WARNING: Could not convert address $661E to label
+WARNING: Could not convert address $83A5 to label
+WARNING: Could not convert address $87BC to label
+WARNING: Could not convert address $87BC to label
+WARNING: Could not convert address $7000 to label
+WARNING: Could not convert address $7100 to label
+WARNING: Comment contains addresses ($6700, $6800, $6900) not converted to labels:
+; Four 24x24-pixel (3 bytes x 24 lines) rotor frames at $6700, $6800, $6900,
+WARNING: Comment contains addresses ($6A00, $8CA0) not converted to labels:
+; $6A00, XORed onto the helicopter sprite by $8CA0 (frame number cycles 0-3 in
+WARNING: Comment contains addresses ($7515, $7516, $753A) not converted to labels:
+; $753A) when the helicopter is landed ($7515=1) or out of fuel ($7516<>0). In
+WARNING: Could not convert address $84F4 to label
+WARNING: Comment contains address ($859A) not converted to a label:
+; Printed at rows 22-23 by 84F4 (via $859A): WIND FORCE bar end caps ($23/$24),
+WARNING: Line is 83 characters long:
+  DEFM "#$#$#$#$#$  WIND\"\"\"\"\"\"\"\"\"\"DANGER%&%&%&%&%& FORCE                "
+WARNING: Could not convert address $E930 to label
+WARNING: Could not convert address $F550 to label
+WARNING: Comment contains address ($8CA0) not converted to a label:
+; 24x24 pixels (3 bytes x 24 lines). Rebuilt every iteration by $8CA0 (heading
+WARNING: Comment contains address ($9246) not converted to a label:
+; frame from E930 + rotor overlay) and during the crash sequence ($9246: frame
+WARNING: Comment contains address ($9300) not converted to a label:
+; at $9300 XOR debris frames F550).
+WARNING: Could not convert address $8DEE to label
+WARNING: Could not convert address $6B00 to label
+WARNING: Could not convert address $F230 to label
+WARNING: Could not convert address $6AC2 to label
+WARNING: Could not convert address $8DEE to label
+WARNING: Comment contains address ($6908) not converted to a label:
+; Base address $6908 (character c at $6908+8*c); only codes $3F ('?', blank =
+WARNING: Could not convert address $6300 to label
+WARNING: Could not convert address $6028 to label
+WARNING: Could not convert address $87BC to label
+WARNING: Comment contains address ($6624) not converted to a label:
+; Prints the string ending at $6624 right-to-left from row 19 column 31 (screen
+WARNING: Could not convert address $87BC to label
+WARNING: Comment contains addresses ($7000, $7100, $8CA0) not converted to labels:
+; Two rotor frames ($7000 and $7100) used by $8CA0 in normal flight
+WARNING: Comment contains address ($753A) not converted to a label:
+; (alternating via $753A 0/1).
+WARNING: Could not convert address $84F4 to label
+WARNING: Could not convert address $84F4 to label
+WARNING: Could not convert address $84F4 to label
+WARNING: Could not convert address $7550 to label
+WARNING: Could not convert address $7522 to label
+WARNING: Could not convert address $7550 to label
+WARNING: Comment above 29560 contains address ($8B74) not converted to a label:
+; Random bits come from L of the RNG at $8B74 (each bit ~50%). dist 4..5: bits
+WARNING: Could not convert address $7505 to label
+WARNING: Could not convert address $7E10 to label
+WARNING: Comment contains addresses ($6C00, $7300) not converted to labels:
+; Part of the south-view pillar tables $6C00-$73FF (see 7E10): byte $7300+code
+WARNING: Comment contains addresses ($7300, $73B8) not converted to labels:
+; bytes below $73B8 belong to the HUD layout table at $7300, outside this
+WARNING: Comment contains address ($7300) not converted to a label:
+; Character k is at $7400+8*k. Drawn by 84F4 (HUD layout table $7300, LD H,$74)
+WARNING: Comment contains address ($74E0) not converted to a label:
+; $74E0 also terminate south-view pillars at page $74 (9th level).
+WARNING: Comment at 29848 contains address ($74B8) not converted to a label:
+  DEFB $00,$00,$00,$00,$00,$00,$FF,$FF ; letters A, S, F, T at $74B8-$74D0)
+WARNING: Comment contains address ($7500) not converted to a label:
+; LIVE GAME VARIABLES ($7500-$7563)
+WARNING: Could not convert address $7564 to label
+WARNING: Could not convert address $75C8 to label
+WARNING: Comment at 30034 contains address ($F294) not converted to a label:
+                          ; table); $F294 = Base island
+WARNING: Comment at 30039 contains address ($F52F) not converted to a label:
+  DEFW $0000              ; PICK_SPR: Pointer to sprite of hooked object: $F52F
+WARNING: Comment at 30039 contains address ($F548) not converted to a label:
+                          ; crate, $F548 survivor
+WARNING: Could not convert address $7500 to label
+WARNING: Could not convert address $7500 to label
+WARNING: Comment at 30052 contains address ($7500) not converted to a label:
+  DEFW $0139              ; Initial value of POS_X ($7500) = $0139
+WARNING: Comment at 30054 contains address ($7502) not converted to a label:
+  DEFW $0170              ; Initial value of POS_Y ($7502) = $0170
+WARNING: Comment at 30056 contains address ($7504) not converted to a label:
+  DEFB $00                ; Initial value of VIEW ($7504) = $00
+WARNING: Comment at 30057 contains address ($7505) not converted to a label:
+  DEFB $00                ; Initial value of CRASHED ($7505) = $00
+WARNING: Comment at 30058 contains address ($7506) not converted to a label:
+  DEFB $04                ; Initial value of HEADING ($7506) = $04
+WARNING: Comment at 30059 contains address ($7507) not converted to a label:
+  DEFB $04                ; Initial value of HEADING_DISP ($7507) = $04
+WARNING: Comment at 30060 contains address ($7508) not converted to a label:
+  DEFB $04                ; Initial value of HEADING_NEXT ($7508) = $04
+WARNING: Comment at 30061 contains address ($7509) not converted to a label:
+  DEFW $0000              ; Initial value of TMP_GFX ($7509) = $0000
+WARNING: Comment at 30063 contains address ($750B) not converted to a label:
+  DEFW $0000              ; Initial value of TMP_ATTR ($750B) = $0000
+WARNING: Comment at 30065 contains address ($750D) not converted to a label:
+  DEFB $08                ; Initial value of ALTITUDE ($750D) = $08
+WARNING: Comment at 30066 contains address ($750E) not converted to a label:
+  DEFW $0000              ; Initial value of TMP_SPR ($750E) = $0000
+WARNING: Comment at 30068 contains address ($7510) not converted to a label:
+  DEFW $0000              ; Initial value of TMP_LIST ($7510) = $0000
+WARNING: Comment at 30070 contains address ($7512) not converted to a label:
+  DEFW $0000              ; Initial value of TMP_MASK ($7512) = $0000
+WARNING: Comment at 30072 contains address ($7514) not converted to a label:
+  DEFB $00                ; Initial value of TOUCHDOWN ($7514) = $00
+WARNING: Comment at 30073 contains address ($7515) not converted to a label:
+  DEFB $01                ; Initial value of LANDED ($7515) = $01
+WARNING: Comment at 30074 contains address ($7516) not converted to a label:
+  DEFB $00                ; Initial value of NO_FUEL ($7516) = $00
+WARNING: Comment at 30075 contains address ($7517) not converted to a label:
+  DEFB $00                ; Initial value of FUEL_TICK ($7517) = $00
+WARNING: Comment at 30076 contains address ($7518) not converted to a label:
+  DEFW $47BC              ; Initial value of FUEL_PTR ($7518) = $47BC
+WARNING: Comment at 30078 contains address ($751A) not converted to a label:
+  DEFB $00                ; Initial value of CLIMB_RATE ($751A) = $00
+WARNING: Comment at 30079 contains address ($751B) not converted to a label:
+  DEFB $00                ; Initial value of DESCENT_RATE ($751B) = $00
+WARNING: Comment at 30080 contains address ($751C) not converted to a label:
+  DEFW $0000              ; Initial value of TIME_PTR ($751C) = $0000
+WARNING: Comment at 30082 contains address ($751E) not converted to a label:
+  DEFW $0000              ; Initial value of ALT_PTR ($751E) = $0000
+WARNING: Comment at 30084 contains address ($7520) not converted to a label:
+  DEFB $00                ; Initial value of unused $7520
+WARNING: Comment at 30085 contains address ($7521) not converted to a label:
+  DEFB $00                ; Initial value of TURN_TIMER ($7521) = $00
+WARNING: Comment at 30086 contains address ($7522) not converted to a label:
+  DEFB $00                ; Initial value of CONTROLS ($7522) = $00
+WARNING: Comment at 30087 contains address ($7523) not converted to a label:
+  DEFB $00                ; Initial value of unused $7523
+WARNING: Comment at 30088 contains address ($7524) not converted to a label:
+  DEFB $00                ; Initial value of PLANE_COL ($7524) = $00
+WARNING: Comment at 30089 contains address ($7525) not converted to a label:
+  DEFB $00                ; Initial value of PLANE_ROW ($7525) = $00
+WARNING: Comment at 30090 contains address ($7526) not converted to a label:
+  DEFB $00                ; Initial value of UI_FLAGS ($7526) = $00
+WARNING: Comment at 30091 contains address ($7527) not converted to a label:
+  DEFB $00                ; Initial value of SPEED ($7527) = $00
+WARNING: Comment at 30092 contains address ($7528) not converted to a label:
+  DEFB $00                ; Initial value of TIME_TICK ($7528) = $00
+WARNING: Comment at 30093 contains address ($7529) not converted to a label:
+  DEFW $0000              ; Initial value of TMP_LIST2 ($7529) = $0000
+WARNING: Comment at 30095 contains address ($752B) not converted to a label:
+  DEFW $0000              ; Initial value of TMP_ATTR2 ($752B) = $0000
+WARNING: Comment at 30097 contains address ($752D) not converted to a label:
+  DEFB $00                ; Initial value of SOUND_OFF ($752D) = $00
+WARNING: Comment at 30098 contains address ($752E) not converted to a label:
+  DEFB $01                ; Initial value of ON_PAD ($752E) = $01
+WARNING: Comment at 30099 contains address ($752F) not converted to a label:
+  DEFB $00                ; Initial value of PLANE_DRAWN ($752F) = $00
+WARNING: Comment at 30100 contains address ($7530) not converted to a label:
+  DEFB $00                ; Initial value of PLANE_NEAR ($7530) = $00
+WARNING: Comment at 30101 contains address ($7531) not converted to a label:
+  DEFB $00,$00            ; Initial value of unused $7531-$7532
+WARNING: Comment at 30103 contains address ($7533) not converted to a label:
+  DEFB $03                ; Initial value of HELI_LEVEL ($7533) = $03
+WARNING: Comment at 30104 contains address ($7534) not converted to a label:
+  DEFB $00                ; Initial value of AIR_TICK ($7534) = $00
+WARNING: Comment at 30105 contains address ($7535) not converted to a label:
+  DEFB $00                ; Initial value of WAVE_X ($7535) = $00
+WARNING: Comment at 30106 contains address ($7536) not converted to a label:
+  DEFB $00                ; Initial value of WAVE_Y ($7536) = $00
+WARNING: Comment at 30107 contains address ($7537) not converted to a label:
+  DEFB $00                ; Initial value of WAVE_TICK ($7537) = $00
+WARNING: Comment at 30108 contains address ($7538) not converted to a label:
+  DEFW $0000              ; Initial value of WAVE_PTR ($7538) = $0000
+WARNING: Comment at 30110 contains address ($753A) not converted to a label:
+  DEFB $00                ; Initial value of ROTOR_FRAME ($753A) = $00
+WARNING: Comment at 30111 contains address ($753B) not converted to a label:
+  DEFB $04                ; Initial value of MOVE_DIR ($753B) = $04
+WARNING: Comment at 30112 contains address ($753C) not converted to a label:
+  DEFW $0000              ; Initial value of MAP_ROW_PTR ($753C) = $0000
+WARNING: Comment at 30114 contains address ($753E) not converted to a label:
+  DEFW $0000              ; Initial value of MAP_PTR ($753E) = $0000
+WARNING: Comment at 30116 contains address ($7540) not converted to a label:
+  DEFB $00                ; Initial value of MAP_HX ($7540) = $00
+WARNING: Comment at 30117 contains address ($7541) not converted to a label:
+  DEFB $00                ; Initial value of MAP_HY ($7541) = $00
+WARNING: Comment at 30118 contains address ($7542) not converted to a label:
+  DEFB $00                ; Initial value of MAP_BLINK ($7542) = $00
+WARNING: Comment at 30119 contains address ($7543) not converted to a label:
+  DEFW $0000              ; Initial value of MAP_HATTR ($7543) = $0000
+WARNING: Comment at 30121 contains address ($7545) not converted to a label:
+  DEFW $0000              ; Initial value of MAP_HPIX ($7545) = $0000
+WARNING: Comment at 30123 contains address ($7547) not converted to a label:
+  DEFW $0000              ; Initial value of MAP_CATTR ($7547) = $0000
+WARNING: Comment at 30125 contains address ($7549) not converted to a label:
+  DEFW $0000              ; Initial value of MAP_CPIX ($7549) = $0000
+WARNING: Comment at 30127 contains address ($754B) not converted to a label:
+  DEFB $02                ; Initial value of CYC_X ($754B) = $02
+WARNING: Comment at 30128 contains address ($754C) not converted to a label:
+  DEFB $02                ; Initial value of CYC_Y ($754C) = $02
+WARNING: Comment at 30129 contains address ($754D) not converted to a label:
+  DEFB $00                ; Initial value of OFF_MAP ($754D) = $00
+WARNING: Comment at 30130 contains address ($754E) not converted to a label:
+  DEFB $00                ; Initial value of CYC_TICK ($754E) = $00
+WARNING: Comment at 30131 contains address ($754F) not converted to a label:
+  DEFB $00                ; Initial value of CYC_LEG ($754F) = $00
+WARNING: Comment at 30132 contains address ($7550) not converted to a label:
+  DEFB $00                ; Initial value of CYC_DIST ($7550) = $00
+WARNING: Comment at 30133 contains address ($7551) not converted to a label:
+  DEFB $00                ; Initial value of PICK_TILE ($7551) = $00
+WARNING: Comment at 30134 contains address ($7552) not converted to a label:
+  DEFW $0000              ; Initial value of ISLAND ($7552) = $0000
+WARNING: Comment at 30136 contains address ($7554) not converted to a label:
+  DEFB $00                ; Initial value of CRATES ($7554) = $00
+WARNING: Comment at 30137 contains address ($7555) not converted to a label:
+  DEFB $00                ; Initial value of WINCH ($7555) = $00
+WARNING: Comment at 30138 contains address ($7556) not converted to a label:
+  DEFB $00                ; Initial value of ROPE_STATE ($7556) = $00
+WARNING: Comment at 30139 contains address ($7557) not converted to a label:
+  DEFW $0000              ; Initial value of PICK_SPR ($7557) = $0000
+WARNING: Comment at 30141 contains address ($7559) not converted to a label:
+  DEFB $00,$00            ; Initial value of unused $7559-$755A
+WARNING: Comment at 30143 contains address ($755B) not converted to a label:
+  DEFB $00                ; Initial value of SURV_ANIM1 ($755B) = $00
+WARNING: Comment at 30144 contains address ($755C) not converted to a label:
+  DEFB $00                ; Initial value of SURV_ANIM2 ($755C) = $00
+WARNING: Comment at 30145 contains address ($755D) not converted to a label:
+  DEFB $00                ; Initial value of ROTOR_SND ($755D) = $00
+WARNING: Comment at 30146 contains address ($755E) not converted to a label:
+  DEFB $00,$00,$00,$00,$00,$00 ; Initial value of unused $755E-$7563
+WARNING: Could not convert address $7500 to label
+WARNING: Could not convert address $751C to label
+WARNING: Could not convert address $7543 to label
+WARNING: Could not convert address $754B to label
+WARNING: Could not convert address $754C to label
+WARNING: Could not convert address $754E to label
+WARNING: Could not convert address $754F to label
+WARNING: Could not convert address $7554 to label
+WARNING: Could not convert address $7564 to label
+WARNING: Comment at 30152 contains address ($7500) not converted to a label:
+  DEFW $0139              ; Per-life reset value ($FF = keep) of POS_X ($7500)
+WARNING: Comment at 30154 contains address ($7502) not converted to a label:
+  DEFW $0170              ; Per-life reset value ($FF = keep) of POS_Y ($7502)
+WARNING: Comment at 30156 contains address ($7504) not converted to a label:
+  DEFB $00                ; Per-life reset value ($FF = keep) of VIEW ($7504) =
+WARNING: Comment at 30157 contains address ($7505) not converted to a label:
+                          ; ($7505) = $00
+WARNING: Comment at 30158 contains address ($7506) not converted to a label:
+                          ; ($7506) = $04
+WARNING: Comment at 30159 contains address ($7507) not converted to a label:
+                          ; ($7507) = $04
+WARNING: Comment at 30160 contains address ($7508) not converted to a label:
+                          ; ($7508) = $04
+WARNING: Comment at 30161 contains address ($7509) not converted to a label:
+                          ; ($7509) = $0000
+WARNING: Comment at 30163 contains address ($750B) not converted to a label:
+                          ; ($750B) = $0000
+WARNING: Comment at 30165 contains address ($750D) not converted to a label:
+                          ; ($750D) = $08
+WARNING: Comment at 30166 contains address ($750E) not converted to a label:
+                          ; ($750E) = $0000
+WARNING: Comment at 30168 contains address ($7510) not converted to a label:
+                          ; ($7510) = $0000
+WARNING: Comment at 30170 contains address ($7512) not converted to a label:
+                          ; ($7512) = $0000
+WARNING: Comment at 30172 contains address ($7514) not converted to a label:
+                          ; ($7514) = $00
+WARNING: Comment at 30173 contains address ($7515) not converted to a label:
+  DEFB $01                ; Per-life reset value ($FF = keep) of LANDED ($7515)
+WARNING: Comment at 30174 contains address ($7516) not converted to a label:
+                          ; ($7516) = $00
+WARNING: Comment at 30175 contains address ($7517) not converted to a label:
+                          ; ($7517) = $00
+WARNING: Comment at 30176 contains address ($7518) not converted to a label:
+                          ; ($7518) = $47BC
+WARNING: Comment at 30178 contains address ($751A) not converted to a label:
+                          ; ($751A) = $00
+WARNING: Comment at 30179 contains address ($751B) not converted to a label:
+                          ; ($751B) = $00
+WARNING: Comment at 30180 contains address ($751C) not converted to a label:
+                          ; ($751C) = $FFFF
+WARNING: Comment at 30182 contains address ($751E) not converted to a label:
+                          ; ($751E) = $0000
+WARNING: Comment at 30184 contains address ($7520) not converted to a label:
+  DEFB $00                ; Per-life reset value ($FF = keep) of unused $7520
+WARNING: Comment at 30185 contains address ($7521) not converted to a label:
+                          ; ($7521) = $00
+WARNING: Comment at 30186 contains address ($7522) not converted to a label:
+                          ; ($7522) = $00
+WARNING: Comment at 30187 contains address ($7523) not converted to a label:
+  DEFB $00                ; Per-life reset value ($FF = keep) of unused $7523
+WARNING: Comment at 30188 contains address ($7524) not converted to a label:
+                          ; ($7524) = $00
+WARNING: Comment at 30189 contains address ($7525) not converted to a label:
+                          ; ($7525) = $00
+WARNING: Comment at 30190 contains address ($7526) not converted to a label:
+                          ; ($7526) = $00
+WARNING: Comment at 30191 contains address ($7527) not converted to a label:
+  DEFB $00                ; Per-life reset value ($FF = keep) of SPEED ($7527)
+WARNING: Comment at 30192 contains address ($7528) not converted to a label:
+                          ; ($7528) = $00
+WARNING: Comment at 30193 contains address ($7529) not converted to a label:
+                          ; ($7529) = $0000
+WARNING: Comment at 30195 contains address ($752B) not converted to a label:
+                          ; ($752B) = $0000
+WARNING: Comment at 30197 contains address ($752D) not converted to a label:
+                          ; ($752D) = $00
+WARNING: Comment at 30198 contains address ($752E) not converted to a label:
+  DEFB $01                ; Per-life reset value ($FF = keep) of ON_PAD ($752E)
+WARNING: Comment at 30199 contains address ($752F) not converted to a label:
+                          ; ($752F) = $00
+WARNING: Comment at 30200 contains address ($7530) not converted to a label:
+                          ; ($7530) = $00
+WARNING: Comment at 30201 contains address ($7531) not converted to a label:
+                          ; $7531-$7532
+WARNING: Comment at 30203 contains address ($7533) not converted to a label:
+                          ; ($7533) = $03
+WARNING: Comment at 30204 contains address ($7534) not converted to a label:
+                          ; ($7534) = $00
+WARNING: Comment at 30205 contains address ($7535) not converted to a label:
+  DEFB $00                ; Per-life reset value ($FF = keep) of WAVE_X ($7535)
+WARNING: Comment at 30206 contains address ($7536) not converted to a label:
+  DEFB $00                ; Per-life reset value ($FF = keep) of WAVE_Y ($7536)
+WARNING: Comment at 30207 contains address ($7537) not converted to a label:
+                          ; ($7537) = $00
+WARNING: Comment at 30208 contains address ($7538) not converted to a label:
+                          ; ($7538) = $0000
+WARNING: Comment at 30210 contains address ($753A) not converted to a label:
+                          ; ($753A) = $00
+WARNING: Comment at 30211 contains address ($753B) not converted to a label:
+                          ; ($753B) = $04
+WARNING: Comment at 30212 contains address ($753C) not converted to a label:
+                          ; ($753C) = $0000
+WARNING: Comment at 30214 contains address ($753E) not converted to a label:
+                          ; ($753E) = $0000
+WARNING: Comment at 30216 contains address ($7540) not converted to a label:
+  DEFB $00                ; Per-life reset value ($FF = keep) of MAP_HX ($7540)
+WARNING: Comment at 30217 contains address ($7541) not converted to a label:
+  DEFB $00                ; Per-life reset value ($FF = keep) of MAP_HY ($7541)
+WARNING: Comment at 30218 contains address ($7542) not converted to a label:
+                          ; ($7542) = $00
+WARNING: Comment at 30219 contains address ($7543) not converted to a label:
+                          ; ($7543) = $FFFF
+WARNING: Comment at 30221 contains address ($7545) not converted to a label:
+                          ; ($7545) = $FFFF
+WARNING: Comment at 30223 contains address ($7547) not converted to a label:
+                          ; ($7547) = $FFFF
+WARNING: Comment at 30225 contains address ($7549) not converted to a label:
+                          ; ($7549) = $FFFF
+WARNING: Comment at 30227 contains address ($754B) not converted to a label:
+  DEFB $FF                ; Per-life reset value ($FF = keep) of CYC_X ($754B)
+WARNING: Comment at 30228 contains address ($754C) not converted to a label:
+  DEFB $FF                ; Per-life reset value ($FF = keep) of CYC_Y ($754C)
+WARNING: Comment at 30229 contains address ($754D) not converted to a label:
+                          ; ($754D) = $00
+WARNING: Comment at 30230 contains address ($754E) not converted to a label:
+                          ; ($754E) = $FF
+WARNING: Comment at 30231 contains address ($754F) not converted to a label:
+                          ; ($754F) = $FF
+WARNING: Comment at 30232 contains address ($7550) not converted to a label:
+                          ; ($7550) = $00
+WARNING: Comment at 30233 contains address ($7551) not converted to a label:
+                          ; ($7551) = $00
+WARNING: Comment at 30234 contains address ($7552) not converted to a label:
+  DEFW $0000              ; Per-life reset value ($FF = keep) of ISLAND ($7552)
+WARNING: Comment at 30236 contains address ($7554) not converted to a label:
+  DEFB $FF                ; Per-life reset value ($FF = keep) of CRATES ($7554)
+WARNING: Comment at 30237 contains address ($7555) not converted to a label:
+  DEFB $00                ; Per-life reset value ($FF = keep) of WINCH ($7555)
+WARNING: Comment at 30238 contains address ($7556) not converted to a label:
+                          ; ($7556) = $00
+WARNING: Comment at 30239 contains address ($7557) not converted to a label:
+                          ; ($7557) = $0000
+WARNING: Comment at 30241 contains address ($7559) not converted to a label:
+                          ; $7559-$755A
+WARNING: Comment at 30243 contains address ($755B) not converted to a label:
+                          ; ($755B) = $00
+WARNING: Comment at 30244 contains address ($755C) not converted to a label:
+                          ; ($755C) = $00
+WARNING: Comment at 30245 contains address ($755D) not converted to a label:
+                          ; ($755D) = $00
+WARNING: Comment at 30246 contains address ($755E) not converted to a label:
+                               ; $755E-$7563
+WARNING: Comment contains address ($F74E) not converted to a label:
+; 0-21) from the first 22 rows of the 23x29 tile buffer at $F74E. For each
+WARNING: Comment contains address ($FE00) not converted to a label:
+; cell: attribute = byte $FE00+code; if code < $80 the 8 pixel bytes are copied
+WARNING: Comment at 30266 contains address ($FE00) not converted to a label:
+  LD H,$FE                ; Attribute of the tile = byte at $FE00+code
+WARNING: Could not convert address $7500 to label
+WARNING: Could not convert address $7502 to label
+WARNING: Comment contains address ($F74E) not converted to a label:
+; Fills the 23x29 tile buffer at $F74E (row stride 23) with the part of the
+WARNING: Comment contains address ($F230) not converted to a label:
+; outside an island is sea (code 0). The island table at $F230 has 20-byte
+WARNING: Could not convert address $7552 to label
+WARNING: Could not convert address $78CF to label
+WARNING: Could not convert address $7504 to label
+WARNING: Could not convert address $7A37 to label
+WARNING: Comment at 30659 contains address ($F74E) not converted to a label:
+  LD A,$18                ; DE = $F74E + 23 - w
+WARNING: Comment at 30712 contains address ($F9E9) not converted to a label:
+  LD HL,$F9E9             ; DE = $F9E9 - 23*n (start of buffer row 29-n)
+WARNING: Comment above 30781 contains address ($783E) not converted to a label:
+; $783E), map stride 128, buffer stride 23.
+WARNING: Comment contains address ($78CF) not converted to a label:
+; Entered by JP (HL) at 775D with HL = $78CF + clip flags (0..40). Each slot is
+WARNING: Comment contains address ($7A37) not converted to a label:
+; Jumps to slot $7A37 + C (clip flags).
+WARNING: Comment contains address ($F9E8) not converted to a label:
+; and written backwards from the last buffer byte $F9E8.
+WARNING: Comment at 31027 contains address ($F9D1) not converted to a label:
+  LD DE,$F9D1             ; DE = $F9D1 + w = last buffer row, column w-1
+WARNING: Comment above 31142 contains address ($79A7) not converted to a label:
+; Reversed clipped copy loop: A rows of w bytes (operand at $79A7); map +128
+WARNING: Could not convert address $78CF to label
+WARNING: Comment contains address ($7A37) not converted to a label:
+; Entered by JP (HL) at 791C with HL = $7A37 + clip flags. Same layout as 78CF.
+WARNING: Could not convert address $7E10 to label
+WARNING: Could not convert address $7ADC to label
+WARNING: Comment at 31361 contains address ($7A85) not converted to a label:
+  DEFB $00,$00,$00        ; $7A85 = tile under the helicopter (crate/survivor
+WARNING: Could not convert address $7AC1 to label
+WARNING: Could not convert address $7B33 to label
+WARNING: Comment at 31391 contains address ($7AA2) not converted to a label:
+                                                   ; (7BB8, 86AF via $7AA2,
+WARNING: Comment at 31391 contains address ($7AAC) not converted to a label:
+                                                   ; F4F4 via $7AAC). Bit 7 may
+WARNING: Could not convert address $7E10 to label
+WARNING: Could not convert address $7A9F to label
+WARNING: Could not convert address $7A81 to label
+WARNING: Could not convert address $7A8B to label
+WARNING: Could not convert address $7AC1 to label
+WARNING: Could not convert address $7A95 to label
+WARNING: Could not convert address $7BB8 to label
+WARNING: Could not convert address $7507 to label
+WARNING: Could not convert address $7E10 to label
+WARNING: Could not convert address $7A95 to label
+WARNING: Could not convert address $7A9F to label
+WARNING: Comment contains addresses ($FCF8, $FE5F) not converted to labels:
+; at $FCF8-$FDFF, attributes $FE5F-$FE7F). Each shadow cell (column 10+c, row
+WARNING: Comment contains address ($FB18) not converted to a label:
+; is masked by mask tiles $23-$26 ($FB18-$FB37) and may continue into the tile
+WARNING: Comment at 31690 contains address ($ED68) not converted to a label:
+  LD HL,$ED68             ; Shadow frames base ($ED68 + 72*(frame+1))
+WARNING: Could not convert address $7509 to label
+WARNING: Comment at 31932 contains address ($FB18) not converted to a label:
+  PUSH HL                 ; Object tiles: choose the mask tile: $FB18 (tile
+WARNING: Comment at 31932 contains address ($FB28) not converted to a label:
+  LD HL,$FB18             ; $23) for codes $19, $1B, $21; $FB28 (tile $25) for
+WARNING: Could not convert address $7DE5 to label
+WARNING: Could not convert address $7BB8 to label
+WARNING: Comment at 32238 contains address ($FB88) not converted to a label:
+                                   ; $31 lines 0-6, $FB88, by F34A)
+WARNING: Comment at 32254 contains address ($FB90) not converted to a label:
+                                       ; tile $32, $FB90)
+WARNING: Could not convert address $76D2 to label
+WARNING: Comment contains address ($F74E) not converted to a label:
+; the 23x29 buffer at $F74E. Rows are processed from the top (far) to the
+WARNING: Could not convert address $7A81 to label
+WARNING: Could not convert address $7F98 to label
+WARNING: Could not convert address $7BB8 to label
+WARNING: Comment contains addresses ($FCF8, $FD50, $FDA8) not converted to labels:
+; contiguous 88-line strip ($FCF8, $FD50, $FDA8) into which the shadow (7BB8)
+WARNING: Comment contains address ($EFFE) not converted to a label:
+; Set by the menu (E2BA: key - '2'): 0 = keyboard, 1 = Interface 2 (port $EFFE,
+WARNING: Could not convert address $80AA to label
+WARNING: Could not convert address $80AA to label
+WARNING: Comment at 34086 contains address ($7400) not converted to a label:
+  LD H,$74                ; Tile bitmap at $7400 + 8 x code
+WARNING: Could not convert address $80AA to label
+WARNING: Could not convert address $80F9 to label
+WARNING: Comment at 34206 contains address ($6028) not converted to a label:
+  LD L,A                  ; Glyph address = $6028 + 8 x code
+WARNING: Comment contains address ($7509) not converted to a label:
+; Unused (leftover LD ($7509),HL)
+WARNING: Comment at 35536 contains addresses ($6300, $6400) not converted to labels:
+  LD L,A                  ; bytes at $6300+L, $6400+L, ... terminated by $FF
+WARNING: Comment contains addresses ($83C2, $E280) not converted to labels:
+; FFFF + JP $83C2 at FFF4) / LD A,$3A / LD I,A / IM 2 / JP $E280. Superseded by
+WARNING: Could not convert address $F230 to label
+WARNING: Could not convert address $76D2 to label
+WARNING: Could not convert address $7E10 to label
+WARNING: Could not convert address $762C to label
+WARNING: Could not convert address $8B91 to label
+WARNING: Could not convert address $7AC2 to label
+WARNING: Could not convert address $9246 to label
+WARNING: Could not convert address $9300 to label
+WARNING: Could not convert address $9D00 to label
+WARNING: Could not convert address $A900 to label
+WARNING: Could not convert address $B600 to label
+WARNING: Could not convert address $C300 to label
+WARNING: Could not convert address $CF80 to label
+WARNING: Comment above 37632 contains address ($9354) not converted to a label:
+; 6: GILLIGANS ISLAND at $9354 (store row 0, col 84), 45x30, world (306,116) =
+WARNING: Could not convert address $9FD8 to label
+WARNING: Could not convert address $ADD8 to label
+WARNING: Comment above 37632 contains address ($B843) not converted to a label:
+; 9: BONE ISLAND at $B843 (store row 74, col 67), 62x29, world (450,152) =
+WARNING: Comment above 37632 contains address ($9337) not converted to a label:
+; 10: GIANTS GATEWAY at $9337 (store row 0, col 55), 30x41, world (430,296) =
+WARNING: Comment above 37632 contains address ($A735) not converted to a label:
+; 11: CLAW ISLAND at $A735 (store row 40, col 53), 36x35, world (474,476) =
+WARNING: Could not convert address $C628 to label
+WARNING: Comment above 37632 contains address ($C64F) not converted to a label:
+; 13: ENTERPRISE ISLAND at $C64F (store row 102, col 79), 50x48, world (90,460)
+WARNING: Line is 81 characters long:
+  DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00 ; 0:Banana
+WARNING: Line is 83 characters long:
+  DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00 ; cols 0-54;
+WARNING: Line is 84 characters long:
+  DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00 ; 6:Gilligans
+WARNING: Line is 80 characters long:
+  DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00 ; 84-128;
+WARNING: Line is 82 characters long:
+  DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00 ; 10:Giants
+WARNING: Line is 83 characters long:
+  DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00 ; cols 55-84
+WARNING: Could not convert address $8995 to label
+WARNING: Line is 115 characters long:
+  DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$07,$1F,$1F,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00 ; Frame 0 (0
+WARNING: Line is 113 characters long:
+  DEFB $00,$1C,$1C,$3E,$3E,$3E,$3E,$3E,$3E,$FF,$FF,$FF,$FF,$1C,$1C,$14,$77,$F7,$08,$08,$00,$00,$00,$00 ; degrees)
+WARNING: Line is 104 characters long:
+  DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$80,$F0,$FC,$FC,$00,$00,$00,$00,$80,$00,$00,$00,$00,$00,$00 ;
+WARNING: Line is 112 characters long:
+  DEFB $00,$00,$00,$00,$00,$00,$00,$00,$1E,$1F,$0F,$03,$05,$07,$07,$1F,$0F,$07,$06,$00,$00,$00,$00,$00 ; Frame 1
+WARNING: Line is 110 characters long:
+  DEFB $00,$00,$03,$0F,$1F,$1F,$3F,$3F,$7E,$FA,$FC,$F7,$FF,$FF,$F1,$E0,$C0,$E0,$E0,$00,$00,$00,$00,$00 ; (22.5
+WARNING: Line is 113 characters long:
+  DEFB $00,$00,$00,$80,$80,$80,$00,$00,$00,$00,$00,$00,$C0,$F0,$F0,$20,$00,$00,$00,$00,$00,$00,$00,$00 ; degrees)
+WARNING: Line is 112 characters long:
+  DEFB $00,$00,$00,$00,$00,$00,$07,$07,$03,$01,$00,$09,$1F,$1F,$0F,$0F,$03,$00,$00,$00,$00,$00,$00,$00 ; Frame 2
+WARNING: Line is 108 characters long:
+  DEFB $00,$00,$00,$00,$01,$03,$07,$EF,$FF,$FE,$FD,$FB,$FF,$FF,$F7,$83,$C1,$C0,$00,$00,$00,$00,$00,$00 ; (45
+WARNING: Line is 113 characters long:
+  DEFB $00,$00,$00,$C0,$F0,$F0,$F0,$E0,$C0,$80,$00,$00,$00,$80,$C0,$C0,$E0,$E0,$40,$00,$00,$00,$00,$00 ; degrees)
+WARNING: Line is 112 characters long:
+  DEFB $00,$00,$00,$00,$00,$01,$01,$00,$00,$2E,$7F,$3F,$1F,$1F,$0F,$07,$07,$00,$00,$00,$00,$00,$00,$00 ; Frame 3
+WARNING: Line is 110 characters long:
+  DEFB $00,$00,$00,$00,$00,$C0,$E0,$F3,$FF,$FF,$FE,$FB,$FE,$FE,$1E,$0F,$0F,$07,$06,$00,$00,$00,$00,$00 ; (67.5
+WARNING: Line is 113 characters long:
+  DEFB $00,$00,$00,$00,$00,$00,$78,$F4,$F8,$F8,$E0,$80,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00 ; degrees)
+WARNING: Line is 112 characters long:
+  DEFB $00,$00,$00,$00,$00,$00,$60,$70,$78,$7F,$7F,$7F,$7F,$31,$30,$00,$00,$00,$00,$00,$00,$00,$00,$00 ; Frame 4
+WARNING: Line is 108 characters long:
+  DEFB $00,$00,$00,$00,$00,$60,$70,$70,$70,$FF,$FF,$FF,$EA,$FF,$78,$78,$70,$70,$70,$60,$00,$00,$00,$00 ; (90
+WARNING: Line is 113 characters long:
+  DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$E0,$E8,$FE,$FE,$FC,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00 ; degrees)
+WARNING: Line is 112 characters long:
+  DEFB $00,$00,$00,$00,$20,$30,$38,$38,$3E,$3F,$1F,$3F,$33,$01,$00,$00,$01,$03,$03,$01,$00,$00,$00,$00 ; Frame 5
+WARNING: Line is 111 characters long:
+  DEFB $00,$00,$00,$00,$00,$00,$03,$07,$07,$8E,$FE,$FE,$FF,$DF,$F7,$FF,$F3,$E0,$C0,$00,$00,$00,$00,$00 ; (112.5
+WARNING: Line is 113 characters long:
+  DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$80,$E0,$E8,$D8,$FC,$78,$00,$00,$00,$00,$00,$00 ; degrees)
+WARNING: Line is 112 characters long:
+  DEFB $00,$04,$06,$06,$07,$07,$0F,$1F,$1F,$01,$01,$00,$00,$01,$07,$0F,$1F,$1C,$00,$00,$00,$00,$00,$00 ; Frame 6
+WARNING: Line is 109 characters long:
+  DEFB $00,$00,$00,$00,$80,$80,$80,$E1,$F3,$FF,$FF,$FF,$FF,$EF,$F7,$FB,$87,$03,$01,$00,$00,$00,$00,$00 ; (135
+WARNING: Line is 113 characters long:
+  DEFB $00,$00,$00,$00,$00,$00,$C0,$E0,$C0,$80,$80,$00,$00,$80,$C0,$E0,$E0,$D0,$F0,$F8,$70,$00,$00,$00 ; degrees)
+WARNING: Line is 112 characters long:
+  DEFB $00,$01,$01,$01,$01,$0F,$0F,$01,$01,$00,$00,$00,$03,$1F,$3F,$38,$00,$00,$00,$00,$00,$00,$00,$00 ; Frame 7
+WARNING: Line is 111 characters long:
+  DEFB $00,$00,$00,$00,$E0,$F0,$C0,$C0,$E0,$F1,$FF,$FF,$FF,$DE,$FE,$2F,$1F,$1C,$0F,$07,$03,$00,$00,$00 ; (157.5
+WARNING: Line is 113 characters long:
+  DEFB $00,$00,$00,$00,$00,$00,$00,$00,$60,$F0,$E0,$80,$00,$00,$00,$00,$00,$80,$80,$80,$80,$00,$00,$00 ; degrees)
+WARNING: Line is 112 characters long:
+  DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$1F,$1F,$07,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00 ; Frame 8
+WARNING: Line is 109 characters long:
+  DEFB $08,$08,$08,$08,$FF,$7F,$1C,$14,$1C,$FF,$FF,$FF,$FF,$3E,$3E,$3E,$3E,$22,$3E,$1C,$1C,$00,$00,$00 ; (180
+WARNING: Line is 113 characters long:
+  DEFB $00,$00,$00,$00,$80,$00,$00,$00,$00,$FC,$FC,$F0,$80,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00 ; degrees)
+WARNING: Line is 112 characters long:
+  DEFB $00,$00,$00,$00,$00,$00,$00,$00,$06,$0F,$07,$01,$00,$00,$00,$00,$00,$01,$01,$01,$01,$00,$00,$00 ; Frame 9
+WARNING: Line is 111 characters long:
+  DEFB $00,$00,$00,$00,$07,$0F,$03,$03,$07,$8F,$FF,$FF,$FF,$7B,$7F,$F4,$F8,$38,$F0,$E0,$C0,$00,$00,$00 ; (202.5
+WARNING: Line is 113 characters long:
+  DEFB $00,$80,$80,$80,$80,$F0,$F0,$80,$80,$00,$00,$00,$C0,$F8,$FC,$1C,$00,$00,$00,$00,$00,$00,$00,$00 ; degrees)
+WARNING: Line is 113 characters long:
+  DEFB $00,$00,$00,$00,$00,$00,$03,$07,$03,$01,$01,$00,$00,$01,$03,$07,$07,$0B,$0F,$1F,$0E,$00,$00,$00 ; Frame 10
+WARNING: Line is 109 characters long:
+  DEFB $00,$00,$00,$00,$01,$01,$01,$87,$CF,$FF,$FF,$FF,$FF,$F7,$EF,$DF,$E1,$C0,$80,$00,$00,$00,$00,$00 ; (225
+WARNING: Line is 113 characters long:
+  DEFB $00,$20,$60,$60,$E0,$E0,$F0,$F8,$F8,$80,$80,$00,$00,$80,$E0,$F0,$F8,$38,$00,$00,$00,$00,$00,$00 ; degrees)
+WARNING: Line is 113 characters long:
+  DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$01,$07,$17,$1B,$3F,$1E,$00,$00,$00,$00,$00,$00 ; Frame 11
+WARNING: Line is 111 characters long:
+  DEFB $00,$00,$00,$00,$00,$00,$C0,$E0,$E0,$71,$7F,$7F,$FF,$FB,$EF,$FF,$CF,$07,$03,$00,$00,$00,$00,$00 ; (247.5
+WARNING: Line is 113 characters long:
+  DEFB $00,$00,$00,$00,$04,$0C,$1C,$1C,$7C,$FC,$F8,$FC,$CC,$80,$00,$00,$80,$C0,$C0,$80,$00,$00,$00,$00 ; degrees)
+WARNING: Line is 113 characters long:
+  DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$07,$17,$7F,$7F,$3F,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00 ; Frame 12
+WARNING: Line is 109 characters long:
+  DEFB $00,$00,$00,$00,$00,$06,$0E,$0E,$0E,$FF,$FF,$FF,$57,$FF,$1E,$1E,$0E,$0E,$0E,$06,$00,$00,$00,$00 ; (270
+WARNING: Line is 113 characters long:
+  DEFB $00,$00,$00,$00,$00,$00,$06,$0E,$1E,$FE,$FE,$FE,$FE,$8C,$0C,$00,$00,$00,$00,$00,$00,$00,$00,$00 ; degrees)
+WARNING: Line is 113 characters long:
+  DEFB $00,$00,$00,$00,$00,$00,$1E,$2F,$1F,$1F,$07,$01,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00 ; Frame 13
+WARNING: Line is 111 characters long:
+  DEFB $00,$00,$00,$00,$00,$03,$07,$CF,$FF,$FF,$7F,$DF,$7F,$7F,$78,$F0,$F0,$E0,$60,$00,$00,$00,$00,$00 ; (292.5
+WARNING: Line is 113 characters long:
+  DEFB $00,$00,$00,$00,$00,$80,$80,$00,$00,$74,$FE,$FC,$F8,$F8,$F0,$E0,$E0,$00,$00,$00,$00,$00,$00,$00 ; degrees)
+WARNING: Line is 113 characters long:
+  DEFB $00,$00,$00,$03,$0F,$0F,$0F,$07,$03,$01,$00,$00,$00,$01,$03,$03,$07,$07,$02,$00,$00,$00,$00,$00 ; Frame 14
+WARNING: Line is 109 characters long:
+  DEFB $00,$00,$00,$00,$80,$C0,$E0,$F7,$FF,$7F,$BF,$DF,$FF,$FF,$EF,$C1,$83,$03,$00,$00,$00,$00,$00,$00 ; (315
+WARNING: Line is 113 characters long:
+  DEFB $00,$00,$00,$00,$00,$00,$E0,$E0,$C0,$80,$00,$90,$F8,$F8,$F0,$F0,$C0,$00,$00,$00,$00,$00,$00,$00 ; degrees)
+WARNING: Line is 113 characters long:
+  DEFB $00,$00,$00,$01,$01,$01,$00,$00,$00,$00,$00,$00,$03,$0F,$0F,$04,$00,$00,$00,$00,$00,$00,$00,$00 ; Frame 15
+WARNING: Line is 111 characters long:
+  DEFB $00,$00,$C0,$F0,$F8,$F8,$FC,$FC,$7E,$5F,$3F,$EF,$FF,$FF,$8F,$07,$03,$07,$07,$00,$00,$00,$00,$00 ; (337.5
+WARNING: Line is 113 characters long:
+  DEFB $00,$00,$00,$00,$00,$00,$00,$00,$78,$F8,$F0,$C0,$A0,$E0,$E0,$F8,$F0,$E0,$60,$00,$00,$00,$00,$00 ; degrees)
+WARNING: Could not convert address $5BE9 to label
+WARNING: Comment contains address ($92A6) not converted to a label:
+; Entered after initialisation (Init), at game over ($92A6), from the info
+WARNING: Comment contains address ($7FD5) not converted to a label:
+; stored as 0-3 in the control method $7FD5 (initially 0); 6 = start the game
+WARNING: Comment at 57984 contains address ($752D) not converted to a label:
+  LD A,$01                ; $752D=1: interrupt handler makes no engine sound
+WARNING: Could not convert address $E3A6 to label
+WARNING: Could not convert address $E325 to label
+WARNING: Could not convert address $6028 to label
+WARNING: Comment at 58151 contains address ($6028) not converted to a label:
+  DEFB $20,$20,$17,$18,$19,$1A,$1B,$1C ; Character codes (font at $6028;
+WARNING: Could not convert address $87BC to label
+WARNING: Comment at 58331 contains address ($7530) not converted to a label:
+  LD A,$03                ; $7530=3: aircraft collision warning lit
+WARNING: Comment at 58336 contains address ($7527) not converted to a label:
+  XOR A                   ; Speed $7527=0
+WARNING: Could not convert address $6028 to label
+WARNING: Could not convert address $E517 to label
+WARNING: Could not convert address $E69C to label
+WARNING: Could not convert address $E504 to label
+WARNING: Comment contains address ($8E0A) not converted to a label:
+; operand at $8E0A is set to 3 here, the map labels use 20), the two headings
+WARNING: Comment contains addresses ($7460, $FB80) not converted to labels:
+; (E504), the leaving-map arrow (HUD glyph at $7460), crate glyph ($FB80, char
+WARNING: Comment contains address ($FB90) not converted to a label:
+; $30) and survivor glyph ($FB90, char $32), and makes "PRESS ANY KEY" flash.
+WARNING: Could not convert address $E69C to label
+WARNING: Comment at 58430 contains address ($8DEE) not converted to a label:
+  LD A,$03                ; Line-record stride 3 for $8DEE
+WARNING: Could not convert address $E504 to label
+WARNING: Could not convert address $8DEE to label
+WARNING: Could not convert address $E69C to label
+WARNING: Comment contains address ($8867) not converted to a label:
+; 16 directions x 4 bytes, patched into the aircraft mover at $8867/$8868 (X)
+WARNING: Comment contains addresses ($87F0, $8871) not converted to labels:
+; and $8871/$8872 (Y) by $87F0: $03 = INC BC, $0B = DEC BC, $00 = NOP, so each
+WARNING: Could not convert address $E86C to label
+WARNING: Could not convert address $E8CC to label
+WARNING: Comment contains address ($87F0) not converted to a label:
+; 15 records of 20 bytes; $87F0 advances to the next record every 28 iterations
+WARNING: Comment contains addresses ($E740, $E85A) not converted to labels:
+; (wrapping at $E85A to $E740). Each record is a list of new directions for the
+WARNING: Line is 86 characters long:
+  DEFB $20,$20,$34,$34,$88,$88,$88,$20,$20,$00,$00,$10,$90,$04,$10,$00,$30,$B0,$00,$FF
+WARNING: Line is 86 characters long:
+  DEFB $1C,$20,$30,$30,$08,$08,$08,$A0,$A0,$80,$00,$90,$10,$08,$10,$00,$34,$30,$00,$FF
+WARNING: Line is 86 characters long:
+  DEFB $20,$20,$AC,$AC,$04,$04,$04,$20,$20,$00,$80,$10,$10,$08,$10,$3C,$30,$30,$00,$FF
+WARNING: Line is 86 characters long:
+  DEFB $20,$20,$28,$28,$08,$08,$08,$1C,$1C,$00,$00,$10,$10,$08,$0C,$3C,$2C,$30,$3C,$FF
+WARNING: Line is 86 characters long:
+  DEFB $20,$20,$2C,$2C,$08,$08,$08,$20,$20,$00,$00,$10,$10,$0C,$10,$38,$30,$34,$38,$FF
+WARNING: Line is 86 characters long:
+  DEFB $A0,$20,$28,$28,$08,$08,$08,$24,$24,$00,$00,$10,$10,$08,$10,$3C,$30,$38,$3C,$FF
+WARNING: Line is 86 characters long:
+  DEFB $20,$20,$28,$28,$0C,$0C,$0C,$20,$20,$00,$00,$10,$10,$08,$0C,$00,$34,$38,$00,$FF
+WARNING: Line is 86 characters long:
+  DEFB $20,$20,$2C,$2C,$08,$08,$08,$24,$24,$00,$00,$10,$10,$0C,$0C,$00,$30,$38,$3C,$FF
+WARNING: Line is 86 characters long:
+  DEFB $20,$20,$30,$30,$04,$04,$04,$28,$28,$00,$00,$10,$10,$10,$0C,$00,$30,$38,$00,$FF
+WARNING: Line is 86 characters long:
+  DEFB $20,$A0,$30,$30,$08,$08,$08,$24,$24,$00,$00,$10,$10,$10,$10,$00,$30,$38,$00,$FF
+WARNING: Line is 86 characters long:
+  DEFB $20,$20,$2C,$2C,$08,$08,$08,$20,$20,$00,$00,$10,$0C,$10,$0C,$80,$30,$38,$00,$FF
+WARNING: Line is 86 characters long:
+  DEFB $20,$20,$30,$30,$08,$08,$08,$1C,$1C,$00,$00,$10,$08,$80,$10,$00,$B0,$38,$00,$FF
+WARNING: Line is 86 characters long:
+  DEFB $24,$20,$34,$34,$04,$04,$04,$20,$20,$04,$00,$10,$0C,$00,$10,$00,$30,$34,$80,$FF
+WARNING: Line is 86 characters long:
+  DEFB $20,$20,$38,$38,$00,$00,$00,$20,$20,$04,$00,$10,$10,$00,$10,$00,$30,$34,$00,$FF
+WARNING: Line is 86 characters long:
+  DEFB $20,$20,$38,$38,$00,$00,$00,$20,$20,$00,$00,$10,$10,$00,$90,$00,$30,$30,$00,$FF
+WARNING: Could not convert address $E700 to label
+WARNING: Comment contains address ($87F0) not converted to a label:
+; $FF ends the table. Updated by $87F0, which also sets the collision warning
+WARNING: Comment contains address ($7530) not converted to a label:
+; bits in $7530 when one is near the helicopter.
+WARNING: Could not convert address $E86C to label
+WARNING: Comment contains address ($7507) not converted to a label:
+; $E8E8+72*(h+1), h = heading $7507 (or heading+8 AND 15 in the south view).
+WARNING: Comment contains address ($8CA0) not converted to a label:
+; Used by $8CA0. The graphics agent decodes these.
+WARNING: Comment contains address ($7BB8) not converted to a label:
+; 16 frames x 72 bytes, frame h at $ED68+72*(h+1) (used by $7BB8; $FF bytes are
+WARNING: Could not convert address $6A4F to label
+WARNING: Could not convert address $F294 to label
+WARNING: Could not convert address $F444 to label
+WARNING: Comment contains address ($7552) not converted to a label:
+; complete needs $7552=$F294), GILLIGANS, RED, SKEG, BONE, GIANTS GATEWAY,
+WARNING: Comment contains addresses ($7552, $76D2) not converted to labels:
+; $76D2 to set $7552); +6..+9: X/Y origin bytes used to convert world
+WARNING: Line is 86 characters long:
+  DEFB $02,$01,$5C,$A8,$80,$B8,$72,$92,$9C,$9C,$00,$93,$94,$48,$0D,$06,$6F,$48,$59,$00
+WARNING: Line is 86 characters long:
+  DEFB $01,$02,$88,$D3,$00,$39,$9E,$BD,$1C,$1D,$00,$9D,$0D,$53,$0C,$07,$2E,$50,$5A,$00
+WARNING: Line is 86 characters long:
+  DEFB $01,$00,$57,$A1,$94,$CC,$6D,$8B,$B0,$AF,$00,$A9,$AB,$40,$0C,$07,$C8,$40,$58,$00
+WARNING: Line is 86 characters long:
+  DEFB $00,$00,$74,$CB,$B8,$F0,$8A,$B5,$D4,$D4,$00,$B6,$C4,$40,$10,$07,$E2,$40,$58,$00
+WARNING: Line is 86 characters long:
+  DEFB $02,$00,$28,$65,$58,$90,$3E,$4F,$74,$74,$00,$C3,$72,$40,$0A,$07,$50,$40,$58,$00
+WARNING: Line is 86 characters long:
+  DEFB $01,$01,$1C,$82,$50,$88,$32,$6C,$6C,$6C,$80,$CF,$69,$48,$14,$07,$86,$48,$59,$00
+WARNING: Line is 86 characters long:
+  DEFB $01,$00,$1C,$5E,$58,$91,$32,$48,$74,$75,$54,$93,$69,$40,$0A,$07,$42,$40,$58,$00
+WARNING: Line is 86 characters long:
+  DEFB $01,$02,$78,$B6,$40,$78,$8E,$A0,$5C,$5C,$D8,$9F,$4C,$53,$09,$07,$6D,$50,$5A,$00
+WARNING: Line is 86 characters long:
+  DEFB $00,$02,$70,$AD,$00,$38,$86,$97,$1C,$1C,$D8,$AD,$04,$55,$09,$07,$25,$50,$5A,$00
+WARNING: Line is 86 characters long:
+  DEFB $01,$00,$AC,$FF,$7C,$B4,$C2,$E9,$98,$98,$43,$B8,$8E,$40,$0F,$07,$AF,$40,$58,$00
+WARNING: Line is 86 characters long:
+  DEFB $01,$01,$98,$CB,$0C,$50,$AE,$B5,$28,$34,$37,$93,$2D,$48,$07,$0A,$2E,$48,$59,$00
+WARNING: Line is 86 characters long:
+  DEFB $01,$01,$C4,$FD,$C0,$FE,$DA,$E7,$DC,$E2,$35,$A7,$CF,$4B,$08,$08,$F0,$48,$59,$00
+WARNING: Line is 86 characters long:
+  DEFB $00,$02,$30,$6D,$30,$6C,$46,$57,$4C,$50,$28,$C6,$42,$50,$09,$08,$62,$50,$5A,$00
+WARNING: Line is 86 characters long:
+  DEFB $00,$01,$44,$8B,$B0,$FB,$5A,$75,$CC,$DF,$4F,$C6,$C2,$48,$0B,$0C,$C4,$48,$59,$00
+WARNING: Comment contains address ($FB88) not converted to a label:
+; Called every main-loop iteration. Character $31 (glyph $FB88, 7 lines)
+WARNING: Comment contains addresses ($7DEE, $7DF6) not converted to labels:
+; alternates between the frames at $7DEE and $7DF6 every 4 iterations (counter
+WARNING: Comment contains addresses ($755B, $7DFE, $FB90) not converted to labels:
+; $755B, 0-7); character $32 (glyph $FB90, 8 lines) alternates between $7DFE
+WARNING: Comment contains addresses ($755C, $7E06) not converted to labels:
+; and $7E06 every 3 iterations (counter $755C, 0-5).
+WARNING: Could not convert address $F511 to label
+WARNING: Could not convert address $F515 to label
+WARNING: Could not convert address $F51B to label
+WARNING: Comment contains address ($7A85) not converted to a label:
+; Called every main-loop iteration. $7A85 is the tile under the helicopter
+WARNING: Comment contains address ($7E10) not converted to a label:
+; (centre of the 3x3 tiles saved by $7E10). If it is a crate (F511) or survivor
+WARNING: Comment contains address ($7556) not converted to a label:
+; (winch state $7556: 0 -> 1 -> 2, the step is skipped if E>=13), then the
+WARNING: Comment contains address ($7554) not converted to a label:
+; the object disappears from the world, and a crate increments $7554 and turns
+WARNING: Comment contains address ($7555) not converted to a label:
+; its HUD box red (attribute 2, boxes from the right). $7555 is then set to
+WARNING: Comment contains address ($7555) not converted to a label:
+; while descending); when $7555 reaches 0 the points are scored: crate 250,
+WARNING: Comment contains addresses ($7555, $7556) not converted to labels:
+; retracted once (12 lines) and $7556 reset. While $7555<>0 the interrupt
+WARNING: Comment at 62362 contains address ($7555) not converted to a label:
+  LD A,($7555)            ; Object being reeled in ($7555=1-16)?
+WARNING: Could not convert address $F548 to label
+WARNING: Could not convert address $F52F to label
+WARNING: Comment at 62431 contains address ($7557) not converted to a label:
+  LD ($7557),HL           ; $7557 = rope+object graphic
+WARNING: Comment at 62434 contains address ($7551) not converted to a label:
+  LD A,(DE)               ; $7551 = plain tile that replaces the object in the
+WARNING: Comment at 62451 contains address ($FF00) not converted to a label:
+  JP $83C2                ; IM2 interrupt vector target (I=$FF, table at $FF00
+WARNING: Comment at 62451 contains address ($83C2) not converted to a label:
+                          ; is all $F3): JP to the interrupt handler $83C2.
+WARNING: Comment at 62454 contains address ($FDA1) not converted to a label:
+  SBC HL,BC               ; DE = $FDA1-8*B
+WARNING: Could not convert address $F51F to label
+WARNING: Comment at 62635 contains address ($751B) not converted to a label:
+  LD HL,$751B             ; Reeling in: rope length - 1 - descent rate ($751B),
+WARNING: Comment at 62680 contains address ($7512) not converted to a label:
+  LD A,$02                ; $7512 := 2
+WARNING: Comment at 62734 contains address ($86EA) not converted to a label:
+  JP $86EA                ; Draw C lines of graphic DE at HL ($86EA)
+WARNING: Comment at 62767 contains address ($7557) not converted to a label:
+  DEFB $08,$34,$4A,$66,$7A,$72,$34,$18 ; Hook and crate (Winch pointer $7557)
+WARNING: Comment at 62792 contains address ($7557) not converted to a label:
+  DEFB $18,$00,$3C,$5A,$18,$18,$18,$00 ; Survivor (Winch pointer $7557)
+WARNING: Could not convert address $6950 to label
+WARNING: Comment contains addresses ($9243, $9246) not converted to labels:
+; ($9246/$92ED, pointer $9243).
+WARNING: Comment contains address ($F6CD) not converted to a label:
+; $F6CD-$F74D).
+WARNING: Could not convert address $F78A to label
+WARNING: Could not convert address $F88A to label
+WARNING: Comment contains address ($5EEC) not converted to a label:
+; crate shuffle to ShuffleCrates (F88A, 232 bytes), writes JP $5EEC at
+WARNING: Comment contains addresses ($F3F3, $FF00) not converted to labels:
+; ShuffleVector, fills the IM2 vector table $FF00-$FFFF with $F3 (vector $F3F3
+WARNING: Comment contains address ($F9FF) not converted to a label:
+; $F9FF is reused as the view buffer, so this code and the two source copies
+WARNING: Comment at 63333 contains address ($5EEC) not converted to a label:
+  LD HL,ShuffleVector     ; FE92: JP $5EEC
+WARNING: Comment contains address ($5B00) not converted to a label:
+; Source copy of the routine at $5B00 (duplicate)
+WARNING: Comment contains address ($5EEC) not converted to a label:
+; Source copy of the routine at $5EEC (duplicate)
+WARNING: Comment contains address ($F74E) not converted to a label:
+; The view buffer occupies $F74E-$F9E8 (29 rows x 23 character cells; cleared
+WARNING: Comment contains addresses ($76D2, $F8B1) not converted to labels:
+; every iteration by $76D2, row 0 at the top; $F8B1 = row 15 column 10 is the
+WARNING: Comment contains addresses ($77F8, $F9E9) not converted to labels:
+; cell under the helicopter), $F9E9-$F9FF is a spare row used by $77F8/$7870.
+WARNING: Comment contains address ($762C) not converted to a label:
+; Glyph of character c (0-$7F) at $FA00+8*c, used by the view blitter $762C.
+WARNING: Comment contains address ($FB80) not converted to a label:
+; $00-$5E are static terrain graphics ($30 = crate at $FB80; $31/$32 = the two
+WARNING: Comment contains address ($89AC) not converted to a label:
+; survivors, animated by AnimateSurvivors; $33-$3E are rebuilt by $89AC-$8A66
+WARNING: Comment contains address ($FCF8) not converted to a label:
+; for the helicopter shadow). $5F-$7F ($FCF8-$FDFF) are dynamic glyphs rebuilt
+WARNING: Comment contains addresses ($7F24, $85D4, $86AF) not converted to labels:
+; every iteration for the helicopter, rope and objects ($7F24, $85D4, $86AF,
+WARNING: Comment contains address ($7BB8) not converted to a label:
+; $7BB8). Codes $80+ have no glyph (solid colour).
+WARNING: Comment contains addresses ($762C, $FE00) not converted to labels:
+; Attribute of character code c at $FE00+c (view blitter $762C: LD H,$FE / LD
+WARNING: Comment contains address ($FE5F) not converted to a label:
+; L,code). $FE5F-$FE7F hold the attributes of the dynamic glyphs (rebuilt at
+WARNING: Comment contains address ($FE80) not converted to a label:
+; run time, 0 at load); $FE80-$FE91 the colours of the solid blocks $80-$91
+WARNING: Line is 80 characters long:
+  DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00 ; Dynamic
+WARNING: Line is 83 characters long:
+  DEFB $00                                                             ; attributes
+WARNING: Line is 80 characters long:
+                                                                       ; colours
+WARNING: Line is 82 characters long:
+                                                                       ; ($80-$91)
+WARNING: Could not convert address $5B2C to label
+WARNING: Comment contains address (65176) not converted to a label:
+; Program entry point (RANDOMIZE USR 65176)
+WARNING: Comment contains address ($FE00) not converted to a label:
+; The BASIC loader loads the screen ("Cyclone2"), this 512-byte block at $FE00
+WARNING: Comment contains address ($5FDC) not converted to a label:
+; ("Cyclone4") and the main block at $5FDC-$FE91 ("Cyclone3", which overwrites
+WARNING: Comment contains address ($FE00) not converted to a label:
+; $FE00-$FE91) with the ROM, then calls here. In the original loader block
+WARNING: Comment contains addresses ($FE00, $FE80) not converted to labels:
+; $FE00 decrypted $FE80-$FFFF (XOR with R) and $FE80 loaded the screen and the
+WARNING: Comment contains address ($FE9F) not converted to a label:
+; main block with its own LD-BYTES at $FE9F before falling into this code; that
+WARNING: Comment contains address ($FF00) not converted to a label:
+; second half ($FF00+) has been overwritten by the IM2 table. Never executed.
+WARNING: Comment contains address ($FEE5) not converted to a label:
+; The stack (SP=$FEFF) grows down into its last bytes (observed $FEE5-$FEFE in
+WARNING: Comment contains address ($F3F3) not converted to a label:
+; $FFxx/$FFxx+1, always $F3F3 (for bus value $FF the second byte is $0000 in
+WARNING: Comment contains address ($83C2) not converted to a label:
+; ROM, also $F3), which holds JP $83C2 (IM2Vector).
+Wrote ASM to stdout (0.13s)

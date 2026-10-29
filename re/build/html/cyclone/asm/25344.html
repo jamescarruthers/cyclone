@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Data at 6300</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="24800.html">60E0</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25344">Map</a></td>
+<td class="next">
+Next: <a href="25600.html">6400</a>
+</td>
+</tr>
+</table>
+<div class="description">6300: Tile column table A (north view), row 0</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Two tile-graphics tables, A at pages $63-$6B (north view) and B at pages $6C-$74 (south view, a mirrored copy), select by $7504 via the self-modified page operands at $7B18 and $7E35-$7F05 (set at $8113). For map tile code t (0-255) the bytes at (page+0)*256+t, (page+1)*256+t, ... give the character codes of that tile's vertical stack, bottom first, drawn upwards in the view buffer (one row up = -23 bytes): a code &lt; $FE is drawn, $FE = transparent (skip a row), $FF = end of column. Character codes &lt; $80 use the glyphs at <a href="64000.html">FA00</a> and attributes at <a href="65024.html">FE00</a>; codes &gt;= $80 are solid attribute-only blocks. Column heights (incl. $FF): 1 for t&lt;$10, then t&gt;=$10:2, $30:3, $58:4, $8C:5, $B2:6, $D0:7, $E4:8 (tiles are sorted by height). The unused low ends of the higher pages hold unrelated data (sprites, text, HUD layouts, code), split out below.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25344"></span>6300</td>
+<td class="instruction">DEFB $80,$00,$01,$02,$82,$03,$04,$05,$06,$10,$11,$12,$13,$14,$15,$30</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25360"></span>6310</td>
+<td class="instruction">DEFB $87,$87,$18,$87,$1E,$87,$1D,$87,$18,$87,$87,$87,$87,$89,$87,$89</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25376"></span>6320</td>
+<td class="instruction">DEFB $87,$87,$87,$87,$87,$88,$87,$87,$87,$87,$00,$00,$00,$87,$87,$87</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25392"></span>6330</td>
+<td class="instruction">DEFB $87,$87,$18,$87,$1E,$87,$1D,$87,$18,$87,$87,$87,$87,$18,$17,$17</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25408"></span>6340</td>
+<td class="instruction">DEFB $18,$18,$17,$17,$18,$89,$87,$87,$87,$87,$87,$88,$87,$87,$87,$87</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25424"></span>6350</td>
+<td class="instruction">DEFB $89,$87,$00,$00,$00,$87,$87,$87,$87,$87,$18,$87,$1E,$87,$1D,$87</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25440"></span>6360</td>
+<td class="instruction">DEFB $18,$87,$87,$87,$87,$18,$17,$17,$18,$18,$17,$17,$18,$18,$17,$17</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25456"></span>6370</td>
+<td class="instruction">DEFB $18,$18,$17,$17,$18,$87,$87,$87,$87,$87,$87,$87,$87,$87,$87,$89</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25472"></span>6380</td>
+<td class="instruction">DEFB $87,$87,$87,$87,$87,$87,$89,$89,$00,$87,$87,$87,$87,$87,$18,$87</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25488"></span>6390</td>
+<td class="instruction">DEFB $1E,$87,$1D,$87,$18,$87,$87,$87,$87,$18,$17,$17,$18,$87,$87,$89</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25504"></span>63A0</td>
+<td class="instruction">DEFB $89,$87,$89,$89,$00,$87,$87,$87,$87,$87,$87,$87,$87,$87,$87,$87</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25520"></span>63B0</td>
+<td class="instruction">DEFB $87,$87,$89,$89,$87,$87,$87,$87,$87,$87,$00,$00,$00,$00,$00,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25536"></span>63C0</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$87,$87,$87,$87,$87,$87,$87,$87,$87,$87,$87,$87</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25552"></span>63D0</td>
+<td class="instruction">DEFB $89,$89,$87,$87,$87,$87,$00,$00,$00,$00,$87,$87,$87,$87,$87,$87</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25568"></span>63E0</td>
+<td class="instruction">DEFB $87,$87,$87,$87,$87,$87,$87,$87,$89,$89,$00,$00,$00,$00,$00,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25584"></span>63F0</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$33,$34,$35,$36,$37,$38,$39,$3A,$3B,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="24800.html">60E0</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25344">Map</a></td>
+<td class="next">
+Next: <a href="25600.html">6400</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

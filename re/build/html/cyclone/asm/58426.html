@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at E43A</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="58422.html">E436</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#58426">Map</a></td>
+<td class="next">
+Next: <a href="58592.html">E4E0</a>
+</td>
+</tr>
+</table>
+<div class="description">E43A: Print the information screen texts</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Prints the 29 lines of 4x8-font text at <a href="58647.html">E517</a> (positions from <a href="59036.html">E69C</a>; the stride operand at $8E0A is set to 3 here, the map labels use 20), the two headings and the highlighted key letters/map symbols in the 8x8 font, horizontal rules (<a href="58628.html">E504</a>), the leaving-map arrow (HUD glyph at $7460), crate glyph ($FB80, char $30) and survivor glyph ($FB90, char $32), and makes "PRESS ANY KEY" flash.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="58426"></span>E43A</td>
+<td class="instruction">LD IX,$E68C</td>
+<td class="comment-1" rowspan="1">Line position table base (IX+$10 = <a href="59036.html">E69C</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58430"></span>E43E</td>
+<td class="instruction">LD A,$03</td>
+<td class="comment-1" rowspan="2">Line-record stride 3 for $8DEE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58432"></span>E440</td>
+<td class="instruction">LD ($8E0A),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58435"></span>E443</td>
+<td class="instruction">LD HL,$E517</td>
+<td class="comment-1" rowspan="2">Print the small-font texts</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58438"></span>E446</td>
+<td class="instruction">CALL <a href="36322.html#36334">$8DEE</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="58441"></span>E449</td>
+<td class="instruction">LD HL,$E4E0</td>
+<td class="comment-1" rowspan="4">"KEY CONTROLS" at row 1, column 1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58444"></span>E44C</td>
+<td class="instruction">LD DE,$4021</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58447"></span>E44F</td>
+<td class="instruction">LD C,$0C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58449"></span>E451</td>
+<td class="instruction">CALL <a href="34202.html">$859A</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="58452"></span>E454</td>
+<td class="instruction">LD HL,$E4EC</td>
+<td class="comment-1" rowspan="4">"MAP INDICATORS" at row 8, column 1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58455"></span>E457</td>
+<td class="instruction">LD DE,$4801</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58458"></span>E45A</td>
+<td class="instruction">LD C,$0E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58460"></span>E45C</td>
+<td class="instruction">CALL <a href="34202.html">$859A</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="58463"></span>E45F</td>
+<td class="instruction">LD HL,$E504</td>
+<td class="comment-1" rowspan="14">Draw horizontal rules (list at <a href="58628.html">E504</a>)</td>
+</tr>
+<tr>
+<td class="address-2"><span id="58466"></span>E462</td>
+<td class="instruction">LD A,$FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58468"></span>E464</td>
+<td class="instruction">LD B,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58469"></span>E465</td>
+<td class="instruction">CP B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58470"></span>E466</td>
+<td class="instruction">JR Z,$E473</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58472"></span>E468</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58473"></span>E469</td>
+<td class="instruction">LD E,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58474"></span>E46A</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58475"></span>E46B</td>
+<td class="instruction">LD D,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58476"></span>E46C</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-2"><span id="58477"></span>E46D</td>
+<td class="instruction">LD (DE),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58478"></span>E46E</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58479"></span>E46F</td>
+<td class="instruction">DJNZ $E46D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58481"></span>E471</td>
+<td class="instruction">JR $E462</td>
+</tr>
+<tr>
+<td class="address-2"><span id="58483"></span>E473</td>
+<td class="instruction">LD HL,$E4FA</td>
+<td class="comment-1" rowspan="32">Single characters: "1" row 3 col 1, "O" row 3 col 7, "Q" row 4 col 1, "P" row 4 col 7, "X" row 5 col 1, "N" row 5 col 7, "M" row 6 col 1, "N" row 14 col 21, helicopter symbol row 10 col 1, cyclone symbol row 11 col 1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58486"></span>E476</td>
+<td class="instruction">LD C,$01</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58488"></span>E478</td>
+<td class="instruction">LD DE,$4061</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58491"></span>E47B</td>
+<td class="instruction">CALL <a href="34202.html">$859A</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="58494"></span>E47E</td>
+<td class="instruction">INC C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58495"></span>E47F</td>
+<td class="instruction">LD E,$67</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58497"></span>E481</td>
+<td class="instruction">CALL <a href="34202.html">$859A</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="58500"></span>E484</td>
+<td class="instruction">INC C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58501"></span>E485</td>
+<td class="instruction">LD E,$81</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58503"></span>E487</td>
+<td class="instruction">CALL <a href="34202.html">$859A</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="58506"></span>E48A</td>
+<td class="instruction">INC C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58507"></span>E48B</td>
+<td class="instruction">LD E,$87</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58509"></span>E48D</td>
+<td class="instruction">CALL <a href="34202.html">$859A</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="58512"></span>E490</td>
+<td class="instruction">INC C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58513"></span>E491</td>
+<td class="instruction">LD E,$A1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58515"></span>E493</td>
+<td class="instruction">CALL <a href="34202.html">$859A</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="58518"></span>E496</td>
+<td class="instruction">INC C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58519"></span>E497</td>
+<td class="instruction">LD E,$A7</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58521"></span>E499</td>
+<td class="instruction">CALL <a href="34202.html">$859A</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="58524"></span>E49C</td>
+<td class="instruction">INC C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58525"></span>E49D</td>
+<td class="instruction">LD E,$C1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58527"></span>E49F</td>
+<td class="instruction">CALL <a href="34202.html">$859A</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="58530"></span>E4A2</td>
+<td class="instruction">INC C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58531"></span>E4A3</td>
+<td class="instruction">LD DE,$48D5</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58534"></span>E4A6</td>
+<td class="instruction">CALL <a href="34202.html">$859A</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="58537"></span>E4A9</td>
+<td class="instruction">INC C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58538"></span>E4AA</td>
+<td class="instruction">LD E,$41</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58540"></span>E4AC</td>
+<td class="instruction">CALL <a href="34202.html">$859A</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="58543"></span>E4AF</td>
+<td class="instruction">INC C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58544"></span>E4B0</td>
+<td class="instruction">LD E,$61</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58546"></span>E4B2</td>
+<td class="instruction">CALL <a href="34202.html">$859A</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="58549"></span>E4B5</td>
+<td class="instruction">INC C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58550"></span>E4B6</td>
+<td class="instruction">LD IX,$7460</td>
+<td class="comment-1" rowspan="5">Leaving-map arrow at row 12, column 1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58554"></span>E4BA</td>
+<td class="instruction">LD DE,$4881</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58557"></span>E4BD</td>
+<td class="instruction">LD C,$01</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58559"></span>E4BF</td>
+<td class="instruction">LD HL,$0040</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58562"></span>E4C2</td>
+<td class="instruction">CALL <a href="36584.html">$8EE8</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="58565"></span>E4C5</td>
+<td class="instruction">LD IX,$FB80</td>
+<td class="comment-1" rowspan="3">Crate glyph at row 14, column 1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58569"></span>E4C9</td>
+<td class="instruction">INC C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58570"></span>E4CA</td>
+<td class="instruction">CALL <a href="36584.html">$8EE8</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="58573"></span>E4CD</td>
+<td class="instruction">LD IX,$FB90</td>
+<td class="comment-1" rowspan="3">Survivor glyph at row 16, column 1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58577"></span>E4D1</td>
+<td class="instruction">INC C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58578"></span>E4D2</td>
+<td class="instruction">CALL <a href="36584.html">$8EE8</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="58581"></span>E4D5</td>
+<td class="instruction">LD HL,$5A41</td>
+<td class="comment-1" rowspan="6">"PRESS ANY KEY" (row 18, columns 1-7) flashing</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58584"></span>E4D8</td>
+<td class="instruction">LD B,$07</td>
+</tr>
+<tr>
+<td class="address-2"><span id="58586"></span>E4DA</td>
+<td class="instruction">LD (HL),$FA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58588"></span>E4DC</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58589"></span>E4DD</td>
+<td class="instruction">DJNZ $E4DA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58591"></span>E4DF</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="58422.html">E436</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#58426">Map</a></td>
+<td class="next">
+Next: <a href="58592.html">E4E0</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

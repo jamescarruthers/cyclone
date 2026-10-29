@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Data at DE00</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="37632.html">9300</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#56832">Map</a></td>
+<td class="next">
+Next: <a href="57984.html">E280</a>
+</td>
+</tr>
+</table>
+<div class="description">DE00: Aircraft sprite frames</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+16 frames of 72 bytes, one per direction (frame n = n*22.5 degrees clockwise from north/up; the code adds 8 modulo 16 in the south view). Each frame is a 24x24 image stored column-major: bytes 0-23 are the left 8-pixel column (top to bottom), 24-47 the middle column, 48-71 the right column; equivalently 9 characters in column order. <a href="34800.html#35221">8995</a> copies the current frame (DDB8+72*(index+1)) to FBE0 (terrain chars 3C-44) and an AND AA/55 dithered copy to FB98 (chars 33-3B, the shadow); the plane is then drawn as window tiles F6-FE.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="56832"></span>DE00</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$07,$1F,$1F,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00</td>
+<td class="comment-1" rowspan="3">Frame 0 (0 degrees)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="56856"></span>DE18</td>
+<td class="instruction">DEFB $00,$1C,$1C,$3E,$3E,$3E,$3E,$3E,$3E,$FF,$FF,$FF,$FF,$1C,$1C,$14,$77,$F7,$08,$08,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="56880"></span>DE30</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$80,$F0,$FC,$FC,$00,$00,$00,$00,$80,$00,$00,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="56904"></span>DE48</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00,$1E,$1F,$0F,$03,$05,$07,$07,$1F,$0F,$07,$06,$00,$00,$00,$00,$00</td>
+<td class="comment-1" rowspan="3">Frame 1 (22.5 degrees)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="56928"></span>DE60</td>
+<td class="instruction">DEFB $00,$00,$03,$0F,$1F,$1F,$3F,$3F,$7E,$FA,$FC,$F7,$FF,$FF,$F1,$E0,$C0,$E0,$E0,$00,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="56952"></span>DE78</td>
+<td class="instruction">DEFB $00,$00,$00,$80,$80,$80,$00,$00,$00,$00,$00,$00,$C0,$F0,$F0,$20,$00,$00,$00,$00,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="56976"></span>DE90</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$07,$07,$03,$01,$00,$09,$1F,$1F,$0F,$0F,$03,$00,$00,$00,$00,$00,$00,$00</td>
+<td class="comment-1" rowspan="3">Frame 2 (45 degrees)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57000"></span>DEA8</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$01,$03,$07,$EF,$FF,$FE,$FD,$FB,$FF,$FF,$F7,$83,$C1,$C0,$00,$00,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57024"></span>DEC0</td>
+<td class="instruction">DEFB $00,$00,$00,$C0,$F0,$F0,$F0,$E0,$C0,$80,$00,$00,$00,$80,$C0,$C0,$E0,$E0,$40,$00,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57048"></span>DED8</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$01,$01,$00,$00,$2E,$7F,$3F,$1F,$1F,$0F,$07,$07,$00,$00,$00,$00,$00,$00,$00</td>
+<td class="comment-1" rowspan="3">Frame 3 (67.5 degrees)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57072"></span>DEF0</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$C0,$E0,$F3,$FF,$FF,$FE,$FB,$FE,$FE,$1E,$0F,$0F,$07,$06,$00,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57096"></span>DF08</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$78,$F4,$F8,$F8,$E0,$80,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57120"></span>DF20</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$60,$70,$78,$7F,$7F,$7F,$7F,$31,$30,$00,$00,$00,$00,$00,$00,$00,$00,$00</td>
+<td class="comment-1" rowspan="3">Frame 4 (90 degrees)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57144"></span>DF38</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$60,$70,$70,$70,$FF,$FF,$FF,$EA,$FF,$78,$78,$70,$70,$70,$60,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57168"></span>DF50</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$E0,$E8,$FE,$FE,$FC,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57192"></span>DF68</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$20,$30,$38,$38,$3E,$3F,$1F,$3F,$33,$01,$00,$00,$01,$03,$03,$01,$00,$00,$00,$00</td>
+<td class="comment-1" rowspan="3">Frame 5 (112.5 degrees)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57216"></span>DF80</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$03,$07,$07,$8E,$FE,$FE,$FF,$DF,$F7,$FF,$F3,$E0,$C0,$00,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57240"></span>DF98</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$80,$E0,$E8,$D8,$FC,$78,$00,$00,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57264"></span>DFB0</td>
+<td class="instruction">DEFB $00,$04,$06,$06,$07,$07,$0F,$1F,$1F,$01,$01,$00,$00,$01,$07,$0F,$1F,$1C,$00,$00,$00,$00,$00,$00</td>
+<td class="comment-1" rowspan="3">Frame 6 (135 degrees)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57288"></span>DFC8</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$80,$80,$80,$E1,$F3,$FF,$FF,$FF,$FF,$EF,$F7,$FB,$87,$03,$01,$00,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57312"></span>DFE0</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$C0,$E0,$C0,$80,$80,$00,$00,$80,$C0,$E0,$E0,$D0,$F0,$F8,$70,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57336"></span>DFF8</td>
+<td class="instruction">DEFB $00,$01,$01,$01,$01,$0F,$0F,$01,$01,$00,$00,$00,$03,$1F,$3F,$38,$00,$00,$00,$00,$00,$00,$00,$00</td>
+<td class="comment-1" rowspan="3">Frame 7 (157.5 degrees)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57360"></span>E010</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$E0,$F0,$C0,$C0,$E0,$F1,$FF,$FF,$FF,$DE,$FE,$2F,$1F,$1C,$0F,$07,$03,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57384"></span>E028</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00,$60,$F0,$E0,$80,$00,$00,$00,$00,$00,$80,$80,$80,$80,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57408"></span>E040</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$1F,$1F,$07,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00</td>
+<td class="comment-1" rowspan="3">Frame 8 (180 degrees)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57432"></span>E058</td>
+<td class="instruction">DEFB $08,$08,$08,$08,$FF,$7F,$1C,$14,$1C,$FF,$FF,$FF,$FF,$3E,$3E,$3E,$3E,$22,$3E,$1C,$1C,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57456"></span>E070</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$80,$00,$00,$00,$00,$FC,$FC,$F0,$80,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57480"></span>E088</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00,$06,$0F,$07,$01,$00,$00,$00,$00,$00,$01,$01,$01,$01,$00,$00,$00</td>
+<td class="comment-1" rowspan="3">Frame 9 (202.5 degrees)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57504"></span>E0A0</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$07,$0F,$03,$03,$07,$8F,$FF,$FF,$FF,$7B,$7F,$F4,$F8,$38,$F0,$E0,$C0,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57528"></span>E0B8</td>
+<td class="instruction">DEFB $00,$80,$80,$80,$80,$F0,$F0,$80,$80,$00,$00,$00,$C0,$F8,$FC,$1C,$00,$00,$00,$00,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57552"></span>E0D0</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$03,$07,$03,$01,$01,$00,$00,$01,$03,$07,$07,$0B,$0F,$1F,$0E,$00,$00,$00</td>
+<td class="comment-1" rowspan="3">Frame 10 (225 degrees)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57576"></span>E0E8</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$01,$01,$01,$87,$CF,$FF,$FF,$FF,$FF,$F7,$EF,$DF,$E1,$C0,$80,$00,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57600"></span>E100</td>
+<td class="instruction">DEFB $00,$20,$60,$60,$E0,$E0,$F0,$F8,$F8,$80,$80,$00,$00,$80,$E0,$F0,$F8,$38,$00,$00,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57624"></span>E118</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$01,$07,$17,$1B,$3F,$1E,$00,$00,$00,$00,$00,$00</td>
+<td class="comment-1" rowspan="3">Frame 11 (247.5 degrees)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57648"></span>E130</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$C0,$E0,$E0,$71,$7F,$7F,$FF,$FB,$EF,$FF,$CF,$07,$03,$00,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57672"></span>E148</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$04,$0C,$1C,$1C,$7C,$FC,$F8,$FC,$CC,$80,$00,$00,$80,$C0,$C0,$80,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57696"></span>E160</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$07,$17,$7F,$7F,$3F,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00</td>
+<td class="comment-1" rowspan="3">Frame 12 (270 degrees)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57720"></span>E178</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$06,$0E,$0E,$0E,$FF,$FF,$FF,$57,$FF,$1E,$1E,$0E,$0E,$0E,$06,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57744"></span>E190</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$06,$0E,$1E,$FE,$FE,$FE,$FE,$8C,$0C,$00,$00,$00,$00,$00,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57768"></span>E1A8</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$1E,$2F,$1F,$1F,$07,$01,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00</td>
+<td class="comment-1" rowspan="3">Frame 13 (292.5 degrees)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57792"></span>E1C0</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$03,$07,$CF,$FF,$FF,$7F,$DF,$7F,$7F,$78,$F0,$F0,$E0,$60,$00,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57816"></span>E1D8</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$80,$80,$00,$00,$74,$FE,$FC,$F8,$F8,$F0,$E0,$E0,$00,$00,$00,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57840"></span>E1F0</td>
+<td class="instruction">DEFB $00,$00,$00,$03,$0F,$0F,$0F,$07,$03,$01,$00,$00,$00,$01,$03,$03,$07,$07,$02,$00,$00,$00,$00,$00</td>
+<td class="comment-1" rowspan="3">Frame 14 (315 degrees)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57864"></span>E208</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$80,$C0,$E0,$F7,$FF,$7F,$BF,$DF,$FF,$FF,$EF,$C1,$83,$03,$00,$00,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57888"></span>E220</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$E0,$E0,$C0,$80,$00,$90,$F8,$F8,$F0,$F0,$C0,$00,$00,$00,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57912"></span>E238</td>
+<td class="instruction">DEFB $00,$00,$00,$01,$01,$01,$00,$00,$00,$00,$00,$00,$03,$0F,$0F,$04,$00,$00,$00,$00,$00,$00,$00,$00</td>
+<td class="comment-1" rowspan="3">Frame 15 (337.5 degrees)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57936"></span>E250</td>
+<td class="instruction">DEFB $00,$00,$C0,$F0,$F8,$F8,$FC,$FC,$7E,$5F,$3F,$EF,$FF,$FF,$8F,$07,$03,$07,$07,$00,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="57960"></span>E268</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00,$78,$F8,$F0,$C0,$A0,$E0,$E0,$F8,$F0,$E0,$60,$00,$00,$00,$00,$00</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="37632.html">9300</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#56832">Map</a></td>
+<td class="next">
+Next: <a href="57984.html">E280</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

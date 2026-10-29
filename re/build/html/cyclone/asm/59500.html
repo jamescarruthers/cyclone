@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Data at E86C</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="59200.html">E740</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#59500">Map</a></td>
+<td class="next">
+Next: <a href="59596.html">E8CC</a>
+</td>
+</tr>
+</table>
+<div class="description">E86C: Aircraft table</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+19 aircraft x 5 bytes: direction (0-15, index into <a href="59136.html">E700</a>), X (word), Y (word); $FF ends the table. Updated by $87F0, which also sets the collision warning bits in $7530 when one is near the helicopter.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59500"></span>E86C</td>
+<td class="instruction">DEFB $20,$A8,$00,$EC,$01</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59505"></span>E871</td>
+<td class="instruction">DEFB $20,$04,$02,$0C,$01</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59510"></span>E876</td>
+<td class="instruction">DEFB $34,$3C,$00,$14,$02</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59515"></span>E87B</td>
+<td class="instruction">DEFB $34,$3C,$00,$0C,$02</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59520"></span>E880</td>
+<td class="instruction">DEFB $08,$24,$00,$E0,$02</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59525"></span>E885</td>
+<td class="instruction">DEFB $08,$24,$00,$EC,$02</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59530"></span>E88A</td>
+<td class="instruction">DEFB $08,$24,$00,$FC,$02</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59535"></span>E88F</td>
+<td class="instruction">DEFB $20,$F8,$00,$CC,$02</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59540"></span>E894</td>
+<td class="instruction">DEFB $20,$EC,$00,$CC,$02</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59545"></span>E899</td>
+<td class="instruction">DEFB $00,$D4,$02,$F4,$FF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59550"></span>E89E</td>
+<td class="instruction">DEFB $00,$34,$00,$64,$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59555"></span>E8A3</td>
+<td class="instruction">DEFB $10,$DC,$02,$F8,$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59560"></span>E8A8</td>
+<td class="instruction">DEFB $10,$CC,$FF,$B8,$01</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59565"></span>E8AD</td>
+<td class="instruction">DEFB $04,$60,$01,$24,$02</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59570"></span>E8B2</td>
+<td class="instruction">DEFB $10,$04,$00,$AC,$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59575"></span>E8B7</td>
+<td class="instruction">DEFB $00,$B8,$02,$EC,$01</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59580"></span>E8BC</td>
+<td class="instruction">DEFB $30,$34,$02,$1C,$02</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59585"></span>E8C1</td>
+<td class="instruction">DEFB $30,$2C,$03,$EC,$01</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59590"></span>E8C6</td>
+<td class="instruction">DEFB $00,$3C,$02,$5C,$02</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59595"></span>E8CB</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">End of table</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="59200.html">E740</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#59500">Map</a></td>
+<td class="next">
+Next: <a href="59596.html">E8CC</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

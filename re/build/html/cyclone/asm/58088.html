@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at E2E8</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="57984.html">E280</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#58088">Map</a></td>
+<td class="next">
+Next: <a href="58149.html">E325</a>
+</td>
+</tr>
+</table>
+<div class="description">E2E8: Draw the main menu</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Colours rows 5-17, columns 9-21 from the list at <a href="58278.html">E3A6</a> (one attribute per row), draws a horizontal line (pixel line 3) across the same 13 columns of each of those rows (visible only on the red rows that carry no text: rows 8, 10, 15, 17), then prints the strings at <a href="58149.html">E325</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="58088"></span>E2E8</td>
+<td class="instruction">LD DE,$E3A6</td>
+<td class="comment-1" rowspan="13">One attribute per row</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58091"></span>E2EB</td>
+<td class="instruction">LD HL,$58A9</td>
+</tr>
+<tr>
+<td class="address-2"><span id="58094"></span>E2EE</td>
+<td class="instruction">LD B,$0D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58096"></span>E2F0</td>
+<td class="instruction">LD A,(DE)</td>
+</tr>
+<tr>
+<td class="address-2"><span id="58097"></span>E2F1</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58098"></span>E2F2</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58099"></span>E2F3</td>
+<td class="instruction">DJNZ $E2F1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58101"></span>E2F5</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58102"></span>E2F6</td>
+<td class="instruction">LD BC,$0013</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58105"></span>E2F9</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58106"></span>E2FA</td>
+<td class="instruction">LD A,(DE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58107"></span>E2FB</td>
+<td class="instruction">CP $FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58109"></span>E2FD</td>
+<td class="instruction">JR NZ,$E2EE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58111"></span>E2FF</td>
+<td class="instruction">LD HL,$43A9</td>
+<td class="comment-1" rowspan="7">Pixel line 3 of row 5, column 9</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58114"></span>E302</td>
+<td class="instruction">LD A,$FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58116"></span>E304</td>
+<td class="instruction">LD C,$0D</td>
+</tr>
+<tr>
+<td class="address-2"><span id="58118"></span>E306</td>
+<td class="instruction">LD B,$0D</td>
+</tr>
+<tr>
+<td class="address-2"><span id="58120"></span>E308</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58121"></span>E309</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58122"></span>E30A</td>
+<td class="instruction">DJNZ $E308</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58124"></span>E30C</td>
+<td class="instruction">RR H</td>
+<td class="comment-1" rowspan="10">Move to the same pixel line of the next character row (bit-rotation trick)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58126"></span>E30E</td>
+<td class="instruction">RR H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58128"></span>E310</td>
+<td class="instruction">RR H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58130"></span>E312</td>
+<td class="instruction">LD DE,$0013</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58133"></span>E315</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58134"></span>E316</td>
+<td class="instruction">RL H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58136"></span>E318</td>
+<td class="instruction">RL H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58138"></span>E31A</td>
+<td class="instruction">RL H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58140"></span>E31C</td>
+<td class="instruction">DEC C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58141"></span>E31D</td>
+<td class="instruction">JR NZ,$E306</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58143"></span>E31F</td>
+<td class="instruction">LD HL,$E325</td>
+<td class="comment-1" rowspan="2">Print the menu strings</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58146"></span>E322</td>
+<td class="instruction">JP <a href="58383.html">$E40F</a></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="57984.html">E280</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#58088">Map</a></td>
+<td class="next">
+Next: <a href="58149.html">E325</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

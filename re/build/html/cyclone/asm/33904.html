@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at 8470</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33850.html">843A</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#33904">Map</a></td>
+<td class="next">
+Next: <a href="33966.html">84AE</a>
+</td>
+</tr>
+</table>
+<div class="description">8470: Fuel: refuel on the base pad, otherwise burn</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Called once per main-loop iteration (5BD4). When not on the base helipad (752E=0) jumps to 82A7 to burn fuel. On the pad, adds one pixel line to the F bar per iteration (with a $D0-pitch beep) until the bar is full (pointer reaches row 0, $471C), and clears the empty-tank flag 7516. A full refuel from empty takes 40 iterations (about 4 seconds).
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">(752E)</td>
+<td class="register-desc">1 = landed on the base helipad</td>
+</tr>
+<tr>
+<td class="register">(7518)</td>
+<td class="register-desc">F-bar pointer</td>
+</tr>
+</table>
+<table class="output">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+<tr>
+<td class="register">(7516)</td>
+<td class="register-desc">0</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33904"></span>8470</td>
+<td class="instruction">LD A,($752E)</td>
+<td class="comment-1" rowspan="3">Not on the pad: burn fuel</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33907"></span>8473</td>
+<td class="instruction">CP $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33909"></span>8475</td>
+<td class="instruction">JP Z,<a href="33447.html">$82A7</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="33912"></span>8478</td>
+<td class="instruction">LD A,($7517)</td>
+<td class="comment-1" rowspan="7">Sub-counter (always passes)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33915"></span>847B</td>
+<td class="instruction">INC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33916"></span>847C</td>
+<td class="instruction">LD ($7517),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33919"></span>847F</td>
+<td class="instruction">CP $01</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33921"></span>8481</td>
+<td class="instruction">RET C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33922"></span>8482</td>
+<td class="instruction">XOR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33923"></span>8483</td>
+<td class="instruction">LD ($7517),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33926"></span>8486</td>
+<td class="instruction">LD HL,($7518)</td>
+<td class="comment-1" rowspan="4">Bar full (pointer in row 0)?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33929"></span>8489</td>
+<td class="instruction">LD A,L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33930"></span>848A</td>
+<td class="instruction">CP $1C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33932"></span>848C</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33933"></span>848D</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="5">Beep: BEEPER HL=$00D0, DE=16</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33934"></span>848E</td>
+<td class="instruction">LD HL,$00D0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33937"></span>8491</td>
+<td class="instruction">LD DE,$0010</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33940"></span>8494</td>
+<td class="instruction">CALL $03B5</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33943"></span>8497</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33944"></span>8498</td>
+<td class="instruction">LD (HL),$FF</td>
+<td class="comment-1" rowspan="10">Light one line and move the pointer up</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33946"></span>849A</td>
+<td class="instruction">DEC H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33947"></span>849B</td>
+<td class="instruction">LD A,H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33948"></span>849C</td>
+<td class="instruction">CP $3F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33950"></span>849E</td>
+<td class="instruction">JR NZ,$84A6</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33952"></span>84A0</td>
+<td class="instruction">LD H,$47</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33954"></span>84A2</td>
+<td class="instruction">LD A,$E0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33956"></span>84A4</td>
+<td class="instruction">ADD A,L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33957"></span>84A5</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33958"></span>84A6</td>
+<td class="instruction">LD ($7518),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33961"></span>84A9</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="3">Tank not empty any more</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33962"></span>84AA</td>
+<td class="instruction">LD ($7516),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33965"></span>84AD</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33850.html">843A</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#33904">Map</a></td>
+<td class="next">
+Next: <a href="33966.html">84AE</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

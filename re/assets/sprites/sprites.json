@@ -1,0 +1,151 @@
+{
+ "helicopter": {
+  "addr": 59696,
+  "end": 60847,
+  "frames": 16,
+  "frame_bytes": 72,
+  "size_px": [
+   24,
+   24
+  ],
+  "layout": "column-major: bytes 0-23 = left 8-px column rows 0-23, 24-47 middle, 48-71 right",
+  "index": "heading 7507 (0 = nose up/north, +1 = 22.5 deg clockwise); +8 mod 16 in the south view (7504<>0)",
+  "routine": "8CA0 copies frame to 6950, then XORs a rotor overlay; 86AF merges 6950 into the composite chars",
+  "mask": "none: drawn with OR/AND into the composite buffer (see notes)"
+ },
+ "helicopter_rotor": {
+  "frames": {
+   "7000": "7000",
+   "7100": "7100",
+   "6700": "6700",
+   "6800": "6800",
+   "6900": "6900",
+   "6A00": "6A00"
+  },
+  "size_px": [
+   24,
+   24
+  ],
+  "layout": "column-major, XOR overlay",
+  "use": "753A cycles 0-1 -> 7000/7100 normally; when 7515=1 or 7516<>0 it cycles 0-3 -> 6700/6800/6900/6A00. For heading frames >= 10 the XOR loop is patched (8D02 = ADD A,A) so the rotor byte is shifted left 1 px."
+ },
+ "helicopter_shadow": {
+  "addr": 60848,
+  "end": 61999,
+  "frames": 16,
+  "frame_bytes": 72,
+  "layout": "9 chars x 8 bytes; char j = column*3 + k, k=0 bottom, 1 middle, 2 top; a char whose first byte is FF is empty (skipped)",
+  "empty_chars_per_frame": {
+   "0": [
+    0,
+    2,
+    8
+   ],
+   "1": [
+    2
+   ],
+   "2": [
+    2,
+    6
+   ],
+   "3": [
+    2,
+    5
+   ],
+   "4": [
+    2,
+    5,
+    6,
+    8
+   ],
+   "5": [
+    0,
+    5,
+    8
+   ],
+   "6": [
+    0,
+    8
+   ],
+   "7": [
+    0,
+    8
+   ],
+   "8": [
+    2,
+    8
+   ],
+   "9": [
+    2
+   ],
+   "10": [
+    2,
+    6
+   ],
+   "11": [
+    2,
+    5,
+    6
+   ],
+   "12": [
+    0,
+    2,
+    5,
+    6,
+    8
+   ],
+   "13": [
+    0,
+    8
+   ],
+   "14": [
+    0,
+    8
+   ],
+   "15": [
+    0,
+    7,
+    8
+   ]
+  },
+  "index": "same as helicopter (heading, +8 in south view)",
+  "routine": "7BB8: each char is ORed into the composite at the ground height under that cell (7A95-7A9D)"
+ },
+ "aircraft": {
+  "addr": 56832,
+  "end": 57983,
+  "frames": 16,
+  "frame_bytes": 72,
+  "size_px": [
+   24,
+   24
+  ],
+  "layout": "column-major 3x24 = also 9 chars in column order (char j = col*3 + row)",
+  "index": "aircraft direction byte (record +0, 0-63) >> 2; +8 mod 16 in south view",
+  "routine": "8995: frame copied to FBE0 (= terrain chars 3C-44) and an AND AA/55 dithered copy to FB98 (chars 33-3B, the shadow); the plane is then drawn as map tiles F6-FE (shadow at ground level, plane 3 rows higher)"
+ },
+ "explosion": {
+  "addr": 62800,
+  "end": 63159,
+  "frames": 5,
+  "frame_bytes": 72,
+  "size_px": [
+   24,
+   24
+  ],
+  "layout": "column-major",
+  "use": "crash sequence 9246: 24 steps; sprite buffer 6950 cleared every step (from the zero row at 9300); steps 24-22 redraw the helicopter (8CA0) and steps 24-20 XOR explosion frame 0..4 (92ED, pointer 9243)"
+ },
+ "winch": {
+  "crate_on_rope": [
+   62751,
+   62774
+  ],
+  "survivor_on_rope": [
+   62776,
+   62799
+  ],
+  "layout": "1 byte (8 px) wide, one byte per pixel row; rope pixels (bit 3) above the load. Drawn rows = [ptr - rope_len, ptr + 8): crate ptr F52F (crate body F530-F536), survivor ptr F548 (man F548-F54E)",
+  "use": "F39A: when the tile under the helicopter (7A85) is a crate (F511 list) or survivor (F515 list) and the winch is lowered (7555), pointer 7557 selects F52F (crate) or F548 (survivor); drawn into the composite column at FDA1"
+ }
+}

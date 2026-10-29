@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at 5B00</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+</td>
+<td class="up">Up: <a href="../maps/all.html#23296">Map</a></td>
+<td class="next">
+Next: <a href="23538.html">5BF2</a>
+</td>
+</tr>
+</table>
+<div class="description">5B00: Game start, per-level setup and main game loop</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Copied here from <a href="63370.html">F78A</a> by <a href="63310.html">F74E</a> (it lives in the printer buffer). Entered from the main menu (<a href="57984.html">E280</a>) when "6" is pressed. Clears the screen, draws the HUD, updates the high score with the last game's score, zeroes the score and loads the 100 live game variables at $7500-$7563 from their initial values at $7564. <a href="23296.html#23334">5B26</a> starts a level (also re-entered when a level is completed), <a href="23296.html#23350">5B36</a> starts a life (also re-entered after a life is lost, from $92C5), and <a href="23296.html#23356">5B3C</a> is the free-running per-iteration loop (no HALT / interrupt sync: one iteration takes ~270000-390000 T-states, i.e. ~3.9-5.6 TV frames, ~9-13 iterations per second; all game timers count iterations).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="23296"></span>5B00</td>
+<td class="instruction">CALL <a href="34006.html">$84D6</a></td>
+<td class="comment-1" rowspan="1">Clear the screen (pixels 0, attributes 7)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23299"></span>5B03</td>
+<td class="instruction">CALL <a href="36110.html">$8D0E</a></td>
+<td class="comment-1" rowspan="1">Clear/colour the 23x22 play area</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23302"></span>5B06</td>
+<td class="instruction">CALL <a href="34036.html">$84F4</a></td>
+<td class="comment-1" rowspan="1">Draw the HUD panel (right-hand 8 columns and bottom two rows)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23305"></span>5B09</td>
+<td class="instruction">CALL <a href="34748.html">$87BC</a></td>
+<td class="comment-1" rowspan="1">Hi-score := score if score &gt; hi-score; print "H" line</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23308"></span>5B0C</td>
+<td class="instruction">LD B,$06</td>
+<td class="comment-1" rowspan="5">Score digits 1-6 := '.' (displayed as blank leading digits)...</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23310"></span>5B0E</td>
+<td class="instruction">LD HL,$661E</td>
+</tr>
+<tr>
+<td class="address-2"><span id="23313"></span>5B11</td>
+<td class="instruction">LD (HL),$2E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23315"></span>5B13</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23316"></span>5B14</td>
+<td class="instruction">DJNZ $5B11</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23318"></span>5B16</td>
+<td class="instruction">LD (HL),$30</td>
+<td class="comment-1" rowspan="1">...and the last digit := '0'</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23320"></span>5B18</td>
+<td class="instruction">CALL <a href="28416.html">$6F00</a></td>
+<td class="comment-1" rowspan="1">Print the score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23323"></span>5B1B</td>
+<td class="instruction">LD HL,$7564</td>
+<td class="comment-1" rowspan="4">Copy 100 initial values (<a href="30052.html">7564</a>) to the live variables at $7500</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23326"></span>5B1E</td>
+<td class="instruction">LD DE,$7500</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23329"></span>5B21</td>
+<td class="instruction">LD BC,$0064</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23332"></span>5B24</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="23334"></span>
+<div class="comments">
+<div class="paragraph">
+Start of a level (first level, or after a level is completed).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="23334"></span>5B26</td>
+<td class="instruction">CALL <a href="33569.html">$8321</a></td>
+<td class="comment-1" rowspan="1">Draw the 5 crate boxes; first level: randomise cyclone start corner; next level: award crate bonus, speed up the time bar; lives restored</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23337"></span>5B29</td>
+<td class="instruction">CALL <a href="33850.html">$843A</a></td>
+<td class="comment-1" rowspan="1">Fill the time bar (40 lines); 40 points for every line still filled</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23340"></span>5B2C</td>
+<td class="instruction">CALL <a href="65170.html">$FE92</a></td>
+<td class="comment-1" rowspan="1">Shuffle the 5 crates over 38 candidate map cells (FE92: JP <a href="24300.html">5EEC</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23343"></span>5B2F</td>
+<td class="instruction">CALL <a href="24690.html">$6072</a></td>
+<td class="comment-1" rowspan="5">Put a survivor (random variant) on each of 45 candidate map cells</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23346"></span>5B32</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23347"></span>5B33</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23348"></span>5B34</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23349"></span>5B35</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="23350"></span>
+<div class="comments">
+<div class="paragraph">
+Start of a life (also entered from $92C5 after a life has been lost).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="23350"></span>5B36</td>
+<td class="instruction">CALL <a href="33017.html">$80F9</a></td>
+<td class="comment-1" rowspan="1">View := NORTH (tile set A), print "NORTH"</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23353"></span>5B39</td>
+<td class="instruction">CALL <a href="33966.html">$84AE</a></td>
+<td class="comment-1" rowspan="1">Clear the altimeter bar; altitude ($750D) := 8</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="23356"></span>
+<div class="comments">
+<div class="paragraph">
+Main loop: one iteration per game "tick".
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="23356"></span>5B3C</td>
+<td class="instruction">CALL <a href="30418.html">$76D2</a></td>
+<td class="comment-1" rowspan="1">Clear the view buffer at $F74E, fill it with map tile codes, find the island under the helicopter ($7552)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23359"></span>5B3F</td>
+<td class="instruction">CALL <a href="34800.html">$87F0</a></td>
+<td class="comment-1" rowspan="1">Move the aircraft; set collision-warning bits in $7530</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23362"></span>5B42</td>
+<td class="instruction">CALL <a href="37300.html">$91B4</a></td>
+<td class="comment-1" rowspan="1">HUD: compass needle, speedometer, BEWARE AIRCRAFT warning</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23365"></span>5B45</td>
+<td class="instruction">CALL <a href="35729.html">$8B91</a></td>
+<td class="comment-1" rowspan="1">Helicopter screen offset/drift ($7535/$7536; random every 3rd call)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23368"></span>5B48</td>
+<td class="instruction">CALL <a href="36000.html">$8CA0</a></td>
+<td class="comment-1" rowspan="1">Build the helicopter sprite (heading frame + rotor frame) in <a href="26960.html">6950</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="23371"></span>5B4B</td>
+<td class="instruction">CALL <a href="32272.html">$7E10</a></td>
+<td class="comment-1" rowspan="1">Render terrain: tile codes -&gt; character codes using the tile column tables; save the 3x3 tiles under the helicopter at $7A81</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23374"></span>5B4E</td>
+<td class="instruction">CALL <a href="34479.html">$86AF</a></td>
+<td class="comment-1" rowspan="1">Overlay helicopter and shadow (dynamic glyphs)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23377"></span>5B51</td>
+<td class="instruction">CALL <a href="62362.html">$F39A</a></td>
+<td class="comment-1" rowspan="1">Winch: pick up a crate or survivor under the helicopter</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23380"></span>5B54</td>
+<td class="instruction">CALL <a href="35450.html">$8A7A</a></td>
+<td class="comment-1" rowspan="1">Landing/collision test (sets $7505 crash, $7515 landed, $752E on landing pad)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23383"></span>5B57</td>
+<td class="instruction">CALL <a href="34260.html">$85D4</a></td>
+<td class="comment-1" rowspan="1">Further sprite/overlay compositing (dynamic glyphs from $FD30)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23386"></span>5B5A</td>
+<td class="instruction">LD A,($7505)</td>
+<td class="comment-1" rowspan="2">Crashed ($7505=1)?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23389"></span>5B5D</td>
+<td class="instruction">CP $01</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23391"></span>5B5F</td>
+<td class="instruction">JP Z,<a href="37446.html">$9246</a></td>
+<td class="comment-1" rowspan="1">Yes: crash sequence, lose a life ($9246)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23394"></span>5B62</td>
+<td class="instruction">LD A,($7526)</td>
+<td class="comment-1" rowspan="3">Map mode ($7526 bit 1)?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23397"></span>5B65</td>
+<td class="instruction">BIT 1,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23399"></span>5B67</td>
+<td class="instruction">JR Z,$5B86</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23401"></span>5B69</td>
+<td class="instruction">CALL <a href="36626.html">$8F12</a></td>
+<td class="comment-1" rowspan="1">Map shown: delay, blink map markers, move cyclone ($8F12, falls into $9034)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23404"></span>5B6C</td>
+<td class="instruction">LD A,($7526)</td>
+<td class="comment-1" rowspan="3">Map just opened ($7526 bit 4)?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23407"></span>5B6F</td>
+<td class="instruction">BIT 4,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23409"></span>5B71</td>
+<td class="instruction">JR Z,$5B8C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23411"></span>5B73</td>
+<td class="instruction">RES 4,A</td>
+<td class="comment-1" rowspan="2">Yes: clear the flag...</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23413"></span>5B75</td>
+<td class="instruction">LD ($7526),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23416"></span>5B78</td>
+<td class="instruction">CALL <a href="36110.html">$8D0E</a></td>
+<td class="comment-1" rowspan="1">...clear the play area...</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23419"></span>5B7B</td>
+<td class="instruction">CALL <a href="36189.html">$8D5D</a></td>
+<td class="comment-1" rowspan="1">...draw the islands...</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23422"></span>5B7E</td>
+<td class="instruction">CALL <a href="36444.html">$8E5C</a></td>
+<td class="comment-1" rowspan="1">...draw the map frame and compass...</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23425"></span>5B81</td>
+<td class="instruction">CALL <a href="36714.html">$8F6A</a></td>
+<td class="comment-1" rowspan="2">...draw markers/labels</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23428"></span>5B84</td>
+<td class="instruction">JR $5B8C</td>
+</tr>
+<tr>
+<td class="address-2"><span id="23430"></span>5B86</td>
+<td class="instruction">CALL <a href="30252.html">$762C</a></td>
+<td class="comment-1" rowspan="1">No map: copy the view buffer to the screen</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23433"></span>5B89</td>
+<td class="instruction">CALL <a href="36916.html">$9034</a></td>
+<td class="comment-1" rowspan="1">Move the cyclone; set the cyclone proximity $7550 and WIND FORCE bar</td>
+</tr>
+<tr>
+<td class="address-2"><span id="23436"></span>5B8C</td>
+<td class="instruction">CALL <a href="32726.html">$7FD6</a></td>
+<td class="comment-1" rowspan="1">Read the selected controller into the control word $7522</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23439"></span>5B8F</td>
+<td class="instruction">LD A,($7550)</td>
+<td class="comment-1" rowspan="1">Cyclone proximity ($7550, 0=on top of it ... 15=far)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23442"></span>5B92</td>
+<td class="instruction">CP $05</td>
+<td class="comment-1" rowspan="1">The operand of this CP (address $5B93) is modified: 5 on level 1 (<a href="33569.html#33645">836D</a>), 6 on later levels (<a href="33569.html#33706">83AA</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23444"></span>5B94</td>
+<td class="instruction">CALL C,<a href="29560.html">$7378</a></td>
+<td class="comment-1" rowspan="1">Close to the cyclone: randomly perturb the control word (turbulence)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23447"></span>5B97</td>
+<td class="instruction">LD A,($7515)</td>
+<td class="comment-1" rowspan="3">Landed ($7515=1)...</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23450"></span>5B9A</td>
+<td class="instruction">CP $01</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23452"></span>5B9C</td>
+<td class="instruction">JR NZ,$5BAC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23454"></span>5B9E</td>
+<td class="instruction">LD A,($7516)</td>
+<td class="comment-1" rowspan="3">...and out of fuel ($7516=1)...</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23457"></span>5BA1</td>
+<td class="instruction">CP $01</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23459"></span>5BA3</td>
+<td class="instruction">JR NZ,$5BAC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23461"></span>5BA5</td>
+<td class="instruction">LD A,($752E)</td>
+<td class="comment-1" rowspan="2">...and not on a landing pad ($752E=0)?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23464"></span>5BA8</td>
+<td class="instruction">CP $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23466"></span>5BAA</td>
+<td class="instruction">JR Z,$5BEC</td>
+<td class="comment-1" rowspan="1">Yes: "NO FUEL" - lose a life</td>
+</tr>
+<tr>
+<td class="address-2"><span id="23468"></span>5BAC</td>
+<td class="instruction">CALL <a href="32938.html">$80AA</a></td>
+<td class="comment-1" rowspan="1">Handle the M (map) and N (view) keys, then apply the control word: heading, speed, altitude</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23471"></span>5BAF</td>
+<td class="instruction">LD A,($7554)</td>
+<td class="comment-1" rowspan="3">5 crates collected ($7554)...</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23474"></span>5BB2</td>
+<td class="instruction">CP $05</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23476"></span>5BB4</td>
+<td class="instruction">JR NZ,$5BCC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23478"></span>5BB6</td>
+<td class="instruction">LD A,($752E)</td>
+<td class="comment-1" rowspan="3">...and on a landing pad ($752E=1)...</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23481"></span>5BB9</td>
+<td class="instruction">CP $01</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23483"></span>5BBB</td>
+<td class="instruction">JR NZ,$5BCC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23485"></span>5BBD</td>
+<td class="instruction">LD A,($7552)</td>
+<td class="comment-1" rowspan="5">...on the island record at $F294 (BASE)?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23488"></span>5BC0</td>
+<td class="instruction">CP $94</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23490"></span>5BC2</td>
+<td class="instruction">JR NZ,$5BCC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23492"></span>5BC4</td>
+<td class="instruction">LD A,($7553)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23495"></span>5BC7</td>
+<td class="instruction">CP $F2</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23497"></span>5BC9</td>
+<td class="instruction">JP Z,$5B26</td>
+<td class="comment-1" rowspan="1">Yes: level complete, start the next level</td>
+</tr>
+<tr>
+<td class="address-2"><span id="23500"></span>5BCC</td>
+<td class="instruction">LD A,($751C)</td>
+<td class="comment-1" rowspan="2">Time bar pointer ($751C) moved past the last line?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23503"></span>5BCF</td>
+<td class="instruction">CP $DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23505"></span>5BD1</td>
+<td class="instruction">JP Z,<a href="37446.html#37576">$92C8</a></td>
+<td class="comment-1" rowspan="1">Yes: "NO TIME" - game over</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23508"></span>5BD4</td>
+<td class="instruction">CALL <a href="33904.html">$8470</a></td>
+<td class="comment-1" rowspan="1">On a landing pad: refuel 1 line per iteration; else burn fuel (1 line per 49 iterations)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23511"></span>5BD7</td>
+<td class="instruction">CALL <a href="33412.html">$8284</a></td>
+<td class="comment-1" rowspan="1">Time bar: lose 1 line every N iterations (N = operand at $828C: 255, then -15 per level)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23514"></span>5BDA</td>
+<td class="instruction">CALL <a href="62282.html">$F34A</a></td>
+<td class="comment-1" rowspan="1">Animate the two survivor glyphs (chars $31 and $32)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23517"></span>5BDD</td>
+<td class="instruction">LD A,$FD</td>
+<td class="comment-1" rowspan="2">Read keyboard half-row A-S-D-F-G</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23519"></span>5BDF</td>
+<td class="instruction">IN A,($FE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23521"></span>5BE1</td>
+<td class="instruction">AND $11</td>
+<td class="comment-1" rowspan="1">Unless A and G are both held...</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23523"></span>5BE3</td>
+<td class="instruction">JP NZ,$5B3C</td>
+<td class="comment-1" rowspan="4">...loop</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23526"></span>5BE6</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23527"></span>5BE7</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23528"></span>5BE8</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23529"></span>5BE9</td>
+<td class="instruction">JP <a href="57984.html">$E280</a></td>
+<td class="comment-1" rowspan="1">A+G held: abandon the game, back to the main menu</td>
+</tr>
+<tr>
+<td class="address-2"><span id="23532"></span>5BEC</td>
+<td class="instruction">LD HL,$5BF2</td>
+<td class="comment-1" rowspan="1">"NO FUEL" message...</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23535"></span>5BEF</td>
+<td class="instruction">JP <a href="37446.html#37584">$92D0</a></td>
+<td class="comment-1" rowspan="1">...print it at row 3, lose a life ($92D0, shared with "NO TIME")</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+</td>
+<td class="up">Up: <a href="../maps/all.html#23296">Map</a></td>
+<td class="next">
+Next: <a href="23538.html">5BF2</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

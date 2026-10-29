@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at 80AA</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="32934.html">80A6</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#32938">Map</a></td>
+<td class="next">
+Next: <a href="33017.html">80F9</a>
+</td>
+</tr>
+</table>
+<div class="description">80AA: Check the M (map) and N (view) keys, then process the flight controls</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Called once per main-loop iteration (5BAC) except when the helicopter is landed away from the base with an empty tank. Reads half-row SPACE/SYM/M/N/B once. M toggles between the island view and the map; N toggles the view direction NORTH/SOUTH. Both are edge-triggered through latch bits in 7526 and each press beeps. Execution then falls through into the flight-control code at 8135.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">(7526)</td>
+<td class="register-desc">key latches / mode flags: bit0 M held, bit1 map mode, bit2 N held, bit3 map just left, bit4 map just entered</td>
+</tr>
+<tr>
+<td class="register">(7504)</td>
+<td class="register-desc">view direction 0=north 1=south</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="32938"></span>
+<div class="comments">
+<div class="paragraph">
+7526 bit 4 is consumed by the main loop (5B6F: redraw the map); bit 3 is set on leaving the map but nothing ever clears or tests it.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32938"></span>80AA</td>
+<td class="instruction">LD HL,$7526</td>
+<td class="comment-1" rowspan="1">HL = mode flags</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32941"></span>80AD</td>
+<td class="instruction">LD A,$7F</td>
+<td class="comment-1" rowspan="2">Read half-row SPACE/SYM/M/N/B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32943"></span>80AF</td>
+<td class="instruction">IN A,($FE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32945"></span>80B1</td>
+<td class="instruction">BIT 2,A</td>
+<td class="comment-1" rowspan="2">M (bit 2) not pressed: clear the M latch</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32947"></span>80B3</td>
+<td class="instruction">JR NZ,$80D8</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32949"></span>80B5</td>
+<td class="instruction">BIT 0,(HL)</td>
+<td class="comment-1" rowspan="2">M still held from the previous iteration: ignore</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32951"></span>80B7</td>
+<td class="instruction">JR NZ,$80DA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32953"></span>80B9</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-1" rowspan="7">Beep: BEEPER HL=$0361, DE=30 (about 489 Hz for 61 ms)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32954"></span>80BA</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32955"></span>80BB</td>
+<td class="instruction">LD HL,$0361</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32958"></span>80BE</td>
+<td class="instruction">LD DE,$001E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32961"></span>80C1</td>
+<td class="instruction">CALL $03B5</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32964"></span>80C4</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32965"></span>80C5</td>
+<td class="instruction">POP AF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32966"></span>80C6</td>
+<td class="instruction">SET 0,(HL)</td>
+<td class="comment-1" rowspan="1">Set the M latch</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32968"></span>80C8</td>
+<td class="instruction">BIT 1,(HL)</td>
+<td class="comment-1" rowspan="2">In map mode?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32970"></span>80CA</td>
+<td class="instruction">JR Z,$80D2</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32972"></span>80CC</td>
+<td class="instruction">RES 1,(HL)</td>
+<td class="comment-1" rowspan="3">Yes: leave map mode, set bit 3 ("map just left")</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32974"></span>80CE</td>
+<td class="instruction">SET 3,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32976"></span>80D0</td>
+<td class="instruction">JR $80DA</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32978"></span>80D2</td>
+<td class="instruction">SET 1,(HL)</td>
+<td class="comment-1" rowspan="3">No: enter map mode, set bit 4 ("map just entered": main loop draws the map)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32980"></span>80D4</td>
+<td class="instruction">SET 4,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32982"></span>80D6</td>
+<td class="instruction">JR $80DA</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32984"></span>80D8</td>
+<td class="instruction">RES 0,(HL)</td>
+<td class="comment-1" rowspan="1">M released: clear the latch</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32986"></span>80DA</td>
+<td class="instruction">BIT 3,A</td>
+<td class="comment-1" rowspan="2">N (bit 3) not pressed: clear the N latch</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32988"></span>80DC</td>
+<td class="instruction">JR NZ,<a href="33017.html#33075">$8133</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="32990"></span>80DE</td>
+<td class="instruction">BIT 2,(HL)</td>
+<td class="comment-1" rowspan="2">N still held: ignore</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32992"></span>80E0</td>
+<td class="instruction">JR NZ,<a href="33077.html">$8135</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="32994"></span>80E2</td>
+<td class="instruction">SET 2,(HL)</td>
+<td class="comment-1" rowspan="1">Set the N latch</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32996"></span>80E4</td>
+<td class="instruction">LD A,$7F</td>
+<td class="comment-1" rowspan="2">Blank the VIEW box (attribute $7F white on white) while beeping</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32998"></span>80E6</td>
+<td class="instruction">CALL <a href="34176.html#34178">$8582</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="33001"></span>80E9</td>
+<td class="instruction">LD HL,$0300</td>
+<td class="comment-1" rowspan="3">Beep: BEEPER HL=$0300, DE=40 (about 548 Hz for 73 ms)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33004"></span>80EC</td>
+<td class="instruction">LD DE,$0028</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33007"></span>80EF</td>
+<td class="instruction">CALL $03B5</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33010"></span>80F2</td>
+<td class="instruction">LD A,($7504)</td>
+<td class="comment-1" rowspan="3">Currently facing south? Then switch to north (80F9), else to south (8104)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33013"></span>80F5</td>
+<td class="instruction">CP $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33015"></span>80F7</td>
+<td class="instruction">JR Z,<a href="33017.html#33028">$8104</a></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="32934.html">80A6</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#32938">Map</a></td>
+<td class="next">
+Next: <a href="33017.html">80F9</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

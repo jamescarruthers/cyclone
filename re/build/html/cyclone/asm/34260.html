@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at 85D4</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="34257.html">85D1</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#34260">Map</a></td>
+<td class="next">
+Next: <a href="34476.html">86AC</a>
+</td>
+</tr>
+</table>
+<div class="description">85D4: Let foreground slope tiles cover the helicopter</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Called once per main-loop iteration (5B57), after the view has been built (7E10) and the helicopter drawn (86AF), before the view is copied to the screen (762C). Looks at the lower part of the helicopter's 3x11-cell window: view-buffer cells F86C + 23*i + j (i = 0-3 = window cells 7-10, j = 0-2 = window columns). Where such a cell holds a slope tile in front of the helicopter (codes $19-$1C) and the window cell's attribute has ink 0 (helicopter pixels were drawn there by 86AF), the window cell's bitmap is ANDed with a triangular mask (tile $23 for odd codes, $25 for even) and ORed with the slope edge (tile $17 blank for $19/$1A, $1B or $1C), its attribute set to $60 (bright green paper), and the cell's code replaced by the window tile code so the merged picture is displayed. Aircraft tiles $3C-$44 in those cells (8689, never seen executed) are ORed in instead.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">(F86C)</td>
+<td class="register-desc">view buffer (23 cells per row)</td>
+</tr>
+<tr>
+<td class="register">(FCF8)</td>
+<td class="register-desc">window tile bitmaps (tiles $5F-$7F: 3 columns x 11 cells, column-major, 8 bytes each)</td>
+</tr>
+<tr>
+<td class="register">(FE5F)</td>
+<td class="register-desc">window tile attributes (FE00+code)</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34260"></span>85D4</td>
+<td class="instruction">LD HL,$FD30</td>
+<td class="comment-1" rowspan="2">7509 = bitmap of window tile $66 (column 0, cell 7)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34263"></span>85D7</td>
+<td class="instruction">LD ($7509),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34266"></span>85DA</td>
+<td class="instruction">LD HL,$FE66</td>
+<td class="comment-1" rowspan="2">750B = its attribute</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34269"></span>85DD</td>
+<td class="instruction">LD ($750B),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34272"></span>85E0</td>
+<td class="instruction">LD HL,$F86C</td>
+<td class="comment-1" rowspan="2">First view-buffer cell to test; 3 columns...</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34275"></span>85E3</td>
+<td class="instruction">LD C,$03</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34277"></span>85E5</td>
+<td class="instruction">LD A,$66</td>
+<td class="comment-1" rowspan="1">A' = window tile code $66</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34279"></span>85E7</td>
+<td class="instruction">LD B,$04</td>
+<td class="comment-1" rowspan="2">...of 4 cells</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34281"></span>85E9</td>
+<td class="instruction">EX AF,AF'</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34282"></span>85EA</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="4">A = view-buffer code</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34283"></span>85EB</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34284"></span>85EC</td>
+<td class="instruction">LD HL,($750B)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34287"></span>85EF</td>
+<td class="instruction">LD DE,($7509)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34291"></span>85F3</td>
+<td class="instruction">CP $1D</td>
+<td class="comment-1" rowspan="2">Codes $1D and up: only aircraft tiles $3C-$44 are handled</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34293"></span>85F5</td>
+<td class="instruction">JP NC,$8681</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34296"></span>85F8</td>
+<td class="instruction">CP $19</td>
+<td class="comment-1" rowspan="4">Codes below $19: nothing to do</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34298"></span>85FA</td>
+<td class="instruction">JR C,$864C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34300"></span>85FC</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34301"></span>85FD</td>
+<td class="instruction">LD B,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34302"></span>85FE</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="4">Slope tile: only where the helicopter has been drawn (ink 0)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34303"></span>85FF</td>
+<td class="instruction">AND $07</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34305"></span>8601</td>
+<td class="instruction">CP $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34307"></span>8603</td>
+<td class="instruction">JR NZ,$864B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34309"></span>8605</td>
+<td class="instruction">LD (HL),$60</td>
+<td class="comment-1" rowspan="3">Attribute $60</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34311"></span>8607</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34312"></span>8608</td>
+<td class="instruction">LD ($750B),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34315"></span>860B</td>
+<td class="instruction">LD HL,$FB18</td>
+<td class="comment-1" rowspan="6">Mask: tile $23 (codes $19/$1B) or tile $25 (codes $1A/$1C)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34318"></span>860E</td>
+<td class="instruction">LD A,B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34319"></span>860F</td>
+<td class="instruction">BIT 0,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34321"></span>8611</td>
+<td class="instruction">JR NZ,$8617</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34323"></span>8613</td>
+<td class="instruction">LD BC,$0010</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34326"></span>8616</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34327"></span>8617</td>
+<td class="instruction">LD IX,$FAB8</td>
+<td class="comment-1" rowspan="3">Edge: tile $17 (blank) for $19/$1A...</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34331"></span>861B</td>
+<td class="instruction">CP $1B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34333"></span>861D</td>
+<td class="instruction">JR C,$862B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34335"></span>861F</td>
+<td class="instruction">LD IX,$FAD8</td>
+<td class="comment-1" rowspan="3">...tile $1B for $1B...</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34339"></span>8623</td>
+<td class="instruction">CP $1B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34341"></span>8625</td>
+<td class="instruction">JR Z,$862B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34343"></span>8627</td>
+<td class="instruction">LD IX,$FAE0</td>
+<td class="comment-1" rowspan="1">...tile $1C for $1C</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34347"></span>862B</td>
+<td class="instruction">LD BC,$0800</td>
+<td class="comment-1" rowspan="15">8 lines: window = (window AND mask) OR edge; C = OR of the results</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34350"></span>862E</td>
+<td class="instruction">LD A,(DE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34351"></span>862F</td>
+<td class="instruction">AND (HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34352"></span>8630</td>
+<td class="instruction">OR (IX+$00)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34355"></span>8633</td>
+<td class="instruction">LD (DE),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34356"></span>8634</td>
+<td class="instruction">INC IX</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34358"></span>8636</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34359"></span>8637</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34360"></span>8638</td>
+<td class="instruction">OR C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34361"></span>8639</td>
+<td class="instruction">LD C,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34362"></span>863A</td>
+<td class="instruction">DJNZ $862E</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34364"></span>863C</td>
+<td class="instruction">LD ($7509),DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34368"></span>8640</td>
+<td class="instruction">LD A,C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34369"></span>8641</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34370"></span>8642</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34371"></span>8643</td>
+<td class="instruction">CP $00</td>
+<td class="comment-1" rowspan="6">Anything left? Then show the window tile in this view cell</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34373"></span>8645</td>
+<td class="instruction">JR Z,$8658</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34375"></span>8647</td>
+<td class="instruction">EX AF,AF'</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34376"></span>8648</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34377"></span>8649</td>
+<td class="instruction">JR $8659</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34379"></span>864B</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34380"></span>864C</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="7">Skip the cell</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34381"></span>864D</td>
+<td class="instruction">LD ($750B),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34384"></span>8650</td>
+<td class="instruction">LD HL,$0008</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34387"></span>8653</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34388"></span>8654</td>
+<td class="instruction">LD ($7509),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34391"></span>8657</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34392"></span>8658</td>
+<td class="instruction">EX AF,AF'</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34393"></span>8659</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="4">Next window tile code; next view-buffer row (+23)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34394"></span>865A</td>
+<td class="instruction">LD DE,$0017</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34397"></span>865D</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34398"></span>865E</td>
+<td class="instruction">DJNZ $85E9</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34400"></span>8660</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="11">Next window column: skip window cells 0-6</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34401"></span>8661</td>
+<td class="instruction">LD HL,($750B)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34404"></span>8664</td>
+<td class="instruction">LD DE,$0007</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34407"></span>8667</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34408"></span>8668</td>
+<td class="instruction">LD ($750B),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34411"></span>866B</td>
+<td class="instruction">LD HL,($7509)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34414"></span>866E</td>
+<td class="instruction">LD DE,$0038</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34417"></span>8671</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34418"></span>8672</td>
+<td class="instruction">LD ($7509),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34421"></span>8675</td>
+<td class="instruction">ADD A,$07</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34423"></span>8677</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34424"></span>8678</td>
+<td class="instruction">LD DE,$FFA5</td>
+<td class="comment-1" rowspan="5">Back 4 rows, one column right (-4*23+1)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34427"></span>867B</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34428"></span>867C</td>
+<td class="instruction">DEC C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34429"></span>867D</td>
+<td class="instruction">JP NZ,$85E7</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34432"></span>8680</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34433"></span>8681</td>
+<td class="instruction">CP $45</td>
+<td class="comment-1" rowspan="6">Aircraft tiles $3C-$44</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34435"></span>8683</td>
+<td class="instruction">JR NC,$864C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34437"></span>8685</td>
+<td class="instruction">CP $3C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34439"></span>8687</td>
+<td class="instruction">JR C,$864C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34441"></span>8689</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34442"></span>868A</td>
+<td class="instruction">LD B,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34443"></span>868B</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="6">Only where the helicopter has been drawn</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34444"></span>868C</td>
+<td class="instruction">AND $07</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34446"></span>868E</td>
+<td class="instruction">CP $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34448"></span>8690</td>
+<td class="instruction">JR NZ,$864B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34450"></span>8692</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34451"></span>8693</td>
+<td class="instruction">LD ($750B),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34454"></span>8696</td>
+<td class="instruction">LD L,B</td>
+<td class="comment-1" rowspan="16">OR the aircraft tile bitmap (FA00+8*code) into the window cell</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34455"></span>8697</td>
+<td class="instruction">LD H,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34457"></span>8699</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34458"></span>869A</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34459"></span>869B</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34460"></span>869C</td>
+<td class="instruction">LD A,$FA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34462"></span>869E</td>
+<td class="instruction">ADD A,H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34463"></span>869F</td>
+<td class="instruction">LD H,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34464"></span>86A0</td>
+<td class="instruction">LD BC,$0801</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34467"></span>86A3</td>
+<td class="instruction">LD A,(DE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34468"></span>86A4</td>
+<td class="instruction">OR (HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34469"></span>86A5</td>
+<td class="instruction">LD (DE),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34470"></span>86A6</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34471"></span>86A7</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34472"></span>86A8</td>
+<td class="instruction">DJNZ $86A3</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34474"></span>86AA</td>
+<td class="instruction">JR $863C</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="34257.html">85D1</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#34260">Map</a></td>
+<td class="next">
+Next: <a href="34476.html">86AC</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

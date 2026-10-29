@@ -1,0 +1,45 @@
+[package]
+name = "cyclone"
+version = "0.1.0"
+edition = "2021"
+description = "3D remake of Cyclone (Vortex Software, 1985, ZX Spectrum)"
+
+[dependencies]
+wgpu = "26.0.1"
+winit = "0.30.13"
+pollster = "1.0.1"
+bytemuck = { version = "1.25", features = ["derive"] }
+glam = "0.32"
+cpal = "0.15.3"
+log = "0.4"
+web-time = "1.1"
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+env_logger = "0.11"
+
+# the browser build: WebGPU where available, WebGL 2 otherwise; Web Audio via cpal
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+wgpu = { version = "26.0.1", features = ["webgl"] }
+cpal = { version = "0.15.3", features = ["wasm-bindgen"] }
+wasm-bindgen = "0.2"
+wasm-bindgen-futures = "0.4"
+web-sys = { version = "0.3", features = ["Window", "Document", "Element", "HtmlElement", "HtmlCanvasElement"] }
+console_error_panic_hook = "0.1"
+console_log = "1"
+
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.release]
+lto = "thin"
+
+# `web/build.sh`: smaller wasm
+[profile.web]
+inherits = "release"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = "debuginfo"

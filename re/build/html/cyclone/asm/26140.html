@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Text at 661C</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-t">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Messages</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26114.html">6602</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26140">Map</a></td>
+<td class="next">
+Next: <a href="26159.html">662F</a>
+</td>
+</tr>
+</table>
+<div class="description">661C: Score and high-score strings</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Printed right-to-left (<a href="28416.html">6F00</a>, <a href="34748.html">87BC</a>) at row 19 (score) and row 20 (high score), column 31 backwards. Leading blank digits are '.'. The high score starts at 0 and is only updated by <a href="34748.html">87BC</a> (at the next game start or on the info screen).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26140"></span>661C</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Terminator for the right-to-left print</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26141"></span>661D</td>
+<td class="instruction">DEFM "S"</td>
+<td class="comment-1" rowspan="1">"S" label</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26142"></span>661E</td>
+<td class="instruction">DEFM "......0"</td>
+<td class="comment-1" rowspan="1">Score (7 digits)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26149"></span>6625</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Terminator</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26150"></span>6626</td>
+<td class="instruction">DEFM "H"</td>
+<td class="comment-1" rowspan="1">"H" label</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26151"></span>6627</td>
+<td class="instruction">DEFM "......0"</td>
+<td class="comment-1" rowspan="1">High score (7 digits)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26158"></span>662E</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26114.html">6602</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26140">Map</a></td>
+<td class="next">
+Next: <a href="26159.html">662F</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

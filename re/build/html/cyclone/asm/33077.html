@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at 8135</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33017.html">80F9</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#33077">Map</a></td>
+<td class="next">
+Next: <a href="33391.html">826F</a>
+</td>
+</tr>
+</table>
+<div class="description">8135: Flight controls: turning, thrust/coasting, climbing, descending</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Reached by fall-through from 80AA/80F9 once per main-loop iteration. Applies the control word 7522 to the helicopter: (1) turning in steps of 2 (=45 degrees) of the 16-step heading with a 3-iteration turn timer, (2) thrust: speed 7527 rises by 1 per iteration up to 7 while forward is held and decays by 1 when not, the helicopter moving one map unit along X and/or Y per iteration while speed&gt;0 (direction 753B is latched while thrusting, so the craft coasts in the old direction after releasing), (3) climb/descent with an acceleration of 1,2,3 pixels per iteration, altitude 750D limited to 0..60.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">(7522)</td>
+<td class="register-desc">control bits</td>
+</tr>
+<tr>
+<td class="register">(7515)</td>
+<td class="register-desc">1 = landed (no turning or movement; climb = take off)</td>
+</tr>
+<tr>
+<td class="register">(7516)</td>
+<td class="register-desc">1 = fuel exhausted (no thrust, no climb, forced descent)</td>
+</tr>
+</table>
+<table class="output">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+<tr>
+<td class="register">(7500),(7502)</td>
+<td class="register-desc">map X and Y (16-bit)</td>
+</tr>
+<tr>
+<td class="register">(7506)</td>
+<td class="register-desc">heading 0-15 (always even: 0 N, 2 NE, 4 E, 6 SE, 8 S, 10 SW, 12 W, 14 NW)</td>
+</tr>
+<tr>
+<td class="register">(7507)</td>
+<td class="register-desc">heading shown by the sprite (odd during a turn)</td>
+</tr>
+<tr>
+<td class="register">(750D)</td>
+<td class="register-desc">altitude 0-60 pixels</td>
+</tr>
+<tr>
+<td class="register">(7514)</td>
+<td class="register-desc">set to 1 when trying to descend below altitude 0</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33077"></span>8135</td>
+<td class="instruction">LD A,($7522)</td>
+<td class="comment-1" rowspan="2">C = control bits for the rest of the routine</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33080"></span>8138</td>
+<td class="instruction">LD C,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33081"></span>8139</td>
+<td class="instruction">LD HL,$7521</td>
+<td class="comment-1" rowspan="4">Turn timer 7521 running?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33084"></span>813C</td>
+<td class="instruction">XOR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33085"></span>813D</td>
+<td class="instruction">CP (HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33086"></span>813E</td>
+<td class="instruction">JR Z,$8152</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33088"></span>8140</td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-1" rowspan="8">Count it down; when it reaches 1 the turn completes: heading = 7507 = target 7508</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33089"></span>8141</td>
+<td class="instruction">INC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33090"></span>8142</td>
+<td class="instruction">CP (HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33091"></span>8143</td>
+<td class="instruction">JP NZ,$81AB</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33094"></span>8146</td>
+<td class="instruction">LD A,($7508)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33097"></span>8149</td>
+<td class="instruction">LD ($7506),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33100"></span>814C</td>
+<td class="instruction">LD ($7507),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33103"></span>814F</td>
+<td class="instruction">JP $81AB</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33106"></span>8152</td>
+<td class="instruction">LD A,($7515)</td>
+<td class="comment-1" rowspan="3">Landed: skip turning and movement, only the climb key matters</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33109"></span>8155</td>
+<td class="instruction">CP $01</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33111"></span>8157</td>
+<td class="instruction">JP Z,$81FA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33114"></span>815A</td>
+<td class="instruction">BIT 4,C</td>
+<td class="comment-1" rowspan="2">Turn left (bit 4)?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33116"></span>815C</td>
+<td class="instruction">JR Z,$817A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33118"></span>815E</td>
+<td class="instruction">LD A,($7506)</td>
+<td class="comment-1" rowspan="6">7507 = heading-1 (mod 16), the in-between sprite frame</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33121"></span>8161</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33122"></span>8162</td>
+<td class="instruction">CP $FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33124"></span>8164</td>
+<td class="instruction">JR NZ,$8168</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33126"></span>8166</td>
+<td class="instruction">LD A,$0F</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33128"></span>8168</td>
+<td class="instruction">LD ($7507),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33131"></span>816B</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="5">7508 = heading-2 (mod 16), the target heading</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33132"></span>816C</td>
+<td class="instruction">CP $FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33134"></span>816E</td>
+<td class="instruction">JR NZ,$8172</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33136"></span>8170</td>
+<td class="instruction">LD A,$0F</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33138"></span>8172</td>
+<td class="instruction">LD ($7508),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33141"></span>8175</td>
+<td class="instruction">LD A,$03</td>
+<td class="comment-1" rowspan="2">Start the turn timer (3 iterations: the turn completes 2 iterations later, the next turn can start after 3)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33143"></span>8177</td>
+<td class="instruction">LD ($7521),A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33146"></span>817A</td>
+<td class="instruction">BIT 3,C</td>
+<td class="comment-1" rowspan="2">Turn right (bit 3)?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33148"></span>817C</td>
+<td class="instruction">JR Z,$81AB</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33150"></span>817E</td>
+<td class="instruction">LD A,($7506)</td>
+<td class="comment-1" rowspan="11">7507 = heading+1, 7508 = heading+2 (mod 16)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33153"></span>8181</td>
+<td class="instruction">INC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33154"></span>8182</td>
+<td class="instruction">CP $10</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33156"></span>8184</td>
+<td class="instruction">JR NZ,$8187</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33158"></span>8186</td>
+<td class="instruction">XOR A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33159"></span>8187</td>
+<td class="instruction">LD ($7507),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33162"></span>818A</td>
+<td class="instruction">INC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33163"></span>818B</td>
+<td class="instruction">CP $10</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33165"></span>818D</td>
+<td class="instruction">JR NZ,$8190</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33167"></span>818F</td>
+<td class="instruction">XOR A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33168"></span>8190</td>
+<td class="instruction">LD ($7508),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33171"></span>8193</td>
+<td class="instruction">LD A,($7521)</td>
+<td class="comment-1" rowspan="8">Left pressed as well (timer already started)? Then cancel: no turn, timer 0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33174"></span>8196</td>
+<td class="instruction">CP $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33176"></span>8198</td>
+<td class="instruction">JR Z,$81A6</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33178"></span>819A</td>
+<td class="instruction">LD A,($7506)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33181"></span>819D</td>
+<td class="instruction">LD ($7507),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33184"></span>81A0</td>
+<td class="instruction">LD ($7508),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33187"></span>81A3</td>
+<td class="instruction">XOR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33188"></span>81A4</td>
+<td class="instruction">JR $81A8</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33190"></span>81A6</td>
+<td class="instruction">LD A,$03</td>
+<td class="comment-1" rowspan="2">Start the turn timer</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33192"></span>81A8</td>
+<td class="instruction">LD ($7521),A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33195"></span>81AB</td>
+<td class="instruction">LD A,($7516)</td>
+<td class="comment-1" rowspan="3">Out of fuel: no thrust</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33198"></span>81AE</td>
+<td class="instruction">CP $01</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33200"></span>81B0</td>
+<td class="instruction">JR Z,$81B6</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33202"></span>81B2</td>
+<td class="instruction">BIT 0,C</td>
+<td class="comment-1" rowspan="2">Forward (bit 0) held: accelerate</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33204"></span>81B4</td>
+<td class="instruction">JR NZ,$81CB</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33206"></span>81B6</td>
+<td class="instruction">LD A,($7527)</td>
+<td class="comment-1" rowspan="7">Not thrusting: speed = max(speed-1, 0)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33209"></span>81B9</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33210"></span>81BA</td>
+<td class="instruction">CP $FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33212"></span>81BC</td>
+<td class="instruction">JR NZ,$81BF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33214"></span>81BE</td>
+<td class="instruction">XOR A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33215"></span>81BF</td>
+<td class="instruction">LD ($7527),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33218"></span>81C2</td>
+<td class="instruction">CP $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33220"></span>81C4</td>
+<td class="instruction">JR Z,$81FA</td>
+<td class="comment-1" rowspan="1">Stopped: no movement this iteration</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33222"></span>81C6</td>
+<td class="instruction">LD A,($753B)</td>
+<td class="comment-1" rowspan="2">Coasting: keep moving in the latched direction</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33225"></span>81C9</td>
+<td class="instruction">JR $81DC</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33227"></span>81CB</td>
+<td class="instruction">LD A,($7527)</td>
+<td class="comment-1" rowspan="5">Thrusting: speed = min(speed+1, 7)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33230"></span>81CE</td>
+<td class="instruction">CP $07</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33232"></span>81D0</td>
+<td class="instruction">JR Z,$81D6</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33234"></span>81D2</td>
+<td class="instruction">INC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33235"></span>81D3</td>
+<td class="instruction">LD ($7527),A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33238"></span>81D6</td>
+<td class="instruction">LD A,($7506)</td>
+<td class="comment-1" rowspan="2">Latch the direction of travel = current heading</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33241"></span>81D9</td>
+<td class="instruction">LD ($753B),A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33244"></span>81DC</td>
+<td class="instruction">LD HL,$826F</td>
+<td class="comment-1" rowspan="5">Fetch the two movement opcodes for direction A from the table at 826F (bytes A and A+1)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33247"></span>81DF</td>
+<td class="instruction">LD D,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33249"></span>81E1</td>
+<td class="instruction">LD E,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33250"></span>81E2</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33251"></span>81E3</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33252"></span>81E4</td>
+<td class="instruction">LD ($81EF),A</td>
+<td class="comment-1" rowspan="3">Patch the X opcode at 81EF...</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33255"></span>81E7</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33256"></span>81E8</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33257"></span>81E9</td>
+<td class="instruction">LD ($81F6),A</td>
+<td class="comment-1" rowspan="1">...and the Y opcode at 81F6</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33260"></span>81EC</td>
+<td class="instruction">LD HL,($7500)</td>
+<td class="comment-1" rowspan="3">X = X + dx (self-modified: NOP / DEC HL / INC HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33263"></span>81EF</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33264"></span>81F0</td>
+<td class="instruction">LD ($7500),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33267"></span>81F3</td>
+<td class="instruction">LD HL,($7502)</td>
+<td class="comment-1" rowspan="3">Y = Y + dy (self-modified)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33270"></span>81F6</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33271"></span>81F7</td>
+<td class="instruction">LD ($7502),HL</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33274"></span>81FA</td>
+<td class="instruction">BIT 2,C</td>
+<td class="comment-1" rowspan="2">Climb key (bit 2)?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33276"></span>81FC</td>
+<td class="instruction">JR Z,$8232</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33278"></span>81FE</td>
+<td class="instruction">LD A,($7516)</td>
+<td class="comment-1" rowspan="3">Out of fuel: cannot climb</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33281"></span>8201</td>
+<td class="instruction">CP $01</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33283"></span>8203</td>
+<td class="instruction">JR Z,$8232</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33285"></span>8205</td>
+<td class="instruction">LD A,($7515)</td>
+<td class="comment-1" rowspan="3">Landed? Then this press is the take-off:</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33288"></span>8208</td>
+<td class="instruction">CP $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33290"></span>820A</td>
+<td class="instruction">JR Z,$8214</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33292"></span>820C</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="4">clear 7515 (landed) and 752E (on base pad) and return</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33293"></span>820D</td>
+<td class="instruction">LD ($7515),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33296"></span>8210</td>
+<td class="instruction">LD ($752E),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33299"></span>8213</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33300"></span>8214</td>
+<td class="instruction">LD A,($751A)</td>
+<td class="comment-1" rowspan="5">Climb rate 751A = min(rate+1, 3)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33303"></span>8217</td>
+<td class="instruction">CP $03</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33305"></span>8219</td>
+<td class="instruction">JR Z,$821F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33307"></span>821B</td>
+<td class="instruction">INC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33308"></span>821C</td>
+<td class="instruction">LD ($751A),A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33311"></span>821F</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="4">Raise the altitude by the climb rate, one pixel at a time, stopping at 60</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33312"></span>8220</td>
+<td class="instruction">LD A,($750D)</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33315"></span>8223</td>
+<td class="instruction">CP $3C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33317"></span>8225</td>
+<td class="instruction">JR NC,$8236</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33319"></span>8227</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="5">Raise the altimeter bar by one pixel</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33320"></span>8228</td>
+<td class="instruction">CALL <a href="33492.html">$82D4</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="33323"></span>822B</td>
+<td class="instruction">LD ($750D),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33326"></span>822E</td>
+<td class="instruction">DJNZ $8223</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33328"></span>8230</td>
+<td class="instruction">JR $8236</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33330"></span>8232</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="2">Climb key released: climb rate 0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33331"></span>8233</td>
+<td class="instruction">LD ($751A),A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33334"></span>8236</td>
+<td class="instruction">LD A,($7515)</td>
+<td class="comment-1" rowspan="3">Landed: no descent</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33337"></span>8239</td>
+<td class="instruction">CP $01</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33339"></span>823B</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33340"></span>823C</td>
+<td class="instruction">LD A,($7516)</td>
+<td class="comment-1" rowspan="3">Out of fuel: forced descent</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33343"></span>823F</td>
+<td class="instruction">CP $01</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33345"></span>8241</td>
+<td class="instruction">JR Z,$824C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33347"></span>8243</td>
+<td class="instruction">BIT 1,C</td>
+<td class="comment-1" rowspan="2">Descend key (bit 1)?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33349"></span>8245</td>
+<td class="instruction">JR NZ,$824C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33351"></span>8247</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="3">No: descent rate 0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33352"></span>8248</td>
+<td class="instruction">LD ($751B),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33355"></span>824B</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33356"></span>824C</td>
+<td class="instruction">LD A,($751B)</td>
+<td class="comment-1" rowspan="5">Descent rate 751B = min(rate+1, 3)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33359"></span>824F</td>
+<td class="instruction">CP $03</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33361"></span>8251</td>
+<td class="instruction">JR Z,$8257</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33363"></span>8253</td>
+<td class="instruction">INC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33364"></span>8254</td>
+<td class="instruction">LD ($751B),A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33367"></span>8257</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="3">Lower the altitude by the descent rate, one pixel at a time</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33368"></span>8258</td>
+<td class="instruction">LD A,($750D)</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33371"></span>825B</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33372"></span>825C</td>
+<td class="instruction">BIT 7,A</td>
+<td class="comment-1" rowspan="2">Would go below 0: stop</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33374"></span>825E</td>
+<td class="instruction">JR NZ,$8269</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33376"></span>8260</td>
+<td class="instruction">CALL <a href="33531.html">$82FB</a></td>
+<td class="comment-1" rowspan="4">Lower the altimeter bar by one pixel</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33379"></span>8263</td>
+<td class="instruction">LD ($750D),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33382"></span>8266</td>
+<td class="instruction">DJNZ $825B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33384"></span>8268</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33385"></span>8269</td>
+<td class="instruction">LD A,$01</td>
+<td class="comment-1" rowspan="3">7514 = 1: tried to descend at altitude 0 (8A7A then decides between landing and crashing)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33387"></span>826B</td>
+<td class="instruction">LD ($7514),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33390"></span>826E</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33017.html">80F9</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#33077">Map</a></td>
+<td class="next">
+Next: <a href="33391.html">826F</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

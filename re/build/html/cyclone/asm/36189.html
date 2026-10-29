@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at 8D5D</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="36110.html">8D0E</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#36189">Map</a></td>
+<td class="next">
+Next: <a href="36322.html">8DE2</a>
+</td>
+</tr>
+</table>
+<div class="description">8D5D: Map screen: draw the island shapes</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used when the map screen is entered (5B7B), after 8D0E. For each of the 14 island records at F230 (20 bytes each, list ends with $FF) it renders the island's heightmap at 1/4 scale: one map pixel per 4x4 world units, pixel set if the sampled height byte is &gt;= $0F. Falls through into 8DE2 to print the names.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">F230</td>
+<td class="register-desc">island table: +0A/+0B heightmap base, +0C/+0D map bitmap address (top-left), +0E width in pixels, +0F height in pixel rows</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="36189"></span>
+<div class="comments">
+<div class="paragraph">
+Heightmap format expected (same as the view builder 775E/7789): one byte per world unit, 128 bytes per world row, i.e. byte for (x,y) = base + 128*(y-y0) + (x-x0). The map samples pixel (px,py) at base + $102 + 4*px + $200*py, i.e. world offset (2+4*px, 2+4*py). Only the low byte is stepped (INC L x4), so a row must not cross a 256-byte page. Pixels are packed MSB first, 8 per screen byte; a final partial byte is padded with zero bits. 753C = start of current pixel row on screen, 753E = write pointer.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36189"></span>8D5D</td>
+<td class="instruction">LD IX,$F230</td>
+<td class="comment-1" rowspan="1">IX = first island record</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36193"></span>8D61</td>
+<td class="instruction">LD L,(IX+$0C)</td>
+<td class="comment-1" rowspan="4">753C = 753E = bitmap address of the island's top-left pixel</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36196"></span>8D64</td>
+<td class="instruction">LD H,(IX+$0D)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36199"></span>8D67</td>
+<td class="instruction">LD ($753C),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36202"></span>8D6A</td>
+<td class="instruction">LD ($753E),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36205"></span>8D6D</td>
+<td class="instruction">LD L,(IX+$0A)</td>
+<td class="comment-1" rowspan="5">HL = heightmap base + $102 (2 world units in from the top-left corner)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36208"></span>8D70</td>
+<td class="instruction">LD H,(IX+$0B)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36211"></span>8D73</td>
+<td class="instruction">INC H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36212"></span>8D74</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36213"></span>8D75</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36214"></span>8D76</td>
+<td class="instruction">LD D,(IX+$0F)</td>
+<td class="comment-1" rowspan="3">D = pixel rows, E = pixels per row</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36217"></span>8D79</td>
+<td class="instruction">LD E,(IX+$0E)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36220"></span>8D7C</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36221"></span>8D7D</td>
+<td class="instruction">LD B,$08</td>
+<td class="comment-1" rowspan="3">Build one screen byte from up to 8 samples</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36223"></span>8D7F</td>
+<td class="instruction">LD C,$00</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36225"></span>8D81</td>
+<td class="instruction">SLA C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36227"></span>8D83</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="4">Height &gt;= $0F: land pixel</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36228"></span>8D84</td>
+<td class="instruction">CP $0F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36230"></span>8D86</td>
+<td class="instruction">JR C,$8D8A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36232"></span>8D88</td>
+<td class="instruction">SET 0,C</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36234"></span>8D8A</td>
+<td class="instruction">INC L</td>
+<td class="comment-1" rowspan="4">Next sample 4 bytes (4 world units) to the right</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36235"></span>8D8B</td>
+<td class="instruction">INC L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36236"></span>8D8C</td>
+<td class="instruction">INC L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36237"></span>8D8D</td>
+<td class="instruction">INC L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36238"></span>8D8E</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="8">Row finished? Then pad the byte with zero bits</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36239"></span>8D8F</td>
+<td class="instruction">CP E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36240"></span>8D90</td>
+<td class="instruction">JR Z,$8D99</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36242"></span>8D92</td>
+<td class="instruction">DEC E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36243"></span>8D93</td>
+<td class="instruction">DJNZ $8D81</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36245"></span>8D95</td>
+<td class="instruction">JR $8D9B</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36247"></span>8D97</td>
+<td class="instruction">SLA C</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36249"></span>8D99</td>
+<td class="instruction">DJNZ $8D97</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36251"></span>8D9B</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="6">Store the byte and advance the screen pointer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36252"></span>8D9C</td>
+<td class="instruction">LD HL,($753E)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36255"></span>8D9F</td>
+<td class="instruction">LD (HL),C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36256"></span>8DA0</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36257"></span>8DA1</td>
+<td class="instruction">LD ($753E),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36260"></span>8DA4</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36261"></span>8DA5</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="3">Loop until the row is complete</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36262"></span>8DA6</td>
+<td class="instruction">CP E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36263"></span>8DA7</td>
+<td class="instruction">JR NZ,$8D7D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36265"></span>8DA9</td>
+<td class="instruction">LD HL,($753C)</td>
+<td class="comment-1" rowspan="20">Move 753C down one pixel line (handling character-row boundaries)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36268"></span>8DAC</td>
+<td class="instruction">LD A,H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36269"></span>8DAD</td>
+<td class="instruction">AND $07</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36271"></span>8DAF</td>
+<td class="instruction">CP $07</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36273"></span>8DB1</td>
+<td class="instruction">JR NZ,$8DC8</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36275"></span>8DB3</td>
+<td class="instruction">LD A,H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36276"></span>8DB4</td>
+<td class="instruction">AND $F8</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36278"></span>8DB6</td>
+<td class="instruction">LD H,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36279"></span>8DB7</td>
+<td class="instruction">RR H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36281"></span>8DB9</td>
+<td class="instruction">RR H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36283"></span>8DBB</td>
+<td class="instruction">RR H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36285"></span>8DBD</td>
+<td class="instruction">LD BC,$0020</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36288"></span>8DC0</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36289"></span>8DC1</td>
+<td class="instruction">RL H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36291"></span>8DC3</td>
+<td class="instruction">RL H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36293"></span>8DC5</td>
+<td class="instruction">RL H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36295"></span>8DC7</td>
+<td class="instruction">DEC H</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36296"></span>8DC8</td>
+<td class="instruction">INC H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36297"></span>8DC9</td>
+<td class="instruction">LD ($753C),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36300"></span>8DCC</td>
+<td class="instruction">LD ($753E),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36303"></span>8DCF</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="5">Next sample row: 4 world rows down (2 pages)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36304"></span>8DD0</td>
+<td class="instruction">INC H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36305"></span>8DD1</td>
+<td class="instruction">INC H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36306"></span>8DD2</td>
+<td class="instruction">DEC D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36307"></span>8DD3</td>
+<td class="instruction">JR NZ,$8D79</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36309"></span>8DD5</td>
+<td class="instruction">LD BC,$0014</td>
+<td class="comment-1" rowspan="5">Next island record</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36312"></span>8DD8</td>
+<td class="instruction">ADD IX,BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36314"></span>8DDA</td>
+<td class="instruction">LD A,(IX+$00)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36317"></span>8DDD</td>
+<td class="instruction">CP $FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36319"></span>8DDF</td>
+<td class="instruction">JR NZ,$8D61</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36321"></span>8DE1</td>
+<td class="instruction">NOP</td>
+<td class="comment-1" rowspan="1">Fall through to print the names</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="36110.html">8D0E</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#36189">Map</a></td>
+<td class="next">
+Next: <a href="36322.html">8DE2</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

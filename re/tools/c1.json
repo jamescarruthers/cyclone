@@ -1,0 +1,3 @@
+{"sna":"cyclone.z80","frames":900,"map":"map.txt","prefix":"s1",
+ "script":[[300,305,"1"]],
+ "shots":[299,320,400,500,600,800,899],"out":"info.z80"}

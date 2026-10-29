@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Data at FE00</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="64000.html">FA00</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#65024">Map</a></td>
+<td class="next">
+Next: <a href="65170.html">FE92</a>
+</td>
+</tr>
+</table>
+<div class="description">FE00: Terrain character attributes</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Attribute of character code c at $FE00+c (view blitter $762C: LD H,$FE / LD L,code). $FE5F-$FE7F hold the attributes of the dynamic glyphs (rebuilt at run time, 0 at load); $FE80-$FE91 the colours of the solid blocks $80-$91 (e.g. $87 green, $89/$83 landing pad).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65024"></span>FE00</td>
+<td class="instruction">DEFB $6F,$6F,$6F,$6E,$6E,$6E,$6E,$74,$74,$74,$74,$7C,$7C,$7C,$7C,$66</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65040"></span>FE10</td>
+<td class="instruction">DEFB $75,$75,$75,$75,$75,$75,$00,$24,$24,$6C,$6C,$60,$60,$68,$68,$60</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65056"></span>FE20</td>
+<td class="instruction">DEFB $60,$60,$60,$60,$60,$60,$60,$60,$60,$60,$60,$60,$60,$50,$50,$50</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65072"></span>FE30</td>
+<td class="instruction">DEFB $70,$60,$60,$68,$68,$68,$68,$68,$68,$68,$68,$68,$68,$68,$68,$68</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65088"></span>FE40</td>
+<td class="instruction">DEFB $68,$68,$68,$68,$68,$20,$68,$20,$38,$68,$60,$60,$60,$60,$60,$60</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65104"></span>FE50</td>
+<td class="instruction">DEFB $60,$60,$60,$30,$30,$62,$60,$38,$38,$38,$38,$60,$60,$60,$60</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65119"></span>FE5F</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00</td>
+<td class="comment-1" rowspan="3">Dynamic glyph attributes</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65135"></span>FE6F</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65151"></span>FE7F</td>
+<td class="instruction">DEFB $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65152"></span>FE80</td>
+<td class="instruction">DEFB $6D,$64,$76,$7F,$52,$5B,$6D,$24,$36,$3F,$12,$1B,$49,$09,$40,$00</td>
+<td class="comment-1" rowspan="2">Solid block colours ($80-$91)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65168"></span>FE90</td>
+<td class="instruction">DEFB $00,$00</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="64000.html">FA00</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#65024">Map</a></td>
+<td class="next">
+Next: <a href="65170.html">FE92</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

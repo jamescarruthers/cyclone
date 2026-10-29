@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at 8321</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33531.html">82FB</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#33569">Map</a></td>
+<td class="next">
+Next: <a href="33726.html">83BE</a>
+</td>
+</tr>
+</table>
+<div class="description">8321: Start a round: crate boxes, round bonus, difficulty</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Called at 5B26 at the start of every round (new game, or after the 5th crate has been delivered to the base). Blanks the five crate boxes (attributes of rows 22-23, columns 0-9) and lights them one by one with a beep and a 0.19 s pause. On a new game (7554&lt;&gt;5) it resets the time-bar period to 255, sets the wind threshold 5B93 to 5 and picks a random cyclone starting corner (754B/754C). After a completed round (7554=5) it awards the round bonus, resets the crate counter, sets the wind threshold to 6 and shortens the time-bar period by 15. Finally clears the lives-lost counter 9245 and redraws the HUD.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">(7554)</td>
+<td class="register-desc">crates delivered (5 = round complete)</td>
+</tr>
+<tr>
+<td class="register">(9245)</td>
+<td class="register-desc">lives lost this round (0-2)</td>
+</tr>
+</table>
+<table class="output">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+<tr>
+<td class="register">(5B93)</td>
+<td class="register-desc">wind threshold (operand of CP at 5B92: 7378 runs while 7550 &lt; it)</td>
+</tr>
+<tr>
+<td class="register">(828C)</td>
+<td class="register-desc">time-bar period in iterations</td>
+</tr>
+<tr>
+<td class="register">(754B),(754C)</td>
+<td class="register-desc">cyclone start position (new game only)</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33569"></span>8321</td>
+<td class="instruction">LD IX,$5AC0</td>
+<td class="comment-1" rowspan="7">Attributes of the five 2x2 crate boxes (rows 22-23, columns 0-9) = 0: invisible</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33573"></span>8325</td>
+<td class="instruction">XOR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33574"></span>8326</td>
+<td class="instruction">LD B,$0A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33576"></span>8328</td>
+<td class="instruction">LD (IX+$00),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33579"></span>832B</td>
+<td class="instruction">LD (IX+$20),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33582"></span>832E</td>
+<td class="instruction">INC IX</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33584"></span>8330</td>
+<td class="instruction">DJNZ $8328</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33586"></span>8332</td>
+<td class="instruction">LD IX,$5AC0</td>
+<td class="comment-1" rowspan="11">Light the boxes one by one (ink 6 yellow)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33590"></span>8336</td>
+<td class="instruction">LD B,$05</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33592"></span>8338</td>
+<td class="instruction">LD A,$06</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33594"></span>833A</td>
+<td class="instruction">LD (IX+$00),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33597"></span>833D</td>
+<td class="instruction">LD (IX+$01),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33600"></span>8340</td>
+<td class="instruction">LD (IX+$20),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33603"></span>8343</td>
+<td class="instruction">LD (IX+$21),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33606"></span>8346</td>
+<td class="instruction">INC IX</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33608"></span>8348</td>
+<td class="instruction">INC IX</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33610"></span>834A</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33611"></span>834B</td>
+<td class="instruction">PUSH IX</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33613"></span>834D</td>
+<td class="instruction">LD HL,$03E8</td>
+<td class="comment-1" rowspan="4">Beep: BEEPER HL=$03E8, DE=44 (about 425 Hz for 104 ms)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33616"></span>8350</td>
+<td class="instruction">LD DE,$002C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33619"></span>8353</td>
+<td class="instruction">CALL $03B5</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33622"></span>8356</td>
+<td class="instruction">POP IX</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33624"></span>8358</td>
+<td class="instruction">LD C,$C8</td>
+<td class="comment-1" rowspan="7">Delay: 200 x 255 DJNZ loops (about 666,000 T-states, 0.19 s)</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33626"></span>835A</td>
+<td class="instruction">LD B,$FF</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33628"></span>835C</td>
+<td class="instruction">DJNZ $835C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33630"></span>835E</td>
+<td class="instruction">DEC C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33631"></span>835F</td>
+<td class="instruction">JR NZ,$835A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33633"></span>8361</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33634"></span>8362</td>
+<td class="instruction">DJNZ $8338</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33636"></span>8364</td>
+<td class="instruction">LD A,($7554)</td>
+<td class="comment-1" rowspan="3">Round complete (5 crates delivered)?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33639"></span>8367</td>
+<td class="instruction">CP $05</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33641"></span>8369</td>
+<td class="instruction">JR Z,$8390</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33643"></span>836B</td>
+<td class="instruction">LD A,$05</td>
+<td class="comment-1" rowspan="2">New game: wind threshold 5</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33645"></span>836D</td>
+<td class="instruction">LD ($5B93),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33648"></span>8370</td>
+<td class="instruction">LD A,$FF</td>
+<td class="comment-1" rowspan="2">Time-bar period 255 iterations</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33650"></span>8372</td>
+<td class="instruction">LD ($828C),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33653"></span>8375</td>
+<td class="instruction">CALL <a href="35700.html">$8B74</a></td>
+<td class="comment-1" rowspan="12">Random cyclone corner: 754B = 2 or 20 (bit 0 of L), 754C = 2 or 19 (bit 1 of L)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33656"></span>8378</td>
+<td class="instruction">LD A,$02</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33658"></span>837A</td>
+<td class="instruction">BIT 0,L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33660"></span>837C</td>
+<td class="instruction">JR Z,$8380</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33662"></span>837E</td>
+<td class="instruction">LD A,$14</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33664"></span>8380</td>
+<td class="instruction">LD ($754B),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33667"></span>8383</td>
+<td class="instruction">LD A,$02</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33669"></span>8385</td>
+<td class="instruction">BIT 1,L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33671"></span>8387</td>
+<td class="instruction">JR Z,$838B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33673"></span>8389</td>
+<td class="instruction">LD A,$13</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33675"></span>838B</td>
+<td class="instruction">LD ($754C),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33678"></span>838E</td>
+<td class="instruction">JR $83B6</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33680"></span>8390</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="2">Round complete: crates delivered = 0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33681"></span>8391</td>
+<td class="instruction">LD ($7554),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33684"></span>8394</td>
+<td class="instruction">LD A,($9245)</td>
+<td class="comment-1" rowspan="11">B = 250 - 64 * lives lost (mod 256): 250, 186 or 122</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33687"></span>8397</td>
+<td class="instruction">ADD A,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33688"></span>8398</td>
+<td class="instruction">ADD A,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33689"></span>8399</td>
+<td class="instruction">ADD A,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33690"></span>839A</td>
+<td class="instruction">ADD A,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33691"></span>839B</td>
+<td class="instruction">ADD A,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33692"></span>839C</td>
+<td class="instruction">ADD A,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33693"></span>839D</td>
+<td class="instruction">LD B,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33694"></span>839E</td>
+<td class="instruction">LD A,$FA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33696"></span>83A0</td>
+<td class="instruction">SUB B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33697"></span>83A1</td>
+<td class="instruction">LD B,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33698"></span>83A2</td>
+<td class="instruction">CALL <a href="26114.html">$6602</a></td>
+<td class="comment-1" rowspan="2">Add B points; the second call adds whatever B the score printer 6F00 leaves, which is always $66 (102)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33701"></span>83A5</td>
+<td class="instruction">CALL <a href="26114.html">$6602</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="33704"></span>83A8</td>
+<td class="instruction">LD A,$06</td>
+<td class="comment-1" rowspan="2">Wind threshold 6 for every later round</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33706"></span>83AA</td>
+<td class="instruction">LD ($5B93),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33709"></span>83AD</td>
+<td class="instruction">LD A,($828C)</td>
+<td class="comment-1" rowspan="4">Time-bar period 15 iterations shorter</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33712"></span>83B0</td>
+<td class="instruction">LD B,$0F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33714"></span>83B2</td>
+<td class="instruction">SUB B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33715"></span>83B3</td>
+<td class="instruction">LD ($828C),A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33718"></span>83B6</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="2">Lives lost this round = 0 (all three helicopters restored)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33719"></span>83B7</td>
+<td class="instruction">LD ($9245),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33722"></span>83BA</td>
+<td class="instruction">CALL <a href="34036.html">$84F4</a></td>
+<td class="comment-1" rowspan="2">Redraw the HUD</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33725"></span>83BD</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33531.html">82FB</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#33569">Map</a></td>
+<td class="next">
+Next: <a href="33726.html">83BE</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

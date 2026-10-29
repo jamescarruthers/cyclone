@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at 6602</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26112.html">6600</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26114">Map</a></td>
+<td class="next">
+Next: <a href="26140.html">661C</a>
+</td>
+</tr>
+</table>
+<div class="description">6602: Add B points to the score</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+The score is the 7-character string at <a href="26140.html#26142">661E</a> ('.' = blank leading digit). Adds 1 to the last digit B times with decimal carry (B=0 adds 256), then prints it via <a href="28416.html">6F00</a>. On exit B=$66 (left over from <a href="28416.html">6F00</a>), which <a href="33569.html#33701">83A5</a> relies on by accident.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">B</td>
+<td class="register-desc">Number of points to add</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26114"></span>6602</td>
+<td class="instruction">LD HL,$6624</td>
+<td class="comment-1" rowspan="2">Last digit</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26117"></span>6605</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26118"></span>6606</td>
+<td class="instruction">CP $2E</td>
+<td class="comment-1" rowspan="4">A blank leading digit counts as '0'</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26120"></span>6608</td>
+<td class="instruction">JR NZ,$660C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26122"></span>660A</td>
+<td class="instruction">LD A,$30</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26124"></span>660C</td>
+<td class="instruction">INC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26125"></span>660D</td>
+<td class="instruction">CP $3A</td>
+<td class="comment-1" rowspan="2">Carry?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26127"></span>660F</td>
+<td class="instruction">JR NZ,$6616</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26129"></span>6611</td>
+<td class="instruction">LD (HL),$30</td>
+<td class="comment-1" rowspan="5">Yes: digit := '0', move one digit left</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26131"></span>6613</td>
+<td class="instruction">DEC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26132"></span>6614</td>
+<td class="instruction">JR $6605</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26134"></span>6616</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26135"></span>6617</td>
+<td class="instruction">DJNZ $6602</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26137"></span>6619</td>
+<td class="instruction">JP <a href="28416.html">$6F00</a></td>
+<td class="comment-1" rowspan="1">Print the score</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26112.html">6600</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26114">Map</a></td>
+<td class="next">
+Next: <a href="26140.html">661C</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at 8D0E</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="36106.html">8D0A</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#36110">Map</a></td>
+<td class="next">
+Next: <a href="36189.html">8D5D</a>
+</td>
+</tr>
+</table>
+<div class="description">8D0E: Clear the view window</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used at game start (5B03) and when the map screen is entered (5B78). Sets the 23x22-cell view window (columns 0-22, rows 0-21) to attribute $3F (white on white), clears its bitmap, then sets the inner 21x20 cells (columns 1-21, rows 1-20) to $7C (bright white paper, green ink: map land colour).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36110"></span>8D0E</td>
+<td class="instruction">LD HL,$5800</td>
+<td class="comment-1" rowspan="10">22 rows x 23 attributes = $3F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36113"></span>8D11</td>
+<td class="instruction">LD C,$16</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36115"></span>8D13</td>
+<td class="instruction">LD DE,$0009</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36118"></span>8D16</td>
+<td class="instruction">LD B,$17</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36120"></span>8D18</td>
+<td class="instruction">LD (HL),$3F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36122"></span>8D1A</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36123"></span>8D1B</td>
+<td class="instruction">DJNZ $8D18</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36125"></span>8D1D</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36126"></span>8D1E</td>
+<td class="instruction">DEC C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36127"></span>8D1F</td>
+<td class="instruction">JR NZ,$8D16</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36129"></span>8D21</td>
+<td class="instruction">LD HL,$4000</td>
+<td class="comment-1" rowspan="13">Clear 22 rows x 23 columns x 8 pixel lines of bitmap</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36132"></span>8D24</td>
+<td class="instruction">LD C,$16</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36134"></span>8D26</td>
+<td class="instruction">LD B,$17</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36136"></span>8D28</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36137"></span>8D29</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36138"></span>8D2A</td>
+<td class="instruction">LD B,$08</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36140"></span>8D2C</td>
+<td class="instruction">LD (HL),$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36142"></span>8D2E</td>
+<td class="instruction">INC H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36143"></span>8D2F</td>
+<td class="instruction">DJNZ $8D2C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36145"></span>8D31</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36146"></span>8D32</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36147"></span>8D33</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36148"></span>8D34</td>
+<td class="instruction">DJNZ $8D28</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36150"></span>8D36</td>
+<td class="instruction">RR H</td>
+<td class="comment-1" rowspan="10">Next character row (screen address arithmetic via rotation of H)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36152"></span>8D38</td>
+<td class="instruction">RR H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36154"></span>8D3A</td>
+<td class="instruction">RR H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36156"></span>8D3C</td>
+<td class="instruction">LD DE,$0009</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36159"></span>8D3F</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36160"></span>8D40</td>
+<td class="instruction">RL H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36162"></span>8D42</td>
+<td class="instruction">RL H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36164"></span>8D44</td>
+<td class="instruction">RL H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36166"></span>8D46</td>
+<td class="instruction">DEC C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36167"></span>8D47</td>
+<td class="instruction">JR NZ,$8D26</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36169"></span>8D49</td>
+<td class="instruction">LD HL,$5821</td>
+<td class="comment-1" rowspan="11">Inner 20 rows x 21 columns = $7C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36172"></span>8D4C</td>
+<td class="instruction">LD C,$14</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36174"></span>8D4E</td>
+<td class="instruction">LD DE,$000B</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36177"></span>8D51</td>
+<td class="instruction">LD B,$15</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36179"></span>8D53</td>
+<td class="instruction">LD (HL),$7C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36181"></span>8D55</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36182"></span>8D56</td>
+<td class="instruction">DJNZ $8D53</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36184"></span>8D58</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36185"></span>8D59</td>
+<td class="instruction">DEC C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36186"></span>8D5A</td>
+<td class="instruction">JR NZ,$8D51</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36188"></span>8D5C</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="36106.html">8D0A</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#36110">Map</a></td>
+<td class="next">
+Next: <a href="36189.html">8D5D</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

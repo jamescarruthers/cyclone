@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at 5FDC</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="24532.html">5FD4</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#24540">Map</a></td>
+<td class="next">
+Next: <a href="24591.html">600F</a>
+</td>
+</tr>
+</table>
+<div class="description">5FDC: Interrupt: crash noise</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Jumped to from the interrupt handler $83C2 while the crash flag $7505 is 1 (crash sequence). Once per frame: random HL (<a href="35700.html">8B74</a>); if L &lt; $46 there is no sound this frame (70/256), otherwise 3 square-wave cycles are played, with the high phase lasting (H AND $F0) loop passes and the low phase (L AND $F0) loop passes (~43 T-states per pass), which gives a random-pitch rasping noise. Border stays black. Exits through the interrupt handler's register restore at $842D.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24540"></span>5FDC</td>
+<td class="instruction">CALL <a href="35700.html">$8B74</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24543"></span>5FDF</td>
+<td class="instruction">LD A,L</td>
+<td class="comment-1" rowspan="3">No sound on 70 of 256 frames</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24544"></span>5FE0</td>
+<td class="instruction">CP $46</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24546"></span>5FE2</td>
+<td class="instruction">JP C,<a href="33730.html#33837">$842D</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24549"></span>5FE5</td>
+<td class="instruction">LD B,$03</td>
+<td class="comment-1" rowspan="2">3 cycles</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24551"></span>5FE7</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24552"></span>5FE8</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-1" rowspan="5">High phase length = H AND $F0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24553"></span>5FE9</td>
+<td class="instruction">AND $F0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24555"></span>5FEB</td>
+<td class="instruction">CP $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24557"></span>5FED</td>
+<td class="instruction">JR Z,$6009</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24559"></span>5FEF</td>
+<td class="instruction">LD B,A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24560"></span>5FF0</td>
+<td class="instruction">LD A,$10</td>
+<td class="comment-1" rowspan="6">Speaker on (bit 4), border black</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24562"></span>5FF2</td>
+<td class="instruction">OUT ($FE),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24564"></span>5FF4</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24565"></span>5FF5</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24566"></span>5FF6</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24567"></span>5FF7</td>
+<td class="instruction">DJNZ $5FF0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24569"></span>5FF9</td>
+<td class="instruction">LD A,L</td>
+<td class="comment-1" rowspan="5">Low phase length = L AND $F0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24570"></span>5FFA</td>
+<td class="instruction">AND $F0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24572"></span>5FFC</td>
+<td class="instruction">CP $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24574"></span>5FFE</td>
+<td class="instruction">JR Z,$6009</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24576"></span>6000</td>
+<td class="instruction">LD B,A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24577"></span>6001</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="8">Speaker off</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24578"></span>6002</td>
+<td class="instruction">OUT ($FE),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24580"></span>6004</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24581"></span>6005</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24582"></span>6006</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24583"></span>6007</td>
+<td class="instruction">DJNZ $6001</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24585"></span>6009</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24586"></span>600A</td>
+<td class="instruction">DJNZ $5FE7</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24588"></span>600C</td>
+<td class="instruction">JP <a href="33730.html#33837">$842D</a></td>
+<td class="comment-1" rowspan="1">Restore registers, EI, RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="24532.html">5FD4</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#24540">Map</a></td>
+<td class="next">
+Next: <a href="24591.html">600F</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

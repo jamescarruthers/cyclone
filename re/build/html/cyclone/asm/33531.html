@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at 82FB</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33492.html">82D4</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#33531">Map</a></td>
+<td class="next">
+Next: <a href="33569.html">8321</a>
+</td>
+</tr>
+</table>
+<div class="description">82FB: Lower the altimeter bar by one pixel</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Clears the top lit line of the altimeter bar and moves the pointer 751E down one line. Quirk: the test at 8307 uses $4F instead of $50, so below altitude 2 the pointer skips line 7 of row 8 and continues in row 9 (a stray line can then be drawn at $4838 when climbing back from altitude 0).
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">(751E)</td>
+<td class="register-desc">screen address of the top lit line of the A bar</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33531"></span>82FB</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="33532"></span>82FC</td>
+<td class="instruction">LD HL,($751E)</td>
+<td class="comment-1" rowspan="2">Erase the current top line</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33535"></span>82FF</td>
+<td class="instruction">LD (HL),$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33537"></span>8301</td>
+<td class="instruction">INC H</td>
+<td class="comment-1" rowspan="2">Down one pixel line</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33538"></span>8302</td>
+<td class="instruction">LD A,H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33539"></span>8303</td>
+<td class="instruction">CP $48</td>
+<td class="comment-1" rowspan="2">Leaving the bottom of the top third?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33541"></span>8305</td>
+<td class="instruction">JR Z,$830F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33543"></span>8307</td>
+<td class="instruction">CP $4F</td>
+<td class="comment-1" rowspan="4">Quirk: should be $50</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33545"></span>8309</td>
+<td class="instruction">JR NZ,$831B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33547"></span>830B</td>
+<td class="instruction">LD H,$48</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33549"></span>830D</td>
+<td class="instruction">JR $8311</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33551"></span>830F</td>
+<td class="instruction">LD H,$40</td>
+<td class="comment-1" rowspan="4">Next character row in the top third: H=$40, L=L+32</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33553"></span>8311</td>
+<td class="instruction">LD A,$20</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33555"></span>8313</td>
+<td class="instruction">ADD A,L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33556"></span>8314</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33557"></span>8315</td>
+<td class="instruction">CP $18</td>
+<td class="comment-1" rowspan="7">Row 7 -&gt; row 8: H=$48</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33559"></span>8317</td>
+<td class="instruction">JR NZ,$831B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33561"></span>8319</td>
+<td class="instruction">LD H,$48</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33563"></span>831B</td>
+<td class="instruction">LD ($751E),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33566"></span>831E</td>
+<td class="instruction">POP AF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33567"></span>831F</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33568"></span>8320</td>
+<td class="instruction">NOP</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33492.html">82D4</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#33531">Map</a></td>
+<td class="next">
+Next: <a href="33569.html">8321</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

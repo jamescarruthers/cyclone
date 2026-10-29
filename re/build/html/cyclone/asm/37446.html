@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at 9246</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="37426.html">9232</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#37446">Map</a></td>
+<td class="next">
+Next: <a href="37613.html">92ED</a>
+</td>
+</tr>
+</table>
+<div class="description">9246: Death sequence (helicopter destroyed)</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Entered from the main loop when 7505=1. Plays a 24-step explosion animation in the view, marks a life as lost (helicopter icon turned red), and either returns to the menu (3 lives lost) or resets the per-life variables and resumes the main loop at 5B36. OBSERVED: the 24 steps take about 132 frames (2.6 s).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="37446"></span>
+<div class="comments">
+<div class="paragraph">
+Per step (counter n = 24 down to 1): 76D2 rebuild view buffer, 8B91 waves; 6950 = 72 zero bytes (copied from 9300); n &gt;= 22: 8CA0 rebuilds the normal helicopter sprite; n = 18: 752D+1 (explosion sound request for the interrupt handler); n &gt;= 20: XOR the next explosion overlay (F550+72*k, k=0..4) onto 6950; then 7E10 (tile stacks), 86AF (draw sprite), 762C (render view). So the explosion overlays are shown over the helicopter for steps 24-22, alone for steps 21-20, and the sprite is blank from step 19.
+</div>
+<div class="paragraph">
+Life lost: attributes (row 10+2*k, columns 24-25), k = lives lost so far, are set to $02 (red ink); lives lost +1; 3 = game over (JP E280). Otherwise 82A7 (fuel-gauge tick) is called until 7516=1 (fuel gauge emptied), then every byte of the reset table 75C8-762B that is not $FF is copied over 7500-7563 (position $0139,$0170 on the base pad, landed, altitude 8, speed 0 ...; $FF entries such as the time bar pointer 751C/751D, 7543-754C markers/cyclone, 754E/754F, 7554 crates are kept) and play resumes at 5B36.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37446"></span>9246</td>
+<td class="instruction">CALL <a href="30252.html">$762C</a></td>
+<td class="comment-1" rowspan="1">Render the view once</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37449"></span>9249</td>
+<td class="instruction">LD HL,$F550</td>
+<td class="comment-1" rowspan="2">First explosion overlay at F550</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37452"></span>924C</td>
+<td class="instruction">LD ($9243),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37455"></span>924F</td>
+<td class="instruction">LD HL,$750D</td>
+<td class="comment-1" rowspan="3">Altitude +2 for the animation</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37458"></span>9252</td>
+<td class="instruction">INC (HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37459"></span>9253</td>
+<td class="instruction">INC (HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37460"></span>9254</td>
+<td class="instruction">LD B,$18</td>
+<td class="comment-1" rowspan="4">24 steps</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37462"></span>9256</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37463"></span>9257</td>
+<td class="instruction">CALL <a href="30418.html">$76D2</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="37466"></span>925A</td>
+<td class="instruction">CALL <a href="35729.html">$8B91</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="37469"></span>925D</td>
+<td class="instruction">LD DE,$6950</td>
+<td class="comment-1" rowspan="4">Blank sprite: copy 72 zero bytes from 9300 to 6950</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37472"></span>9260</td>
+<td class="instruction">LD HL,$9300</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37475"></span>9263</td>
+<td class="instruction">LD BC,$0048</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37478"></span>9266</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37480"></span>9268</td>
+<td class="instruction">POP AF</td>
+<td class="comment-1" rowspan="6">Steps 24-22: normal helicopter sprite</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37481"></span>9269</td>
+<td class="instruction">PUSH AF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37482"></span>926A</td>
+<td class="instruction">CP $16</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37484"></span>926C</td>
+<td class="instruction">CALL NC,<a href="36000.html">$8CA0</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="37487"></span>926F</td>
+<td class="instruction">POP AF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37488"></span>9270</td>
+<td class="instruction">PUSH AF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37489"></span>9271</td>
+<td class="instruction">CP $12</td>
+<td class="comment-1" rowspan="4">Step 18: explosion sound</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37491"></span>9273</td>
+<td class="instruction">JR NZ,$9279</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37493"></span>9275</td>
+<td class="instruction">LD HL,$752D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37496"></span>9278</td>
+<td class="instruction">INC (HL)</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37497"></span>9279</td>
+<td class="instruction">CP $14</td>
+<td class="comment-1" rowspan="7">Steps 24-20: XOR an explosion overlay</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37499"></span>927B</td>
+<td class="instruction">CALL NC,<a href="37613.html">$92ED</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="37502"></span>927E</td>
+<td class="instruction">CALL <a href="32272.html">$7E10</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="37505"></span>9281</td>
+<td class="instruction">CALL <a href="34479.html">$86AF</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="37508"></span>9284</td>
+<td class="instruction">CALL <a href="30252.html">$762C</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="37511"></span>9287</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37512"></span>9288</td>
+<td class="instruction">DJNZ $9256</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37514"></span>928A</td>
+<td class="instruction">LD A,($9245)</td>
+<td class="comment-1" rowspan="13">Turn the next helicopter (life) icon red: 5958 + 64*lives lost</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37517"></span>928D</td>
+<td class="instruction">ADD A,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37518"></span>928E</td>
+<td class="instruction">ADD A,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37519"></span>928F</td>
+<td class="instruction">ADD A,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37520"></span>9290</td>
+<td class="instruction">ADD A,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37521"></span>9291</td>
+<td class="instruction">ADD A,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37522"></span>9292</td>
+<td class="instruction">ADD A,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37523"></span>9293</td>
+<td class="instruction">LD HL,$5958</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37526"></span>9296</td>
+<td class="instruction">ADD A,L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37527"></span>9297</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37528"></span>9298</td>
+<td class="instruction">LD (HL),$02</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37530"></span>929A</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37531"></span>929B</td>
+<td class="instruction">LD (HL),$02</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37533"></span>929D</td>
+<td class="instruction">LD A,($9245)</td>
+<td class="comment-1" rowspan="5">Lives lost +1; 3 = game over, back to the menu</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37536"></span>92A0</td>
+<td class="instruction">INC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37537"></span>92A1</td>
+<td class="instruction">LD ($9245),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37540"></span>92A4</td>
+<td class="instruction">CP $03</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37542"></span>92A6</td>
+<td class="instruction">JP Z,<a href="57984.html">$E280</a></td>
+</tr>
+<tr>
+<td class="address-2"><span id="37545"></span>92A9</td>
+<td class="instruction">CALL <a href="33447.html">$82A7</a></td>
+<td class="comment-1" rowspan="4">Empty the fuel gauge</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37548"></span>92AC</td>
+<td class="instruction">LD A,($7516)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37551"></span>92AF</td>
+<td class="instruction">CP $01</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37553"></span>92B1</td>
+<td class="instruction">JR NZ,$92A9</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37555"></span>92B3</td>
+<td class="instruction">LD HL,$7500</td>
+<td class="comment-1" rowspan="10">Copy the reset table 75C8 to 7500 (100 bytes), skipping $FF bytes</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37558"></span>92B6</td>
+<td class="instruction">LD DE,$75C8</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37561"></span>92B9</td>
+<td class="instruction">LD B,$64</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37563"></span>92BB</td>
+<td class="instruction">LD A,(DE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37564"></span>92BC</td>
+<td class="instruction">CP $FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37566"></span>92BE</td>
+<td class="instruction">JR Z,$92C1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37568"></span>92C0</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37569"></span>92C1</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37570"></span>92C2</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37571"></span>92C3</td>
+<td class="instruction">DJNZ $92BB</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37573"></span>92C5</td>
+<td class="instruction">JP <a href="23296.html#23350">$5B36</a></td>
+<td class="comment-1" rowspan="1">Resume the main loop</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="37576"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="23296.html">5B00</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37576"></span>92C8</td>
+<td class="instruction">LD A,$02</td>
+<td class="comment-1" rowspan="3">Time ran out (from 5BD1, 751C=$DE): set 2 lives lost so that the next one ends the game, message " NO TIME "</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37578"></span>92CA</td>
+<td class="instruction">LD ($9245),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37581"></span>92CD</td>
+<td class="instruction">LD HL,$8A6E</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="37584"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="23296.html">5B00</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37584"></span>92D0</td>
+<td class="instruction">LD DE,$4067</td>
+<td class="comment-1" rowspan="8">Entry from 5BEF with HL=5BF2 (" NO FUEL ", landed off the helipad with an empty tank: costs one life). Print the 9-character message at row 3, column 7, attributes $47</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37587"></span>92D3</td>
+<td class="instruction">LD C,$09</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37589"></span>92D5</td>
+<td class="instruction">CALL <a href="34202.html">$859A</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="37592"></span>92D8</td>
+<td class="instruction">LD HL,$5867</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37595"></span>92DB</td>
+<td class="instruction">LD B,$09</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37597"></span>92DD</td>
+<td class="instruction">LD (HL),$47</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37599"></span>92DF</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37600"></span>92E0</td>
+<td class="instruction">DJNZ $92DD</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37602"></span>92E2</td>
+<td class="instruction">LD HL,$0466</td>
+<td class="comment-1" rowspan="3">Beep: ROM BEEPER, DE=$0300 cycles, HL=$0466 pitch</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37605"></span>92E5</td>
+<td class="instruction">LD DE,$0300</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37608"></span>92E8</td>
+<td class="instruction">CALL $03B5</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37611"></span>92EB</td>
+<td class="instruction">JR $928A</td>
+<td class="comment-1" rowspan="1">Join the life-lost code</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="37426.html">9232</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#37446">Map</a></td>
+<td class="next">
+Next: <a href="37613.html">92ED</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

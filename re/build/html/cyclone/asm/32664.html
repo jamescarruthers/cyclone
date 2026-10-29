@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Data at 7F98</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="32272.html">7E10</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#32664">Map</a></td>
+<td class="next">
+Next: <a href="32725.html">7FD5</a>
+</td>
+</tr>
+</table>
+<div class="description">7F98: Sprite tile codes</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Codes written into buffer columns 10-12, rows 5-15 (3 per row). Tile $5F+r+11*c is column 10+c, row 5+r, so each column's graphics form a contiguous 88-line strip ($FCF8, $FD50, $FDA8) into which the shadow (<a href="31672.html">7BB8</a>) and the helicopter body (86AF) are drawn at pixel precision.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32664"></span>7F98</td>
+<td class="instruction">DEFB $5F,$6A,$75</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="32667"></span>7F9B</td>
+<td class="instruction">DEFB $60,$6B,$76</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="32670"></span>7F9E</td>
+<td class="instruction">DEFB $61,$6C,$77</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="32673"></span>7FA1</td>
+<td class="instruction">DEFB $62,$6D,$78</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="32676"></span>7FA4</td>
+<td class="instruction">DEFB $63,$6E,$79</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="32679"></span>7FA7</td>
+<td class="instruction">DEFB $64,$6F,$7A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="32682"></span>7FAA</td>
+<td class="instruction">DEFB $65,$70,$7B</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="32685"></span>7FAD</td>
+<td class="instruction">DEFB $66,$71,$7C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="32688"></span>7FB0</td>
+<td class="instruction">DEFB $67,$72,$7D</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="32691"></span>7FB3</td>
+<td class="instruction">DEFB $68,$73,$7E</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="32694"></span>7FB6</td>
+<td class="instruction">DEFB $69,$74,$7F</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="32697"></span>7FB9</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">End marker (not used)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32698"></span>7FBA</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00</td>
+<td class="comment-1" rowspan="4">Unused</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32706"></span>7FC2</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32714"></span>7FCA</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32722"></span>7FD2</td>
+<td class="instruction">DEFB $00,$00,$00</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="32272.html">7E10</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#32664">Map</a></td>
+<td class="next">
+Next: <a href="32725.html">7FD5</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

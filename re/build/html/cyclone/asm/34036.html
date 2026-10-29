@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at 84F4</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="34034.html">84F2</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#34036">Map</a></td>
+<td class="next">
+Next: <a href="34176.html">8580</a>
+</td>
+</tr>
+</table>
+<div class="description">84F4: Draw the HUD</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Draws the static instrument panel: attributes for columns 24-31 of rows 0-20 (from 7200, 21 x 8 bytes) and for rows 22-23 (7148, 64 bytes); panel graphics for columns 24-31 of rows 0-14 from the tile map 7300 (15 x 8 codes, $FF = leave blank; tile n at 7400+8n): A S F T letters, bar scales, compass rose, three helicopter (lives) icons; the bottom two rows of text from 6848 (crate boxes, WIND FORCE, DANGER); BEWARE / AIRCRAFT (invisible until 91B4 colours them); the VIEW label; then falls into 8580 to print NORTH. Called at game start (5B06), every round start (83BA) and from E3C5.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34036"></span>84F4</td>
+<td class="instruction">LD DE,$5818</td>
+<td class="comment-1" rowspan="11">Panel attributes, rows 0-20 (21 rows of 8)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34039"></span>84F7</td>
+<td class="instruction">LD HL,$7200</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34042"></span>84FA</td>
+<td class="instruction">LD A,$15</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34044"></span>84FC</td>
+<td class="instruction">LD BC,$0008</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34047"></span>84FF</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34049"></span>8501</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34050"></span>8502</td>
+<td class="instruction">LD BC,$0018</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34053"></span>8505</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34054"></span>8506</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34055"></span>8507</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34056"></span>8508</td>
+<td class="instruction">JR NZ,$84FC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34058"></span>850A</td>
+<td class="instruction">LD DE,$5AC0</td>
+<td class="comment-1" rowspan="4">Rows 22-23 attributes</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34061"></span>850D</td>
+<td class="instruction">LD HL,$7148</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34064"></span>8510</td>
+<td class="instruction">LD BC,$0040</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34067"></span>8513</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34069"></span>8515</td>
+<td class="instruction">LD DE,$4018</td>
+<td class="comment-1" rowspan="9">Panel graphics: 15 rows x 8 cells of tile codes from 7300</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34072"></span>8518</td>
+<td class="instruction">LD HL,$7300</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34075"></span>851B</td>
+<td class="instruction">LD C,$0F</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34077"></span>851D</td>
+<td class="instruction">LD B,$08</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34079"></span>851F</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34080"></span>8520</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34081"></span>8521</td>
+<td class="instruction">CP $FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34083"></span>8523</td>
+<td class="instruction">JR Z,$8539</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34085"></span>8525</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34086"></span>8526</td>
+<td class="instruction">LD H,$74</td>
+<td class="comment-1" rowspan="18">Tile bitmap at $7400 + 8 x code</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34088"></span>8528</td>
+<td class="instruction">ADD A,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34089"></span>8529</td>
+<td class="instruction">ADD A,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34090"></span>852A</td>
+<td class="instruction">ADD A,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34091"></span>852B</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34092"></span>852C</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34093"></span>852D</td>
+<td class="instruction">LD B,$08</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34095"></span>852F</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34096"></span>8530</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34097"></span>8531</td>
+<td class="instruction">LD (DE),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34098"></span>8532</td>
+<td class="instruction">INC D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34099"></span>8533</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34100"></span>8534</td>
+<td class="instruction">DJNZ $8530</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34102"></span>8536</td>
+<td class="instruction">POP DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34103"></span>8537</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34104"></span>8538</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34105"></span>8539</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34106"></span>853A</td>
+<td class="instruction">DJNZ $851F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34108"></span>853C</td>
+<td class="instruction">DEC DE</td>
+<td class="comment-1" rowspan="15">Next character row (convert to a linear row address, add 25 cells, convert back)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34109"></span>853D</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34110"></span>853E</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34111"></span>853F</td>
+<td class="instruction">RR H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34113"></span>8541</td>
+<td class="instruction">RR H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34115"></span>8543</td>
+<td class="instruction">RR H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34117"></span>8545</td>
+<td class="instruction">LD BC,$0019</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34120"></span>8548</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34121"></span>8549</td>
+<td class="instruction">RL H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34123"></span>854B</td>
+<td class="instruction">RL H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34125"></span>854D</td>
+<td class="instruction">RL H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34127"></span>854F</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34128"></span>8550</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34129"></span>8551</td>
+<td class="instruction">DEC C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34130"></span>8552</td>
+<td class="instruction">JR NZ,$851D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34132"></span>8554</td>
+<td class="instruction">LD DE,$50C0</td>
+<td class="comment-1" rowspan="4">Rows 22-23 text (64 characters from 6848)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34135"></span>8557</td>
+<td class="instruction">LD HL,$6848</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34138"></span>855A</td>
+<td class="instruction">LD C,$40</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34140"></span>855C</td>
+<td class="instruction">CALL <a href="34202.html">$859A</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="34143"></span>855F</td>
+<td class="instruction">LD DE,$5019</td>
+<td class="comment-1" rowspan="4">"BEWARE" at row 16, column 25</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34146"></span>8562</td>
+<td class="instruction">LD HL,$85B9</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34149"></span>8565</td>
+<td class="instruction">LD C,$06</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34151"></span>8567</td>
+<td class="instruction">CALL <a href="34202.html">$859A</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="34154"></span>856A</td>
+<td class="instruction">LD DE,$5038</td>
+<td class="comment-1" rowspan="4">"AIRCRAFT" at row 17, column 24</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34157"></span>856D</td>
+<td class="instruction">LD HL,$85BF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34160"></span>8570</td>
+<td class="instruction">LD C,$08</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34162"></span>8572</td>
+<td class="instruction">CALL <a href="34202.html">$859A</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="34165"></span>8575</td>
+<td class="instruction">LD DE,$48BB</td>
+<td class="comment-1" rowspan="4">VIEW label (glyphs $3C-$40) at row 13, column 27</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34168"></span>8578</td>
+<td class="instruction">LD HL,$85C7</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34171"></span>857B</td>
+<td class="instruction">LD C,$05</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34173"></span>857D</td>
+<td class="instruction">CALL <a href="34202.html">$859A</a></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="34034.html">84F2</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#34036">Map</a></td>
+<td class="next">
+Next: <a href="34176.html">8580</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

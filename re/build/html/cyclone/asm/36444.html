@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at 8E5C</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="36435.html">8E53</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#36444">Map</a></td>
+<td class="next">
+Next: <a href="36584.html">8EE8</a>
+</td>
+</tr>
+</table>
+<div class="description">8E5C: Map screen: draw frame and north indicator</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used when the map screen is entered (5B7E). Draws the frame around the 23x22 map using 8-byte characters from the HUD graphics at 7438-7497, then a 3-character north arrow at column 20, rows 17-19 (codes $4E 'N', $29, $2A from 8F0C in the main font at 6028) with attributes $78.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="36444"></span>
+<div class="comments">
+<div class="paragraph">
+Frame pieces: 7438 top-left (row 0,col 0), 7440 x21 top edge, 7448 top-right (col 22); 7480 bottom-left (row 21), 7488 x21 bottom edge, 7490 bottom-right; 7460 x20 left edge (rows 1-20, col 0); 7470 x20 right edge (col 22).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36444"></span>8E5C</td>
+<td class="instruction">LD IX,$7438</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36448"></span>8E60</td>
+<td class="instruction">LD DE,$4000</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36451"></span>8E63</td>
+<td class="instruction">LD HL,$0001</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36454"></span>8E66</td>
+<td class="instruction">LD C,$01</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36456"></span>8E68</td>
+<td class="instruction">CALL <a href="36584.html">$8EE8</a></td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36459"></span>8E6B</td>
+<td class="instruction">LD IX,$7440</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36463"></span>8E6F</td>
+<td class="instruction">LD C,$15</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36465"></span>8E71</td>
+<td class="instruction">CALL <a href="36584.html">$8EE8</a></td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36468"></span>8E74</td>
+<td class="instruction">LD IX,$7448</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36472"></span>8E78</td>
+<td class="instruction">LD C,$01</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36474"></span>8E7A</td>
+<td class="instruction">CALL <a href="36584.html">$8EE8</a></td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36477"></span>8E7D</td>
+<td class="instruction">LD IX,$7480</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36481"></span>8E81</td>
+<td class="instruction">LD DE,$50A0</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36484"></span>8E84</td>
+<td class="instruction">LD C,$01</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36486"></span>8E86</td>
+<td class="instruction">CALL <a href="36584.html">$8EE8</a></td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36489"></span>8E89</td>
+<td class="instruction">LD IX,$7488</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36493"></span>8E8D</td>
+<td class="instruction">LD C,$15</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36495"></span>8E8F</td>
+<td class="instruction">CALL <a href="36584.html">$8EE8</a></td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36498"></span>8E92</td>
+<td class="instruction">LD IX,$7490</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36502"></span>8E96</td>
+<td class="instruction">LD C,$01</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36504"></span>8E98</td>
+<td class="instruction">CALL <a href="36584.html">$8EE8</a></td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36507"></span>8E9B</td>
+<td class="instruction">LD IX,$7460</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36511"></span>8E9F</td>
+<td class="instruction">LD DE,$4020</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36514"></span>8EA2</td>
+<td class="instruction">LD HL,$0020</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36517"></span>8EA5</td>
+<td class="instruction">LD C,$14</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36519"></span>8EA7</td>
+<td class="instruction">CALL <a href="36584.html">$8EE8</a></td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36522"></span>8EAA</td>
+<td class="instruction">LD IX,$7470</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36526"></span>8EAE</td>
+<td class="instruction">LD DE,$4036</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36529"></span>8EB1</td>
+<td class="instruction">LD HL,$0020</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36532"></span>8EB4</td>
+<td class="instruction">LD C,$14</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36534"></span>8EB6</td>
+<td class="instruction">CALL <a href="36584.html">$8EE8</a></td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36537"></span>8EB9</td>
+<td class="instruction">LD DE,$5034</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36540"></span>8EBC</td>
+<td class="instruction">LD HL,$8F0C</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36543"></span>8EBF</td>
+<td class="instruction">LD C,$01</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36545"></span>8EC1</td>
+<td class="instruction">CALL <a href="34202.html">$859A</a></td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36548"></span>8EC4</td>
+<td class="instruction">LD DE,$5054</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36551"></span>8EC7</td>
+<td class="instruction">LD HL,$8F0D</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36554"></span>8ECA</td>
+<td class="instruction">LD C,$01</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36556"></span>8ECC</td>
+<td class="instruction">CALL <a href="34202.html">$859A</a></td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36559"></span>8ECF</td>
+<td class="instruction">LD DE,$5074</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36562"></span>8ED2</td>
+<td class="instruction">LD HL,$8F0E</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36565"></span>8ED5</td>
+<td class="instruction">LD C,$01</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36567"></span>8ED7</td>
+<td class="instruction">CALL <a href="34202.html">$859A</a></td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36570"></span>8EDA</td>
+<td class="instruction">LD HL,$5A34</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36573"></span>8EDD</td>
+<td class="instruction">LD A,$78</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36575"></span>8EDF</td>
+<td class="instruction">LD BC,$0020</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36578"></span>8EE2</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36579"></span>8EE3</td>
+<td class="instruction">ADD HL,BC</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36580"></span>8EE4</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36581"></span>8EE5</td>
+<td class="instruction">ADD HL,BC</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36582"></span>8EE6</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36583"></span>8EE7</td>
+<td class="instruction">RET</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="36435.html">8E53</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#36444">Map</a></td>
+<td class="next">
+Next: <a href="36584.html">8EE8</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

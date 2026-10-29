@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at 5EEC</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="23552.html">5C00</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#24300">Map</a></td>
+<td class="next">
+Next: <a href="24409.html">5F59</a>
+</td>
+</tr>
+</table>
+<div class="description">5EEC: Shuffle the five crates</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Copied here from <a href="63626.html">F88A</a> by <a href="63310.html">F74E</a>; always called via the JP at <a href="65170.html">FE92</a>. Called once per level start (<a href="23296.html#23340">5B2C</a>) and continuously (hundreds of times per second) from the main menu loop at <a href="57984.html#58014">E29E</a>, so the final crate layout depends on how long the player waits in the menu. Pass 1 removes the crates placed last time: for every one of the 38 candidate cells in <a href="24417.html">5F61</a> whose flag is $FF, the flag is cleared and the crate tile ($8B/$57/$2F/$0F, <a href="24409.html">5F59</a>) is turned back into the plain tile ($58/$30/$10/$04, <a href="24409.html#24413">5F5D</a>); a cell whose crate was already winched up already holds the plain tile and is left alone. Pass 2 picks 5 different cells: random L from <a href="35700.html">8B74</a> until L&lt;$4C, index=L/2 (0-37, uniform), retry if already flagged; flag it $FF and turn the plain tile into the matching crate tile ($58-&gt;$8B, $30-&gt;$57, $10-&gt;$2F, anything else-&gt;$0F).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24300"></span>5EEC</td>
+<td class="instruction">LD HL,$5F61</td>
+<td class="comment-1" rowspan="3">38 candidate cells</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24303"></span>5EEF</td>
+<td class="instruction">LD B,$26</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24305"></span>5EF1</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24306"></span>5EF2</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="3">Crate placed here last time?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24307"></span>5EF3</td>
+<td class="instruction">CP $FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24309"></span>5EF5</td>
+<td class="instruction">JR NZ,$5F17</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24311"></span>5EF7</td>
+<td class="instruction">LD (HL),$00</td>
+<td class="comment-1" rowspan="3">Clear the flag</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24313"></span>5EF9</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24314"></span>5EFA</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24315"></span>5EFB</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-1" rowspan="3">DE = map cell address</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24316"></span>5EFC</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24317"></span>5EFD</td>
+<td class="instruction">LD D,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24318"></span>5EFE</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-1" rowspan="2">A = tile code in the map</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24319"></span>5EFF</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24320"></span>5F00</td>
+<td class="instruction">LD DE,$5F5D</td>
+<td class="comment-1" rowspan="11">Look it up in the 4 crate tiles</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24323"></span>5F03</td>
+<td class="instruction">LD HL,$5F59</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24326"></span>5F06</td>
+<td class="instruction">LD B,$04</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24328"></span>5F08</td>
+<td class="instruction">CP (HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24329"></span>5F09</td>
+<td class="instruction">JR Z,$5F13</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24331"></span>5F0B</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24332"></span>5F0C</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24333"></span>5F0D</td>
+<td class="instruction">DJNZ $5F08</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24335"></span>5F0F</td>
+<td class="instruction">POP DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24336"></span>5F10</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24337"></span>5F11</td>
+<td class="instruction">JR $5F17</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24339"></span>5F13</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-1" rowspan="9">Found: replace it with the plain tile</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24340"></span>5F14</td>
+<td class="instruction">POP DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24341"></span>5F15</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24342"></span>5F16</td>
+<td class="instruction">LD (DE),A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24343"></span>5F17</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24344"></span>5F18</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24345"></span>5F19</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24346"></span>5F1A</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24347"></span>5F1B</td>
+<td class="instruction">DJNZ $5EF1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24349"></span>5F1D</td>
+<td class="instruction">LD B,$05</td>
+<td class="comment-1" rowspan="2">Now place 5 crates</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24351"></span>5F1F</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24352"></span>5F20</td>
+<td class="instruction">CALL <a href="35700.html">$8B74</a></td>
+<td class="comment-1" rowspan="2">Random number (HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24355"></span>5F23</td>
+<td class="instruction">LD A,L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24356"></span>5F24</td>
+<td class="instruction">CP $4C</td>
+<td class="comment-1" rowspan="4">Retry until L &lt; 76</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24358"></span>5F26</td>
+<td class="instruction">JR NC,$5F20</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24360"></span>5F28</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24361"></span>5F29</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24362"></span>5F2A</td>
+<td class="instruction">SRA A</td>
+<td class="comment-1" rowspan="2">A = L/2 = 0..37</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24364"></span>5F2C</td>
+<td class="instruction">LD B,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24365"></span>5F2D</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-1" rowspan="7">A = index*3</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24366"></span>5F2E</td>
+<td class="instruction">ADD A,B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24367"></span>5F2F</td>
+<td class="instruction">LD HL,$5F61</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24370"></span>5F32</td>
+<td class="instruction">LD E,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24371"></span>5F33</td>
+<td class="instruction">LD D,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24373"></span>5F35</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24374"></span>5F36</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24375"></span>5F37</td>
+<td class="instruction">CP $FF</td>
+<td class="comment-1" rowspan="2">Cell already chosen? Try again</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24377"></span>5F39</td>
+<td class="instruction">JR Z,$5F20</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24379"></span>5F3B</td>
+<td class="instruction">LD (HL),$FF</td>
+<td class="comment-1" rowspan="5">Flag it</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24381"></span>5F3D</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24382"></span>5F3E</td>
+<td class="instruction">LD E,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24383"></span>5F3F</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24384"></span>5F40</td>
+<td class="instruction">LD D,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24385"></span>5F41</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-1" rowspan="4">A = current (plain) tile</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24386"></span>5F42</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24387"></span>5F43</td>
+<td class="instruction">LD DE,$5F59</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24390"></span>5F46</td>
+<td class="instruction">LD HL,$5F5D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24393"></span>5F49</td>
+<td class="instruction">LD B,$03</td>
+<td class="comment-1" rowspan="6">Look it up in the first 3 plain tiles; DE stops on $5F5C ($0F) if not found</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24395"></span>5F4B</td>
+<td class="instruction">CP (HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24396"></span>5F4C</td>
+<td class="instruction">JR Z,$5F52</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24398"></span>5F4E</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24399"></span>5F4F</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24400"></span>5F50</td>
+<td class="instruction">DJNZ $5F4B</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24402"></span>5F52</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-1" rowspan="6">Store the crate tile</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24403"></span>5F53</td>
+<td class="instruction">POP DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24404"></span>5F54</td>
+<td class="instruction">LD (DE),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24405"></span>5F55</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24406"></span>5F56</td>
+<td class="instruction">DJNZ $5F1F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24408"></span>5F58</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="23552.html">5C00</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#24300">Map</a></td>
+<td class="next">
+Next: <a href="24409.html">5F59</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

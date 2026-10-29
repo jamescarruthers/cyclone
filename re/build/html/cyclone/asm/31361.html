@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Data at 7A81</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="31287.html">7A37</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#31361">Map</a></td>
+<td class="next">
+Next: <a href="31452.html">7ADC</a>
+</td>
+</tr>
+</table>
+<div class="description">7A81: Ground-sampling and shadow work buffers</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Filled every loop by <a href="32272.html">7E10</a> and <a href="31452.html">7ADC</a>. The 3x3 block of cells under/around the helicopter is buffer columns 10-12, rows 13-15 (centre = column 11, row 14 = the world tile under the helicopter). All 3x3 lists are column-major, bottom row first: index 3*c+k = column 10+c, row 15-k.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31361"></span>7A81</td>
+<td class="instruction">DEFB $00,$00,$00</td>
+<td class="comment-1" rowspan="3">Raw map codes of the 3x3 block (before projection; include aircraft tiles $F6-$FE and sea waves). $7A85 = tile under the helicopter (crate/survivor check F3A3). Read by 8ACA (landing check).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31364"></span>7A84</td>
+<td class="instruction">DEFB $00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31367"></span>7A87</td>
+<td class="instruction">DEFB $00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31370"></span>7A8A</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Unused</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31371"></span>7A8B</td>
+<td class="instruction">DEFB $00,$00,$00</td>
+<td class="comment-1" rowspan="3">Terrain height level of each cell (0..17, units of 4 altitude pixels; see <a href="31361.html#31425">7AC1</a>); 0 for object tiles $17-$26. Read by 8A9B (collision check against altitude/4).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31374"></span>7A8E</td>
+<td class="instruction">DEFB $00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31377"></span>7A91</td>
+<td class="instruction">DEFB $00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31380"></span>7A94</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Unused</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31381"></span>7A95</td>
+<td class="instruction">DEFB $00,$00,$00</td>
+<td class="comment-1" rowspan="3">Shadow row offset of each cell = level/2 (rows); bit 7 = cell's top tile is $18; $FF = shadow cell hidden (<a href="31452.html#31539">7B33</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31384"></span>7A98</td>
+<td class="instruction">DEFB $00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31387"></span>7A9B</td>
+<td class="instruction">DEFB $00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31390"></span>7A9E</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Unused</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31391"></span>7A9F</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00</td>
+<td class="comment-1" rowspan="3">Projected (displayed) tile codes of buffer columns 10, 11, 12, rows 15 up to 5 (11 per column, bottom first), copied at the moment the sprite tiles are inserted; used for shadow/body occlusion (7BB8, 86AF via $7AA2, F4F4 via $7AAC). Bit 7 may be set by 7D9C.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31402"></span>7AAA</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31413"></span>7AB5</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31424"></span>7AC0</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Unused</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31425"></span>7AC1</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Base of the threshold table (never compared)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31426"></span>7AC2</td>
+<td class="instruction">DEFB $0F,$10,$2E,$30,$56,$58,$89,$8C,$A5</td>
+<td class="comment-1" rowspan="2">Height thresholds: level = number of entries &lt;= raw code: &lt;$0F:0, $0F:1, $10-$2D:2, $2E-$2F:3, $30-$55:4, $56-$57:5, $58-$88:6, $89-$8B:7, $8C-$A4:8, $A5-$B1:9, $B2-$C1:10, $C2-$CF:11, $D0-$D8:12, $D9-$E3:13, $E4-$EB:14, $EC-$EF:15, $F0-$F5:16, $F6-$FE:17 (aircraft)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31435"></span>7ACB</td>
+<td class="instruction">DEFB $B2,$C2,$D0,$D9,$E4,$EC,$F0,$F6,$FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31444"></span>7AD4</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00</td>
+<td class="comment-1" rowspan="1">Unused</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="31287.html">7A37</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#31361">Map</a></td>
+<td class="next">
+Next: <a href="31452.html">7ADC</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

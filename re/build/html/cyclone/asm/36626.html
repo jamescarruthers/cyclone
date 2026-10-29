@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at 8F12</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="36620.html">8F0C</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#36626">Map</a></td>
+<td class="next">
+Next: <a href="36714.html">8F6A</a>
+</td>
+</tr>
+</table>
+<div class="description">8F12: Map screen: per-iteration update (blinking markers)</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Called by the main loop instead of 762C/9034 while the map screen is shown (7526 bit 1). Wastes about 132,000 T-states (about 1.9 frames), then blinks the helicopter and cyclone markers with a 7-call cycle using counter 7542: calls 1-3 just update positions (9034), calls 4-6 remove the markers, call 7 resets the counter, updates positions and redraws the markers at their new cells (8F6A). OBSERVED: one map-mode iteration takes about 5.7 frames, so a blink cycle lasts about 40 frames.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36626"></span>8F12</td>
+<td class="instruction">LD C,$28</td>
+<td class="comment-1" rowspan="5">Delay loop: 40 x 255 DJNZ</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36628"></span>8F14</td>
+<td class="instruction">LD B,$FF</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36630"></span>8F16</td>
+<td class="instruction">DJNZ $8F16</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36632"></span>8F18</td>
+<td class="instruction">DEC C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36633"></span>8F19</td>
+<td class="instruction">JR NZ,$8F14</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36635"></span>8F1B</td>
+<td class="instruction">LD HL,$7542</td>
+<td class="comment-1" rowspan="5">7542 = 7542+1; 1..3: positions only</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36638"></span>8F1E</td>
+<td class="instruction">INC (HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36639"></span>8F1F</td>
+<td class="instruction">LD A,$03</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36641"></span>8F21</td>
+<td class="instruction">CP (HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36642"></span>8F22</td>
+<td class="instruction">JP NC,<a href="36916.html">$9034</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36645"></span>8F25</td>
+<td class="instruction">LD A,($9027)</td>
+<td class="comment-1" rowspan="6">Remove the helicopter marker: restore its attribute (a saved $3F frame attribute is restored as $3A instead; never seen)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36648"></span>8F28</td>
+<td class="instruction">LD HL,($7543)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36651"></span>8F2B</td>
+<td class="instruction">CP $3F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36653"></span>8F2D</td>
+<td class="instruction">JR NZ,$8F31</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36655"></span>8F2F</td>
+<td class="instruction">LD A,$3A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36657"></span>8F31</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36658"></span>8F32</td>
+<td class="instruction">LD A,($9030)</td>
+<td class="comment-1" rowspan="3">Restore the cyclone marker's attribute</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36661"></span>8F35</td>
+<td class="instruction">LD HL,($7547)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36664"></span>8F38</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36665"></span>8F39</td>
+<td class="instruction">LD DE,$901F</td>
+<td class="comment-1" rowspan="8">Restore the 8 bitmap bytes under the helicopter marker</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36668"></span>8F3C</td>
+<td class="instruction">LD HL,($7545)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36671"></span>8F3F</td>
+<td class="instruction">LD B,$08</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36673"></span>8F41</td>
+<td class="instruction">LD A,(DE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36674"></span>8F42</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36675"></span>8F43</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36676"></span>8F44</td>
+<td class="instruction">INC H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36677"></span>8F45</td>
+<td class="instruction">DJNZ $8F41</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36679"></span>8F47</td>
+<td class="instruction">LD DE,$9028</td>
+<td class="comment-1" rowspan="8">Restore the 8 bitmap bytes under the cyclone marker</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36682"></span>8F4A</td>
+<td class="instruction">LD HL,($7549)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36685"></span>8F4D</td>
+<td class="instruction">LD B,$08</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36687"></span>8F4F</td>
+<td class="instruction">LD A,(DE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36688"></span>8F50</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36689"></span>8F51</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36690"></span>8F52</td>
+<td class="instruction">INC H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36691"></span>8F53</td>
+<td class="instruction">DJNZ $8F4F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36693"></span>8F55</td>
+<td class="instruction">LD HL,$7542</td>
+<td class="comment-1" rowspan="4">Counter 4..6: done</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36696"></span>8F58</td>
+<td class="instruction">LD A,$06</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36698"></span>8F5A</td>
+<td class="instruction">CP (HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36699"></span>8F5B</td>
+<td class="instruction">JP NC,<a href="36916.html">$9034</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36702"></span>8F5E</td>
+<td class="instruction">LD (HL),$00</td>
+<td class="comment-1" rowspan="4">Counter 7: reset to 0, restore helicopter attribute</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36704"></span>8F60</td>
+<td class="instruction">LD A,($9027)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36707"></span>8F63</td>
+<td class="instruction">LD HL,($7543)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36710"></span>8F66</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36711"></span>8F67</td>
+<td class="instruction">CALL <a href="36916.html">$9034</a></td>
+<td class="comment-1" rowspan="1">Update positions, then fall through to redraw the markers</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="36620.html">8F0C</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#36626">Map</a></td>
+<td class="next">
+Next: <a href="36714.html">8F6A</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

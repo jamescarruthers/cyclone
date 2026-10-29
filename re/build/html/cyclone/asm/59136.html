@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Data at E700</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="59123.html">E6F3</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#59136">Map</a></td>
+<td class="next">
+Next: <a href="59200.html">E740</a>
+</td>
+</tr>
+</table>
+<div class="description">E700: Aircraft movement opcodes</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+16 directions x 4 bytes, patched into the aircraft mover at $8867/$8868 (X) and $8871/$8872 (Y) by $87F0: $03 = INC BC, $0B = DEC BC, $00 = NOP, so each axis moves -2..+2 per iteration.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59136"></span>E700</td>
+<td class="instruction">DEFB $00,$00,$0B,$0B</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59140"></span>E704</td>
+<td class="instruction">DEFB $03,$00,$0B,$0B</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59144"></span>E708</td>
+<td class="instruction">DEFB $03,$03,$0B,$0B</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59148"></span>E70C</td>
+<td class="instruction">DEFB $03,$03,$0B,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59152"></span>E710</td>
+<td class="instruction">DEFB $03,$03,$00,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59156"></span>E714</td>
+<td class="instruction">DEFB $03,$03,$03,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59160"></span>E718</td>
+<td class="instruction">DEFB $03,$03,$03,$03</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59164"></span>E71C</td>
+<td class="instruction">DEFB $00,$03,$03,$03</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59168"></span>E720</td>
+<td class="instruction">DEFB $00,$00,$03,$03</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59172"></span>E724</td>
+<td class="instruction">DEFB $0B,$00,$03,$03</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59176"></span>E728</td>
+<td class="instruction">DEFB $0B,$0B,$03,$03</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59180"></span>E72C</td>
+<td class="instruction">DEFB $0B,$0B,$03,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59184"></span>E730</td>
+<td class="instruction">DEFB $0B,$0B,$00,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59188"></span>E734</td>
+<td class="instruction">DEFB $0B,$0B,$0B,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59192"></span>E738</td>
+<td class="instruction">DEFB $0B,$0B,$0B,$0B</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59196"></span>E73C</td>
+<td class="instruction">DEFB $0B,$00,$0B,$0B</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="59123.html">E6F3</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#59136">Map</a></td>
+<td class="next">
+Next: <a href="59200.html">E740</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at 7FD6</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="32725.html">7FD5</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#32726">Map</a></td>
+<td class="next">
+Next: <a href="32934.html">80A6</a>
+</td>
+</tr>
+</table>
+<div class="description">7FD6: Read the selected control device into the input bitmap 7522</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Called once per main-loop iteration (5B8C). Reads the device chosen on the main menu (7FD5 = menu key - "2": 0 keyboard, 1 Sinclair Interface 2, 2 Kempston, 3 Protek/AGF cursor) and stores a 5-bit control word in 7522: bit 0 = forward thrust, bit 1 = descend, bit 2 = climb, bit 3 = turn right (clockwise), bit 4 = turn left. The cyclone code at 7378 may later OR random bits into 7522 (wind buffeting).
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">(7FD5)</td>
+<td class="register-desc">control method 0-3</td>
+</tr>
+</table>
+<table class="output">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+<tr>
+<td class="register">(7522)</td>
+<td class="register-desc">control bits (0 fwd, 1 down, 2 up, 3 right, 4 left)</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="32726"></span>
+<div class="comments">
+<div class="paragraph">
+Keyboard (7FD5=0). Any key in a half-row counts, so the documented keys X / 1 / Q are really whole half-rows.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32726"></span>7FD6</td>
+<td class="instruction">LD A,($7FD5)</td>
+<td class="comment-1" rowspan="7">Dispatch on the control method</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32729"></span>7FD9</td>
+<td class="instruction">CP $01</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32731"></span>7FDB</td>
+<td class="instruction">JP Z,$8023</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32734"></span>7FDE</td>
+<td class="instruction">CP $02</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32736"></span>7FE0</td>
+<td class="instruction">JP Z,$8052</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32739"></span>7FE3</td>
+<td class="instruction">CP $03</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32741"></span>7FE5</td>
+<td class="instruction">JP Z,$8079</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32744"></span>7FE8</td>
+<td class="instruction">LD B,$00</td>
+<td class="comment-1" rowspan="1">B accumulates the control bits</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32746"></span>7FEA</td>
+<td class="instruction">LD A,$FE</td>
+<td class="comment-1" rowspan="6">Half-row SHIFT/Z/X/C/V: any key = forward (bit 0)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32748"></span>7FEC</td>
+<td class="instruction">IN A,($FE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32750"></span>7FEE</td>
+<td class="instruction">OR $E0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32752"></span>7FF0</td>
+<td class="instruction">CP $FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32754"></span>7FF2</td>
+<td class="instruction">JR Z,$7FF6</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32756"></span>7FF4</td>
+<td class="instruction">SET 0,B</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32758"></span>7FF6</td>
+<td class="instruction">LD A,$F7</td>
+<td class="comment-1" rowspan="6">Half-row 1-5: any key = climb (bit 2)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32760"></span>7FF8</td>
+<td class="instruction">IN A,($FE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32762"></span>7FFA</td>
+<td class="instruction">OR $E0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32764"></span>7FFC</td>
+<td class="instruction">CP $FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32766"></span>7FFE</td>
+<td class="instruction">JR Z,$8002</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32768"></span>8000</td>
+<td class="instruction">SET 2,B</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32770"></span>8002</td>
+<td class="instruction">LD A,$FB</td>
+<td class="comment-1" rowspan="6">Half-row Q-T: any key = descend (bit 1)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32772"></span>8004</td>
+<td class="instruction">IN A,($FE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32774"></span>8006</td>
+<td class="instruction">OR $E0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32776"></span>8008</td>
+<td class="instruction">CP $FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32778"></span>800A</td>
+<td class="instruction">JR Z,$800E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32780"></span>800C</td>
+<td class="instruction">SET 1,B</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32782"></span>800E</td>
+<td class="instruction">LD A,$DF</td>
+<td class="comment-1" rowspan="8">Half-row P/O/I/U/Y: P = turn right (bit 3), O = turn left (bit 4)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32784"></span>8010</td>
+<td class="instruction">IN A,($FE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32786"></span>8012</td>
+<td class="instruction">BIT 0,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32788"></span>8014</td>
+<td class="instruction">JR NZ,$8018</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32790"></span>8016</td>
+<td class="instruction">SET 3,B</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32792"></span>8018</td>
+<td class="instruction">BIT 1,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32794"></span>801A</td>
+<td class="instruction">JR NZ,$801E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32796"></span>801C</td>
+<td class="instruction">SET 4,B</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32798"></span>801E</td>
+<td class="instruction">LD A,B</td>
+<td class="comment-1" rowspan="3">Store the control word</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32799"></span>801F</td>
+<td class="instruction">LD ($7522),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32802"></span>8022</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="32803"></span>
+<div class="comments">
+<div class="paragraph">
+Sinclair Interface 2 (7FD5=1): both joystick ports are read and merged.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32803"></span>8023</td>
+<td class="instruction">LD A,$EF</td>
+<td class="comment-1" rowspan="5">Keys 0,9,8,7,6 (port 2: fire, up, down, right, left) map directly onto bits 0-4</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32805"></span>8025</td>
+<td class="instruction">IN A,($FE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32807"></span>8027</td>
+<td class="instruction">OR $E0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32809"></span>8029</td>
+<td class="instruction">CPL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32810"></span>802A</td>
+<td class="instruction">LD B,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32811"></span>802B</td>
+<td class="instruction">LD A,$F7</td>
+<td class="comment-1" rowspan="5">Keys 1-5 (port 1): 5 fire -&gt; bit 0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32813"></span>802D</td>
+<td class="instruction">IN A,($FE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32815"></span>802F</td>
+<td class="instruction">BIT 4,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32817"></span>8031</td>
+<td class="instruction">JR NZ,$8035</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32819"></span>8033</td>
+<td class="instruction">SET 0,B</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32821"></span>8035</td>
+<td class="instruction">BIT 3,A</td>
+<td class="comment-1" rowspan="3">4 (up) -&gt; bit 1 (descend)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32823"></span>8037</td>
+<td class="instruction">JR NZ,$803B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32825"></span>8039</td>
+<td class="instruction">SET 1,B</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32827"></span>803B</td>
+<td class="instruction">BIT 2,A</td>
+<td class="comment-1" rowspan="3">3 (down) -&gt; bit 2 (climb)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32829"></span>803D</td>
+<td class="instruction">JR NZ,$8041</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32831"></span>803F</td>
+<td class="instruction">SET 2,B</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32833"></span>8041</td>
+<td class="instruction">BIT 1,A</td>
+<td class="comment-1" rowspan="3">2 (right) -&gt; bit 3</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32835"></span>8043</td>
+<td class="instruction">JR NZ,$8047</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32837"></span>8045</td>
+<td class="instruction">SET 3,B</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32839"></span>8047</td>
+<td class="instruction">BIT 0,A</td>
+<td class="comment-1" rowspan="6">1 (left) -&gt; bit 4</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32841"></span>8049</td>
+<td class="instruction">JR NZ,$804D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32843"></span>804B</td>
+<td class="instruction">SET 4,B</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32845"></span>804D</td>
+<td class="instruction">LD A,B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32846"></span>804E</td>
+<td class="instruction">LD ($7522),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32849"></span>8051</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="32850"></span>
+<div class="comments">
+<div class="paragraph">
+Kempston (7FD5=2): port 31, active-high bits 0 right, 1 left, 2 down, 3 up, 4 fire. Joystick forward (up) descends, pulling back climbs, like an aircraft stick.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32850"></span>8052</td>
+<td class="instruction">LD B,$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="32852"></span>8054</td>
+<td class="instruction">IN A,($1F)</td>
+<td class="comment-1" rowspan="4">Fire -&gt; forward (bit 0)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32854"></span>8056</td>
+<td class="instruction">BIT 4,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32856"></span>8058</td>
+<td class="instruction">JR Z,$805C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32858"></span>805A</td>
+<td class="instruction">SET 0,B</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32860"></span>805C</td>
+<td class="instruction">BIT 3,A</td>
+<td class="comment-1" rowspan="3">Up -&gt; descend (bit 1)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32862"></span>805E</td>
+<td class="instruction">JR Z,$8062</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32864"></span>8060</td>
+<td class="instruction">SET 1,B</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32866"></span>8062</td>
+<td class="instruction">BIT 2,A</td>
+<td class="comment-1" rowspan="3">Down -&gt; climb (bit 2)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32868"></span>8064</td>
+<td class="instruction">JR Z,$8068</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32870"></span>8066</td>
+<td class="instruction">SET 2,B</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32872"></span>8068</td>
+<td class="instruction">BIT 0,A</td>
+<td class="comment-1" rowspan="3">Right -&gt; bit 3</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32874"></span>806A</td>
+<td class="instruction">JR Z,$806E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32876"></span>806C</td>
+<td class="instruction">SET 3,B</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32878"></span>806E</td>
+<td class="instruction">BIT 1,A</td>
+<td class="comment-1" rowspan="6">Left -&gt; bit 4</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32880"></span>8070</td>
+<td class="instruction">JR Z,$8074</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32882"></span>8072</td>
+<td class="instruction">SET 4,B</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32884"></span>8074</td>
+<td class="instruction">LD A,B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32885"></span>8075</td>
+<td class="instruction">LD ($7522),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32888"></span>8078</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="32889"></span>
+<div class="comments">
+<div class="paragraph">
+Protek/AGF cursor joystick (7FD5=3): 5 left, 6 down, 7 up, 8 right, 0 fire.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32889"></span>8079</td>
+<td class="instruction">LD B,$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="32891"></span>807B</td>
+<td class="instruction">LD A,$F7</td>
+<td class="comment-1" rowspan="5">Key 5 -&gt; left (bit 4)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32893"></span>807D</td>
+<td class="instruction">IN A,($FE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32895"></span>807F</td>
+<td class="instruction">BIT 4,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32897"></span>8081</td>
+<td class="instruction">JR NZ,$8085</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32899"></span>8083</td>
+<td class="instruction">SET 4,B</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32901"></span>8085</td>
+<td class="instruction">LD A,$EF</td>
+<td class="comment-1" rowspan="5">Half-row 0-6: 6 -&gt; climb (bit 2)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32903"></span>8087</td>
+<td class="instruction">IN A,($FE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32905"></span>8089</td>
+<td class="instruction">BIT 4,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32907"></span>808B</td>
+<td class="instruction">JR NZ,$808F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32909"></span>808D</td>
+<td class="instruction">SET 2,B</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32911"></span>808F</td>
+<td class="instruction">BIT 3,A</td>
+<td class="comment-1" rowspan="3">7 -&gt; descend (bit 1)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32913"></span>8091</td>
+<td class="instruction">JR NZ,$8095</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32915"></span>8093</td>
+<td class="instruction">SET 1,B</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32917"></span>8095</td>
+<td class="instruction">BIT 2,A</td>
+<td class="comment-1" rowspan="3">8 -&gt; right (bit 3)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32919"></span>8097</td>
+<td class="instruction">JR NZ,$809B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32921"></span>8099</td>
+<td class="instruction">SET 3,B</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32923"></span>809B</td>
+<td class="instruction">BIT 0,A</td>
+<td class="comment-1" rowspan="6">0 -&gt; forward (bit 0)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32925"></span>809D</td>
+<td class="instruction">JR NZ,$80A1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32927"></span>809F</td>
+<td class="instruction">SET 0,B</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32929"></span>80A1</td>
+<td class="instruction">LD A,B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32930"></span>80A2</td>
+<td class="instruction">LD ($7522),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32933"></span>80A5</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="32725.html">7FD5</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#32726">Map</a></td>
+<td class="next">
+Next: <a href="32934.html">80A6</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

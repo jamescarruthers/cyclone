@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at FE98</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="65173.html">FE95</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#65176">Map</a></td>
+<td class="next">
+Next: <a href="65183.html">FE9F</a>
+</td>
+</tr>
+</table>
+<div class="description">FE98: Program entry point (RANDOMIZE USR 65176)</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+The BASIC loader loads the screen ("Cyclone2"), this 512-byte block at $FE00 ("Cyclone4") and the main block at $5FDC-$FE91 ("Cyclone3", which overwrites $FE00-$FE91) with the ROM, then calls here. In the original loader block $FE00 decrypted $FE80-$FFFF (XOR with R) and $FE80 loaded the screen and the main block with its own LD-BYTES at $FE9F before falling into this code; that path is not used by this version.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="65176"></span>FE98</td>
+<td class="instruction">LD SP,$FEFF</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65179"></span>FE9B</td>
+<td class="instruction">EI</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65180"></span>FE9C</td>
+<td class="instruction">JP <a href="63310.html">$F74E</a></td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="65173.html">FE95</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#65176">Map</a></td>
+<td class="next">
+Next: <a href="65183.html">FE9F</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

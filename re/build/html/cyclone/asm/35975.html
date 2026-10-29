@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Unused RAM at 8C87</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-u">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Unused</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="35959.html">8C77</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#35975">Map</a></td>
+<td class="next">
+Next: <a href="36000.html">8CA0</a>
+</td>
+</tr>
+</table>
+<div class="description">8C87: Unused code fragment (never called)</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Disassembles as an old interrupt set-up: LD HL,$FFFF / LD (HL),$18 / LD HL,$FFF4 / LD (HL),$C3 / INC HL / LD (HL),$C2 / INC HL / LD (HL),$83 (JR at FFFF + JP $83C2 at FFF4) / LD A,$3A / LD I,A / IM 2 / JP $E280. Superseded by the F74E init.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35975"></span>8C87</td>
+<td class="instruction">DEFB $21,$FF,$FF,$36,$18,$21,$F4,$FF,$36</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="35984"></span>8C90</td>
+<td class="instruction">DEFB $C3,$23,$36,$C2,$23,$36,$83,$3E,$3A</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="35993"></span>8C99</td>
+<td class="instruction">DEFB $ED,$47,$ED,$5E,$C3,$80,$E2</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="35959.html">8C77</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#35975">Map</a></td>
+<td class="next">
+Next: <a href="36000.html">8CA0</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

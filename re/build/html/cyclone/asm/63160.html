@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Data at F6B8</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="62800.html">F550</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#63160">Map</a></td>
+<td class="next">
+Next: <a href="63310.html">F74E</a>
+</td>
+</tr>
+</table>
+<div class="description">F6B8: Unused at load; overflow rows above the view buffer at run time</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Tall terrain columns are drawn upwards past the top row of the view buffer at <a href="63310.html">F74E</a>, so this area is overwritten every iteration during play (observed $F6CD-$F74D).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63160"></span>F6B8</td>
+<td class="instruction">DEFB $02,$20,$10,$04,$00,$02,$00,$08,$00,$00,$02,$01,$C3,$87,$8C,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63176"></span>F6C8</td>
+<td class="instruction">DEFB $08,$00,$01,$00,$00,$20,$40,$00,$08,$00,$00,$80,$40,$00,$00,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63192"></span>F6D8</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63208"></span>F6E8</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$04,$00,$00,$00,$01,$00,$02,$00,$00,$00,$04</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63224"></span>F6F8</td>
+<td class="instruction">DEFB $00,$10,$08,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63240"></span>F708</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63256"></span>F718</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63272"></span>F728</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63288"></span>F738</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63304"></span>F748</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="62800.html">F550</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#63160">Map</a></td>
+<td class="next">
+Next: <a href="63310.html">F74E</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

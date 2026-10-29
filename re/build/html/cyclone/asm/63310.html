@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at F74E</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="63160.html">F6B8</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#63310">Map</a></td>
+<td class="next">
+Next: <a href="63364.html">F784</a>
+</td>
+</tr>
+</table>
+<div class="description">F74E: Initialisation</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Jumped to from the loader entry <a href="65176.html">FE98</a> after the tape has loaded. Copies the main-loop code to the printer buffer (<a href="63370.html">F78A</a> -&gt; <a href="23296.html">5B00</a>, 255 bytes) and the crate shuffle to <a href="24300.html">5EEC</a> (<a href="63626.html">F88A</a>, 232 bytes), writes JP $5EEC at <a href="65170.html">FE92</a>, fills the IM2 vector table $FF00-$FFFF with $F3 (vector $F3F3 for any data bus value, incl. $FFFF/$0000 = $F3 $F3 from the ROM), sets I=$FF and IM 2 and enters the main menu. After this runs, the area from here to $F9FF is reused as the view buffer, so this code and the two source copies are overwritten during play.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="63310"></span>F74E</td>
+<td class="instruction">DI</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63311"></span>F74F</td>
+<td class="instruction">LD HL,$F78A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63314"></span>F752</td>
+<td class="instruction">LD DE,$5B00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63317"></span>F755</td>
+<td class="instruction">LD BC,$00FF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63320"></span>F758</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63322"></span>F75A</td>
+<td class="instruction">LD HL,$F88A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63325"></span>F75D</td>
+<td class="instruction">LD DE,$5EEC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63328"></span>F760</td>
+<td class="instruction">LD BC,$00E8</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63331"></span>F763</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63333"></span>F765</td>
+<td class="instruction">LD HL,$FE92</td>
+<td class="comment-1" rowspan="6">FE92: JP $5EEC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63336"></span>F768</td>
+<td class="instruction">LD (HL),$C3</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63338"></span>F76A</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63339"></span>F76B</td>
+<td class="instruction">LD (HL),$EC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63341"></span>F76D</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63342"></span>F76E</td>
+<td class="instruction">LD (HL),$5E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63344"></span>F770</td>
+<td class="instruction">LD HL,$FF00</td>
+<td class="comment-1" rowspan="10">256 bytes of $F3 (B=0)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63347"></span>F773</td>
+<td class="instruction">LD BC,$00F3</td>
+</tr>
+<tr>
+<td class="address-2"><span id="63350"></span>F776</td>
+<td class="instruction">LD (HL),C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63351"></span>F777</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63352"></span>F778</td>
+<td class="instruction">DJNZ $F776</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63354"></span>F77A</td>
+<td class="instruction">LD A,$FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63356"></span>F77C</td>
+<td class="instruction">LD I,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63358"></span>F77E</td>
+<td class="instruction">IM 2</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63360"></span>F780</td>
+<td class="instruction">EI</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63361"></span>F781</td>
+<td class="instruction">JP <a href="57984.html">$E280</a></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="63160.html">F6B8</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#63310">Map</a></td>
+<td class="next">
+Next: <a href="63364.html">F784</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at 8EE8</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="36444.html">8E5C</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#36584">Map</a></td>
+<td class="next">
+Next: <a href="36620.html">8F0C</a>
+</td>
+</tr>
+</table>
+<div class="description">8EE8: Draw a character C times</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Copies the 8-byte character at IX to screen address DE, C times, advancing DE by HL each time (HL=1: next column, HL=$20: next character row; also $40 from the info screen). Used by 8E5C and the info screen (E4C2-E4D2).
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">8-byte character</td>
+</tr>
+<tr>
+<td class="register">DE</td>
+<td class="register-desc">screen address</td>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">step (in character cells; 32 = one row down)</td>
+</tr>
+<tr>
+<td class="register">C</td>
+<td class="register-desc">repeat count</td>
+</tr>
+</table>
+<table class="output">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+<tr>
+<td class="register">DE</td>
+<td class="register-desc">address after the last character</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36584"></span>8EE8</td>
+<td class="instruction">PUSH IX</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36586"></span>8EEA</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36587"></span>8EEB</td>
+<td class="instruction">LD B,$08</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="36589"></span>8EED</td>
+<td class="instruction">LD A,(IX+$00)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36592"></span>8EF0</td>
+<td class="instruction">LD (DE),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36593"></span>8EF1</td>
+<td class="instruction">INC D</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36594"></span>8EF2</td>
+<td class="instruction">INC IX</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36596"></span>8EF4</td>
+<td class="instruction">DJNZ $8EED</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36598"></span>8EF6</td>
+<td class="instruction">POP DE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36599"></span>8EF7</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="13">DE += HL using the 'linear' form of the screen address (H rotated right 3 times) so that +32 crosses character rows and thirds correctly</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36600"></span>8EF8</td>
+<td class="instruction">RR H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36602"></span>8EFA</td>
+<td class="instruction">RR H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36604"></span>8EFC</td>
+<td class="instruction">RR H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36606"></span>8EFE</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36607"></span>8EFF</td>
+<td class="instruction">RL H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36609"></span>8F01</td>
+<td class="instruction">RL H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36611"></span>8F03</td>
+<td class="instruction">RL H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36613"></span>8F05</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36614"></span>8F06</td>
+<td class="instruction">POP IX</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36616"></span>8F08</td>
+<td class="instruction">DEC C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36617"></span>8F09</td>
+<td class="instruction">JR NZ,$8EE8</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36619"></span>8F0B</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="36444.html">8E5C</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#36584">Map</a></td>
+<td class="next">
+Next: <a href="36620.html">8F0C</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

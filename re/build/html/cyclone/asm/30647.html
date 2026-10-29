@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at 77B7</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="30637.html">77AD</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#30647">Map</a></td>
+<td class="next">
+Next: <a href="30674.html">77D2</a>
+</td>
+</tr>
+</table>
+<div class="description">77B7: North view, west edge visible (slot 4)</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Visible width w = X - (+2) + 1 columns, copied into the rightmost w buffer columns, 29 rows, from map column 0.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="30647"></span>77B7</td>
+<td class="instruction">LD A,($7500)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30650"></span>77BA</td>
+<td class="instruction">LD C,(IX+$02)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30653"></span>77BD</td>
+<td class="instruction">SUB C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30654"></span>77BE</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30655"></span>77BF</td>
+<td class="instruction">LD ($783E),A</td>
+<td class="comment-1" rowspan="2">Width for the clipped copy loop (operand at 783E)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30658"></span>77C2</td>
+<td class="instruction">LD B,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30659"></span>77C3</td>
+<td class="instruction">LD A,$18</td>
+<td class="comment-1" rowspan="7">DE = $F74E + 23 - w</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30661"></span>77C5</td>
+<td class="instruction">SUB B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30662"></span>77C6</td>
+<td class="instruction">LD DE,$F74D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30665"></span>77C9</td>
+<td class="instruction">ADD A,E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30666"></span>77CA</td>
+<td class="instruction">LD E,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30667"></span>77CB</td>
+<td class="instruction">CALL <a href="30558.html">$775E</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30670"></span>77CE</td>
+<td class="instruction">LD A,$1D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30672"></span>77D0</td>
+<td class="instruction">JR <a href="30736.html#30781">$783D</a></td>
+<td class="comment-1" rowspan="1">Clipped copy loop</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="30637.html">77AD</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#30647">Map</a></td>
+<td class="next">
+Next: <a href="30674.html">77D2</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

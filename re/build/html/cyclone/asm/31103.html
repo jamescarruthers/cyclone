@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at 797F</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="31061.html">7955</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#31103">Map</a></td>
+<td class="next">
+Next: <a href="31170.html">79C2</a>
+</td>
+</tr>
+</table>
+<div class="description">797F: South view, north-west corner visible (slot 20)</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+w = X - (+2) + 1, n = Y - (+4) + 1; into the top-left corner (reversed), from map (0,0). Falls into the clipped reversed copy loop at 79A6.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="31103"></span>797F</td>
+<td class="instruction">LD A,($7500)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="31106"></span>7982</td>
+<td class="instruction">LD C,(IX+$02)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="31109"></span>7985</td>
+<td class="instruction">SUB C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="31110"></span>7986</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="31111"></span>7987</td>
+<td class="instruction">LD ($79A7),A</td>
+<td class="comment-1" rowspan="16">Width (operand at 79A7)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31114"></span>798A</td>
+<td class="instruction">LD B,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31115"></span>798B</td>
+<td class="instruction">LD HL,$F736</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31118"></span>798E</td>
+<td class="instruction">ADD A,L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31119"></span>798F</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31120"></span>7990</td>
+<td class="instruction">LD A,($7502)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31123"></span>7993</td>
+<td class="instruction">LD C,(IX+$04)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31126"></span>7996</td>
+<td class="instruction">SUB C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31127"></span>7997</td>
+<td class="instruction">INC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31128"></span>7998</td>
+<td class="instruction">LD B,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31129"></span>7999</td>
+<td class="instruction">LD DE,$0017</td>
+</tr>
+<tr>
+<td class="address-2"><span id="31132"></span>799C</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31133"></span>799D</td>
+<td class="instruction">DJNZ $799C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31135"></span>799F</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31136"></span>79A0</td>
+<td class="instruction">LD H,(IX+$0B)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31139"></span>79A3</td>
+<td class="instruction">LD L,(IX+$0A)</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="31142"></span>
+<div class="comments">
+<div class="paragraph">
+Reversed clipped copy loop: A rows of w bytes (operand at $79A7); map +128 per row, buffer -23 per row.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="31142"></span>79A6</td>
+<td class="instruction">LD B,$17</td>
+<td class="comment-1" rowspan="21">w (self-modified operand)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31144"></span>79A8</td>
+<td class="instruction">EX AF,AF'</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31145"></span>79A9</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31146"></span>79AA</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="address-2"><span id="31147"></span>79AB</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31148"></span>79AC</td>
+<td class="instruction">LD (DE),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31149"></span>79AD</td>
+<td class="instruction">DEC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31150"></span>79AE</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31151"></span>79AF</td>
+<td class="instruction">DJNZ $79AB</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31153"></span>79B1</td>
+<td class="instruction">POP DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31154"></span>79B2</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31155"></span>79B3</td>
+<td class="instruction">LD BC,$0080</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31158"></span>79B6</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31159"></span>79B7</td>
+<td class="instruction">LD BC,$FFE9</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31162"></span>79BA</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31163"></span>79BB</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31164"></span>79BC</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31165"></span>79BD</td>
+<td class="instruction">EX AF,AF'</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31166"></span>79BE</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31167"></span>79BF</td>
+<td class="instruction">JR NZ,$79A6</td>
+</tr>
+<tr>
+<td class="address-1"><span id="31169"></span>79C1</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="31061.html">7955</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#31103">Map</a></td>
+<td class="next">
+Next: <a href="31170.html">79C2</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

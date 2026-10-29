@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routines</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="RoutinesMap">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<div class="map-intro"></div>
+<table class="map">
+<tr>
+<th>Address</th>
+<th>Description</th>
+</tr>
+<tr>
+<td class="map-c"><span id="23296"></span><a href="../asm/23296.html">5B00</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/23296.html">Game start, per-level setup and main game loop</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="24300"></span><a href="../asm/24300.html">5EEC</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24300.html">Shuffle the five crates</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="24540"></span><a href="../asm/24540.html">5FDC</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24540.html">Interrupt: crash noise</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="24690"></span><a href="../asm/24690.html">6072</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24690.html">Put survivors on the map</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="26112"></span><a href="../asm/26112.html">6600</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26112.html">Add 40 points to the score</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="26114"></span><a href="../asm/26114.html">6602</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26114.html">Add B points to the score</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="28416"></span><a href="../asm/28416.html">6F00</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28416.html">Print the score</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29560"></span><a href="../asm/29560.html">7378</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29560.html">Cyclone buffeting of the controls</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="30252"></span><a href="../asm/30252.html">762C</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/30252.html">Copy the view buffer to the screen</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="30418"></span><a href="../asm/30418.html">76D2</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/30418.html">Build the view window from the island maps</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="30558"></span><a href="../asm/30558.html">775E</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/30558.html">Map address of the window's first row (west edge clipped)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="30583"></span><a href="../asm/30583.html">7777</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/30583.html">Map address of the window's first column (north edge clipped)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="30601"></span><a href="../asm/30601.html">7789</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/30601.html">Map address of the window origin</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="30637"></span><a href="../asm/30637.html">77AD</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/30637.html">North view, island fills the window (slot 0)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="30647"></span><a href="../asm/30647.html">77B7</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/30647.html">North view, west edge visible (slot 4)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="30674"></span><a href="../asm/30674.html">77D2</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/30674.html">North view, east edge visible (slot 8)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="30696"></span><a href="../asm/30696.html">77E8</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/30696.html">North view, north edge visible (slot 16)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="30736"></span><a href="../asm/30736.html">7810</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/30736.html">North view, north-west corner visible (slot 20)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="30804"></span><a href="../asm/30804.html">7854</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/30804.html">North view, north-east corner visible (slot 24)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="30845"></span><a href="../asm/30845.html">787D</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/30845.html">North view, south edge visible (slot 32)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="30863"></span><a href="../asm/30863.html">788F</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/30863.html">North view, south-west corner visible (slot 36)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="30897"></span><a href="../asm/30897.html">78B1</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/30897.html">North view, south-east corner visible (slot 40)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="30927"></span><a href="../asm/30927.html">78CF</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/30927.html">North-view copy jump table</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="31000"></span><a href="../asm/31000.html">7918</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/31000.html">South-view dispatch</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="31005"></span><a href="../asm/31005.html">791D</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/31005.html">South view, island fills the window (slot 0)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="31015"></span><a href="../asm/31015.html">7927</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/31015.html">South view, west edge visible (slot 4)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="31039"></span><a href="../asm/31039.html">793F</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/31039.html">South view, east edge visible (slot 8)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="31061"></span><a href="../asm/31061.html">7955</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/31061.html">South view, north edge visible (slot 16)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="31103"></span><a href="../asm/31103.html">797F</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/31103.html">South view, north-west corner visible (slot 20)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="31170"></span><a href="../asm/31170.html">79C2</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/31170.html">South view, north-east corner visible (slot 24)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="31208"></span><a href="../asm/31208.html">79E8</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/31208.html">South view, south edge visible (slot 32)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="31226"></span><a href="../asm/31226.html">79FA</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/31226.html">South view, south-west corner visible (slot 36)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="31257"></span><a href="../asm/31257.html">7A19</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/31257.html">South view, south-east corner visible (slot 40)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="31287"></span><a href="../asm/31287.html">7A37</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/31287.html">South-view copy jump table</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="31452"></span><a href="../asm/31452.html">7ADC</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/31452.html">Sample the ground under the helicopter and draw its shadow</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="31672"></span><a href="../asm/31672.html">7BB8</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/31672.html">Draw the helicopter's shadow into the sprite tiles</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="32272"></span><a href="../asm/32272.html">7E10</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/32272.html">Project the terrain and insert the sprite tiles</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="32726"></span><a href="../asm/32726.html">7FD6</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/32726.html">Read the selected control device into the input bitmap 7522</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="32938"></span><a href="../asm/32938.html">80AA</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/32938.html">Check the M (map) and N (view) keys, then process the flight controls</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="33017"></span><a href="../asm/33017.html">80F9</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33017.html">Set the view direction to NORTH</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="33077"></span><a href="../asm/33077.html">8135</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33077.html">Flight controls: turning, thrust/coasting, climbing, descending</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="33412"></span><a href="../asm/33412.html">8284</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33412.html">Count down the time-left bar (T)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="33447"></span><a href="../asm/33447.html">82A7</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33447.html">Burn fuel (F bar)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="33492"></span><a href="../asm/33492.html">82D4</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33492.html">Raise the altimeter bar by one pixel</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="33531"></span><a href="../asm/33531.html">82FB</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33531.html">Lower the altimeter bar by one pixel</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="33569"></span><a href="../asm/33569.html">8321</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33569.html">Start a round: crate boxes, round bonus, difficulty</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="33730"></span><a href="../asm/33730.html">83C2</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33730.html">Interrupt handler: rotor and winch sounds, crash noise</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="33850"></span><a href="../asm/33850.html">843A</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33850.html">Fill the time-left bar, paying 40 points per line still lit</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="33904"></span><a href="../asm/33904.html">8470</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33904.html">Fuel: refuel on the base pad, otherwise burn</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="33966"></span><a href="../asm/33966.html">84AE</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33966.html">Initialise the altimeter bar</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="34006"></span><a href="../asm/34006.html">84D6</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/34006.html">Clear the screen</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="34036"></span><a href="../asm/34036.html">84F4</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/34036.html">Draw the HUD</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="34176"></span><a href="../asm/34176.html">8580</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/34176.html">Print the view direction box</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="34202"></span><a href="../asm/34202.html">859A</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/34202.html">Print a string in the main font</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="34260"></span><a href="../asm/34260.html">85D4</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/34260.html">Let foreground slope tiles cover the helicopter</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="34479"></span><a href="../asm/34479.html">86AF</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/34479.html">Draw the helicopter sprite into its view window</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="34748"></span><a href="../asm/34748.html">87BC</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/34748.html">Update and print the high score</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="34800"></span><a href="../asm/34800.html">87F0</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/34800.html">Aircraft: move, steer by schedule, warn, place in view</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="35450"></span><a href="../asm/35450.html">8A7A</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35450.html">Landing / terrain-collision check</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="35700"></span><a href="../asm/35700.html">8B74</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35700.html">Random number generator</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="35729"></span><a href="../asm/35729.html">8B91</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35729.html">Animate sea waves in the view buffer</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="36000"></span><a href="../asm/36000.html">8CA0</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36000.html">Build the helicopter sprite (with rotor) in 6950</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="36110"></span><a href="../asm/36110.html">8D0E</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36110.html">Clear the view window</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="36189"></span><a href="../asm/36189.html">8D5D</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36189.html">Map screen: draw the island shapes</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="36322"></span><a href="../asm/36322.html">8DE2</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36322.html">Print island names (4-pixel-wide font)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="36444"></span><a href="../asm/36444.html">8E5C</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36444.html">Map screen: draw frame and north indicator</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="36584"></span><a href="../asm/36584.html">8EE8</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36584.html">Draw a character C times</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="36626"></span><a href="../asm/36626.html">8F12</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36626.html">Map screen: per-iteration update (blinking markers)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="36714"></span><a href="../asm/36714.html">8F6A</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36714.html">Map screen: draw helicopter and cyclone markers</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="36916"></span><a href="../asm/36916.html">9034</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36916.html">Map positions, cyclone movement and wind-force/danger gauges</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="37300"></span><a href="../asm/37300.html">91B4</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/37300.html">HUD: compass, speed bar, aircraft warning</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="37446"></span><a href="../asm/37446.html">9246</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/37446.html">Death sequence (helicopter destroyed)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="37613"></span><a href="../asm/37613.html">92ED</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/37613.html">XOR the next explosion overlay onto the sprite</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="57984"></span><a href="../asm/57984.html">E280</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/57984.html">Main menu</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="58088"></span><a href="../asm/58088.html">E2E8</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/58088.html">Draw the main menu</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="58292"></span><a href="../asm/58292.html">E3B4</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/58292.html">Information screen</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="58360"></span><a href="../asm/58360.html">E3F8</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/58360.html">Read the keyboard (ROM)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="58383"></span><a href="../asm/58383.html">E40F</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/58383.html">Print a list of strings (8x8 font)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="58426"></span><a href="../asm/58426.html">E43A</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/58426.html">Print the information screen texts</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="62282"></span><a href="../asm/62282.html">F34A</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62282.html">Animate the survivor glyphs</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="62362"></span><a href="../asm/62362.html">F39A</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62362.html">Winch: pick up crates and survivors</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="63310"></span><a href="../asm/63310.html">F74E</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63310.html">Initialisation</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="65170"></span><a href="../asm/65170.html">FE92</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/65170.html">Jump to the crate shuffle</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="65173"></span><a href="../asm/65173.html">FE95</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/65173.html">Unused remnant of the tape loader</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="65176"></span><a href="../asm/65176.html">FE98</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/65176.html">Program entry point (RANDOMIZE USR 65176)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="65183"></span><a href="../asm/65183.html">FE9F</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/65183.html">Unused remnant of the tape loader's LD-BYTES routine</a></div>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

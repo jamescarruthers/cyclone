@@ -1,0 +1,2135 @@
+{
+ "charset_addr": 64000,
+ "attr_addr": 65024,
+ "note": "char code c < 80h: bitmap FA00+8c drawn with attribute FE00+c; c >= 80h: only the attribute FE00+c is written (ink == paper, i.e. a solid colour block). Drawn by 762C to rows 0-21, cols 0-22.",
+ "chars": {
+  "00": {
+   "code": 0,
+   "attr": {
+    "attr": 111,
+    "ink": 7,
+    "paper": 5,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "white",
+    "paper_name": "cyan"
+   },
+   "role": "sea wave sparkle 1",
+   "addr": 64000,
+   "bitmap_hex": "0000002054000000"
+  },
+  "01": {
+   "code": 1,
+   "attr": {
+    "attr": 111,
+    "ink": 7,
+    "paper": 5,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "white",
+    "paper_name": "cyan"
+   },
+   "role": "sea wave sparkle 2",
+   "addr": 64008,
+   "bitmap_hex": "0000085200000000"
+  },
+  "02": {
+   "code": 2,
+   "attr": {
+    "attr": 111,
+    "ink": 7,
+    "paper": 5,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "white",
+    "paper_name": "cyan"
+   },
+   "role": "sea wave sparkle 3",
+   "addr": 64016,
+   "bitmap_hex": "0000000000140000"
+  },
+  "03": {
+   "code": 3,
+   "attr": {
+    "attr": 110,
+    "ink": 6,
+    "paper": 5,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "yellow",
+    "paper_name": "cyan"
+   },
+   "role": "terrain",
+   "addr": 64024,
+   "bitmap_hex": "FEFCF0C091800020"
+  },
+  "04": {
+   "code": 4,
+   "attr": {
+    "attr": 110,
+    "ink": 6,
+    "paper": 5,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "yellow",
+    "paper_name": "cyan"
+   },
+   "role": "terrain",
+   "addr": 64032,
+   "bitmap_hex": "7F3F0F0389010004"
+  },
+  "05": {
+   "code": 5,
+   "attr": {
+    "attr": 110,
+    "ink": 6,
+    "paper": 5,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "yellow",
+    "paper_name": "cyan"
+   },
+   "role": "terrain",
+   "addr": 64040,
+   "bitmap_hex": "04000189030F3F7F"
+  },
+  "06": {
+   "code": 6,
+   "attr": {
+    "attr": 110,
+    "ink": 6,
+    "paper": 5,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "yellow",
+    "paper_name": "cyan"
+   },
+   "role": "terrain",
+   "addr": 64048,
+   "bitmap_hex": "20008091C0F0FCFE"
+  },
+  "07": {
+   "code": 7,
+   "attr": {
+    "attr": 116,
+    "ink": 4,
+    "paper": 6,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "green",
+    "paper_name": "yellow"
+   },
+   "role": "terrain",
+   "addr": 64056,
+   "bitmap_hex": "FEFCF0E0E0E08000"
+  },
+  "08": {
+   "code": 8,
+   "attr": {
+    "attr": 116,
+    "ink": 4,
+    "paper": 6,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "green",
+    "paper_name": "yellow"
+   },
+   "role": "terrain",
+   "addr": 64064,
+   "bitmap_hex": "7F3F0F0707010100"
+  },
+  "09": {
+   "code": 9,
+   "attr": {
+    "attr": 116,
+    "ink": 4,
+    "paper": 6,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "green",
+    "paper_name": "yellow"
+   },
+   "role": "terrain",
+   "addr": 64072,
+   "bitmap_hex": "00010303071F1F7F"
+  },
+  "0A": {
+   "code": 10,
+   "attr": {
+    "attr": 116,
+    "ink": 4,
+    "paper": 6,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "green",
+    "paper_name": "yellow"
+   },
+   "role": "terrain",
+   "addr": 64080,
+   "bitmap_hex": "0080C0C0E0F8F8FE"
+  },
+  "0B": {
+   "code": 11,
+   "attr": {
+    "attr": 124,
+    "ink": 4,
+    "paper": 7,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "green",
+    "paper_name": "white"
+   },
+   "role": "terrain",
+   "addr": 64088,
+   "bitmap_hex": "FEFCF0E0E0E08000"
+  },
+  "0C": {
+   "code": 12,
+   "attr": {
+    "attr": 124,
+    "ink": 4,
+    "paper": 7,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "green",
+    "paper_name": "white"
+   },
+   "role": "terrain",
+   "addr": 64096,
+   "bitmap_hex": "7F3F0F0707010100"
+  },
+  "0D": {
+   "code": 13,
+   "attr": {
+    "attr": 124,
+    "ink": 4,
+    "paper": 7,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "green",
+    "paper_name": "white"
+   },
+   "role": "terrain",
+   "addr": 64104,
+   "bitmap_hex": "00010303071F1F7F"
+  },
+  "0E": {
+   "code": 14,
+   "attr": {
+    "attr": 124,
+    "ink": 4,
+    "paper": 7,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "green",
+    "paper_name": "white"
+   },
+   "role": "terrain",
+   "addr": 64112,
+   "bitmap_hex": "0080C0C0E0F8F8FE"
+  },
+  "0F": {
+   "code": 15,
+   "attr": {
+    "attr": 102,
+    "ink": 6,
+    "paper": 4,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "yellow",
+    "paper_name": "green"
+   },
+   "role": "terrain",
+   "addr": 64120,
+   "bitmap_hex": "01020B1503579F6F"
+  },
+  "10": {
+   "code": 16,
+   "attr": {
+    "attr": 117,
+    "ink": 5,
+    "paper": 6,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "cyan",
+    "paper_name": "yellow"
+   },
+   "role": "terrain",
+   "addr": 64128,
+   "bitmap_hex": "0000000000003CFF"
+  },
+  "11": {
+   "code": 17,
+   "attr": {
+    "attr": 117,
+    "ink": 5,
+    "paper": 6,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "cyan",
+    "paper_name": "yellow"
+   },
+   "role": "terrain",
+   "addr": 64136,
+   "bitmap_hex": "FF3C000000000000"
+  },
+  "12": {
+   "code": 18,
+   "attr": {
+    "attr": 117,
+    "ink": 5,
+    "paper": 6,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "cyan",
+    "paper_name": "yellow"
+   },
+   "role": "terrain",
+   "addr": 64144,
+   "bitmap_hex": "0301010000010103"
+  },
+  "13": {
+   "code": 19,
+   "attr": {
+    "attr": 117,
+    "ink": 5,
+    "paper": 6,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "cyan",
+    "paper_name": "yellow"
+   },
+   "role": "terrain",
+   "addr": 64152,
+   "bitmap_hex": "C0808000008080C0"
+  },
+  "14": {
+   "code": 20,
+   "attr": {
+    "attr": 117,
+    "ink": 5,
+    "paper": 6,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "cyan",
+    "paper_name": "yellow"
+   },
+   "role": "terrain",
+   "addr": 64160,
+   "bitmap_hex": "0000000000000081"
+  },
+  "15": {
+   "code": 21,
+   "attr": {
+    "attr": 117,
+    "ink": 5,
+    "paper": 6,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "cyan",
+    "paper_name": "yellow"
+   },
+   "role": "terrain",
+   "addr": 64168,
+   "bitmap_hex": "8100000000000000"
+  },
+  "16": {
+   "code": 22,
+   "attr": {
+    "attr": 0,
+    "ink": 0,
+    "paper": 0,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "black"
+   },
+   "role": "terrain",
+   "addr": 64176,
+   "bitmap_hex": "0000000000000000"
+  },
+  "17": {
+   "code": 23,
+   "attr": {
+    "attr": 36,
+    "ink": 4,
+    "paper": 4,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "green",
+    "paper_name": "green"
+   },
+   "role": "terrain",
+   "addr": 64184,
+   "bitmap_hex": "0000000000000000"
+  },
+  "18": {
+   "code": 24,
+   "attr": {
+    "attr": 36,
+    "ink": 4,
+    "paper": 4,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "green",
+    "paper_name": "green"
+   },
+   "role": "terrain",
+   "addr": 64192,
+   "bitmap_hex": "0000000000000000"
+  },
+  "19": {
+   "code": 25,
+   "attr": {
+    "attr": 108,
+    "ink": 4,
+    "paper": 5,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "green",
+    "paper_name": "cyan"
+   },
+   "role": "terrain",
+   "addr": 64200,
+   "bitmap_hex": "00C0E0F0F0F8FCFF"
+  },
+  "1A": {
+   "code": 26,
+   "attr": {
+    "attr": 108,
+    "ink": 4,
+    "paper": 5,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "green",
+    "paper_name": "cyan"
+   },
+   "role": "terrain",
+   "addr": 64208,
+   "bitmap_hex": "0003070F0F1F3FFF"
+  },
+  "1B": {
+   "code": 27,
+   "attr": {
+    "attr": 96,
+    "ink": 0,
+    "paper": 4,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "green"
+   },
+   "role": "terrain",
+   "addr": 64216,
+   "bitmap_hex": "8040003008000601"
+  },
+  "1C": {
+   "code": 28,
+   "attr": {
+    "attr": 96,
+    "ink": 0,
+    "paper": 4,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "green"
+   },
+   "role": "terrain",
+   "addr": 64224,
+   "bitmap_hex": "0102000C10006080"
+  },
+  "1D": {
+   "code": 29,
+   "attr": {
+    "attr": 104,
+    "ink": 0,
+    "paper": 5,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "cyan"
+   },
+   "role": "terrain",
+   "addr": 64232,
+   "bitmap_hex": "2A2A2A0A02020200"
+  },
+  "1E": {
+   "code": 30,
+   "attr": {
+    "attr": 104,
+    "ink": 0,
+    "paper": 5,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "cyan"
+   },
+   "role": "terrain",
+   "addr": 64240,
+   "bitmap_hex": "BEB4A8F0E0E04080"
+  },
+  "1F": {
+   "code": 31,
+   "attr": {
+    "attr": 96,
+    "ink": 0,
+    "paper": 4,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "green"
+   },
+   "role": "terrain",
+   "addr": 64248,
+   "bitmap_hex": "2A2A2A0A02020200"
+  },
+  "20": {
+   "code": 32,
+   "attr": {
+    "attr": 96,
+    "ink": 0,
+    "paper": 4,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "green"
+   },
+   "role": "terrain",
+   "addr": 64256,
+   "bitmap_hex": "5454545040404000"
+  },
+  "21": {
+   "code": 33,
+   "attr": {
+    "attr": 96,
+    "ink": 0,
+    "paper": 4,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "green"
+   },
+   "role": "terrain",
+   "addr": 64264,
+   "bitmap_hex": "4080A088B2A4A9AA"
+  },
+  "22": {
+   "code": 34,
+   "attr": {
+    "attr": 96,
+    "ink": 0,
+    "paper": 4,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "green"
+   },
+   "role": "terrain",
+   "addr": 64272,
+   "bitmap_hex": "020105114D259555"
+  },
+  "23": {
+   "code": 35,
+   "attr": {
+    "attr": 96,
+    "ink": 0,
+    "paper": 4,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "green"
+   },
+   "role": "terrain",
+   "addr": 64280,
+   "bitmap_hex": "3F0F070703030100"
+  },
+  "24": {
+   "code": 36,
+   "attr": {
+    "attr": 96,
+    "ink": 0,
+    "paper": 4,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "green"
+   },
+   "role": "terrain",
+   "addr": 64288,
+   "bitmap_hex": "00C0E0F0F0F8FCFF"
+  },
+  "25": {
+   "code": 37,
+   "attr": {
+    "attr": 96,
+    "ink": 0,
+    "paper": 4,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "green"
+   },
+   "role": "terrain",
+   "addr": 64296,
+   "bitmap_hex": "FCF0E0E0C0C08000"
+  },
+  "26": {
+   "code": 38,
+   "attr": {
+    "attr": 96,
+    "ink": 0,
+    "paper": 4,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "green"
+   },
+   "role": "terrain",
+   "addr": 64304,
+   "bitmap_hex": "0003070F0F1F3FFF"
+  },
+  "27": {
+   "code": 39,
+   "attr": {
+    "attr": 96,
+    "ink": 0,
+    "paper": 4,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "green"
+   },
+   "role": "terrain",
+   "addr": 64312,
+   "bitmap_hex": "AE00000000000000"
+  },
+  "28": {
+   "code": 40,
+   "attr": {
+    "attr": 96,
+    "ink": 0,
+    "paper": 4,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "green"
+   },
+   "role": "terrain",
+   "addr": 64320,
+   "bitmap_hex": "0106010006010002"
+  },
+  "29": {
+   "code": 41,
+   "attr": {
+    "attr": 96,
+    "ink": 0,
+    "paper": 4,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "green"
+   },
+   "role": "terrain",
+   "addr": 64328,
+   "bitmap_hex": "8060800060800040"
+  },
+  "2A": {
+   "code": 42,
+   "attr": {
+    "attr": 96,
+    "ink": 0,
+    "paper": 4,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "green"
+   },
+   "role": "terrain",
+   "addr": 64336,
+   "bitmap_hex": "0000000000000000"
+  },
+  "2B": {
+   "code": 43,
+   "attr": {
+    "attr": 96,
+    "ink": 0,
+    "paper": 4,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "green"
+   },
+   "role": "terrain",
+   "addr": 64344,
+   "bitmap_hex": "7601020106010002"
+  },
+  "2C": {
+   "code": 44,
+   "attr": {
+    "attr": 96,
+    "ink": 0,
+    "paper": 4,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "green"
+   },
+   "role": "terrain",
+   "addr": 64352,
+   "bitmap_hex": "6E80408060800040"
+  },
+  "2D": {
+   "code": 45,
+   "attr": {
+    "attr": 80,
+    "ink": 0,
+    "paper": 2,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "red"
+   },
+   "role": "terrain",
+   "addr": 64360,
+   "bitmap_hex": "55AA55AA55881122"
+  },
+  "2E": {
+   "code": 46,
+   "attr": {
+    "attr": 80,
+    "ink": 0,
+    "paper": 2,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "red"
+   },
+   "role": "terrain",
+   "addr": 64368,
+   "bitmap_hex": "4488112244881122"
+  },
+  "2F": {
+   "code": 47,
+   "attr": {
+    "attr": 80,
+    "ink": 0,
+    "paper": 2,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "red"
+   },
+   "role": "terrain",
+   "addr": 64376,
+   "bitmap_hex": "0000000000000000"
+  },
+  "30": {
+   "code": 48,
+   "attr": {
+    "attr": 112,
+    "ink": 0,
+    "paper": 6,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "yellow"
+   },
+   "role": "crate (sea level)",
+   "addr": 64384,
+   "bitmap_hex": "08344A667A723418"
+  },
+  "31": {
+   "code": 49,
+   "attr": {
+    "attr": 96,
+    "ink": 0,
+    "paper": 4,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "green"
+   },
+   "role": "survivor frame A",
+   "addr": 64392,
+   "bitmap_hex": "10443810387C2800"
+  },
+  "32": {
+   "code": 50,
+   "attr": {
+    "attr": 96,
+    "ink": 0,
+    "paper": 4,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "green"
+   },
+   "role": "survivor frame B",
+   "addr": 64400,
+   "bitmap_hex": "18423C1818242400"
+  },
+  "33": {
+   "code": 51,
+   "attr": {
+    "attr": 104,
+    "ink": 0,
+    "paper": 5,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "cyan"
+   },
+   "role": "runtime: aircraft shadow char (copied by 89BC from the current aircraft frame, AND AA/55 dither)",
+   "addr": 64408,
+   "bitmap_hex": "0000000000000000"
+  },
+  "34": {
+   "code": 52,
+   "attr": {
+    "attr": 104,
+    "ink": 0,
+    "paper": 5,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "cyan"
+   },
+   "role": "runtime: aircraft shadow char (copied by 89BC from the current aircraft frame, AND AA/55 dither)",
+   "addr": 64416,
+   "bitmap_hex": "0000000000000000"
+  },
+  "35": {
+   "code": 53,
+   "attr": {
+    "attr": 104,
+    "ink": 0,
+    "paper": 5,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "cyan"
+   },
+   "role": "runtime: aircraft shadow char (copied by 89BC from the current aircraft frame, AND AA/55 dither)",
+   "addr": 64424,
+   "bitmap_hex": "0000000000000000"
+  },
+  "36": {
+   "code": 54,
+   "attr": {
+    "attr": 104,
+    "ink": 0,
+    "paper": 5,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "cyan"
+   },
+   "role": "runtime: aircraft shadow char (copied by 89BC from the current aircraft frame, AND AA/55 dither)",
+   "addr": 64432,
+   "bitmap_hex": "0000000000000000"
+  },
+  "37": {
+   "code": 55,
+   "attr": {
+    "attr": 104,
+    "ink": 0,
+    "paper": 5,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "cyan"
+   },
+   "role": "runtime: aircraft shadow char (copied by 89BC from the current aircraft frame, AND AA/55 dither)",
+   "addr": 64440,
+   "bitmap_hex": "0000000000000000"
+  },
+  "38": {
+   "code": 56,
+   "attr": {
+    "attr": 104,
+    "ink": 0,
+    "paper": 5,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "cyan"
+   },
+   "role": "runtime: aircraft shadow char (copied by 89BC from the current aircraft frame, AND AA/55 dither)",
+   "addr": 64448,
+   "bitmap_hex": "0000000000000000"
+  },
+  "39": {
+   "code": 57,
+   "attr": {
+    "attr": 104,
+    "ink": 0,
+    "paper": 5,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "cyan"
+   },
+   "role": "runtime: aircraft shadow char (copied by 89BC from the current aircraft frame, AND AA/55 dither)",
+   "addr": 64456,
+   "bitmap_hex": "0000000000000000"
+  },
+  "3A": {
+   "code": 58,
+   "attr": {
+    "attr": 104,
+    "ink": 0,
+    "paper": 5,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "cyan"
+   },
+   "role": "runtime: aircraft shadow char (copied by 89BC from the current aircraft frame, AND AA/55 dither)",
+   "addr": 64464,
+   "bitmap_hex": "0000000000000000"
+  },
+  "3B": {
+   "code": 59,
+   "attr": {
+    "attr": 104,
+    "ink": 0,
+    "paper": 5,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "cyan"
+   },
+   "role": "runtime: aircraft shadow char (copied by 89BC from the current aircraft frame, AND AA/55 dither)",
+   "addr": 64472,
+   "bitmap_hex": "0000000000000000"
+  },
+  "3C": {
+   "code": 60,
+   "attr": {
+    "attr": 104,
+    "ink": 0,
+    "paper": 5,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "cyan"
+   },
+   "role": "runtime: aircraft char (current DE00 frame copied to FBE0 by 89B2)",
+   "addr": 64480,
+   "bitmap_hex": "0000000000000000"
+  },
+  "3D": {
+   "code": 61,
+   "attr": {
+    "attr": 104,
+    "ink": 0,
+    "paper": 5,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "cyan"
+   },
+   "role": "runtime: aircraft char (current DE00 frame copied to FBE0 by 89B2)",
+   "addr": 64488,
+   "bitmap_hex": "0000000000000000"
+  },
+  "3E": {
+   "code": 62,
+   "attr": {
+    "attr": 104,
+    "ink": 0,
+    "paper": 5,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "cyan"
+   },
+   "role": "runtime: aircraft char (current DE00 frame copied to FBE0 by 89B2)",
+   "addr": 64496,
+   "bitmap_hex": "0000000000000000"
+  },
+  "3F": {
+   "code": 63,
+   "attr": {
+    "attr": 104,
+    "ink": 0,
+    "paper": 5,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "cyan"
+   },
+   "role": "runtime: aircraft char (current DE00 frame copied to FBE0 by 89B2)",
+   "addr": 64504,
+   "bitmap_hex": "0000000000000000"
+  },
+  "40": {
+   "code": 64,
+   "attr": {
+    "attr": 104,
+    "ink": 0,
+    "paper": 5,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "cyan"
+   },
+   "role": "runtime: aircraft char (current DE00 frame copied to FBE0 by 89B2)",
+   "addr": 64512,
+   "bitmap_hex": "0000000000000000"
+  },
+  "41": {
+   "code": 65,
+   "attr": {
+    "attr": 104,
+    "ink": 0,
+    "paper": 5,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "cyan"
+   },
+   "role": "runtime: aircraft char (current DE00 frame copied to FBE0 by 89B2)",
+   "addr": 64520,
+   "bitmap_hex": "0000000000000000"
+  },
+  "42": {
+   "code": 66,
+   "attr": {
+    "attr": 104,
+    "ink": 0,
+    "paper": 5,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "cyan"
+   },
+   "role": "runtime: aircraft char (current DE00 frame copied to FBE0 by 89B2)",
+   "addr": 64528,
+   "bitmap_hex": "0000000000000000"
+  },
+  "43": {
+   "code": 67,
+   "attr": {
+    "attr": 104,
+    "ink": 0,
+    "paper": 5,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "cyan"
+   },
+   "role": "runtime: aircraft char (current DE00 frame copied to FBE0 by 89B2)",
+   "addr": 64536,
+   "bitmap_hex": "0000000000000000"
+  },
+  "44": {
+   "code": 68,
+   "attr": {
+    "attr": 104,
+    "ink": 0,
+    "paper": 5,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "cyan"
+   },
+   "role": "runtime: aircraft char (current DE00 frame copied to FBE0 by 89B2)",
+   "addr": 64544,
+   "bitmap_hex": "0000000000000000"
+  },
+  "45": {
+   "code": 69,
+   "attr": {
+    "attr": 32,
+    "ink": 0,
+    "paper": 4,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "green"
+   },
+   "role": "terrain",
+   "addr": 64552,
+   "bitmap_hex": "5A395E9A777C9B76"
+  },
+  "46": {
+   "code": 70,
+   "attr": {
+    "attr": 104,
+    "ink": 0,
+    "paper": 5,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "cyan"
+   },
+   "role": "terrain",
+   "addr": 64560,
+   "bitmap_hex": "5A395E9A777C9B76"
+  },
+  "47": {
+   "code": 71,
+   "attr": {
+    "attr": 32,
+    "ink": 0,
+    "paper": 4,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "green"
+   },
+   "role": "terrain",
+   "addr": 64568,
+   "bitmap_hex": "10280C18361A3A6C"
+  },
+  "48": {
+   "code": 72,
+   "attr": {
+    "attr": 56,
+    "ink": 0,
+    "paper": 7,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "white"
+   },
+   "role": "terrain",
+   "addr": 64576,
+   "bitmap_hex": "10280C18361A3A6C"
+  },
+  "49": {
+   "code": 73,
+   "attr": {
+    "attr": 104,
+    "ink": 0,
+    "paper": 5,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "cyan"
+   },
+   "role": "terrain",
+   "addr": 64584,
+   "bitmap_hex": "10280C18361A3A6C"
+  },
+  "4A": {
+   "code": 74,
+   "attr": {
+    "attr": 96,
+    "ink": 0,
+    "paper": 4,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "green"
+   },
+   "role": "terrain",
+   "addr": 64592,
+   "bitmap_hex": "10280C18361A3A6C"
+  },
+  "4B": {
+   "code": 75,
+   "attr": {
+    "attr": 96,
+    "ink": 0,
+    "paper": 4,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "green"
+   },
+   "role": "terrain",
+   "addr": 64600,
+   "bitmap_hex": "5A395E9A777C9B76"
+  },
+  "4C": {
+   "code": 76,
+   "attr": {
+    "attr": 96,
+    "ink": 0,
+    "paper": 4,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "green"
+   },
+   "role": "terrain",
+   "addr": 64608,
+   "bitmap_hex": "593A383810000000"
+  },
+  "4D": {
+   "code": 77,
+   "attr": {
+    "attr": 96,
+    "ink": 0,
+    "paper": 4,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "green"
+   },
+   "role": "terrain",
+   "addr": 64616,
+   "bitmap_hex": "2836996E3C4A6CB8"
+  },
+  "4E": {
+   "code": 78,
+   "attr": {
+    "attr": 96,
+    "ink": 0,
+    "paper": 4,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "green"
+   },
+   "role": "terrain",
+   "addr": 64624,
+   "bitmap_hex": "6A5C3A5C5C3A3C70"
+  },
+  "4F": {
+   "code": 79,
+   "attr": {
+    "attr": 96,
+    "ink": 0,
+    "paper": 4,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "green"
+   },
+   "role": "terrain",
+   "addr": 64632,
+   "bitmap_hex": "7038383838100000"
+  },
+  "50": {
+   "code": 80,
+   "attr": {
+    "attr": 96,
+    "ink": 0,
+    "paper": 4,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "green"
+   },
+   "role": "terrain",
+   "addr": 64640,
+   "bitmap_hex": "287C5E5A777C9B76"
+  },
+  "51": {
+   "code": 81,
+   "attr": {
+    "attr": 96,
+    "ink": 0,
+    "paper": 4,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "green"
+   },
+   "role": "terrain",
+   "addr": 64648,
+   "bitmap_hex": "5A395E3A76FCE674"
+  },
+  "52": {
+   "code": 82,
+   "attr": {
+    "attr": 96,
+    "ink": 0,
+    "paper": 4,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "green"
+   },
+   "role": "terrain",
+   "addr": 64656,
+   "bitmap_hex": "3E38383810000000"
+  },
+  "53": {
+   "code": 83,
+   "attr": {
+    "attr": 48,
+    "ink": 0,
+    "paper": 6,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "yellow"
+   },
+   "role": "terrain",
+   "addr": 64664,
+   "bitmap_hex": "528140B25DA0C0A9"
+  },
+  "54": {
+   "code": 84,
+   "attr": {
+    "attr": 48,
+    "ink": 0,
+    "paper": 6,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "yellow"
+   },
+   "role": "terrain",
+   "addr": 64672,
+   "bitmap_hex": "432150A141A1C562"
+  },
+  "55": {
+   "code": 85,
+   "attr": {
+    "attr": 98,
+    "ink": 2,
+    "paper": 4,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "red",
+    "paper_name": "green"
+   },
+   "role": "terrain",
+   "addr": 64680,
+   "bitmap_hex": "3C1C1C1C1C080000"
+  },
+  "56": {
+   "code": 86,
+   "attr": {
+    "attr": 96,
+    "ink": 0,
+    "paper": 4,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "green"
+   },
+   "role": "crate (on land)",
+   "addr": 64688,
+   "bitmap_hex": "08344A667A723418"
+  },
+  "57": {
+   "code": 87,
+   "attr": {
+    "attr": 56,
+    "ink": 0,
+    "paper": 7,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "white"
+   },
+   "role": "terrain",
+   "addr": 64696,
+   "bitmap_hex": "FF00000000000000"
+  },
+  "58": {
+   "code": 88,
+   "attr": {
+    "attr": 56,
+    "ink": 0,
+    "paper": 7,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "white"
+   },
+   "role": "terrain",
+   "addr": 64704,
+   "bitmap_hex": "00003C3C3C3C3C3C"
+  },
+  "59": {
+   "code": 89,
+   "attr": {
+    "attr": 56,
+    "ink": 0,
+    "paper": 7,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "white"
+   },
+   "role": "terrain",
+   "addr": 64712,
+   "bitmap_hex": "FF007C7C747C0000"
+  },
+  "5A": {
+   "code": 90,
+   "attr": {
+    "attr": 56,
+    "ink": 0,
+    "paper": 7,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "white"
+   },
+   "role": "terrain",
+   "addr": 64720,
+   "bitmap_hex": "00007C7C747C0000"
+  },
+  "5B": {
+   "code": 91,
+   "attr": {
+    "attr": 96,
+    "ink": 0,
+    "paper": 4,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "green"
+   },
+   "role": "terrain",
+   "addr": 64728,
+   "bitmap_hex": "5555555555555555"
+  },
+  "5C": {
+   "code": 92,
+   "attr": {
+    "attr": 96,
+    "ink": 0,
+    "paper": 4,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "green"
+   },
+   "role": "terrain",
+   "addr": 64736,
+   "bitmap_hex": "565A5A5A6A6B6FAD"
+  },
+  "5D": {
+   "code": 93,
+   "attr": {
+    "attr": 96,
+    "ink": 0,
+    "paper": 4,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "green"
+   },
+   "role": "terrain",
+   "addr": 64744,
+   "bitmap_hex": "AAAAAAAAAAAAAAAA"
+  },
+  "5E": {
+   "code": 94,
+   "attr": {
+    "attr": 96,
+    "ink": 0,
+    "paper": 4,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "green"
+   },
+   "role": "terrain",
+   "addr": 64752,
+   "bitmap_hex": "AAAAAAAAAAAAAAAA"
+  },
+  "5F": {
+   "code": 95,
+   "attr": {
+    "attr": 0,
+    "ink": 0,
+    "paper": 0,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "black"
+   },
+   "role": "runtime: helicopter composite buffer FCF8-FDFF (3 cols x 11 rows; background + shadow + heli)",
+   "addr": 64760,
+   "bitmap_hex": "0000000000000000"
+  },
+  "60": {
+   "code": 96,
+   "attr": {
+    "attr": 0,
+    "ink": 0,
+    "paper": 0,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "black"
+   },
+   "role": "runtime: helicopter composite buffer FCF8-FDFF (3 cols x 11 rows; background + shadow + heli)",
+   "addr": 64768,
+   "bitmap_hex": "0000000000000000"
+  },
+  "61": {
+   "code": 97,
+   "attr": {
+    "attr": 0,
+    "ink": 0,
+    "paper": 0,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "black"
+   },
+   "role": "runtime: helicopter composite buffer FCF8-FDFF (3 cols x 11 rows; background + shadow + heli)",
+   "addr": 64776,
+   "bitmap_hex": "0000000000000000"
+  },
+  "62": {
+   "code": 98,
+   "attr": {
+    "attr": 0,
+    "ink": 0,
+    "paper": 0,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "black"
+   },
+   "role": "runtime: helicopter composite buffer FCF8-FDFF (3 cols x 11 rows; background + shadow + heli)",
+   "addr": 64784,
+   "bitmap_hex": "0000000000000000"
+  },
+  "63": {
+   "code": 99,
+   "attr": {
+    "attr": 0,
+    "ink": 0,
+    "paper": 0,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "black"
+   },
+   "role": "runtime: helicopter composite buffer FCF8-FDFF (3 cols x 11 rows; background + shadow + heli)",
+   "addr": 64792,
+   "bitmap_hex": "0000000000000000"
+  },
+  "64": {
+   "code": 100,
+   "attr": {
+    "attr": 0,
+    "ink": 0,
+    "paper": 0,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "black"
+   },
+   "role": "runtime: helicopter composite buffer FCF8-FDFF (3 cols x 11 rows; background + shadow + heli)",
+   "addr": 64800,
+   "bitmap_hex": "0000000000000000"
+  },
+  "65": {
+   "code": 101,
+   "attr": {
+    "attr": 0,
+    "ink": 0,
+    "paper": 0,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "black"
+   },
+   "role": "runtime: helicopter composite buffer FCF8-FDFF (3 cols x 11 rows; background + shadow + heli)",
+   "addr": 64808,
+   "bitmap_hex": "0000000000000000"
+  },
+  "66": {
+   "code": 102,
+   "attr": {
+    "attr": 0,
+    "ink": 0,
+    "paper": 0,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "black"
+   },
+   "role": "runtime: helicopter composite buffer FCF8-FDFF (3 cols x 11 rows; background + shadow + heli)",
+   "addr": 64816,
+   "bitmap_hex": "0000000000000000"
+  },
+  "67": {
+   "code": 103,
+   "attr": {
+    "attr": 0,
+    "ink": 0,
+    "paper": 0,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "black"
+   },
+   "role": "runtime: helicopter composite buffer FCF8-FDFF (3 cols x 11 rows; background + shadow + heli)",
+   "addr": 64824,
+   "bitmap_hex": "0000000000000000"
+  },
+  "68": {
+   "code": 104,
+   "attr": {
+    "attr": 0,
+    "ink": 0,
+    "paper": 0,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "black"
+   },
+   "role": "runtime: helicopter composite buffer FCF8-FDFF (3 cols x 11 rows; background + shadow + heli)",
+   "addr": 64832,
+   "bitmap_hex": "0000000000000000"
+  },
+  "69": {
+   "code": 105,
+   "attr": {
+    "attr": 0,
+    "ink": 0,
+    "paper": 0,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "black"
+   },
+   "role": "runtime: helicopter composite buffer FCF8-FDFF (3 cols x 11 rows; background + shadow + heli)",
+   "addr": 64840,
+   "bitmap_hex": "0000000000000000"
+  },
+  "6A": {
+   "code": 106,
+   "attr": {
+    "attr": 0,
+    "ink": 0,
+    "paper": 0,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "black"
+   },
+   "role": "runtime: helicopter composite buffer FCF8-FDFF (3 cols x 11 rows; background + shadow + heli)",
+   "addr": 64848,
+   "bitmap_hex": "0000000000000000"
+  },
+  "6B": {
+   "code": 107,
+   "attr": {
+    "attr": 0,
+    "ink": 0,
+    "paper": 0,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "black"
+   },
+   "role": "runtime: helicopter composite buffer FCF8-FDFF (3 cols x 11 rows; background + shadow + heli)",
+   "addr": 64856,
+   "bitmap_hex": "0000000000000000"
+  },
+  "6C": {
+   "code": 108,
+   "attr": {
+    "attr": 0,
+    "ink": 0,
+    "paper": 0,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "black"
+   },
+   "role": "runtime: helicopter composite buffer FCF8-FDFF (3 cols x 11 rows; background + shadow + heli)",
+   "addr": 64864,
+   "bitmap_hex": "0000000000000000"
+  },
+  "6D": {
+   "code": 109,
+   "attr": {
+    "attr": 0,
+    "ink": 0,
+    "paper": 0,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "black"
+   },
+   "role": "runtime: helicopter composite buffer FCF8-FDFF (3 cols x 11 rows; background + shadow + heli)",
+   "addr": 64872,
+   "bitmap_hex": "0000000000000000"
+  },
+  "6E": {
+   "code": 110,
+   "attr": {
+    "attr": 0,
+    "ink": 0,
+    "paper": 0,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "black"
+   },
+   "role": "runtime: helicopter composite buffer FCF8-FDFF (3 cols x 11 rows; background + shadow + heli)",
+   "addr": 64880,
+   "bitmap_hex": "0000000000000000"
+  },
+  "6F": {
+   "code": 111,
+   "attr": {
+    "attr": 0,
+    "ink": 0,
+    "paper": 0,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "black"
+   },
+   "role": "runtime: helicopter composite buffer FCF8-FDFF (3 cols x 11 rows; background + shadow + heli)",
+   "addr": 64888,
+   "bitmap_hex": "0000000000000000"
+  },
+  "70": {
+   "code": 112,
+   "attr": {
+    "attr": 0,
+    "ink": 0,
+    "paper": 0,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "black"
+   },
+   "role": "runtime: helicopter composite buffer FCF8-FDFF (3 cols x 11 rows; background + shadow + heli)",
+   "addr": 64896,
+   "bitmap_hex": "0000000000000000"
+  },
+  "71": {
+   "code": 113,
+   "attr": {
+    "attr": 0,
+    "ink": 0,
+    "paper": 0,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "black"
+   },
+   "role": "runtime: helicopter composite buffer FCF8-FDFF (3 cols x 11 rows; background + shadow + heli)",
+   "addr": 64904,
+   "bitmap_hex": "0000000000000000"
+  },
+  "72": {
+   "code": 114,
+   "attr": {
+    "attr": 0,
+    "ink": 0,
+    "paper": 0,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "black"
+   },
+   "role": "runtime: helicopter composite buffer FCF8-FDFF (3 cols x 11 rows; background + shadow + heli)",
+   "addr": 64912,
+   "bitmap_hex": "0000000000000000"
+  },
+  "73": {
+   "code": 115,
+   "attr": {
+    "attr": 0,
+    "ink": 0,
+    "paper": 0,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "black"
+   },
+   "role": "runtime: helicopter composite buffer FCF8-FDFF (3 cols x 11 rows; background + shadow + heli)",
+   "addr": 64920,
+   "bitmap_hex": "0000000000000000"
+  },
+  "74": {
+   "code": 116,
+   "attr": {
+    "attr": 0,
+    "ink": 0,
+    "paper": 0,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "black"
+   },
+   "role": "runtime: helicopter composite buffer FCF8-FDFF (3 cols x 11 rows; background + shadow + heli)",
+   "addr": 64928,
+   "bitmap_hex": "0000000000000000"
+  },
+  "75": {
+   "code": 117,
+   "attr": {
+    "attr": 0,
+    "ink": 0,
+    "paper": 0,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "black"
+   },
+   "role": "runtime: helicopter composite buffer FCF8-FDFF (3 cols x 11 rows; background + shadow + heli)",
+   "addr": 64936,
+   "bitmap_hex": "0000000000000000"
+  },
+  "76": {
+   "code": 118,
+   "attr": {
+    "attr": 0,
+    "ink": 0,
+    "paper": 0,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "black"
+   },
+   "role": "runtime: helicopter composite buffer FCF8-FDFF (3 cols x 11 rows; background + shadow + heli)",
+   "addr": 64944,
+   "bitmap_hex": "0000000000000000"
+  },
+  "77": {
+   "code": 119,
+   "attr": {
+    "attr": 0,
+    "ink": 0,
+    "paper": 0,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "black"
+   },
+   "role": "runtime: helicopter composite buffer FCF8-FDFF (3 cols x 11 rows; background + shadow + heli)",
+   "addr": 64952,
+   "bitmap_hex": "0000000000000000"
+  },
+  "78": {
+   "code": 120,
+   "attr": {
+    "attr": 0,
+    "ink": 0,
+    "paper": 0,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "black"
+   },
+   "role": "runtime: helicopter composite buffer FCF8-FDFF (3 cols x 11 rows; background + shadow + heli)",
+   "addr": 64960,
+   "bitmap_hex": "0000000000000000"
+  },
+  "79": {
+   "code": 121,
+   "attr": {
+    "attr": 0,
+    "ink": 0,
+    "paper": 0,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "black"
+   },
+   "role": "runtime: helicopter composite buffer FCF8-FDFF (3 cols x 11 rows; background + shadow + heli)",
+   "addr": 64968,
+   "bitmap_hex": "0000000000000000"
+  },
+  "7A": {
+   "code": 122,
+   "attr": {
+    "attr": 0,
+    "ink": 0,
+    "paper": 0,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "black"
+   },
+   "role": "runtime: helicopter composite buffer FCF8-FDFF (3 cols x 11 rows; background + shadow + heli)",
+   "addr": 64976,
+   "bitmap_hex": "0000000000000000"
+  },
+  "7B": {
+   "code": 123,
+   "attr": {
+    "attr": 0,
+    "ink": 0,
+    "paper": 0,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "black"
+   },
+   "role": "runtime: helicopter composite buffer FCF8-FDFF (3 cols x 11 rows; background + shadow + heli)",
+   "addr": 64984,
+   "bitmap_hex": "0000000000000000"
+  },
+  "7C": {
+   "code": 124,
+   "attr": {
+    "attr": 0,
+    "ink": 0,
+    "paper": 0,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "black"
+   },
+   "role": "runtime: helicopter composite buffer FCF8-FDFF (3 cols x 11 rows; background + shadow + heli)",
+   "addr": 64992,
+   "bitmap_hex": "0000000000000000"
+  },
+  "7D": {
+   "code": 125,
+   "attr": {
+    "attr": 0,
+    "ink": 0,
+    "paper": 0,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "black"
+   },
+   "role": "runtime: helicopter composite buffer FCF8-FDFF (3 cols x 11 rows; background + shadow + heli)",
+   "addr": 65000,
+   "bitmap_hex": "0000000000000000"
+  },
+  "7E": {
+   "code": 126,
+   "attr": {
+    "attr": 0,
+    "ink": 0,
+    "paper": 0,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "black"
+   },
+   "role": "runtime: helicopter composite buffer FCF8-FDFF (3 cols x 11 rows; background + shadow + heli)",
+   "addr": 65008,
+   "bitmap_hex": "0000000000000000"
+  },
+  "7F": {
+   "code": 127,
+   "attr": {
+    "attr": 0,
+    "ink": 0,
+    "paper": 0,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "black"
+   },
+   "role": "runtime: helicopter composite buffer FCF8-FDFF (3 cols x 11 rows; background + shadow + heli)",
+   "addr": 65016,
+   "bitmap_hex": "0000000000000000"
+  },
+  "80": {
+   "code": 128,
+   "attr": {
+    "attr": 109,
+    "ink": 5,
+    "paper": 5,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "cyan",
+    "paper_name": "cyan"
+   },
+   "role": "solid colour cell (bitmap not drawn; ink = paper)"
+  },
+  "81": {
+   "code": 129,
+   "attr": {
+    "attr": 100,
+    "ink": 4,
+    "paper": 4,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "green",
+    "paper_name": "green"
+   },
+   "role": "solid colour cell (bitmap not drawn; ink = paper)"
+  },
+  "82": {
+   "code": 130,
+   "attr": {
+    "attr": 118,
+    "ink": 6,
+    "paper": 6,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "yellow",
+    "paper_name": "yellow"
+   },
+   "role": "solid colour cell (bitmap not drawn; ink = paper)"
+  },
+  "83": {
+   "code": 131,
+   "attr": {
+    "attr": 127,
+    "ink": 7,
+    "paper": 7,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "white",
+    "paper_name": "white"
+   },
+   "role": "solid colour cell (bitmap not drawn; ink = paper)"
+  },
+  "84": {
+   "code": 132,
+   "attr": {
+    "attr": 82,
+    "ink": 2,
+    "paper": 2,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "red",
+    "paper_name": "red"
+   },
+   "role": "solid colour cell (bitmap not drawn; ink = paper)"
+  },
+  "85": {
+   "code": 133,
+   "attr": {
+    "attr": 91,
+    "ink": 3,
+    "paper": 3,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "magenta",
+    "paper_name": "magenta"
+   },
+   "role": "solid colour cell (bitmap not drawn; ink = paper)"
+  },
+  "86": {
+   "code": 134,
+   "attr": {
+    "attr": 109,
+    "ink": 5,
+    "paper": 5,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "cyan",
+    "paper_name": "cyan"
+   },
+   "role": "solid colour cell (bitmap not drawn; ink = paper)"
+  },
+  "87": {
+   "code": 135,
+   "attr": {
+    "attr": 36,
+    "ink": 4,
+    "paper": 4,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "green",
+    "paper_name": "green"
+   },
+   "role": "solid colour cell (bitmap not drawn; ink = paper)"
+  },
+  "88": {
+   "code": 136,
+   "attr": {
+    "attr": 54,
+    "ink": 6,
+    "paper": 6,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "yellow",
+    "paper_name": "yellow"
+   },
+   "role": "solid colour cell (bitmap not drawn; ink = paper)"
+  },
+  "89": {
+   "code": 137,
+   "attr": {
+    "attr": 63,
+    "ink": 7,
+    "paper": 7,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "white",
+    "paper_name": "white"
+   },
+   "role": "solid colour cell (bitmap not drawn; ink = paper)"
+  },
+  "8A": {
+   "code": 138,
+   "attr": {
+    "attr": 18,
+    "ink": 2,
+    "paper": 2,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "red",
+    "paper_name": "red"
+   },
+   "role": "solid colour cell (bitmap not drawn; ink = paper)"
+  },
+  "8B": {
+   "code": 139,
+   "attr": {
+    "attr": 27,
+    "ink": 3,
+    "paper": 3,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "magenta",
+    "paper_name": "magenta"
+   },
+   "role": "solid colour cell (bitmap not drawn; ink = paper)"
+  },
+  "8C": {
+   "code": 140,
+   "attr": {
+    "attr": 73,
+    "ink": 1,
+    "paper": 1,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "blue",
+    "paper_name": "blue"
+   },
+   "role": "solid colour cell (bitmap not drawn; ink = paper)"
+  },
+  "8D": {
+   "code": 141,
+   "attr": {
+    "attr": 9,
+    "ink": 1,
+    "paper": 1,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "blue",
+    "paper_name": "blue"
+   },
+   "role": "solid colour cell (bitmap not drawn; ink = paper)"
+  },
+  "8E": {
+   "code": 142,
+   "attr": {
+    "attr": 64,
+    "ink": 0,
+    "paper": 0,
+    "bright": 1,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "black"
+   },
+   "role": "solid colour cell (bitmap not drawn; ink = paper)"
+  },
+  "8F": {
+   "code": 143,
+   "attr": {
+    "attr": 0,
+    "ink": 0,
+    "paper": 0,
+    "bright": 0,
+    "flash": 0,
+    "ink_name": "black",
+    "paper_name": "black"
+   },
+   "role": "solid colour cell (bitmap not drawn; ink = paper)"
+  }
+ }
+}

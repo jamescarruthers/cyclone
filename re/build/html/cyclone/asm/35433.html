@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Data at 8A69</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="34800.html">87F0</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#35433">Map</a></td>
+<td class="next">
+Next: <a href="35447.html">8A77</a>
+</td>
+</tr>
+</table>
+<div class="description">8A69: Aircraft schedule variables and NO TIME message</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+8A69 = pointer to the current schedule record (E740-E858, initial E740), 8A6B = iteration counter 0-27 within the record, 8A6C-8A6D unused, 8A6E = " NO TIME " (printed at 4067 by 92CD).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35433"></span>8A69</td>
+<td class="instruction">DEFW <a href="59200.html">$E740</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="35435"></span>8A6B</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="35436"></span>8A6C</td>
+<td class="instruction">DEFB $C8,$FE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="35438"></span>8A6E</td>
+<td class="instruction">DEFM " NO TIME "</td>
+<td class="comment-1" rowspan="1">" NO TIME "</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="34800.html">87F0</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#35433">Map</a></td>
+<td class="next">
+Next: <a href="35447.html">8A77</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

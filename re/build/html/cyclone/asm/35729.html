@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at 8B91</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="35700.html">8B74</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#35729">Map</a></td>
+<td class="next">
+Next: <a href="35942.html">8C66</a>
+</td>
+</tr>
+</table>
+<div class="description">8B91: Animate sea waves in the view buffer</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Called every main-loop iteration (5B45) and every step of the death sequence (925A), after 76D2 has rebuilt the view buffer (F74E, 23 columns x 22 rows of terrain codes) and before 7E10 converts codes to tile stacks. Puts random wave codes 0-3 into the empty (code 0 = open sea) cells of a sparse sheared lattice (7 rows x 4-5 columns, lattice vectors +5 cells across and +4 rows/+3 columns down). The lattice phase (7535 column 0..8, 7536 row 0..6) is shifted against the heading whenever the helicopter is moving, so the waves scroll with the motion; the random bytes are taken from ROM $0100+n, n re-randomised every 3rd call, so the wave pattern changes every 3 iterations.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">(7527)</td>
+<td class="register-desc">speed (0 = hovering: phase unchanged)</td>
+</tr>
+<tr>
+<td class="register">(7506)</td>
+<td class="register-desc">heading 0,2,..14 (0=N, clockwise)</td>
+</tr>
+<tr>
+<td class="register">(7504)</td>
+<td class="register-desc">view: 0 = north, 1 = south (180 degree rotated)</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="35729"></span>
+<div class="comments">
+<div class="paragraph">
+Cell written = F705 + 7535 + 23*B + 5*i + 95*j (j=0..6 rows, i=0..3 or 4), where B = 7536 (view north) or, view south, B = 7536+2 if that is &lt; 7 else 7536-2; F705 = F74E - 73 (3 rows and 4 columns before the buffer start). If 7535 &lt; 4 the first lattice column is skipped (+5). Columns per row: 5 if 7535 in 0,1,4,5,6; 4 if 7535 in 2,3,7,8 (the row stride is always 95). Only cells containing 0 are changed, to (ROM byte AND 3).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35729"></span>8B91</td>
+<td class="instruction">LD A,($7537)</td>
+<td class="comment-1" rowspan="5">7537 counts 0,1,2</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35732"></span>8B94</td>
+<td class="instruction">INC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35733"></span>8B95</td>
+<td class="instruction">CP $03</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35735"></span>8B97</td>
+<td class="instruction">JR Z,$8BA2</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35737"></span>8B99</td>
+<td class="instruction">LD ($7537),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35740"></span>8B9C</td>
+<td class="instruction">LD DE,($7538)</td>
+<td class="comment-1" rowspan="2">Not the 3rd call: reuse the ROM pointer in 7538</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35744"></span>8BA0</td>
+<td class="instruction">JR $8BB0</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35746"></span>8BA2</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="6">Every 3rd call: DE = $0100 + (L of a new random number) = pointer to "random" ROM bytes</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35747"></span>8BA3</td>
+<td class="instruction">LD ($7537),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35750"></span>8BA6</td>
+<td class="instruction">CALL <a href="35700.html">$8B74</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="35753"></span>8BA9</td>
+<td class="instruction">LD D,$01</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35755"></span>8BAB</td>
+<td class="instruction">LD E,L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35756"></span>8BAC</td>
+<td class="instruction">LD ($7538),DE</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35760"></span>8BB0</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-1" rowspan="1">Keep the ROM pointer on the stack</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35761"></span>8BB1</td>
+<td class="instruction">LD A,($7527)</td>
+<td class="comment-1" rowspan="10">Speed 0: lattice phase unchanged</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35764"></span>8BB4</td>
+<td class="instruction">CP $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35766"></span>8BB6</td>
+<td class="instruction">JR NZ,$8BC6</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35768"></span>8BB8</td>
+<td class="instruction">LD HL,$F705</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35771"></span>8BBB</td>
+<td class="instruction">LD A,($7535)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35774"></span>8BBE</td>
+<td class="instruction">LD C,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35775"></span>8BBF</td>
+<td class="instruction">ADD A,L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35776"></span>8BC0</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35777"></span>8BC1</td>
+<td class="instruction">LD A,($7536)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35780"></span>8BC4</td>
+<td class="instruction">JR $8C00</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35782"></span>8BC6</td>
+<td class="instruction">LD A,($7504)</td>
+<td class="comment-1" rowspan="6">Moving: choose the phase-step table for the current view</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35785"></span>8BC9</td>
+<td class="instruction">CP $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35787"></span>8BCB</td>
+<td class="instruction">JR Z,$8BD2</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35789"></span>8BCD</td>
+<td class="instruction">LD HL,$8C77</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35792"></span>8BD0</td>
+<td class="instruction">JR $8BD5</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35794"></span>8BD2</td>
+<td class="instruction">LD HL,$8C66</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35797"></span>8BD5</td>
+<td class="instruction">LD A,($7506)</td>
+<td class="comment-1" rowspan="5">Index it by heading (2 bytes per heading)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35800"></span>8BD8</td>
+<td class="instruction">LD D,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35802"></span>8BDA</td>
+<td class="instruction">LD E,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35803"></span>8BDB</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35804"></span>8BDC</td>
+<td class="instruction">LD DE,$F705</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35807"></span>8BDF</td>
+<td class="instruction">LD B,(HL)</td>
+<td class="comment-1" rowspan="6">7535 += dx; values outside 0..8 reset to 4</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35808"></span>8BE0</td>
+<td class="instruction">LD A,($7535)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35811"></span>8BE3</td>
+<td class="instruction">ADD A,B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35812"></span>8BE4</td>
+<td class="instruction">CP $09</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35814"></span>8BE6</td>
+<td class="instruction">JR C,$8BEA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35816"></span>8BE8</td>
+<td class="instruction">LD A,$04</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35818"></span>8BEA</td>
+<td class="instruction">LD ($7535),A</td>
+<td class="comment-1" rowspan="5">C = new column phase; E = $05+7535 (DE = F705+column phase)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35821"></span>8BED</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35822"></span>8BEE</td>
+<td class="instruction">LD C,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35823"></span>8BEF</td>
+<td class="instruction">ADD A,E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35824"></span>8BF0</td>
+<td class="instruction">LD E,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35825"></span>8BF1</td>
+<td class="instruction">LD B,(HL)</td>
+<td class="comment-1" rowspan="8">7536 += dy; values outside 0..6 reset to 3</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35826"></span>8BF2</td>
+<td class="instruction">LD A,($7536)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35829"></span>8BF5</td>
+<td class="instruction">ADD A,B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35830"></span>8BF6</td>
+<td class="instruction">CP $07</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35832"></span>8BF8</td>
+<td class="instruction">JR C,$8BFC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35834"></span>8BFA</td>
+<td class="instruction">LD A,$03</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35836"></span>8BFC</td>
+<td class="instruction">LD ($7536),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35839"></span>8BFF</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35840"></span>8C00</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="12">B = row phase; adjusted by 2 rows for the south view</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35841"></span>8C01</td>
+<td class="instruction">LD A,($7504)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35844"></span>8C04</td>
+<td class="instruction">CP $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35846"></span>8C06</td>
+<td class="instruction">JR Z,$8C13</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35848"></span>8C08</td>
+<td class="instruction">INC B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35849"></span>8C09</td>
+<td class="instruction">INC B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35850"></span>8C0A</td>
+<td class="instruction">LD A,B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35851"></span>8C0B</td>
+<td class="instruction">CP $07</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35853"></span>8C0D</td>
+<td class="instruction">JR C,$8C13</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35855"></span>8C0F</td>
+<td class="instruction">LD B,$04</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35857"></span>8C11</td>
+<td class="instruction">SUB B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35858"></span>8C12</td>
+<td class="instruction">LD B,A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35859"></span>8C13</td>
+<td class="instruction">LD DE,$0017</td>
+<td class="comment-1" rowspan="5">HL = F705 + column phase + 23*row phase</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35862"></span>8C16</td>
+<td class="instruction">INC B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35863"></span>8C17</td>
+<td class="instruction">JR $8C1A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35865"></span>8C19</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35866"></span>8C1A</td>
+<td class="instruction">DJNZ $8C19</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35868"></span>8C1C</td>
+<td class="instruction">LD A,$04</td>
+<td class="comment-1" rowspan="4">Default: 4 lattice columns per row, row skip 75 (self-modified operands at 8C47 and 8C5E)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35870"></span>8C1E</td>
+<td class="instruction">LD ($8C47),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35873"></span>8C21</td>
+<td class="instruction">LD A,$4B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35875"></span>8C23</td>
+<td class="instruction">LD ($8C5E),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35878"></span>8C26</td>
+<td class="instruction">LD A,C</td>
+<td class="comment-1" rowspan="10">Column phase &lt; 4: start one lattice column (5 cells) further on</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35879"></span>8C27</td>
+<td class="instruction">CP $04</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35881"></span>8C29</td>
+<td class="instruction">JR NC,$8C35</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35883"></span>8C2B</td>
+<td class="instruction">LD DE,$0005</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35886"></span>8C2E</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35887"></span>8C2F</td>
+<td class="instruction">CP $02</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35889"></span>8C31</td>
+<td class="instruction">JR C,$8C39</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35891"></span>8C33</td>
+<td class="instruction">JR $8C43</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35893"></span>8C35</td>
+<td class="instruction">CP $07</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35895"></span>8C37</td>
+<td class="instruction">JR NC,$8C43</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35897"></span>8C39</td>
+<td class="instruction">LD A,$05</td>
+<td class="comment-1" rowspan="4">5 lattice columns per row, row skip 70</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35899"></span>8C3B</td>
+<td class="instruction">LD ($8C47),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35902"></span>8C3E</td>
+<td class="instruction">LD A,$46</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35904"></span>8C40</td>
+<td class="instruction">LD ($8C5E),A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35907"></span>8C43</td>
+<td class="instruction">LD C,$07</td>
+<td class="comment-1" rowspan="2">7 lattice rows</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35909"></span>8C45</td>
+<td class="instruction">XOR A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35910"></span>8C46</td>
+<td class="instruction">LD B,$05</td>
+<td class="comment-1" rowspan="2">B = lattice columns (operand at 8C47 modified above)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35912"></span>8C48</td>
+<td class="instruction">LD DE,$0005</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35915"></span>8C4B</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-1" rowspan="2">Cell empty (open sea)?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35916"></span>8C4C</td>
+<td class="instruction">JR NZ,$8C5A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35918"></span>8C4E</td>
+<td class="instruction">EX AF,AF'</td>
+<td class="comment-1" rowspan="8">Then set it to the next ROM byte AND 3 (wave code 0-3)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35919"></span>8C4F</td>
+<td class="instruction">POP DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35920"></span>8C50</td>
+<td class="instruction">LD A,(DE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35921"></span>8C51</td>
+<td class="instruction">AND $03</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35923"></span>8C53</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35924"></span>8C54</td>
+<td class="instruction">INC E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35925"></span>8C55</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35926"></span>8C56</td>
+<td class="instruction">EX AF,AF'</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35927"></span>8C57</td>
+<td class="instruction">LD DE,$0005</td>
+<td class="comment-1" rowspan="3">Next lattice column (+5 cells)</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35930"></span>8C5A</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35931"></span>8C5B</td>
+<td class="instruction">DJNZ $8C4B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35933"></span>8C5D</td>
+<td class="instruction">LD DE,$0046</td>
+<td class="comment-1" rowspan="4">Next lattice row (operand at 8C5E modified above: 95 bytes per row in total)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35936"></span>8C60</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35937"></span>8C61</td>
+<td class="instruction">DEC C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35938"></span>8C62</td>
+<td class="instruction">JR NZ,$8C46</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35940"></span>8C64</td>
+<td class="instruction">POP DE</td>
+<td class="comment-1" rowspan="2">Drop the ROM pointer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35941"></span>8C65</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="35700.html">8B74</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#35729">Map</a></td>
+<td class="next">
+Next: <a href="35942.html">8C66</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

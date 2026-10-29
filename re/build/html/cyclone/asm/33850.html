@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at 843A</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33845.html">8435</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#33850">Map</a></td>
+<td class="next">
+Next: <a href="33904.html">8470</a>
+</td>
+</tr>
+</table>
+<div class="description">843A: Fill the time-left bar, paying 40 points per line still lit</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Called at the start of every round (5B29). Walks the T bar (column 30) from row 5 line 7 up to row 1 line 0 (40 pixel lines). A line that is still lit from the previous round earns 40 points (6600) and a $FF-pitch beep; an unlit line is lit with a $D0-pitch beep. Leaves 751C = $471E (full bar) and resets the time sub-counter.
+</div>
+</div>
+<table class="output">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+<tr>
+<td class="register">(751C)</td>
+<td class="register-desc">$471E</td>
+</tr>
+<tr>
+<td class="register">(7528)</td>
+<td class="register-desc">0</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33850"></span>843A</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="2">Time sub-counter = 0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33851"></span>843B</td>
+<td class="instruction">LD ($7528),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33854"></span>843E</td>
+<td class="instruction">LD HL,$47BE</td>
+<td class="comment-1" rowspan="1">Start at the bottom line of row 5, column 30</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33857"></span>8441</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="3">Line already lit?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33858"></span>8442</td>
+<td class="instruction">CP $FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33860"></span>8444</td>
+<td class="instruction">JR Z,$844E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33862"></span>8446</td>
+<td class="instruction">LD (HL),$FF</td>
+<td class="comment-1" rowspan="4">No: light it and beep with HL=$00D0 (about 1.84 kHz)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33864"></span>8448</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33865"></span>8449</td>
+<td class="instruction">LD HL,$00D0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33868"></span>844C</td>
+<td class="instruction">JR $8455</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33870"></span>844E</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="3">Yes: add 40 points, beep with HL=$00FF (about 1.53 kHz)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33871"></span>844F</td>
+<td class="instruction">CALL <a href="26112.html">$6600</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="33874"></span>8452</td>
+<td class="instruction">LD HL,$00FF</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33877"></span>8455</td>
+<td class="instruction">LD DE,$0010</td>
+<td class="comment-1" rowspan="3">DE=16 cycles (about 9-10 ms)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33880"></span>8458</td>
+<td class="instruction">CALL $03B5</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33883"></span>845B</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33884"></span>845C</td>
+<td class="instruction">DEC H</td>
+<td class="comment-1" rowspan="8">Up one pixel line; previous character row when leaving a cell</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33885"></span>845D</td>
+<td class="instruction">LD A,H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33886"></span>845E</td>
+<td class="instruction">CP $3F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33888"></span>8460</td>
+<td class="instruction">JR NZ,$8441</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33890"></span>8462</td>
+<td class="instruction">LD H,$47</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33892"></span>8464</td>
+<td class="instruction">LD A,$E0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33894"></span>8466</td>
+<td class="instruction">ADD A,L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33895"></span>8467</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33896"></span>8468</td>
+<td class="instruction">CP $1E</td>
+<td class="comment-1" rowspan="4">Stop after row 1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33898"></span>846A</td>
+<td class="instruction">JR NZ,$8441</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33900"></span>846C</td>
+<td class="instruction">LD ($751C),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33903"></span>846F</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33845.html">8435</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#33850">Map</a></td>
+<td class="next">
+Next: <a href="33904.html">8470</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

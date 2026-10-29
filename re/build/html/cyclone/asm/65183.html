@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Routine at FE9F</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="65176.html">FE98</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#65183">Map</a></td>
+<td class="next">
+Next: <a href="65280.html">FF00</a>
+</td>
+</tr>
+</table>
+<div class="description">FE9F: Unused remnant of the tape loader's LD-BYTES routine</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+A copy of the ROM's LD-BYTES ($0556) used by the original turbo loader; its second half ($FF00+) has been overwritten by the IM2 table. Never executed. The stack (SP=$FEFF) grows down into its last bytes (observed $FEE5-$FEFE in use).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="65183"></span>FE9F</td>
+<td class="instruction">XOR A</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65184"></span>FEA0</td>
+<td class="instruction">SCF</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65185"></span>FEA1</td>
+<td class="instruction">INC D</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65186"></span>FEA2</td>
+<td class="instruction">EX AF,AF'</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65187"></span>FEA3</td>
+<td class="instruction">DEC D</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65188"></span>FEA4</td>
+<td class="instruction">DI</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65189"></span>FEA5</td>
+<td class="instruction">LD A,$08</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65191"></span>FEA7</td>
+<td class="instruction">OUT ($FE),A</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65193"></span>FEA9</td>
+<td class="instruction">LD HL,$FF49</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65196"></span>FEAC</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65197"></span>FEAD</td>
+<td class="instruction">IN A,($FE)</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65199"></span>FEAF</td>
+<td class="instruction">RRA</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65200"></span>FEB0</td>
+<td class="instruction">AND $20</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65202"></span>FEB2</td>
+<td class="instruction">OR $00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65204"></span>FEB4</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65205"></span>FEB5</td>
+<td class="instruction">CP A</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="65206"></span>FEB6</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="65207"></span>FEB7</td>
+<td class="instruction">CALL $FF2B</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65210"></span>FEBA</td>
+<td class="instruction">JR NC,$FEB6</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65212"></span>FEBC</td>
+<td class="instruction">LD HL,$0415</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="65215"></span>FEBF</td>
+<td class="instruction">DJNZ $FEBF</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65217"></span>FEC1</td>
+<td class="instruction">DEC HL</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65218"></span>FEC2</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65219"></span>FEC3</td>
+<td class="instruction">OR L</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65220"></span>FEC4</td>
+<td class="instruction">JR NZ,$FEBF</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65222"></span>FEC6</td>
+<td class="instruction">CALL $FF27</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65225"></span>FEC9</td>
+<td class="instruction">JR NC,$FEB6</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="65227"></span>FECB</td>
+<td class="instruction">LD B,$9C</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65229"></span>FECD</td>
+<td class="instruction">CALL $FF27</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65232"></span>FED0</td>
+<td class="instruction">JR NC,$FEB6</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65234"></span>FED2</td>
+<td class="instruction">LD A,$C6</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65236"></span>FED4</td>
+<td class="instruction">CP B</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65237"></span>FED5</td>
+<td class="instruction">JR NC,$FEB7</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65239"></span>FED7</td>
+<td class="instruction">INC H</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65240"></span>FED8</td>
+<td class="instruction">JR NZ,$FECB</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="65242"></span>FEDA</td>
+<td class="instruction">LD B,$C9</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65244"></span>FEDC</td>
+<td class="instruction">CALL $FF2B</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65247"></span>FEDF</td>
+<td class="instruction">JR NC,$FEB6</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65249"></span>FEE1</td>
+<td class="instruction">LD A,B</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65250"></span>FEE2</td>
+<td class="instruction">CP $D4</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65252"></span>FEE4</td>
+<td class="instruction">JR NC,$FEDA</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65254"></span>FEE6</td>
+<td class="instruction">CALL $FF2B</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65257"></span>FEE9</td>
+<td class="instruction">RET NC</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65258"></span>FEEA</td>
+<td class="instruction">LD A,C</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65259"></span>FEEB</td>
+<td class="instruction">XOR $00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65261"></span>FEED</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65262"></span>FEEE</td>
+<td class="instruction">LD H,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65264"></span>FEF0</td>
+<td class="instruction">LD B,$75</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65266"></span>FEF2</td>
+<td class="instruction">JR $FF0C</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65268"></span>FEF4</td>
+<td class="instruction">EX AF,AF'</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65269"></span>FEF5</td>
+<td class="instruction">JR NZ,$FEFC</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65271"></span>FEF7</td>
+<td class="instruction">LD (IX+$00),L</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65274"></span>FEFA</td>
+<td class="instruction">JR $FF06</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="65276"></span>FEFC</td>
+<td class="instruction">RL C</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65278"></span>FEFE</td>
+<td class="instruction">XOR L</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65279"></span>FEFF</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="65176.html">FE98</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#65183">Map</a></td>
+<td class="next">
+Next: <a href="65280.html">FF00</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

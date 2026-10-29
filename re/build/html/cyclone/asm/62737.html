@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyclone: Data at F511</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cyclone</a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="62362.html">F39A</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#62737">Map</a></td>
+<td class="next">
+Next: <a href="62800.html">F550</a>
+</td>
+</tr>
+</table>
+<div class="description">F511: Winch tables and graphics</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62737"></span>F511</td>
+<td class="instruction">DEFB $8B,$57,$2F,$0F</td>
+<td class="comment-1" rowspan="1">Crate tiles $8B, $57, $2F, $0F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62741"></span>F515</td>
+<td class="instruction">DEFB $89,$8A,$55,$56,$2D,$2E</td>
+<td class="comment-1" rowspan="1">Survivor tiles (pairs) $89/$8A, $55/$56, $2D/$2E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62747"></span>F51B</td>
+<td class="instruction">DEFB $58,$30,$10,$04</td>
+<td class="comment-1" rowspan="1">Plain tiles that replace them: $58, $30, $10, $04</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62751"></span>F51F</td>
+<td class="instruction">DEFB $08,$08,$08,$08,$08,$08,$08,$08</td>
+<td class="comment-1" rowspan="2">Rope (16 lines) above the crate</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62759"></span>F527</td>
+<td class="instruction">DEFB $08,$08,$08,$08,$08,$08,$10,$08</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62767"></span>F52F</td>
+<td class="instruction">DEFB $08,$34,$4A,$66,$7A,$72,$34,$18</td>
+<td class="comment-1" rowspan="1">Hook and crate (<a href="62362.html">F39A</a> pointer $7557)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62775"></span>F537</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62776"></span>F538</td>
+<td class="instruction">DEFB $08,$08,$08,$08,$08,$08,$08,$08</td>
+<td class="comment-1" rowspan="2">Rope (16 lines) above the survivor</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62784"></span>F540</td>
+<td class="instruction">DEFB $08,$08,$08,$08,$08,$08,$08,$08</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62792"></span>F548</td>
+<td class="instruction">DEFB $18,$00,$3C,$5A,$18,$18,$18,$00</td>
+<td class="comment-1" rowspan="1">Survivor (<a href="62362.html">F39A</a> pointer $7557)</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="62362.html">F39A</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#62737">Map</a></td>
+<td class="next">
+Next: <a href="62800.html">F550</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1985 Vortex Software (Costa Panayi). Disassembly annotations produced by reverse engineering, 2026.</div>
+<div class="created">Annotated with SkoolKit $VERSION.</div>
+</footer>
+</body>
+</html>

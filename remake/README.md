@@ -26,6 +26,12 @@ to WebGL 2. Click the game (or press a key) to give it the keyboard; sound start
 key press, as browsers require. The Wireframe button does the same as F2; the Fullscreen button
 replaces F11.
 
+### GitHub Pages
+
+The `Deploy to GitHub Pages` workflow builds and deploys this browser version on pushes to `main`.
+In the repository settings, set **Pages → Build and deployment → Source** to **GitHub Actions**.
+The site URL is shown in the workflow deployment environment after the first successful run.
+
 ## Controls
 
 The game reads the keyboard exactly as the original did.
